@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hand Fractures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Barlow+Condensed:wght@700&display=swap">
+<style>
+html, body { margin: 0; height: 100%; background: #05080f; }
+body { display: grid; place-items: center; }
+.box { position: relative; width: min(100vw, calc(100vh * 16 / 9)); aspect-ratio: 16 / 9; background: #0b1220; border-radius: 14px; overflow: hidden; }
+#stage { display: block; width: 100%; height: 100%; }
+.nav { position: absolute; bottom: 3%; width: clamp(36px, 5vw, 62px); aspect-ratio: 1; border-radius: 50%; border: 2px solid #2a3754; background: rgb(24 35 57 / 0.85); color: #eef2f8; cursor: pointer; display: grid; place-items: center; padding: 0; }
+.nav svg { width: 50%; height: 50%; }
+.nav:disabled { opacity: 0.25; cursor: default; }
+.prev { left: 2%; }
+.next { right: 2%; }
+
+/* SVG text */
+.ttl { font: 700 58px "Barlow Condensed", "Arial Narrow", sans-serif; fill: #eef2f8; }
+.num { font: 700 40px "Barlow Condensed", "Arial Narrow", sans-serif; fill: #0b1220; }
+.chip { font: 700 26px Barlow, Arial, sans-serif; }
+.lbl { font: 700 40px Barlow, Arial, sans-serif; }
+.sm { font: 700 28px Barlow, Arial, sans-serif; }
+
+/* Animation vocabulary: --d = start delay, --o = fade-out time, --t = draw duration */
+.f { opacity: 0; animation: fi .6s ease var(--d, 0s) forwards; }
+.p { opacity: 0; transform-box: fill-box; transform-origin: center; animation: pop .55s cubic-bezier(.34, 1.56, .64, 1) var(--d, 0s) forwards; }
+.po { opacity: 0; transform-box: fill-box; transform-origin: center; animation: pop .55s cubic-bezier(.34, 1.56, .64, 1) var(--d, 0s) forwards, fo .4s ease var(--o) forwards; }
+.fio { opacity: 0; animation: fi .6s ease var(--d, 0s) forwards, fo .5s ease var(--o) forwards; }
+.fo { animation: fo .5s ease var(--o) forwards; }
+.dr { stroke-dasharray: 100; stroke-dashoffset: 100; animation: dr var(--t, .8s) ease var(--d, 0s) forwards; }
+.pulse { transform-box: fill-box; transform-origin: center; animation: pl 1s ease-in-out infinite; }
+.ripple { transform-box: fill-box; transform-origin: center; animation: rp 1.4s ease-out infinite; }
+.blink { animation: bl .7s ease-in-out infinite; }
+.scan { animation: sc 1.8s linear infinite; }
+.cap { animation: cap 1.6s ease-in-out var(--d, 0s) 3; }
+@keyframes fi { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fo { from { opacity: 1; } to { opacity: 0; } }
+@keyframes pop { from { opacity: 0; transform: scale(.3); } to { opacity: 1; transform: scale(1); } }
+@keyframes dr { to { stroke-dashoffset: 0; } }
+@keyframes pl { 50% { transform: scale(1.18); } }
+@keyframes rp { from { transform: scale(.4); opacity: 1; } to { transform: scale(2.4); opacity: 0; } }
+@keyframes bl { 50% { opacity: .2; } }
+@keyframes sc { from { transform: translateY(0); } to { transform: translateY(352px); } }
+@keyframes cap { 0%, 100% { fill: #ff9db0; } 40%, 55% { fill: #ffffff; } }
+</style>
+</head>
+<body>
+<div class="box">
+  <svg id="stage" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet">
+    <defs id="defs">
+      <marker id="mA" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#ffc43c"/></marker>
+      <marker id="mG" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#46d28c"/></marker>
+    </defs>
+    <rect width="1600" height="900" fill="#0b1220"/>
+    <g id="scene"></g>
+  </svg>
+  <button class="nav prev" id="prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="nav next" id="next" type="button" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+
+<script>
+const G = '#46d28c', R = '#ff5a5a', A = '#ffc43c', B = '#5fb3ff', P = '#b78cff', W = '#eef2f8';
+const SK = '#f2c6a0', SKO = '#c98f6a', BN = '#e9e4d4', BNO = '#b9ae90';
+
+/* ---------- shared hand drawings (right hand, dorsal, wrist at 0,0) ---------- */
+const F = {
+  thumb:  [[-70, -40], [-130, -120], [-136, -128], [-175, -195], [-179, -203], [-200, -245]],
+  index:  [[-45, -75], [-60, -230], [-61, -240], [-68, -330], [-69, -338], [-72, -390], [-72, -398], [-74, -432]],
+  middle: [[-15, -80], [-15, -240], [-15, -250], [-15, -350], [-15, -358], [-15, -415], [-15, -423], [-15, -458]],
+  ring:   [[15, -78], [28, -225], [29, -235], [38, -325], [39, -333], [44, -385], [44, -393], [47, -426]],
+  little: [[45, -70], [68, -200], [70, -210], [84, -280], [85, -288], [92, -330], [93, -338], [96, -364]]
+};
+const FW = { thumb: 52, index: 46, middle: 48, ring: 44, little: 38 };
+function skinLayer(col, ex) {
+  let s = `<rect x="${-80 - ex / 2}" y="-25" width="${155 + ex}" height="180" rx="30" fill="${col}"/>`;
+  s += `<path d="M-92 -30 L-100 -160 Q-95 -245 -15 -252 Q80 -245 92 -205 L80 -30 Z" fill="${col}" stroke="${col}" stroke-width="${20 + ex}" stroke-linejoin="round"/>`;
+  for (const k in F) {
+    const p = F[k], a = k === 'thumb' ? p[0] : p[1], b = p[p.length - 1];
+    s += `<path d="M${a[0]} ${a[1]} L${b[0]} ${b[1]}" stroke="${col}" stroke-width="${FW[k] + ex}" stroke-linecap="round"/>`;
+  }
+  return s;
+}
+let skin = '<g id="skin">' + skinLayer(SKO, 7) + skinLayer(SK, 0);
+for (const k in F) {
+  const p = F[k], b = p[p.length - 1], q = p[p.length - 2];
+  const L = Math.hypot(q[0] - b[0], q[1] - b[1]), ux = (q[0] - b[0]) / L, uy = (q[1] - b[1]) / L;
+  const cx = (b[0] + 14 * ux).toFixed(1), cy = (b[1] + 14 * uy).toFixed(1);
+  const th = (Math.atan2(-ux, uy) * 180 / Math.PI).toFixed(1);
+  skin += `<ellipse cx="${cx}" cy="${cy}" rx="${(FW[k] * 0.3).toFixed(1)}" ry="${(FW[k] * 0.38).toFixed(1)}" transform="rotate(${th} ${cx} ${cy})" fill="#ffe1cc" stroke="#e0a988" stroke-width="2"/>`;
+}
+skin += '</g>';
+let bones = '<g id="bones" stroke="#dfe6f2" stroke-linecap="round" fill="none"><path d="M-45 20 L-55 135" stroke-width="34"/><path d="M38 20 L44 135" stroke-width="26"/>';
+for (const k in F) {
+  const p = F[k], w = k === 'thumb' ? 20 : k === 'little' ? 15 : 18;
+  for (let j = 0; j < p.length; j += 2) bones += `<path d="M${p[j][0]} ${p[j][1]} L${p[j + 1][0]} ${p[j + 1][1]}" stroke-width="${w + 2 - j}"/>`;
+}
+bones += '<g fill="#dfe6f2" stroke="none">' + [[-55, -48, 13], [-28, -58, 14], [0, -62, 14], [27, -58, 13], [50, -48, 12], [-52, -18, 15], [-18, -22, 15], [16, -20, 14], [46, -16, 12]]
+  .map(c => `<circle cx="${c[0]}" cy="${c[1]}" r="${c[2]}"/>`).join('') + '</g></g>';
+document.getElementById('defs').insertAdjacentHTML('beforeend', skin + bones);
+
+/* ---------- helpers ---------- */
+function sm(tag, attr, pts) {
+  const b = pts[0][0], d = pts[pts.length - 1][0] - b;
+  return `<${tag} ${attr} begin="${b}s" dur="${d.toFixed(3)}s" fill="freeze" values="${pts.map(p => p[1]).join(';')}" keyTimes="${pts.map(p => ((p[0] - b) / d).toFixed(4)).join(';')}" calcMode="spline" keySplines="${Array(pts.length - 1).fill('.45 0 .3 1').join(';')}"/>`;
+}
+const T_ = (type, pts) => sm('animateTransform', `attributeName="transform" type="${type}" additive="sum"`, pts);
+const A_ = (attr, pts) => sm('animate', `attributeName="${attr}"`, pts);
+const FLEX = a => `<animateTransform attributeName="transform" type="rotate" additive="sum" values="0;${a};0" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .3 1;.45 0 .3 1" dur="1.5s" begin="5.0s" repeatCount="indefinite"/>`;
+const cw = t => Math.round(t.replace(/&amp;/g, '&').length * 14.2 + 54);
+function chip(x, y, t, c, d, o) {
+  const w = cw(t);
+  return `<g class="${o ? 'po' : 'p'}" style="--d:${d}s${o ? `;--o:${o}s` : ''}"><rect x="${x - w / 2}" y="${y - 27}" width="${w}" height="54" rx="27" fill="${c}26" stroke="${c}" stroke-width="2.5"/><text class="chip" x="${x}" y="${y + 9}" text-anchor="middle" fill="${c}">${t}</text></g>`;
+}
+const ok = (x, y, d) => `<g class="p" style="--d:${d}s"><circle cx="${x}" cy="${y}" r="26" fill="${G}"/><path d="M${x - 12} ${y} l8 9 l16 -18" stroke="#0b1220" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+const lock = (x, y, d, o) => `<g class="${o ? 'po' : 'p'}" style="--d:${d}s${o ? `;--o:${o}s` : ''}"><path d="M${x - 14} ${y - 10} v-12 a14 14 0 0 1 28 0 v12" stroke="${A}" stroke-width="7" fill="none"/><rect x="${x - 22}" y="${y - 12}" width="44" height="36" rx="7" fill="${A}"/></g>`;
+const head = (n, t) => `<g class="f" style="--d:0s"><circle cx="92" cy="86" r="36" fill="${G}"/><text class="num" x="92" y="100" text-anchor="middle">${n}</text><text class="ttl" x="146" y="106">${t}</text></g>`;
+const line = (d, c, w, dl, t, extra = '') => `<path d="${d}" pathLength="100" class="dr" style="--d:${dl}s;--t:${t}s" stroke="${c}" stroke-width="${w}" fill="none" stroke-linecap="round" stroke-linejoin="round" ${extra}/>`;
+
+/* ---------- slides (8 s each) ---------- */
+const S = [
+
+/* 1 Neurovascular status */
+() => head(1, 'Neurovascular Status') +
+`<g class="f" style="--d:.2s"><use href="#skin" transform="translate(420 810) scale(1.3)"/></g>
+<g class="p" style="--d:.8s"><circle class="pulse" cx="355" cy="862" r="16" fill="${R}"/></g>
+<g class="p" style="--d:.8s"><circle class="ripple" cx="355" cy="862" r="16" fill="none" stroke="${R}" stroke-width="4"/></g>
+<g class="f" style="--d:2.1s"><ellipse class="cap" style="--d:2.3s" cx="325" cy="267" rx="15" ry="19" fill="#ff9db0"/></g>
+<g class="p" style="--d:3.4s"><circle class="ripple" cx="400" cy="238" r="18" fill="none" stroke="${A}" stroke-width="4"/></g>
+<g class="f" style="--d:4.7s">${line('M590 300 Q640 345 600 400', A, 7, 4.7, .7, 'marker-end="url(#mA)"')}</g>
+
+${line('M760 270 h35 l14 -38 l20 76 l14 -38 h47', R, 5, .9, 1)}
+<g class="f" style="--d:.8s"><text class="lbl" x="920" y="284" fill="${W}">Pulses</text></g>
+${ok(1450, 270, 1.8)}
+
+<g class="p" style="--d:2.1s"><rect x="790" y="362" width="70" height="80" rx="30" fill="${SK}" stroke="${SKO}" stroke-width="4"/><ellipse class="cap" style="--d:2.3s" cx="825" cy="388" rx="22" ry="18" fill="#ff9db0"/></g>
+<g class="f" style="--d:2.1s"><text class="lbl" x="920" y="414" fill="${W}">Capillary refill</text></g>
+${ok(1450, 400, 3.2)}
+
+<g class="p" style="--d:3.4s"><circle cx="825" cy="530" r="10" fill="${A}"/></g>
+<g class="p" style="--d:3.4s"><circle class="ripple" cx="825" cy="530" r="14" fill="none" stroke="${A}" stroke-width="4"/></g>
+<g class="f" style="--d:3.4s"><text class="lbl" x="920" y="544" fill="${W}">Sensation</text></g>
+${ok(1450, 530, 4.4)}
+
+<g class="f" style="--d:4.6s">${line('M800 690 Q800 630 860 630', A, 7, 4.6, .6, 'marker-end="url(#mA)"')}</g>
+<g class="f" style="--d:4.6s"><text class="lbl" x="920" y="674" fill="${W}">Motor function</text></g>
+${ok(1450, 660, 5.6)}
+
+${chip(1115, 800, 'Before &amp; After Reduction / Splinting', A, 6.3)}`,
+
+/* 2 Rotation: fingertips point to scaphoid */
+() => {
+  const Sx = 800, Sy = 820, R0 = 380, rad = a => a * Math.PI / 180;
+  let h = head(2, 'Rotation = Key Deformity');
+  h += `<g class="f" style="--d:.2s">
+    <path d="M590 720 L480 560" stroke="${SKO}" stroke-width="84" stroke-linecap="round"/>
+    <path d="M590 720 L480 560" stroke="${SK}" stroke-width="74" stroke-linecap="round"/>
+    <rect x="690" y="760" width="220" height="160" fill="${SK}" stroke="${SKO}" stroke-width="5"/>
+    <ellipse cx="800" cy="640" rx="250" ry="215" fill="${SK}" stroke="${SKO}" stroke-width="5"/></g>`;
+  let guides = '', ringTip = null, littleTip = null;
+  for (const phi of [-30, -10, 30, 10]) {
+    const s = Math.sin(rad(phi)), c = Math.cos(rad(phi));
+    const bx = Sx + R0 * s, by = Sy - R0 * c, ring = phi === 10;
+    const tx = bx - 121 * s, ty = by + 121 * c;
+    h += `<g transform="translate(${bx.toFixed(1)} ${by.toFixed(1)}) rotate(${phi})"><g>${ring ? T_('rotate', [[5.3, 0], [6.2, -22]]) : ''}<g>${T_('scale', [[2.0, '1 1'], [3.4, '1 -0.55']])}
+      <path d="M0 0 V-220" stroke="${SKO}" stroke-width="76" stroke-linecap="round"/>
+      <path d="M0 0 V-220" stroke="${SK}" stroke-width="66" stroke-linecap="round">${ring ? A_('stroke', [[5.3, SK], [6.1, '#ff9a9a']]) : ''}</path>
+      <g class="f" style="--d:3.2s"><ellipse cx="0" cy="-200" rx="19" ry="22" fill="#ffe1cc" stroke="${SKO}" stroke-width="3"/></g>
+    </g></g></g>`;
+    const gl = line(`M${tx.toFixed(1)} ${ty.toFixed(1)} L${Sx} ${Sy}`, G, 5, 3.7, .8);
+    guides += ring ? `<g class="fo" style="--o:5.3s">${gl}</g>` : gl;
+    if (phi === 30) littleTip = [tx, ty];
+    if (ring) {
+      const ux = -s, uy = c, ca = Math.cos(rad(-22)), sa = Math.sin(rad(-22));
+      const vx = ux * ca - uy * sa, vy = ux * sa + uy * ca;
+      ringTip = [bx + 121 * vx, by + 121 * vy];
+      guides += line(`M${ringTip[0].toFixed(1)} ${ringTip[1].toFixed(1)} L${(bx + 380 * vx).toFixed(1)} ${(by + 380 * vy).toFixed(1)}`, R, 5, 6.2, .6);
+    }
+  }
+  const mx = ((ringTip[0] + littleTip[0]) / 2).toFixed(1), my = ((ringTip[1] + littleTip[1]) / 2).toFixed(1);
+  h += guides;
+  h += `<g class="p" style="--d:6.2s"><circle class="pulse" cx="${mx}" cy="${my}" r="46" fill="none" stroke="${R}" stroke-width="5"/></g>
+    <g class="p" style="--d:3.9s"><circle cx="${Sx}" cy="${Sy}" r="15" fill="${G}"/></g>
+    <g class="p" style="--d:3.9s"><circle class="ripple" cx="${Sx}" cy="${Sy}" r="15" fill="none" stroke="${G}" stroke-width="4"/></g>
+    <g class="f" style="--d:4.0s"><text class="sm" x="${Sx}" y="882" text-anchor="middle" fill="#1b6b4a">Scaphoid</text></g>`;
+  h += chip(1320, 300, 'Flex fingers', B, 1.3) + chip(1320, 420, 'Tips → Scaphoid ✓', G, 4.3) +
+       chip(1320, 540, 'Overlap = Scissoring', R, 6.3) + chip(1320, 640, 'Rotational deformity', R, 6.8);
+  return h;
+},
+
+/* 3 Rotation poorly tolerated */
+() => head(3, 'Rotational Deformity: Poorly Tolerated') +
+`<g class="f" style="--d:.2s"><circle cx="400" cy="470" r="175" fill="#132440" stroke="#2a3754" stroke-width="4"/><path d="M400 282 V306" stroke="${G}" stroke-width="6" stroke-linecap="round"/></g>
+<g class="f" style="--d:.3s"><g transform="translate(400 470)"><g>${T_('rotate', [[1.0, 0], [2.0, 12], [5.6, 12], [6.6, 0]])}
+  <circle r="100" fill="${SK}" stroke="${SKO}" stroke-width="6"/>
+  <circle r="42" fill="${BN}" stroke="${BNO}" stroke-width="4"/>
+  <rect x="-50" y="-128" width="100" height="50" rx="22" fill="#ffe1cc" stroke="${SKO}" stroke-width="4"/>
+  <path d="M0 -128 V-168" stroke="${R}" stroke-width="6" stroke-linecap="round"/>
+</g></g></g>
+<g class="fio" style="--d:2.0s;--o:5.5s"><path d="M400 282 A188 188 0 0 1 439.1 286.1" stroke="${R}" stroke-width="6" fill="none"/><text class="lbl" x="455" y="272" fill="${R}">10°</text></g>
+<g class="f" style="--d:1.4s"><text class="lbl" x="400" y="712" text-anchor="middle" fill="${W}">Small rotation</text></g>
+<g class="f" style="--d:2.4s">${line('M620 470 H940', A, 10, 2.4, .6, 'marker-end="url(#mA)"')}</g>
+<g class="f" style="--d:.5s"><text class="lbl" x="1000" y="405" fill="${W}">Function</text>
+  <rect x="1000" y="430" width="440" height="70" rx="16" fill="#1c2a44" stroke="#2a3754" stroke-width="3"/>
+  <rect x="1000" y="430" width="440" height="70" rx="16" fill="${G}">${A_('width', [[2.8, 440], [3.8, 110], [6.0, 110], [7.0, 440]])}${A_('fill', [[2.8, G], [3.6, R], [6.0, R], [6.8, G]])}</rect></g>
+<g class="po" style="--d:3.6s;--o:5.8s"><text class="lbl" x="1220" y="590" text-anchor="middle" fill="${R}">Big impairment</text></g>
+<g class="f" style="--d:5.5s">${line('M471.8 272.7 A210 210 0 0 0 400 260', G, 7, 5.5, .6, 'marker-end="url(#mG)"')}</g>
+${chip(800, 810, 'Requires correction ✓', G, 5.4)}`,
+
+/* 4 Boxer's fracture */
+() => head(4, 'Boxer’s Fracture') +
+`<g class="f" style="--d:.2s"><g>${T_('translate', [[1.3, '0 0'], [1.36, '10 0'], [1.44, '-7 0'], [1.55, '0 0']])}
+  <rect x="760" y="230" width="80" height="500" fill="#6b4636" stroke="#3d271e" stroke-width="4"/>
+  <path d="M760 292 H840 M760 355 H840 M760 417 H840 M760 480 H840 M760 542 H840 M760 605 H840 M760 667 H840 M800 230 V292 M800 355 V417 M800 480 V542 M800 605 V667 M780 292 V355 M820 417 V480 M780 542 V605 M820 667 V730" stroke="#3d271e" stroke-width="3"/>
+</g></g>
+<g class="f" style="--d:.2s"><g>${T_('translate', [[0.8, '0 0'], [1.3, '300 0'], [1.65, '262 0']])}
+  <rect x="-40" y="425" width="280" height="110" rx="24" fill="${SK}" stroke="${SKO}" stroke-width="5"/>
+  <rect x="200" y="395" width="200" height="170" rx="50" fill="${SK}" stroke="${SKO}" stroke-width="5"/>
+  ${[400, 442, 484, 526].map(y => `<rect x="350" y="${y}" width="110" height="40" rx="20" fill="${SK}" stroke="${SKO}" stroke-width="4"/>`).join('')}
+  <rect x="250" y="468" width="135" height="42" rx="21" fill="#f7d2b2" stroke="${SKO}" stroke-width="4"/>
+  <g class="po" style="--d:.8s;--o:1.35s"><path d="M170 345 H90 M180 385 H70 M200 575 H100" stroke="${W}" stroke-width="6" stroke-linecap="round" opacity=".6"/></g>
+  <g class="p" style="--d:1.4s"><circle class="pulse" cx="440" cy="546" r="26" fill="none" stroke="${R}" stroke-width="6"/></g>
+</g></g>
+<g class="po" style="--d:1.3s;--o:2.3s"><path d="M760 405 L775 455 L825 440 L790 480 L830 520 L778 510 L760 565 L742 510 L690 520 L730 480 L695 440 L745 455 Z" fill="${A}" stroke="${R}" stroke-width="4"/></g>
+<g class="f" style="--d:2.4s"><use href="#skin" opacity=".22" transform="translate(1130 830) scale(1.25)"/><use href="#bones" transform="translate(1130 830) scale(1.25)"/></g>
+<g class="f" style="--d:3.0s"><path d="M1186.3 742.5 L1215 580" stroke="${R}" stroke-width="24" stroke-linecap="round"/></g>
+${line('M1190 601 l8 -9 l8 12 l8 -12 l8 12 l8 -9', '#ffffff', 4, 3.3, .5)}
+<g class="p" style="--d:3.3s"><circle class="pulse" cx="1210" cy="603" r="40" fill="none" stroke="${R}" stroke-width="5"/></g>
+${line('M1250 590 L1290 545', R, 3, 3.6, .3)}
+${chip(1430, 520, '5th Metacarpal Neck', R, 3.6)}
+${chip(1430, 640, 'Cause: Punching', A, 4.4)}`,
+
+/* 5 Malrotation > mild angulation */
+() => {
+  const pan = (x, dx, dy, inner, label, col, d) => `<g transform="translate(${x} 330)"><g>${T_('translate', [[3.0, '0 0'], [4.4, `${dx} ${dy}`]])}
+    <g class="f" style="--d:.2s"><path d="M0 0 L-105 170 M0 0 L105 170" stroke="#8fa3c7" stroke-width="3"/><path d="M-130 170 Q0 245 130 170 Z" fill="#2a3754" stroke="#8fa3c7" stroke-width="4"/></g>
+    ${inner}
+    <g class="p" style="--d:${d + .2}s"><text class="lbl" x="0" y="290" text-anchor="middle" fill="${col}">${label}</text></g>
+  </g></g>`;
+  const crossed = `<g class="p" style="--d:1.2s">
+    <path d="M-45 160 L35 60" stroke="${SKO}" stroke-width="36" stroke-linecap="round"/><path d="M-45 160 L35 60" stroke="${SK}" stroke-width="28" stroke-linecap="round"/>
+    <path d="M45 160 L-35 60" stroke="${SKO}" stroke-width="36" stroke-linecap="round"/><path d="M45 160 L-35 60" stroke="${SK}" stroke-width="28" stroke-linecap="round"/></g>`;
+  const bent = `<g class="p" style="--d:2.0s">
+    <path d="M-75 150 L0 132 L75 150" stroke="${BNO}" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M-75 150 L0 132 L75 150" stroke="${BN}" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  return head(5, 'Malrotation &gt; Mild Angulation') +
+    `<g class="f" style="--d:.2s"><path d="M800 330 V790" stroke="#8fa3c7" stroke-width="14"/><rect x="680" y="788" width="240" height="26" rx="10" fill="#8fa3c7"/></g>` +
+    pan(450, 10.4, 84.7, crossed, 'Malrotation', R, 1.2) +
+    pan(1150, -10.4, -84.7, bent, 'Mild angulation', B, 2.0) +
+    `<g class="f" style="--d:.2s"><g transform="translate(800 330)"><g>${T_('rotate', [[3.0, 0], [4.4, -14]])}<rect x="-360" y="-10" width="720" height="20" rx="10" fill="#b8c6e0"/></g></g><circle cx="800" cy="330" r="18" fill="${A}"/></g>
+    <g class="p" style="--d:4.6s"><circle class="pulse" cx="460" cy="525" r="95" fill="none" stroke="${R}" stroke-width="5"/></g>` +
+    chip(800, 862, 'Malrotation matters more', G, 5.2);
+},
+
+/* 6 Intra-articular fracture */
+() => head(6, 'Intra-articular Fracture') +
+`<g class="f" style="--d:.2s">
+  <ellipse cx="650" cy="475" rx="150" ry="80" fill="none" stroke="#5f8fd6" stroke-width="3" stroke-dasharray="10 8" opacity=".6"/>
+  <path d="M560 500 Q620 478 680 486 L686 520 L682 550 L700 600 L740 600 L740 800 L560 800 Z" fill="${BN}" stroke="${BNO}" stroke-width="4"/>
+  <path d="M564 497 Q620 476 678 484" stroke="#8fd3ff" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <g>${T_('translate', [[2.2, '0 0'], [2.8, '10 24']])}
+    <path d="M680 486 Q715 490 740 500 L740 600 L700 600 L682 550 L686 520 Z" fill="${BN}" stroke="${BNO}" stroke-width="4"/>
+    <path d="M684 485 Q715 489 737 498" stroke="#8fd3ff" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(650 458)"><g>${T_('rotate', [[3.4, 0], [3.7, 7], [3.9, 1], [4.1, 6], [4.35, 0]])}<g transform="translate(-650 -458)">
+    <path d="M575 160 L575 390 Q575 455 650 458 Q725 455 725 390 L725 160 Z" fill="${BN}" stroke="${BNO}" stroke-width="4"/>
+    <path d="M582 412 Q590 452 650 454 Q710 452 718 412" stroke="#8fd3ff" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g></g></g>
+</g>
+${line('M680 486 L686 520 L682 550 L700 600 L740 600', R, 5, 1.1, .8)}
+<g class="p" style="--d:2.9s"><circle cx="705" cy="500" r="42" fill="none" stroke="${A}" stroke-width="5" stroke-dasharray="8 6"/></g>
+${lock(870, 470, 4.4)}
+${line('M582 470 l14 -8 l14 8 l14 -8 l14 8 l14 -8 l14 8 l14 -8 l14 8 l14 -8 l14 8', R, 5, 5.3, .7)}
+<g class="p" style="--d:5.5s"><g class="blink"><path d="M600 440 l-14 -14 M700 440 l14 -14 M650 432 v-20" stroke="${A}" stroke-width="5" stroke-linecap="round"/></g></g>
+${chip(1230, 300, 'Fracture enters joint', R, 1.4)}
+${chip(1230, 410, 'Joint incongruity', A, 2.9)}
+${chip(1230, 520, '→ Stiffness', A, 4.5)}
+${chip(1230, 630, '→ Post-traumatic arthritis', R, 5.6)}
+${chip(1230, 760, 'Careful assessment', G, 6.6)}`,
+
+/* 7 Open fracture */
+() => {
+  const card = (cx, cy, icon, label, d) => `<g class="p" style="--d:${d}s"><rect x="${cx - 160}" y="${cy - 115}" width="320" height="230" rx="20" fill="#132440" stroke="#2a3754" stroke-width="3"/><g transform="translate(${cx} ${cy - 25})">${icon}</g><text class="sm" x="${cx}" y="${cy + 80}" text-anchor="middle" fill="${W}">${label}</text></g>`;
+  const pill = `<g transform="rotate(-35)"><rect x="-64" y="-24" width="72" height="48" rx="24" fill="${R}"/><rect x="-8" y="-24" width="72" height="48" rx="24" fill="#f2f4f8"/></g>`;
+  const syr = `<g transform="rotate(-30)"><path d="M-95 -22 V22 M-95 0 H-60" stroke="#cfd8e8" stroke-width="8" stroke-linecap="round"/><rect x="-60" y="-18" width="100" height="36" rx="6" fill="#cfe7ff" stroke="${B}" stroke-width="4"/><rect x="-55" y="-12" width="50" height="24" fill="${B}" opacity=".6"/><path d="M40 0 H90" stroke="#cfd8e8" stroke-width="4" stroke-linecap="round"/></g>`;
+  const band = `<g transform="rotate(-30)"><rect x="-80" y="-26" width="160" height="52" rx="26" fill="#f4c38a" stroke="${SKO}" stroke-width="3"/><rect x="-26" y="-26" width="52" height="52" fill="#ffe0b8"/><circle cx="-52" cy="-8" r="3" fill="${SKO}"/><circle cx="-52" cy="8" r="3" fill="${SKO}"/><circle cx="52" cy="-8" r="3" fill="${SKO}"/><circle cx="52" cy="8" r="3" fill="${SKO}"/></g>`;
+  const hosp = `<rect x="-60" y="-55" width="120" height="100" rx="8" fill="#1c2a44" stroke="#8fa3c7" stroke-width="4"/><rect x="-12" y="-42" width="24" height="64" fill="${R}"/><rect x="-32" y="-22" width="64" height="24" fill="${R}"/>`;
+  return head(7, 'Open Fracture = Surgical Emergency') +
+`<g class="f" style="--d:.2s">
+  <rect x="120" y="400" width="640" height="140" rx="70" fill="${SK}" stroke="${SKO}" stroke-width="5"/>
+  <rect x="150" y="450" width="300" height="40" rx="20" fill="${BN}" stroke="${BNO}" stroke-width="3"/>
+  <g transform="translate(735 470)"><g>${T_('rotate', [[1.0, 0], [1.6, 25]])}<rect x="-285" y="-20" width="285" height="40" rx="20" fill="${BN}" stroke="${BNO}" stroke-width="3"/></g></g>
+</g>
+<g class="p" style="--d:1.6s"><ellipse cx="585" cy="400" rx="42" ry="14" fill="#c81e3a"/></g>
+<g class="p" style="--d:1.9s"><circle cx="572" cy="426" r="7" fill="#c81e3a"/><circle cx="600" cy="436" r="6" fill="#c81e3a"/></g>
+<g class="p" style="--d:2.0s"><g class="blink"><path d="M400 270 a40 40 0 0 1 80 0 v10 h-80 z" fill="${R}"/><path d="M440 218 V196 M402 228 L388 214 M478 228 L492 214 M392 258 H372 M488 258 H508" stroke="${R}" stroke-width="6" stroke-linecap="round"/></g><rect x="385" y="278" width="110" height="18" rx="6" fill="#8fa3c7"/></g>
+${chip(440, 660, 'Surgical emergency', R, 2.4)}
+${card(1010, 360, pill, 'Antibiotics', 3.0)}
+${card(1370, 360, syr, 'Tetanus', 3.9)}
+${card(1010, 640, band, 'Wound care', 4.8)}
+${card(1370, 640, hosp, 'Urgent specialist', 5.7)}`;
+},
+
+/* 8 Phalangeal fractures stiffen */
+() => {
+  let ticks = '';
+  for (let k = 0; k < 12; k++) {
+    const a = k * Math.PI / 6;
+    ticks += `<path d="M${(1180 + 78 * Math.sin(a)).toFixed(1)} ${(320 - 78 * Math.cos(a)).toFixed(1)} L${(1180 + 90 * Math.sin(a)).toFixed(1)} ${(320 - 90 * Math.cos(a)).toFixed(1)}" stroke="${A}" stroke-width="4"/>`;
+  }
+  return head(8, 'Phalangeal Fractures → Stiffness') +
+`<g class="f" style="--d:.2s">
+  <rect x="150" y="400" width="170" height="100" rx="36" fill="${SK}" stroke="${SKO}" stroke-width="5"/>
+  <g transform="translate(300 450)">
+    <rect x="0" y="-34" width="236" height="68" rx="30" fill="${SK}" stroke="${SKO}" stroke-width="5"/>
+    ${line('M104 -30 l10 15 l-8 15 l10 15 l-8 15', R, 5, .8, .6)}
+    <g transform="translate(230 0)"><g>${FLEX(45)}
+      <rect x="-6" y="-32" width="164" height="64" rx="28" fill="${SK}" stroke="${SKO}" stroke-width="5"/>
+      <g transform="translate(158 0)"><g>${FLEX(35)}
+        <rect x="-6" y="-30" width="116" height="60" rx="28" fill="${SK}" stroke="${SKO}" stroke-width="5"/>
+        <ellipse cx="84" cy="-24" rx="22" ry="7" fill="#ffe1cc" stroke="#e0a988" stroke-width="2"/>
+      </g></g>
+    </g></g>
+  </g>
+</g>
+<g class="fio" style="--d:.9s;--o:4.6s">
+  <rect x="285" y="400" width="535" height="100" rx="22" fill="${B}40" stroke="${B}" stroke-width="4"/>
+  <rect x="360" y="396" width="24" height="108" rx="6" fill="${B}"/><rect x="580" y="396" width="24" height="108" rx="6" fill="${B}"/><rect x="760" y="396" width="24" height="108" rx="6" fill="${B}"/>
+</g>
+<g class="p" style="--d:1.0s">
+  <circle cx="1180" cy="320" r="95" fill="#132440" stroke="${A}" stroke-width="6"/>${ticks}
+  <g transform="translate(1180 320)"><g>${T_('rotate', [[1.2, 0], [3.6, 1440]])}<path d="M0 0 V-70" stroke="${A}" stroke-width="6" stroke-linecap="round"/></g></g>
+  <g transform="translate(1180 320)"><g>${T_('rotate', [[1.2, 0], [3.6, 120]])}<path d="M0 0 V-45" stroke="${W}" stroke-width="8" stroke-linecap="round"/></g></g>
+  <circle cx="1180" cy="320" r="9" fill="${A}"/>
+</g>
+<g class="f" style="--d:1.3s"><text class="sm" x="1180" y="455" text-anchor="middle" fill="${A}">Weeks</text></g>
+${lock(536, 372, 3.0, 4.6)}
+${lock(694, 372, 3.0, 4.6)}
+<g class="f" style="--d:5.1s">${line('M560 560 A150 150 0 0 0 760 540', G, 7, 5.1, .6, 'marker-end="url(#mG)"')}</g>
+${chip(1180, 560, 'Stiff joints', A, 3.2)}
+${chip(1180, 650, 'Avoid prolonged immobilization', R, 3.8)}
+${chip(1180, 760, 'Stable → Early motion ✓', G, 5.0)}`;
+},
+
+/* 9 Tendons */
+() => head(9, 'Check Tendons: FDS · FDP · Extensors') +
+`<g class="f" style="--d:.2s">
+  <rect x="200" y="500" width="320" height="40" rx="20" fill="${BN}" stroke="${BNO}" stroke-width="3"/>
+  <rect x="530" y="502" width="200" height="36" rx="18" fill="${BN}" stroke="${BNO}" stroke-width="3"/>
+</g>
+${line('M620 504 l-8 10 l10 8 l-8 10', R, 5, .9, .5)}
+${line('M200 552 L742 550', B, 7, 1.9, .5)}
+${line('M200 574 L742 572', P, 7, 3.6, .5)}
+${line('M200 490 L742 492', G, 7, 5.4, .5)}
+<g transform="translate(742 520)"><g>${T_('rotate', [[2.6, 0], [3.3, 55], [3.9, 55], [4.2, 0], [6.0, 0], [6.4, -12], [7.0, 0]])}
+  <g class="f" style="--d:.2s"><rect x="0" y="-17" width="130" height="34" rx="17" fill="${BN}" stroke="${BNO}" stroke-width="3"/></g>
+  ${line('M0 30 L45 19', B, 7, 2.3, .3)}
+  ${line('M0 52 L145 36', P, 7, 3.95, .3)}
+  ${line('M0 -28 L145 -24', G, 7, 5.75, .3)}
+  <g transform="translate(145 0)"><g>${T_('rotate', [[4.3, 0], [5.0, 50], [5.4, 50], [5.7, 0]])}
+    <g class="f" style="--d:.2s"><rect x="0" y="-15" width="85" height="30" rx="15" fill="${BN}" stroke="${BNO}" stroke-width="3"/></g>
+    ${line('M0 36 L40 16', P, 7, 4.15, .3)}
+    ${line('M0 -24 L60 -17', G, 7, 5.95, .3)}
+  </g></g>
+</g></g>
+<g class="p" style="--d:2.0s"><text class="sm" x="185" y="561" text-anchor="end" fill="${B}">FDS</text></g>
+<g class="p" style="--d:3.7s"><text class="sm" x="185" y="589" text-anchor="end" fill="${P}">FDP</text></g>
+<g class="p" style="--d:5.5s"><text class="sm" x="185" y="499" text-anchor="end" fill="${G}">Extensor</text></g>
+${chip(1250, 300, 'Apparently simple fracture', A, 1.0)}
+${chip(1250, 410, 'FDS → PIP flexion', B, 2.2)}
+${chip(1250, 520, 'FDP → DIP flexion', P, 3.9)}
+${chip(1250, 630, 'Extensors → Extension', G, 5.6)}
+${chip(1250, 760, 'Tendon injury may coexist', R, 6.8)}`,
+
+/* 10 X-rays */
+() => {
+  let h = head(10, 'X-rays: AP · Lateral · Oblique');
+  [['AP', '.5 .5', 30], ['Lateral', '.18 .5', 8], ['Oblique', '.34 .5', 20]].forEach(([n, sc, ox], i) => {
+    const c = 400 + i * 400, d = 0.4 + i * 0.8;
+    h += `<g class="p" style="--d:${d}s"><rect x="${c - 150}" y="190" width="300" height="362" rx="14" fill="#03060c" stroke="#2a3754" stroke-width="3"/>
+      <use href="#bones" transform="translate(${c + ox} 470) scale(${sc})"/>
+      <rect class="scan" x="${c - 148}" y="192" width="296" height="4" fill="${B}" opacity=".7"/></g>
+      <g class="p" style="--d:${d + .3}s"><text class="lbl" x="${c}" y="612" text-anchor="middle" fill="${W}">${n}</text></g>`;
+  });
+  const items = ['Alignment', 'Angulation', 'Shortening', 'Rotation', 'Joint involvement'].map(t => '✓ ' + t);
+  const ws = items.map(cw), gap = 26, total = ws.reduce((a, b) => a + b, 0) + gap * (items.length - 1);
+  let x = 800 - total / 2;
+  items.forEach((t, i) => { h += chip(x + ws[i] / 2, 740, t, i === 3 ? A : G, 3.0 + i * 0.8); x += ws[i] + gap; });
+  return h;
+}
+];
+
+/* ---------- navigation ---------- */
+const svg = document.getElementById('stage'), scene = document.getElementById('scene');
+const prev = document.getElementById('prev'), next = document.getElementById('next');
+let cur = 0;
+function show(n) {
+  cur = Math.max(0, Math.min(S.length - 1, n));
+  scene.innerHTML = S[cur]();
+  svg.setCurrentTime(0);
+  prev.disabled = cur === 0;
+  next.disabled = cur === S.length - 1;
+}
+prev.addEventListener('click', () => show(cur - 1));
+next.addEventListener('click', () => show(cur + 1));
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') show(cur + 1);
+  if (e.key === 'ArrowLeft') show(cur - 1);
+});
+show(0);
+</script>
+</body>
+</html>
