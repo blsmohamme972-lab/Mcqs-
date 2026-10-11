@@ -1,0 +1,76 @@
+{
+ "starts": [
+  0.6,
+  4.412,
+  13.456,
+  24.276,
+  30.992,
+  33.364
+ ],
+ "dur": [
+  3.312,
+  8.544,
+  10.32,
+  6.216,
+  1.872,
+  10.344
+ ],
+ "total": 45.41,
+ "cues": [
+  [
+   0.65,
+   4.362,
+   "Which carcinogen is linked to hepatocellular carcinoma?"
+  ],
+  [
+   4.462,
+   8.737,
+   "Meet our patient: a terrified liver, studded with tumour nodules."
+  ],
+  [
+   8.737,
+   13.399,
+   "That's hepatocellular carcinoma, cancer of the liver's main cells."
+  ],
+  [
+   13.506,
+   14.731,
+   "Now look who's lurking."
+  ],
+  [
+   14.731,
+   19.181,
+   "Polyvinyl chloride, or PVC, leaking toxic fumes."
+  ],
+  [
+   19.181,
+   24.218,
+   "The real culprit is vinyl chloride, the gas used to make PVC."
+  ],
+  [
+   24.326,
+   26.463,
+   "The exposure is occupational."
+  ],
+  [
+   26.463,
+   30.926,
+   "Workers in plastics factories breathe it in, year after year."
+  ],
+  [
+   31.042,
+   33.254,
+   "And the liver pays the price."
+  ],
+  [
+   33.414,
+   35.601,
+   "The answer: polyvinyl chloride."
+  ],
+  [
+   35.601,
+   43.651,
+   "High-yield tip: vinyl chloride is the classic cause of hepatic angiosarcoma, and it's also linked to hepatocellular carcinoma."
+  ]
+ ]
+}
