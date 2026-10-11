@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hypermagnesemia (Milk of Magnesia → high serum Mg²⁺ → loss of deep tendon reflexes)
+  Hand-reconstructed, animation-ready vector illustration. 1672 × 941.
+  Every movable object is its own <g> with a unique id. Rotating groups carry
+  data-pivot="x y" and a matching CSS transform-origin so
+  element.style.transform = 'rotate(…)' pivots naturally.
+  Layer order (back → front): background, bed, IV, sign, pillow, sheet, patient,
+  leg, blanket, thought bubble, arrow, magnesium badge, label, doctor/hammer,
+  no-reflex marker, reflex label.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" id="hypermagnesemia_scene" viewBox="0 0 1672 941" width="1672" height="941">
+  <title>Hypermagnesemia after Milk of Magnesia: loss of deep tendon reflexes</title>
+  <defs>
+    <style>
+      text { font-family: "Arial Rounded MT Bold", "Nunito", "Segoe UI", Arial, Helvetica, sans-serif; }
+      .ol { stroke: #2b1a12; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+      .ol-navy { stroke: #0c2c55; stroke-linejoin: round; stroke-linecap: round; }
+      #iv_bag, #post_op_sign, #patient_head, #patient_right_arm, #patient_left_arm, #milk_of_magnesia_bottle,
+      #patient_lower_leg, #thought_bubble, #process_arrow, #magnesium_ion, #red_up_arrow,
+      #hypermagnesemia_label, #doctor_arm, #reflex_hammer, #no_reflex_marker, #reflex_label,
+      #belly_pain_bolts, #patient_eyes, #patient_mouth, #colon { transform-box: view-box; }
+      #iv_bag { transform-origin: 112px 190px; }
+      #post_op_sign { transform-origin: 140px 115px; }
+      #patient_head { transform-origin: 335px 450px; }
+      #patient_right_arm { transform-origin: 520px 470px; }
+      #milk_of_magnesia_bottle { transform-origin: 700px 470px; }
+      #patient_left_arm { transform-origin: 90px 460px; }
+      #patient_lower_leg { transform-origin: 990px 520px; }
+      #thought_bubble { transform-origin: 470px 270px; }
+      #magnesium_ion { transform-origin: 1265px 150px; }
+      #red_up_arrow { transform-origin: 1442px 168px; }
+      #hypermagnesemia_label { transform-origin: 1315px 326px; }
+      #doctor_arm { transform-origin: 1672px 760px; }
+      #reflex_hammer { transform-origin: 1270px 630px; }
+      #no_reflex_marker { transform-origin: 1212px 718px; }
+      #reflex_label { transform-origin: 1478px 532px; }
+      #colon { transform-origin: 642px 175px; }
+    </style>
+
+    <!-- skin -->
+    <linearGradient id="grad_skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fed0b0"/>
+      <stop offset="0.6" stop-color="#fdb68e"/>
+      <stop offset="1" stop-color="#f19a72"/>
+    </linearGradient>
+    <linearGradient id="grad_skin_leg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fed6b8"/>
+      <stop offset="0.55" stop-color="#fdc39d"/>
+      <stop offset="1" stop-color="#f3a47e"/>
+    </linearGradient>
+    <radialGradient id="grad_blush" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f7837a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f7837a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- hair -->
+    <linearGradient id="grad_hair" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#8f552f"/>
+      <stop offset="0.5" stop-color="#7a4625"/>
+      <stop offset="1" stop-color="#5e3218"/>
+    </linearGradient>
+    <!-- hospital gown with polka dots -->
+    <pattern id="pattern_gown_dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <rect width="26" height="26" fill="#a9d6f6"/>
+      <circle cx="6" cy="6" r="2.6" fill="#3f7fc4"/>
+      <circle cx="19" cy="19" r="2.6" fill="#3f7fc4"/>
+      <circle cx="19" cy="7" r="1.4" fill="#6fa6dc"/>
+      <circle cx="7" cy="19" r="1.4" fill="#6fa6dc"/>
+    </pattern>
+    <linearGradient id="grad_gown_shade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#1d5d9e" stop-opacity="0.25"/>
+    </linearGradient>
+    <!-- bedding -->
+    <linearGradient id="grad_sheet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f9ff"/>
+      <stop offset="1" stop-color="#cfe5f8"/>
+    </linearGradient>
+    <linearGradient id="grad_pillow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d4e6f7"/>
+    </linearGradient>
+    <linearGradient id="grad_metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a96a6"/>
+      <stop offset="0.45" stop-color="#e8eef5"/>
+      <stop offset="1" stop-color="#7c8898"/>
+    </linearGradient>
+    <linearGradient id="grad_iv_fluid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8f7ff"/>
+      <stop offset="1" stop-color="#9fd8f6"/>
+    </linearGradient>
+    <!-- bottle -->
+    <linearGradient id="grad_bottle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0d2f8f"/>
+      <stop offset="0.25" stop-color="#2a5bd6"/>
+      <stop offset="0.45" stop-color="#6f97f0"/>
+      <stop offset="0.7" stop-color="#1f4bc4"/>
+      <stop offset="1" stop-color="#0a2470"/>
+    </linearGradient>
+    <linearGradient id="grad_cap" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c7ced8"/>
+      <stop offset="0.45" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#a7b1bf"/>
+    </linearGradient>
+    <!-- magnesium ion -->
+    <radialGradient id="grad_mg" cx="0.36" cy="0.3" r="0.75">
+      <stop offset="0" stop-color="#d7aef5"/>
+      <stop offset="0.45" stop-color="#a462db"/>
+      <stop offset="1" stop-color="#6a2a9f"/>
+    </radialGradient>
+    <radialGradient id="grad_mg_shine" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="grad_red_arrow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff2d2d"/>
+      <stop offset="0.65" stop-color="#ff4646"/>
+      <stop offset="1" stop-color="#ff4646" stop-opacity="0"/>
+    </linearGradient>
+    <!-- labels -->
+    <linearGradient id="grad_label_pink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdf0fa"/>
+      <stop offset="1" stop-color="#fbd9ef"/>
+    </linearGradient>
+    <linearGradient id="grad_label_yellow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff6d6"/>
+      <stop offset="1" stop-color="#fde9b0"/>
+    </linearGradient>
+    <!-- colon -->
+    <linearGradient id="grad_colon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb3a1"/>
+      <stop offset="1" stop-color="#f68a78"/>
+    </linearGradient>
+    <radialGradient id="grad_stool" cx="0.4" cy="0.35" r="0.7">
+      <stop offset="0" stop-color="#8a5a35"/>
+      <stop offset="1" stop-color="#4f2a10"/>
+    </radialGradient>
+    <linearGradient id="grad_coat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dce5f0"/>
+    </linearGradient>
+    <linearGradient id="grad_hammer_handle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#55626e"/>
+      <stop offset="0.5" stop-color="#2b3741"/>
+      <stop offset="1" stop-color="#1a232b"/>
+    </linearGradient>
+    <marker id="marker_dash_arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#8a929c" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+  </defs>
+
+  <!-- ===================== BACKGROUND ===================== -->
+  <g id="background">
+    <rect id="background_fill" x="0" y="0" width="1672" height="941" fill="#fefefe"/>
+  </g>
+
+  <!-- ===================== HOSPITAL BED ===================== -->
+  <g id="hospital_bed">
+    <g id="bed_headboard">
+      <path d="M0 290 C 30 300, 52 320, 56 350 L 62 941 L 46 941 L 40 356 C 36 330, 20 316, 0 310 Z" fill="url(#grad_metal)" stroke="#3d4b5c" stroke-width="2.5"/>
+      <rect x="0" y="330" width="16" height="611" fill="url(#grad_metal)" stroke="#3d4b5c" stroke-width="2"/>
+    </g>
+    <path id="bed_mattress" d="M30 560 L 905 600 C 930 602, 945 625, 945 660 L 945 941 L 30 941 Z" fill="#f1f6fc" stroke="#a7bdd4" stroke-width="2"/>
+    <g id="bed_footboard">
+      <rect x="903" y="650" width="44" height="250" rx="10" fill="url(#grad_metal)" stroke="#55606e" stroke-width="2.5"/>
+      <rect x="903" y="700" width="44" height="12" fill="#9aa6b5"/>
+    </g>
+  </g>
+
+  <!-- ===================== IV STAND ===================== -->
+  <g id="iv_stand">
+    <g id="iv_pole">
+      <rect x="28" y="40" width="12" height="901" rx="5" fill="url(#grad_metal)" stroke="#5b6675" stroke-width="2"/>
+      <path d="M10 62 L 128 62" stroke="#6e7987" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path d="M128 62 C 128 78, 112 80, 112 92" stroke="#6e7987" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M10 62 C 10 76, 22 80, 22 88" stroke="#6e7987" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <circle cx="34" cy="40" r="7" fill="#b5c0cd" stroke="#5b6675" stroke-width="2"/>
+      <rect x="0" y="282" width="40" height="14" rx="4" fill="#6e7987"/>
+    </g>
+    <g id="iv_bag">
+      <path d="M112 92 L 112 192" stroke="#8792a0" stroke-width="3" fill="none"/>
+      <path d="M88 192 L 136 192 C 140 192, 142 196, 142 202 L 138 262 C 136 274, 126 280, 112 280 C 98 280, 88 274, 86 262 L 82 202 C 82 196, 84 192, 88 192 Z" fill="url(#grad_iv_fluid)" stroke="#5f8fb3" stroke-width="2.5"/>
+      <path d="M94 206 L 94 258" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
+      <rect x="104" y="280" width="16" height="22" rx="4" fill="#dcefff" stroke="#5f8fb3" stroke-width="2"/>
+      <path id="iv_tube" d="M112 302 C 112 330, 108 350, 104 370" stroke="#bcd6ea" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- ===================== POST-OP SIGN ===================== -->
+  <g id="post_op_sign">
+    <path d="M100 98 L 140 115 L 180 98" stroke="#6e7987" stroke-width="2.5" fill="none"/>
+    <g transform="rotate(-3 142 157)">
+      <rect id="post_op_board" x="68" y="118" width="148" height="76" rx="12" fill="#f3f8fd" stroke="#0c2c55" stroke-width="5"/>
+      <text id="post_op_text" x="142" y="170" text-anchor="middle" font-size="40" font-weight="700" fill="#0c2c55" letter-spacing="-1">Post-op</text>
+    </g>
+  </g>
+
+  <!-- ===================== PILLOW ===================== -->
+  <g id="pillow">
+    <path d="M12 318 C 120 300, 330 298, 525 302 C 560 304, 572 330, 566 372 L 548 470 L 30 540 C 10 480, 2 390, 12 318 Z" fill="url(#grad_pillow)" stroke="#2f4c6e" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M470 320 C 515 340, 540 380, 536 440" stroke="#b9cfe4" stroke-width="3" fill="none"/>
+    <path d="M40 340 C 60 380, 64 430, 54 480" stroke="#b9cfe4" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- ===================== RAISED LEG ===================== -->
+  <g id="patient_leg">
+    <!-- gown fabric hanging beneath the raised thigh -->
+    <path id="gown_drape" d="M640 470 C 720 440, 830 420, 900 422 C 922 520, 926 690, 912 860 C 850 850, 760 820, 690 790 C 660 700, 650 580, 640 470 Z" fill="url(#pattern_gown_dots)" stroke="#1e3550" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M640 470 C 720 440, 830 420, 900 422 C 922 520, 926 690, 912 860 C 850 850, 760 820, 690 790 C 660 700, 650 580, 640 470 Z" fill="url(#grad_gown_shade)"/>
+    <path d="M760 470 C 780 580, 790 700, 780 820 M850 450 C 870 560, 875 700, 865 840" stroke="#6d9fd0" stroke-width="3" fill="none"/>
+    <!-- bare thigh -->
+    <path id="patient_thigh" d="M800 470 C 860 452, 930 446, 975 458 C 1015 468, 1040 505, 1036 545 C 1030 578, 995 590, 950 590 C 890 594, 840 600, 800 608 Z" fill="url(#grad_skin_leg)" class="ol"/>
+    <path id="gown_hem_on_thigh" d="M740 458 C 780 446, 820 442, 846 450 C 826 500, 820 556, 828 612 C 800 616, 776 616, 756 612 Z" fill="url(#pattern_gown_dots)" stroke="#1e3550" stroke-width="3" stroke-linejoin="round"/>
+    <!-- knee, shin and foot: pivot at the knee for a knee-jerk -->
+    <g id="patient_lower_leg" data-pivot="990 520">
+      <path id="patient_knee_shin" d="M960 464 C 1000 458, 1036 490, 1044 540 C 1064 620, 1096 700, 1126 772 L 1064 796 C 1042 724, 1000 652, 960 612 C 940 592, 928 570, 932 540 C 936 505, 940 476, 960 464 Z" fill="url(#grad_skin_leg)" class="ol"/>
+      <path d="M1004 488 C 1020 498, 1028 512, 1026 528" stroke="#d58b65" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M1040 640 C 1056 690, 1066 730, 1076 760" stroke="#f0a682" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <g id="patient_foot" data-pivot="1090 800">
+        <path d="M1126 764 C 1150 790, 1190 800, 1230 802 C 1262 804, 1292 812, 1300 830 C 1304 848, 1286 854, 1266 854 C 1220 858, 1172 882, 1120 898 C 1090 906, 1070 892, 1068 868 C 1066 840, 1062 812, 1062 790 Z" fill="url(#grad_skin_leg)" class="ol"/>
+        <path id="toes" d="M1290 834 C 1296 840, 1298 846, 1294 852 M1272 820 C 1278 830, 1280 840, 1274 852 M1254 816 C 1258 828, 1258 842, 1252 854" stroke="#c97a55" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M1090 800 C 1100 790, 1112 790, 1118 800 M1150 840 C 1180 846, 1210 846, 1240 840" stroke="#d58b65" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <!-- ===================== PATIENT ===================== -->
+  <g id="patient">
+    <!-- back hair mass, spread on the pillow -->
+    <path id="hair_back" d="M248 178 C 300 146, 392 148, 432 192 C 462 226, 456 270, 466 306 C 476 346, 456 372, 462 404 C 466 428, 446 446, 420 440 L 260 440 C 230 450, 196 446, 178 430 C 158 412, 170 388, 152 372 C 132 352, 140 318, 156 300 C 146 270, 156 236, 180 220 C 196 196, 222 182, 248 178 Z" fill="url(#grad_hair)" class="ol"/>
+
+    <!-- torso / gown -->
+    <g id="patient_torso">
+      <path id="gown_body" d="M96 444 C 160 428, 240 430, 290 436 L 410 436 C 470 440, 522 462, 556 502 C 592 546, 612 604, 622 664 L 640 770 L 62 790 C 42 708, 32 620, 42 560 C 52 502, 70 462, 96 444 Z" fill="url(#pattern_gown_dots)" class="ol"/>
+      <path d="M96 444 C 160 428, 240 430, 290 436 L 410 436 C 470 440, 522 462, 556 502 C 592 546, 612 604, 622 664 L 640 770 L 62 790 C 42 708, 32 620, 42 560 C 52 502, 70 462, 96 444 Z" fill="url(#grad_gown_shade)"/>
+      <g id="patient_neck">
+        <path d="M292 400 L 382 396 L 392 440 C 370 488, 314 490, 286 444 Z" fill="url(#grad_skin)" class="ol"/>
+        <path d="M304 438 C 324 452, 352 452, 374 436" stroke="#e08661" stroke-width="3" fill="none"/>
+      </g>
+      <path id="gown_collar" d="M282 440 C 300 482, 322 494, 338 496 C 356 494, 380 480, 398 438" stroke="#3d78bd" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path id="gown_fold_1" d="M160 520 C 175 580, 182 640, 176 700" stroke="#6d9fd0" stroke-width="3" fill="none"/>
+      <path id="gown_fold_2" d="M490 520 C 520 570, 540 620, 552 680" stroke="#6d9fd0" stroke-width="3" fill="none"/>
+
+      <!-- exposed abdomen with surgical dressing -->
+      <g id="belly">
+        <path id="belly_skin" d="M292 690 C 370 660, 480 654, 566 668 L 596 770 L 280 780 Z" fill="url(#grad_skin)" class="ol"/>
+        <g id="surgical_dressing" transform="rotate(-14 430 712)">
+          <rect x="362" y="690" width="136" height="46" rx="7" fill="#f2d3ae" stroke="#c9a67b" stroke-width="3"/>
+          <rect x="388" y="696" width="84" height="34" rx="4" fill="#ffffff" stroke="#d9c3a3" stroke-width="2"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- left arm (viewer's left) — hand resting on the painful abdomen -->
+    <g id="patient_left_arm" data-pivot="90 460">
+      <path id="left_sleeve" d="M96 444 C 56 462, 24 520, 20 578 C 18 612, 28 636, 50 646 L 146 642 C 156 600, 154 540, 142 482 Z" fill="url(#pattern_gown_dots)" class="ol"/>
+      <path id="left_forearm" d="M44 642 C 62 612, 124 616, 200 630 L 242 638 L 246 702 C 180 708, 104 702, 62 692 C 40 684, 34 660, 44 642 Z" fill="url(#grad_skin)" class="ol"/>
+      <g id="wristband">
+        <rect x="204" y="634" width="40" height="72" rx="10" fill="#ffffff" stroke="#8fa3b8" stroke-width="3" transform="rotate(-6 224 670)"/>
+        <rect x="212" y="652" width="22" height="20" rx="3" fill="#dbe7f3" transform="rotate(-6 224 670)"/>
+      </g>
+      <g id="left_hand" data-pivot="244 668">
+        <path d="M244 640 C 282 614, 330 600, 360 610 C 376 616, 372 628, 356 632 C 382 636, 414 642, 422 656 C 426 668, 410 672, 396 670 C 412 676, 416 690, 400 692 C 380 694, 360 690, 340 688 C 310 700, 272 706, 246 702 Z" fill="url(#grad_skin)" class="ol"/>
+        <path d="M396 670 C 380 668, 362 664, 346 662" stroke="#c97a55" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M356 632 C 346 636, 336 640, 326 644" stroke="#c97a55" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- abdominal pain bolts -->
+    <g id="belly_pain_bolts">
+      <path id="pain_bolt_1" d="M394 532 L 412 532 L 402 556 L 420 556 L 392 596 L 398 568 L 382 568 Z" fill="#ee1f2a" stroke="#a30a14" stroke-width="2" stroke-linejoin="round"/>
+      <path id="pain_bolt_2" d="M438 560 L 462 562 L 442 578 L 462 582 L 412 606 L 432 588 L 416 584 Z" fill="#ee1f2a" stroke="#a30a14" stroke-width="2" stroke-linejoin="round"/>
+      <path id="pain_bolt_3" d="M452 610 L 476 612 L 460 622 L 474 626 L 438 634 L 448 624 L 436 620 Z" fill="#ee1f2a" stroke="#a30a14" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+
+    <!-- head -->
+    <g id="patient_head" data-pivot="335 450">
+      <g id="patient_ear">
+        <path d="M232 318 C 212 312, 206 348, 216 372 C 224 388, 242 390, 250 378 Z" fill="url(#grad_skin)" class="ol"/>
+        <circle id="earring" cx="228" cy="372" r="5" fill="#ffffff" stroke="#9aa3ad" stroke-width="2"/>
+      </g>
+      <path id="patient_face" d="M240 250 C 244 206, 296 184, 352 186 C 410 190, 440 236, 436 298 C 432 356, 404 404, 354 418 C 310 428, 268 410, 252 374 C 240 340, 236 294, 240 250 Z" fill="url(#grad_skin)" class="ol"/>
+      <ellipse id="cheek_left" cx="268" cy="345" rx="24" ry="15" fill="url(#grad_blush)"/>
+      <ellipse id="cheek_right" cx="408" cy="336" rx="20" ry="14" fill="url(#grad_blush)"/>
+      <g id="patient_eyebrows">
+        <path id="eyebrow_left" d="M262 264 C 274 254, 294 252, 312 262" stroke="#5a3016" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path id="eyebrow_right" d="M350 256 C 366 246, 390 248, 404 260" stroke="#5a3016" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path id="forehead_wrinkles" d="M300 232 C 318 226, 340 226, 358 232 M310 244 C 324 240, 338 240, 350 244" stroke="#d98a66" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="patient_eyes">
+        <g id="eye_left" data-pivot="294 300">
+          <ellipse cx="294" cy="300" rx="20" ry="22" fill="#ffffff" stroke="#2b1a12" stroke-width="3"/>
+          <circle id="iris_left" cx="298" cy="302" r="12" fill="#4b3020"/>
+          <circle cx="299" cy="303" r="6" fill="#1a0f08"/>
+          <circle cx="303" cy="297" r="3.5" fill="#ffffff"/>
+          <path d="M272 290 C 280 276, 306 276, 314 290" stroke="#2b1a12" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+          <path d="M270 292 L 262 286 M274 284 L 268 276" stroke="#2b1a12" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <g id="eye_right" data-pivot="372 294">
+          <ellipse cx="372" cy="294" rx="19" ry="21" fill="#ffffff" stroke="#2b1a12" stroke-width="3"/>
+          <circle id="iris_right" cx="376" cy="296" r="11.5" fill="#4b3020"/>
+          <circle cx="377" cy="297" r="5.8" fill="#1a0f08"/>
+          <circle cx="381" cy="291" r="3.3" fill="#ffffff"/>
+          <path d="M352 282 C 360 270, 385 270, 392 282" stroke="#2b1a12" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        </g>
+      </g>
+      <path id="patient_nose" d="M336 310 C 332 330, 328 340, 334 346 C 340 350, 348 348, 352 344" stroke="#c97a55" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <g id="patient_mouth">
+        <path d="M316 378 C 330 360, 362 358, 376 374 C 364 370, 330 370, 316 378 Z" fill="#c9505a" stroke="#7a2a2a" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M328 388 C 340 385, 352 385, 362 389" stroke="#e99a86" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- front hair: wavy fringe and side locks framing the face -->
+      <g id="hair_front">
+        <path id="hair_fringe" d="M238 284 C 222 222, 262 168, 328 160 C 396 152, 448 198, 446 266 C 446 296, 440 318, 434 330 C 432 290, 424 258, 404 236 C 396 250, 382 258, 364 260 C 374 246, 376 230, 370 216 C 344 238, 302 246, 272 244 C 256 256, 246 272, 238 284 Z" fill="url(#grad_hair)" class="ol"/>
+        <path id="hair_lock_left" d="M240 274 C 222 316, 230 352, 218 388 C 208 414, 190 430, 178 446 C 212 440, 240 418, 250 386 C 256 360, 250 330, 254 306 Z" fill="url(#grad_hair)" class="ol"/>
+        <path id="hair_lock_right" d="M434 296 C 446 336, 432 372, 442 404 C 448 424, 460 434, 462 444 C 436 440, 418 420, 412 396 C 406 368, 418 344, 420 318 Z" fill="url(#grad_hair)" class="ol"/>
+        <path id="hair_strands" d="M300 174 C 280 192, 268 214, 266 238 M360 168 C 395 180, 418 205, 426 238 M190 330 C 176 350, 178 380, 196 400 M450 340 C 456 360, 452 380, 456 400" stroke="#a96a3f" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- right arm (viewer's right) holding the bottle -->
+    <g id="patient_right_arm" data-pivot="520 470">
+      <path id="right_sleeve" d="M470 446 C 530 452, 572 482, 592 532 C 604 564, 602 604, 586 632 L 520 612 C 514 570, 494 522, 468 500 Z" fill="url(#pattern_gown_dots)" class="ol"/>
+      <path id="right_forearm" d="M532 612 C 556 646, 594 654, 616 630 C 636 604, 654 576, 672 548 L 628 524 C 606 556, 574 588, 540 600 Z" fill="url(#grad_skin)" class="ol"/>
+      <!-- palm behind the bottle -->
+      <path id="right_palm" d="M712 396 C 756 390, 784 420, 782 462 C 780 502, 754 528, 708 534 Z" fill="url(#grad_skin)" class="ol"/>
+    </g>
+
+    <!-- Milk of Magnesia bottle (tilted ~7°) -->
+    <g id="milk_of_magnesia_bottle" data-pivot="700 470">
+      <g transform="translate(14 0) rotate(7 660 430)">
+        <g id="bottle_cap">
+          <rect x="622" y="292" width="76" height="40" rx="7" fill="url(#grad_cap)" stroke="#55606e" stroke-width="3"/>
+          <path d="M632 298 V 326 M644 298 V 326 M656 298 V 326 M668 298 V 326 M680 298 V 326 M690 298 V 326" stroke="#9aa5b3" stroke-width="2"/>
+        </g>
+        <path id="bottle_body" d="M628 332 L 692 332 L 694 346 C 722 354, 732 372, 732 396 L 730 540 C 730 556, 718 566, 702 566 L 616 566 C 600 566, 588 556, 588 540 L 586 396 C 586 372, 596 354, 626 346 Z" fill="url(#grad_bottle)" stroke="#0a1f4f" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M604 402 L 604 540" stroke="#9fbaf7" stroke-width="7" stroke-linecap="round" opacity="0.6"/>
+        <g id="bottle_label">
+          <path d="M594 392 L 724 392 L 724 500 L 594 500 Z" fill="#ffffff" stroke="#c9d6ea" stroke-width="2"/>
+          <text x="660" y="432" text-anchor="middle" font-size="27" font-weight="700" fill="#0e2a66" letter-spacing="-0.5">Milk of</text>
+          <text x="659" y="464" text-anchor="middle" font-size="24" font-weight="700" fill="#0e2a66" letter-spacing="-1.2">Magnesia</text>
+          <path d="M606 482 C 622 474, 638 490, 654 482 C 670 474, 686 490, 712 480" stroke="#7fc4ef" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- fingers wrapped over the right side of the bottle -->
+    <g id="right_fingers" data-pivot="760 460">
+      <path id="finger_1" d="M776 404 C 758 396, 738 398, 736 410 C 734 422, 754 426, 778 422 Z" fill="url(#grad_skin)" class="ol"/>
+      <path id="finger_2" d="M778 430 C 760 424, 740 426, 738 438 C 736 450, 756 454, 780 450 Z" fill="url(#grad_skin)" class="ol"/>
+      <path id="finger_3" d="M778 458 C 760 452, 740 454, 738 466 C 736 478, 756 482, 778 478 Z" fill="url(#grad_skin)" class="ol"/>
+      <path id="finger_4" d="M772 486 C 756 482, 740 484, 738 494 C 738 506, 756 508, 770 504 Z" fill="url(#grad_skin)" class="ol"/>
+    </g>
+  </g>
+
+  <ellipse id="foot_shadow" cx="1190" cy="905" rx="130" ry="10" fill="#d7dde5" opacity="0.6"/>
+
+  <!-- ===================== BLANKET (front) ===================== -->
+  <g id="blanket">
+    <path id="blanket_body" d="M0 820 C 100 800, 230 772, 340 760 C 440 748, 520 742, 600 744 C 680 750, 744 770, 792 810 C 832 846, 858 890, 876 941 L 0 941 Z" fill="url(#grad_sheet)" stroke="#5f84ad" stroke-width="3" stroke-linejoin="round"/>
+    <path id="blanket_folds" d="M60 840 C 160 870, 260 905, 300 941 M380 775 C 460 800, 540 860, 580 941 M600 760 C 650 795, 690 840, 700 941 M140 900 C 200 910, 240 925, 260 941" stroke="#b2cce6" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===================== THOUGHT BUBBLE: CONSTIPATION ===================== -->
+  <g id="thought_bubble" data-pivot="470 270">
+    <g id="thought_trail">
+      <circle cx="448" cy="272" r="8" fill="#ffffff" stroke="#0c2c55" stroke-width="3.5"/>
+      <circle cx="466" cy="250" r="11" fill="#ffffff" stroke="#0c2c55" stroke-width="3.5"/>
+    </g>
+    <path id="thought_cloud" d="M500 74 C 474 42, 524 6, 564 22 C 584 -2, 644 -4, 664 20 C 694 -2, 754 4, 764 40 C 806 40, 836 72, 820 108 C 856 128, 852 178, 818 194 C 836 228, 806 266, 764 256 C 748 290, 694 296, 670 274 C 646 300, 590 300, 570 274 C 540 294, 494 282, 490 250 C 458 248, 442 212, 464 188 C 438 166, 444 126, 476 116 C 466 96, 480 74, 500 74 Z" fill="#ffffff" stroke="#0c2c55" stroke-width="4.5" stroke-linejoin="round"/>
+    <text id="constipation_text" x="624" y="76" text-anchor="middle" font-size="40" font-weight="700" fill="#0c2c55" letter-spacing="-0.5">Constipation</text>
+    <g id="colon" data-pivot="642 175">
+      <rect id="colon_lumen_fill" x="556" y="138" width="174" height="80" rx="14" fill="#fde6de"/>
+      <!-- tube drawn as a stroked centreline: dark outline + lighter body -->
+      <path id="colon_outline" d="M532 236 L 532 132 C 532 120, 540 114, 552 114 L 734 114 C 746 114, 752 120, 752 132 L 752 216 C 752 228, 746 234, 736 236" stroke="#e2604f" stroke-width="50" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="colon_body" d="M532 236 L 532 132 C 532 120, 540 114, 552 114 L 734 114 C 746 114, 752 120, 752 132 L 752 216 C 752 228, 746 234, 736 236" stroke="#fda08c" stroke-width="43" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="colon_haustra" d="M511 150 C 522 146, 544 146, 554 152 M511 190 C 522 186, 544 186, 554 192 M511 226 C 522 222, 544 222, 554 228 M572 93 C 568 104, 568 124, 574 136 M616 93 C 612 104, 612 124, 618 136 M660 93 C 656 104, 656 124, 662 136 M704 93 C 700 104, 700 124, 706 136 M730 150 C 740 146, 762 146, 774 152 M730 190 C 740 186, 762 186, 774 192" stroke="#e2604f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path id="colon_highlight" d="M520 220 L 520 140 M560 104 L 720 104" stroke="#ffd3c7" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.8"/>
+      <g id="colon_face">
+        <path d="M606 156 L 618 163 L 606 170" stroke="#5a2a1a" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M652 156 L 640 163 L 652 170" stroke="#5a2a1a" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M614 190 C 622 182, 636 182, 644 190" stroke="#5a2a1a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="598" cy="180" rx="8" ry="5" fill="#ff6f6f" opacity="0.5"/>
+        <ellipse cx="660" cy="180" rx="8" ry="5" fill="#ff6f6f" opacity="0.5"/>
+      </g>
+      <g id="stool">
+        <ellipse id="stool_1" cx="582" cy="228" rx="24" ry="15" fill="url(#grad_stool)" stroke="#3a1c08" stroke-width="2.5"/>
+        <ellipse id="stool_2" cx="624" cy="236" rx="24" ry="15" fill="url(#grad_stool)" stroke="#3a1c08" stroke-width="2.5"/>
+        <ellipse id="stool_3" cx="690" cy="206" rx="22" ry="15" fill="url(#grad_stool)" stroke="#3a1c08" stroke-width="2.5"/>
+        <ellipse id="stool_4" cx="716" cy="228" rx="24" ry="15" fill="url(#grad_stool)" stroke="#3a1c08" stroke-width="2.5"/>
+        <path d="M570 222 C 576 218, 584 218, 590 222 M678 200 C 684 196, 692 196, 698 200 M706 222 C 712 218, 720 218, 726 222" stroke="#a87a55" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="colon_stress_marks">
+        <path d="M478 136 L 496 148 M472 164 L 494 166 M480 192 L 496 184" stroke="#e8212b" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M786 126 L 802 114 M790 150 L 812 148 M788 174 L 806 182" stroke="#e8212b" stroke-width="4.5" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ===================== CAUSE → EFFECT ARROW ===================== -->
+  <g id="process_arrow">
+    <path id="process_arrow_shaft" d="M774 372 C 834 362, 862 300, 902 250 C 950 194, 1010 182, 1076 186" stroke="#0c2c55" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path id="process_arrow_head" d="M1062 156 L 1108 188 L 1060 214 Z" fill="#0c2c55" stroke="#0c2c55" stroke-width="5" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ===================== MAGNESIUM ION + RISE ARROW ===================== -->
+  <g id="red_up_arrow" data-pivot="1442 168">
+    <path d="M1440 54 L 1500 140 L 1466 140 L 1466 262 L 1414 262 L 1414 140 L 1382 140 Z" fill="url(#grad_red_arrow)" stroke="#c4151b" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+  <g id="magnesium_ion" data-pivot="1265 150">
+    <circle id="mg_sphere" cx="1265" cy="150" r="136" fill="url(#grad_mg)" stroke="#3b1470" stroke-width="4"/>
+    <ellipse id="mg_shine" cx="1205" cy="70" rx="58" ry="28" fill="url(#grad_mg_shine)" transform="rotate(-25 1205 70)"/>
+    <text id="mg_symbol" x="1248" y="218" text-anchor="middle" font-size="128" font-weight="800" fill="#ffffff" stroke="#5a1f8a" stroke-width="2" letter-spacing="-3">Mg</text>
+    <text id="mg_charge" x="1350" y="150" text-anchor="middle" font-size="56" font-weight="800" fill="#ffffff" stroke="#5a1f8a" stroke-width="1">2+</text>
+  </g>
+
+  <!-- ===================== HYPERMAGNESEMIA LABEL ===================== -->
+  <g id="hypermagnesemia_label" data-pivot="1315 326">
+    <rect id="hypermagnesemia_box" x="1076" y="264" width="478" height="124" rx="18" fill="url(#grad_label_pink)" stroke="#8e1240" stroke-width="5"/>
+    <text id="hypermagnesemia_title" x="1315" y="322" text-anchor="middle" font-size="47" font-weight="800" fill="#2a0f1f" letter-spacing="-0.8">Hypermagnesemia</text>
+    <text id="hypermagnesemia_subtitle" x="1315" y="368" text-anchor="middle" font-size="32" fill="#2a0f1f">(High serum magnesium)</text>
+  </g>
+
+  <!-- ===================== DOCTOR ARM + REFLEX HAMMER ===================== -->
+  <g id="doctor_arm" data-pivot="1672 760">
+    <path id="doctor_sleeve" d="M1352 590 C 1430 610, 1520 650, 1592 680 C 1640 706, 1672 740, 1672 776 L 1672 872 C 1600 860, 1500 794, 1420 742 C 1390 722, 1366 708, 1350 694 Z" fill="url(#grad_coat)" stroke="#1e3550" stroke-width="3" stroke-linejoin="round"/>
+    <path id="doctor_sleeve_folds" d="M1440 668 C 1500 700, 1560 730, 1640 760 M1470 720 C 1530 760, 1580 800, 1640 830" stroke="#c6d3e2" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <g id="reflex_hammer" data-pivot="1270 630">
+      <path id="hammer_handle" d="M1104 492 L 1300 656 L 1290 672 L 1094 508 Z" fill="url(#grad_hammer_handle)" stroke="#141b21" stroke-width="2.5" stroke-linejoin="round"/>
+      <g id="hammer_head" transform="rotate(-50 1098 494)">
+        <rect x="1070" y="478" width="56" height="32" rx="11" fill="#25313b" stroke="#10161b" stroke-width="3"/>
+        <rect x="1076" y="482" width="20" height="9" rx="4.5" fill="#5b6a77"/>
+      </g>
+      <g id="hammer_impact_lines">
+        <path d="M1040 468 L 1048 488 M1052 500 L 1068 504 M1054 518 L 1068 530" stroke="#2b3741" stroke-width="4" stroke-linecap="round"/>
+      </g>
+    </g>
+    <path id="doctor_cuff" d="M1338 590 C 1360 586, 1376 610, 1376 640 C 1376 668, 1366 694, 1350 698 C 1334 678, 1328 624, 1338 590 Z" fill="#9cc4ec" stroke="#1e3550" stroke-width="2.5"/>
+    <g id="doctor_hand" data-pivot="1345 640">
+      <path d="M1348 604 C 1318 572, 1270 556, 1236 562 C 1210 566, 1198 584, 1206 600 C 1214 614, 1236 612, 1250 614 C 1226 626, 1214 644, 1226 656 C 1240 668, 1262 660, 1280 662 C 1300 676, 1330 690, 1352 694 Z" fill="url(#grad_skin)" class="ol"/>
+      <path d="M1236 576 C 1254 572, 1270 580, 1276 594 M1250 614 C 1264 618, 1276 626, 1284 638 M1280 662 C 1290 656, 1300 652, 1310 652" stroke="#c97a55" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- motion lines showing the expected (absent) knee jerk -->
+  <g id="reflex_motion_lines">
+    <path d="M1060 546 C 1090 584, 1120 620, 1150 662" stroke="#8a929c" stroke-width="3" stroke-dasharray="12 8" fill="none" stroke-linecap="round" marker-end="url(#marker_dash_arrow)"/>
+    <path d="M1056 556 C 1074 600, 1094 650, 1118 692" stroke="#8a929c" stroke-width="3" stroke-dasharray="12 8" fill="none" stroke-linecap="round" marker-end="url(#marker_dash_arrow)"/>
+  </g>
+
+  <!-- ===================== NO-REFLEX MARKER ===================== -->
+  <g id="no_reflex_marker" data-pivot="1212 718">
+    <circle id="no_reflex_circle" cx="1212" cy="718" r="52" fill="#ffffff" fill-opacity="0.85" stroke="#d00103" stroke-width="9"/>
+    <path id="no_reflex_x" d="M1190 696 L 1234 740 M1234 696 L 1190 740" stroke="#d00103" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===================== LOSS OF DEEP TENDON REFLEXES LABEL ===================== -->
+  <g id="reflex_label" data-pivot="1478 532">
+    <g id="reflex_label_stress_marks">
+      <path d="M1268 434 L 1288 458 M1250 466 L 1280 474" stroke="#e8212b" stroke-width="5" stroke-linecap="round"/>
+      <path d="M1620 438 L 1636 414 M1630 464 L 1656 452" stroke="#e8212b" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <path id="reflex_label_box" d="M1306 456 C 1308 440, 1320 430, 1336 430 L 1616 438 C 1636 438, 1650 452, 1648 470 L 1638 610 C 1636 628, 1622 640, 1604 640 L 1336 632 C 1318 632, 1304 618, 1306 600 Z" fill="url(#grad_label_yellow)" stroke="#9a1b16" stroke-width="5" stroke-linejoin="round"/>
+    <g id="reflex_label_text" transform="rotate(-2 1476 534)" fill="#8e1414" font-weight="800" text-anchor="middle" letter-spacing="-1">
+      <text x="1480" y="496" font-size="52">Loss of</text>
+      <text x="1476" y="554" font-size="52">deep tendon</text>
+      <text x="1476" y="610" font-size="52">reflexes</text>
+    </g>
+  </g>
+</svg>
