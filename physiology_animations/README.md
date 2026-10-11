@@ -15,7 +15,8 @@ Ten 8-second animated explanations (1280×720, 30 fps, H.264), built on the diag
 | 9 | Starling forces in a capillary | capillary |
 | 10 | Nephron: filtrate to urine | nephron_2d |
 
-- `videos/` — the MP4s.
+- `physiology-10-explainers.mp4` — all ten back to back (80 s).
+- `videos/` — the individual MP4s.
 - `html/` — standalone looping versions (open in a browser).
 - `source/` — engine, per-scene scripts, build and render scripts.
   - `node build.js <svgRoot> <outDir>` inlines the SVGs into HTML.
