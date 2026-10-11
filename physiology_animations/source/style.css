@@ -1,0 +1,35 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1280px;height:720px;overflow:hidden;background:#eef2f7}
+body{font-family:Inter,"Liberation Sans",sans-serif;color:#13203a;-webkit-font-smoothing:antialiased}
+#root{position:relative;width:1280px;height:720px;background:radial-gradient(1200px 700px at 80% 0%,#ffffff 0%,#eef2f7 60%,#e6ebf3 100%)}
+.stage{position:absolute;left:36px;top:40px;width:640px;height:640px;background:#fff;border-radius:22px;box-shadow:0 1px 2px rgba(19,32,58,.06),0 12px 40px rgba(19,32,58,.10);overflow:hidden}
+.stage-inner{position:absolute;inset:0;overflow:hidden}
+.space{position:absolute;left:0;top:0;width:900px;height:900px;transform-origin:0 0}
+.layer{position:absolute;left:0;top:0;width:900px;height:900px;object-fit:contain}
+.overlay{position:absolute;left:0;top:0;width:900px;height:900px;overflow:visible}
+.badge{position:absolute;right:14px;top:14px;font:700 13px Inter;color:#fff;background:var(--accent);padding:5px 10px;border-radius:999px;letter-spacing:.04em}
+.panel{position:absolute;left:712px;top:40px;width:532px;height:640px;display:flex;flex-direction:column}
+.kicker{font:700 13px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font:800 34px/1.12 "Inter Display",Inter;letter-spacing:-.01em;margin:8px 0 18px;color:#0e1a33}
+.steps{list-style:none;display:flex;flex-direction:column;gap:8px}
+.steps li{display:flex;gap:12px;align-items:flex-start;padding:9px 12px;border-radius:12px;font:500 16.5px/1.38 Inter;color:#22304d;transition:none;border:1.5px solid transparent}
+.steps li .n{flex:0 0 26px;height:26px;border-radius:50%;display:grid;place-items:center;font:700 13px Inter;background:#dde4ef;color:#4a5878;margin-top:-1px}
+.steps li.on{background:#fff;border-color:color-mix(in srgb,var(--accent) 35%,transparent);box-shadow:0 6px 18px rgba(19,32,58,.08)}
+.steps li.on .n{background:var(--accent);color:#fff}
+.steps b{color:#0e1a33}
+.widget{margin-top:14px}
+.take{margin-top:auto;padding:12px 16px;border-radius:14px;background:#0e1a33;color:#e9eef8;font:500 15.5px/1.4 Inter}
+.take b{display:block;font:700 11.5px Inter;letter-spacing:.14em;text-transform:uppercase;color:color-mix(in srgb,var(--accent) 55%,#fff);margin-bottom:3px}
+.bar{position:absolute;left:0;right:0;bottom:0;height:6px;background:rgba(19,32,58,.08)}
+.bar i{display:block;height:100%;background:var(--accent)}
+/* widget pieces */
+.wcard{background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 1px 2px rgba(19,32,58,.06),0 6px 20px rgba(19,32,58,.06)}
+.wtitle{font:700 11.5px Inter;letter-spacing:.12em;text-transform:uppercase;color:#6b7896;margin-bottom:6px}
+.meter{display:flex;align-items:center;gap:10px;font:600 14px Inter;color:#22304d;margin:5px 0}
+.meter .lab{flex:0 0 118px}
+.meter .trk{flex:1;height:12px;border-radius:6px;background:#e7ecf4;overflow:hidden}
+.meter .trk i{display:block;height:100%;border-radius:6px}
+.meter .val{flex:0 0 92px;text-align:right;font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:8px}
+.chip{font:700 12.5px Inter;letter-spacing:.06em;padding:6px 12px;border-radius:999px;background:#e7ecf4;color:#6b7896}
+.chip.on{background:var(--accent);color:#fff}
