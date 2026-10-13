@@ -20,6 +20,7 @@ M="${MODELS_DIR:-/home/user/models}"
 COMMON=(--vae "$M/qwen_image_2.1_vae_bf16.safetensors"
         --llm "$M/Qwen3VL-8B-Instruct-Q4_K_M.gguf"
         --sampling-method euler --offload-to-cpu --fa
+        --mmap --params-backend te=disk --vae-tiling --vae-tile-overlap 0.25
         -W "$W" -H "$H" -t "$(nproc)" -p "$PROMPT" -o "$OUT")
 
 if [[ "$MODE" == "turbo" ]]; then
