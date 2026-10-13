@@ -23,8 +23,10 @@ COMMON=(--vae "$M/qwen_image_2.1_vae_bf16.safetensors"
         -W "$W" -H "$H" -t "$(nproc)" -p "$PROMPT" -o "$OUT")
 
 if [[ "$MODE" == "turbo" ]]; then
-  # 8 steps, no CFG: fast.
-  "$SD" --diffusion-model "$M/qwen_image_2.1_turbo_int8_convrot.safetensors" \
+  # Q6_K GGUF + Turbo LoRA: 8 steps, no CFG. GGUF uses ggml's SIMD CPU kernels;
+  # the int8_convrot Turbo checkpoint only has a slow portable CPU path.
+  COMMON[${#COMMON[@]}-3]="$PROMPT<lora:qwen_image_2.1_turbo_lora:1>"
+  "$SD" --diffusion-model "$M/qwen_image_2.1-Q6_K.gguf" --lora-model-dir "$M" \
     --sigmas qwen-image-2.1-turbo --steps 8 --cfg-scale 1.0 "${COMMON[@]}"
 else
   # Full model with CFG: slower, highest quality.
