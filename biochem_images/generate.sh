@@ -3,6 +3,7 @@
 #
 # Usage:
 #   ./generate.sh "prompt" output.png [turbo|base] [WIDTHxHEIGHT]
+#   REF=input.png ./generate.sh "edit instruction" output.png [turbo|base] [WIDTHxHEIGHT]
 #
 # Run ./setup.sh once per fresh container to build the engine and download weights.
 set -euo pipefail
@@ -22,6 +23,11 @@ COMMON=(--vae "$M/qwen_image_2.1_vae_bf16.safetensors"
         --sampling-method euler --offload-to-cpu --fa
         --mmap --params-backend te=disk --vae-tiling --vae-tile-overlap 0.25
         -W "$W" -H "$H" -t "$(nproc)" -p "$PROMPT" -o "$OUT")
+
+if [[ -n "${REF:-}" ]]; then
+  # Image editing: the text encoder needs its vision weights to read the reference.
+  COMMON=(--llm_vision "$M/mmproj-Qwen3VL-8B-Instruct-F16.gguf" -r "$REF" "${COMMON[@]}")
+fi
 
 if [[ "$MODE" == "turbo" ]]; then
   # Q6_K GGUF + Turbo LoRA: 8 steps, no CFG. GGUF uses ggml's SIMD CPU kernels;
