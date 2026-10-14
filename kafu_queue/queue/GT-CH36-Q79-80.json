@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q79-80",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007284",
+   "number": "79",
+   "stem": "Which of the following conditions is associated with a metabolic acidosis and a high anion gap?",
+   "options": [
+    "Ketoacidosis",
+    "Diarrhoea",
+    "High-output ileostomy",
+    "Increased renal bicarbonate loss",
+    "Decreased renal hydrogen ion excretion"
+   ],
+   "answer": "A",
+   "answer_text": "Ketoacidosis",
+   "explanation": "The anion gap=(Na++K+)−(HCO3−+Cl−). If there is a high anion gap, there is an unmeasured anion present in increased quantities. This can be seen in ketoacidosis and lactic acidosis. A normal anion gap can still be seen in metabolic acidosis.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007285",
+   "number": "80",
+   "stem": "Concerning action potentials, which of the following statements is correct?",
+   "options": [
+    "The equilibrium potential of an ion is calculated by the Goldman equation.",
+    "The typical value of the resting membrane potential for a neuron is 70 mV.",
+    "An action potential is a rapid hyperpolarization followed by subsequent depolarization.",
+    "For any individual cell, each action potential is of the same amplitude and propagated at the same speed.",
+    "The resting membrane potential of a cell is calculated by the Nernst equation."
+   ],
+   "answer": "D",
+   "answer_text": "For any individual cell, each action potential is of the same amplitude and propagated at the same speed.",
+   "explanation": "The Nernst equation can be used to calculate the equilibrium potential, which is the potential difference at which an ion ceases to flow across the cell membrane along its electrochemical gradient. The typical value of the resting membrane potential for a neuron is –70 mV. An action potential is a rapid depolarization followed by subsequent repolarization to the resting membrane potential. The Goldman equation can be used to calculate the resting membrane potential, which is the potential difference across the cell membrane.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

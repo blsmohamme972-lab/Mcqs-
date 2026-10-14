@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q39-40",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007244",
+   "number": "39",
+   "stem": "Which of the following statements regarding cerebrospinal fluid (CSF) is correct?",
+   "options": [
+    "The total volume is 100 mL.",
+    "The rate of production is approximately 250 mL/day.",
+    "Normal CSF pressure is 5 kPa.",
+    "CSF is only produced in the lateral and third ventricles.",
+    "CSF is absorbed by the spinal villi in the lumbar region."
+   ],
+   "answer": "E",
+   "answer_text": "CSF is absorbed by the spinal villi in the lumbar region.",
+   "explanation": "It has two main functions, acting as a ‘hydraulic’ cushion protecting the brain from trauma and providing a stable ionic environment for cerebral function. The total volume of CSF is around 140 mL, where 40 mL surrounds the brain and 100 mL surrounds the spinal cord. Approximately 500 mL of CSF is produced by the choroid plexus in the lateral, third and fourth ventricles per day. The CSF circulates around the subarachnoid space and is reabsorbed into the venous sinuses predominantly by the arachnoid villi, but CSF is also absorbed by the spinal villi in the lumbar region.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007245",
+   "number": "40",
+   "stem": "What is incarceration of a Meckel’s diverticulum into an inguinal hernia otherwise known as?",
+   "options": [
+    "De Garengeot hernia",
+    "Amyand hernia",
+    "Richter hernia",
+    "Spigelian hernia",
+    "Littre hernia"
+   ],
+   "answer": "E",
+   "answer_text": "Littre hernia",
+   "explanation": "Littre hernia is incarceration of a Meckel’s diverticulum within a hernial sac. De Garengeot hernia is incarceration of the vermiform appendix within a femoral hernia. Amyand hernia is incarceration of the vermiform appendix within an inguinal hernia. Richter hernia is a hernia involving only one sidewall of the bowel, which may result in bowel strangulation without the signs of bowel obstruction.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

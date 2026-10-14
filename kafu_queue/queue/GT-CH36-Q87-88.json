@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q87-88",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007292",
+   "number": "87",
+   "stem": "Which of the following statements regarding calcium homeostasis is true?",
+   "options": [
+    "Vitamin D stimulates osteoclasts.",
+    "Vitamin D reduces calcium and phosphate absorption through the terminal ileum.",
+    "Calcitonin is secreted from the chief cells of the parathyroid gland.",
+    "Parathormone stimulates 1α-hydroxylase.",
+    "Parathormone inhibits collagen synthesis by osteoblasts."
+   ],
+   "answer": "D",
+   "answer_text": "Parathormone stimulates 1α-hydroxylase.",
+   "explanation": "Calcium homeostasis is maintained by parathormone (parathyroid hormone/PTH), calcitonin and vitamin D. PTH is secreted by the chief cells of the parathyroid gland when there is a fall in extracellular calcium. PTH increases plasma calcium by decreasing osteoblast activity, increasing reabsorption from the distal tubule. PTH also reduces phosphate reabsorption in the kidney and stimulates 1α-hydoxylase and thus activates vitamin D.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007293",
+   "number": "88",
+   "stem": "Which one of the following molecules is used for cell signalling?",
+   "options": [
+    "CO₂",
+    "O₂",
+    "NO",
+    "N₂",
+    "H₂CO₃"
+   ],
+   "answer": "C",
+   "answer_text": "NO",
+   "explanation": "Nitric oxide (NO) is especially secreted by nerve terminals in areas of the brain responsible for long-term behaviour and memory. It is synthesized instantly as needed then diffuses out of the presynaptic terminals over a period of seconds rather than being released in vesicular packets. It is also released by the endothelium of blood vessels as endothelium-derived relaxing factor. It diffuses into postsynaptic neurons nearby.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

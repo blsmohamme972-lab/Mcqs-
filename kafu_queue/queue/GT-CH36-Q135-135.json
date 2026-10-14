@@ -1,0 +1,27 @@
+{
+ "package_id": "GT-CH36-Q135-135",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007340",
+   "number": "135",
+   "stem": "Which of the following structures is located in the anterior mediastinum?",
+   "options": [
+    "Thymus gland",
+    "Oesophagus",
+    "Aorta",
+    "Heart",
+    "Trachea"
+   ],
+   "answer": "A",
+   "answer_text": "Thymus gland",
+   "explanation": "The anterior mediastinum is bordered anteriorly by the sternum and posteriorly by the great vessels. It contains the thymus, lymph nodes, fat and vessels. Disorders of the anterior mediastinum are generally thymic, thyroid (substernal goitre), teratoma (and other germ cell tumours) and lymphomas (Hodgkin disease, non-Hodgkin lymphoma).",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

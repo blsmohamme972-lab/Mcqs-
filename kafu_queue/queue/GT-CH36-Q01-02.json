@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q01-02",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007206",
+   "number": "1",
+   "stem": "At which vertebral level does the oesophagus cross the diaphragm?",
+   "options": [
+    "T8",
+    "T9",
+    "T10",
+    "T11",
+    "T12"
+   ],
+   "answer": "C",
+   "answer_text": "T10",
+   "explanation": "The oesophagus traverses the mid-portion of the diaphragm, which corresponds to the level of T10. The oesophagus is accompanied by the left and right vagus nerves, which, at this point, are named the anterior and posterior gastric nerves, respectively. The left and right vagus nerves rotate anticlockwise because they follow the rotation of the gut. Other structures passing through at this level include the oesophageal branches of the left gastric vessels and a few lymphatic vessels.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007207",
+   "number": "2",
+   "stem": "A 47-year-old male presents with a 3 × 4 cm superficial abdominal wall abscess. Which of the following statements regarding the pathology of abscesses is correct?",
+   "options": [
+    "They are enclosed in a pyogenic membrane composed of fibrotic connective tissue.",
+    "Staphylococcus aureus is always the cause of a pilonidal abscess.",
+    "Coliforms are most often the cause of a psoas abscess.",
+    "A sterile abscess may contain bacteria.",
+    "Pus contains a mixture of dead and live neutrophils."
+   ],
+   "answer": "E",
+   "answer_text": "Pus contains a mixture of dead and live neutrophils.",
+   "explanation": "A pre-existing pilonidal sinus gives rise to a pilonidal abscess and is generally colonised with coliforms. A psoas abscess is most frequently caused by Staphylococcus aureus, tuberculosis and other rare microorganisms. A sterile abscess is defined as an abscess devoid of microorganisms which may occur following sterilization of a septic abscess with antibiotics. Pus contains a mixture of dead and live neutrophils, fibrin, lipid, coagulation and complement factors.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

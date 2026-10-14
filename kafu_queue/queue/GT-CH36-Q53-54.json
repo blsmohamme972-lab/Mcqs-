@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q53-54",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007258",
+   "number": "53",
+   "stem": "Which of the following subtypes of malignant melanoma is more common in darker-skinned individuals?",
+   "options": [
+    "Lentigo maligna melanoma",
+    "Nodular melanoma",
+    "Superficial spreading melanoma",
+    "Acral lentiginous melanoma",
+    "Amelanocytic melanoma"
+   ],
+   "answer": "D",
+   "answer_text": "Acral lentiginous melanoma",
+   "explanation": "There are five subtypes recognized. Superficial spreading is the most common, occurring mostly on the lower limb or trunk. Lentigo maligna are commonly found on the face in elderly patients. Acral lentiginous are more common in darker-skinned people, found mostly on the palms or soles and mucous membranes.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007259",
+   "number": "54",
+   "stem": "Which one of the following is characteristic of necrosis in comparison with apoptosis?",
+   "options": [
+    "The plasma membrane remains intact.",
+    "There is cell shrinkage.",
+    "There is an inflammatory response.",
+    "It typically involves single cells rather than groups of cells.",
+    "It is a physiological process."
+   ],
+   "answer": "C",
+   "answer_text": "There is an inflammatory response.",
+   "explanation": "Apoptosis involves single cells, whereas necrosis involves groups of cells. The plasma membrane remains intact with apoptosis, but with necrosis there is loss of membrane integrity. With apoptosis there is cell shrinkage, fragmentation and formation of characteristic apoptotic bodies, whereas in necrosis there is cell swelling and lysis with phagocytosis of cell remnants by neutrophils. Apoptosis has no inflammatory response, and the cell remnants are phagocytosed by neighbouring cells.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

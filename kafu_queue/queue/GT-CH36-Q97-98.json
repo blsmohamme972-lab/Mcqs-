@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q97-98",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007302",
+   "number": "97",
+   "stem": "Which of the following factors has the greatest relative risk (RR) of venous thrombosis?",
+   "options": [
+    "Use of the oral contraceptive pill (OCP)",
+    "Homozygous factor V Leiden",
+    "Homozygous prothrombin gene mutation",
+    "Heterozygous antithrombin III deficiency",
+    "Heterozygous protein C deficiency"
+   ],
+   "answer": "B",
+   "answer_text": "Homozygous factor V Leiden",
+   "explanation": "Factor V Leiden causes an increased breakdown of protein C, an anticoagulant factor. The relative risk (RR) of the heterozygous state is 6, whereas the homozygous state is 80. Oral contraceptive pill (OCP) use is associated with an RR of 4. Protein C deficiency in the homozygous form results in severe thrombosis at birth; the heterozygous form RR is 7.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007303",
+   "number": "98",
+   "stem": "A 31-year-old obese smoker with heterozygous Christmas disease fractures his femur after crashing his motorcycle. He is bed-bound in traction initially and then undergoes a 2-h operation to fix the fracture. Owing to postoperative complications he remains in bed for a further 5 days. Nine days after his injury he develops a deep vein thrombosis (DVT) in his calf. Which of the following have increased his risk of developing a DVT?",
+   "options": [
+    "Obesity",
+    "Smoking",
+    "Christmas disease",
+    "All of the above",
+    "a and b only"
+   ],
+   "answer": "E",
+   "answer_text": "a and b only",
+   "explanation": "Three factors have been identified that predispose a patient to thrombus formation, known as Virchow’s triad: (1) endothelial injury, (2) hypercoagulability and (3) altered blood flow leading to stasis or turbulence. Of the three factors, endothelial injury is the most important. Hypercoagulable states arise through primary (genetic) or secondary (acquired) causes.\n\nPrimary causes: Factor V Leiden, mutation in prothrombin gene, antithrombin III deficiency, protein C and protein S deficiency Secondary (high risk): Prolonged bed rest, myocardial infarction, atrial fibrillation, tissue damage, cancer, disseminated intravascular coagulation Secondary (low risk): Obesity, smoking, hyperoestrogenic states (pregnancy and oral contraceptive use), nephritic syndrome, sickle cell anaemia Christmas disease (haemophilia B) is a deficiency of factor IX and therefore increases bleeding.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

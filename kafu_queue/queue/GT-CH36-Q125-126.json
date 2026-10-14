@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q125-126",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007330",
+   "number": "125",
+   "stem": "Which of the following statements concerning inotropes is correct?",
+   "options": [
+    "Adrenaline is predominantly an α₁ receptor agonist.",
+    "Dobutamine is predominantly a β₁ receptor agonist.",
+    "Isoprenaline acts on both α₁ and α₂ receptor.",
+    "Nitrates have weak inotropic effects.",
+    "Dopamine predominantly causes α agonism at low doses."
+   ],
+   "answer": "B",
+   "answer_text": "Dobutamine is predominantly a β₁ receptor agonist.",
+   "explanation": "Adrenaline acts on α, β₁ and β₂ receptors, causing massive peripheral vasoconstriction (via α agonism) and positive inotropic/chronotropic effects (via β₁ receptor agonism). Dobutamine is predominantly a β₁ receptor agonist used primarily in cardiogenic shock. Isoprenaline is both a β₁ and β₂ receptor agonist. Nitrates are not inotropes, in that they do not alter the contractility or rate of contraction of the heart; their principle action is venodilatation, and they are used to reduce peripheral vascular resistance.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007331",
+   "number": "126",
+   "stem": "Concerning the blood supply/drainage of the heart, which of the following statements is correct?",
+   "options": [
+    "The anterior interventricular artery arises from the right coronary artery.",
+    "The circumflex artery arises from the left coronary artery.",
+    "The posterior interventricular artery forms an anastomosis with the marginal artery.",
+    "The anterior cardiac veins always drain into the coronary sinus.",
+    "The small cardiac vein always drains directly into the right atrium."
+   ],
+   "answer": "B",
+   "answer_text": "The circumflex artery arises from the left coronary artery.",
+   "explanation": "The blood supply to the heart may be summarized as follows:\n\nLeft coronary artery (arising from the posterior aspect of the aortic sinus) divides into: Anterior interventricular artery (which courses the interventricular groove and forms an anastomosis with the posterior interventricular artery) Circumflex artery (which courses the atrioventricular sulcus and forms an anastomosis with the right coronary artery) Right coronary artery (arising from the anterior aspect of the aortic sinus) divides into: Posterior interventricular artery (the continuation of the posterior interventricular artery, which courses the interventricular groove and forms an anastomosis with the anterior interventricular artery) Marginal branch (which descends over the anterior aspect of the ventricle)\n\nThe anterior cardiac veins always drain directly into the right atrium, whereas the small cardiac veins usually drain into the coronary sinus, but this is variable and sometimes they drain directly into the right atrium.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

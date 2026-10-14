@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q77-78",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007282",
+   "number": "77",
+   "stem": "An 85-year-old man undergoes a right hemicolectomy for a right-sided colonic cancer. A preoperative computed tomography (CT) scan showed no evidence of Metastasis. The postoperative histopathology report states the tumour is invading through the intestinal wall into adjacent structures and the apical lymph node is involved. Which Dukes’ stage is this?",
+   "options": [
+    "Stage A",
+    "Stage B",
+    "Stage C1",
+    "Stage C2",
+    "Stage D"
+   ],
+   "answer": "D",
+   "answer_text": "Stage C2",
+   "explanation": "The Dukes’ classification predates the more modern Tumour, Nodes, Metastasis (TNM) classification. It was put forward by Dr Cuthbert Dukes in 1932 and originally did not include stage D. The classification is:\n\nStage A: Tumour confined to the bowel wall (not extending beyond muscularis propria) Stage B: Tumour penetrating the bowel wall Stage C1: Lymph node involvement but not including the apical node Stage C2: Lymph node involvement including the apical node Stage D: Distant metastasis",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007283",
+   "number": "78",
+   "stem": "A 60-year-old man is scheduled to have a total gastrectomy for Zollinger–Ellison syndrome. He has been informed preoperatively that he will require lifelong intramuscular injections of vitamin B₁₂. Absence of which cell type is responsible for the vitamin replacement requirement?",
+   "options": [
+    "Goblet cells",
+    "Mucous neck cells",
+    "Parietal cells",
+    "G-cells",
+    "Chief cells"
+   ],
+   "answer": "C",
+   "answer_text": "Parietal cells",
+   "explanation": "The gastric parietal cells produce intrinsic factor, which binds vitamin B₁₂ in the stomach, thereby facilitating its absorption in the ileum. Post-gastrectomy patients require replacement because of the absence of these cells. The G-cells are found in the antral mucosa and upper small bowel and secrete gastrin, which stimulates secretion of acid by parietal cells. Goblet cells are found in the bowel, not stomach.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q95-96",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007300",
+   "number": "95",
+   "stem": "The rotator cuff consists of the tendinous insertions of supraspinatus, infraspinatus and which other two muscles?",
+   "options": [
+    "Teres major and subscapularis",
+    "Deltoid and teres minor",
+    "Rhomboid minor and levator scapulae",
+    "Teres minor and subscapularis",
+    "Teres major and teres minor"
+   ],
+   "answer": "D",
+   "answer_text": "Teres minor and subscapularis",
+   "explanation": "Together, these tendons surround the head of the humerus anteriorly, posteriorly and superiorly, conferring stability to the glenohumeral joint when they contract during movement. Rotator cuff deficiency leads to subluxation of the head of the humerus, leading to impingement against the acromion, which results in weakness of abduction and loss of motion. The supraspinatous tendon, which is the dominant part of the rotator cuff, is most frequently degenerate. It is involved in the abduction of the humerus in conjunction with the much stronger deltoid muscle.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007301",
+   "number": "96",
+   "stem": "An 18-year-old man is brought into the emergency department following a shooting. He is noted to have multiple internal injuries and is transfused 12 units of blood to stabilize him on his way to theatre. The anaesthetist notices changes in his electocardiogram trace as he is taken into theatre. Which one of the following is the most likely electrolyte abnormality identified?",
+   "options": [
+    "Low sodium and high phosphate",
+    "High sodium and low potassium",
+    "Low calcium and high potassium",
+    "High calcium and high sodium",
+    "Low magnesium and raised urea"
+   ],
+   "answer": "C",
+   "answer_text": "Low calcium and high potassium",
+   "explanation": "As a result of the large volume of blood transfused, this patient is likely to have a hyperkalaemia and a hypocalcaemia; the latter is secondary to the citrate (the anticoagulant used in blood transfusions) in the blood binding his blood calcium. This can lead to cardiac rhythm abnormalities and electrocardiogram changes.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

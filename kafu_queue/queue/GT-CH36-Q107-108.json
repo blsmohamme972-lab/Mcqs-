@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q107-108",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007312",
+   "number": "107",
+   "stem": "Concerning the physiological effects of thyroid hormones, which of the following statements is correct?",
+   "options": [
+    "Triiodothyronine (T₃) increases oxygen consumption in all metabolically active tissues.",
+    "Thyroxine (T₄) decreases oxygen consumption in the anterior pituitary gland.",
+    "The plasma levels of thyroid hormones share a reciprocal relationship with the appearance of uric acid in the urine.",
+    "Excessively high thyroid hormone levels result in excess conversion of vitamin A to carotene.",
+    "Hyperthyroidism leads to the accumulation of polysaccharides and hyaluronic acid in tissues."
+   ],
+   "answer": "B",
+   "answer_text": "Thyroxine (T₄) decreases oxygen consumption in the anterior pituitary gland.",
+   "explanation": "Triiodothyronine (T₃) and thyroxine (T₄) increase the oxygen consumption in most metabolically active tissues; exceptions include:\n\nSpleen, lymph nodes\nTestes\nUterus\nBrain (adult)\nAnterior pituitary (actually decreases as a result of decreased TSH secretion)\n\nIncreased thyroid hormones lead to increased nitrogen metabolism (leading to increased uric acid secretion, i.e. a direct relationship). Thyroid hormones are responsible for the conversion of carotene (which results in a yellow tint to the skin) to vitamin A – this explains the finding of carotenaemia in hypothyroid patients. Hypothyroidism leads to the accumulation of polysaccharides and hyaluronic acid in tissues, as thyroid hormones normally metabolize such proteins – this accounts for the characteristic puffiness (myxoedema) seen in hypothyroid patients.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007313",
+   "number": "108",
+   "stem": "Which one of the following statements is correct regarding apertures of the diaphragm?",
+   "options": [
+    "The aperture at T10 is in the central tendon of the diaphragm.",
+    "The aperture at T12 is at the right crus of the diaphragm.",
+    "During inspiration the inferior vena cava dilates facilitating blood flow to the heart.",
+    "Blood flow of the aorta is affected by diaphragmatic contraction.",
+    "The opening at T8 is posterior to the diaphragm."
+   ],
+   "answer": "C",
+   "answer_text": "During inspiration the inferior vena cava dilates facilitating blood flow to the heart.",
+   "explanation": "Each aperture is described in detail below.\n\nT8: Aperture is in the central tendon, situated to the right of the midline. Passing through is the inferior vena cava and terminal branches of the right phrenic nerve. When the diaphragm contracts during inspiration, the inferior vena cava dilates, facilitating blood flow to the heart.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

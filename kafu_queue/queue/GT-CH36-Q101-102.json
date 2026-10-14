@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q101-102",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007306",
+   "number": "101",
+   "stem": "The recurrent laryngeal nerve is an important structure that must be avoided when operating on the thyroid gland. Which one of the following statements regarding the recurrent laryngeal nerve is true?",
+   "options": [
+    "The right recurrent laryngeal nerve passes inferior to the right main bronchus.",
+    "The left recurrent laryngeal nerve passes arches under the left subclavian artery and then ascends to the pharynx.",
+    "The laryngeal nerves are derived from the hypoglossal nerve.",
+    "The recurrent laryngeal nerve enters the larynx by passing deep to the inferior border of the inferior constrictor muscle of the pharynx.",
+    "The recurrent laryngeal nerves descend in the tracheo-oesophageal groove."
+   ],
+   "answer": "D",
+   "answer_text": "The recurrent laryngeal nerve enters the larynx by passing deep to the inferior border of the inferior constrictor muscle of the pharynx.",
+   "explanation": "The recurrent laryngeal nerve supplies the motor and sensory function of the larynx and is of anatomical importance in thyroid surgery. The left recurrent laryngeal nerve passes inferior to the arch of the aorta before ascending again and inserting into the larynx, deep to the inferior border of the inferior constrictor muscle of the pharynx. The right recurrent laryngeal nerve passes inferior to the right subclavian artery. The laryngeal nerves are derived from the vagus nerve and ascend in a groove between the oesophagus and trachea.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007307",
+   "number": "102",
+   "stem": "A 28-year-old male undergoes an oesophagogastroduodenoscopy for persistent epigastric discomfort. He is diagnosed as having moderate gastritis and is Helicobacter pylori positive. The following statements regarding H. pylori are true except:",
+   "options": [
+    "It can be transmitted iatrogenically.",
+    "It can lead to peptic ulceration.",
+    "It is Gram-positive bacteria.",
+    "It can be diagnosed with a biopsy.",
+    "It produces the urease enzyme."
+   ],
+   "answer": "C",
+   "answer_text": "It is Gram-positive bacteria.",
+   "explanation": "Helicobacter pylori is a Gram-negative, spiral, motile and microaerophilic organism. Infection causes an increase in gastric acid secretion, leading to peptic ulceration. It produces the enzyme urease, which breaks down urea into CO₂ and the alkali ammonia, which increases the surrounding pH. It can be transmitted via faecal–oral, oral–oral or iatrogenic routes (endoscopy).",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

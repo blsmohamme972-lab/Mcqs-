@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q115-116",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007320",
+   "number": "115",
+   "stem": "Which one of the following conditions results in decreased affinity of haemoglobin for oxygen?",
+   "options": [
+    "The arterial PCO₂ is decreased.",
+    "The concentration of hydrogen ions is decreased.",
+    "The temperature is increased.",
+    "The arterial carbon monoxide is increased.",
+    "The concentration of 2,3-diphosphoglycerate (2,3-DPG) is decreased."
+   ],
+   "answer": "C",
+   "answer_text": "The temperature is increased.",
+   "explanation": "The curve plateaus at a PO₂ of around 15–16 kPa. A number of physiological parameters can change the affinity of oxygen, which alters the position of the curve. Shifts in the curve to the right (representing a decrease in affinity) are caused by increases in PCO₂ and hydrogen ions, which is known as the Bohr effect. In addition, increases in blood temperature and 2,3-diphosphoglycerate (2,3-DPG) levels in erythrocytes also shift the curve to the right.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007321",
+   "number": "116",
+   "stem": "A 30-year-old male office worker is brought to hospital after being stabbed in the abdomen. He is of average weight and is normally generally fit. You note that he is anxious but conscious with a slightly raised respiratory rate. You are given the following observations by the paramedic crew: blood pressure 120/105 mmHg, heart rate 105 bpm, urine output of 20 mL in the last hour. Which (if any) class of shock is he currently in?",
+   "options": [
+    "Not shocked",
+    "Class I",
+    "Class II",
+    "Class III",
+    "Class IV"
+   ],
+   "answer": "C",
+   "answer_text": "Class II",
+   "explanation": "Class II suggests that he has lost 15–30% of his blood volume. This loss may not be obvious as a patient is often able to conceal large volumes of body fluids internally. Class II shock has signs of normal systolic blood pressure but reduced pulse pressure, with a tachycardia, increased respiratory rate and reduced urine output. The table below describes the classes of shock.\n\n| For an average 70 kg man | Class I | Class II | Class III | Class IV |\n| --- | --- | --- | --- | --- |\n| Blood loss (mL) | <750 | 750–1500 | 1500–2000 | >2000 |\n| Blood loss (%) | <15% | 15–30% | 30–40% | >40% |\n| Heart rate | <100 | >100 | >120 | >140 |\n| Blood pressure (mmHg) | Normal or increased | Normal | Decreased | Decreased |\n| Respiratory rate | 14–20 | 20–30 | 30–40 | >40 |\n| Urine output (mL/h) | >30 | 20–30 | 5–15 | Negligible |\n| Mental status | Slightly anxious | Mildly anxious | Anxious/ confused | Confused/ lethargic |",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

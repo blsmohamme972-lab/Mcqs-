@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q63-64",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007268",
+   "number": "63",
+   "stem": "A 76-year-old woman presents to the accident and emergency department with a peritonitic abdomen. She is taken for an immediate laparotomy. A pelvic mass is biopsied and several days later histology suggests a Krukenberg tumour. Which of the following is the most likely source of the primary tumour?",
+   "options": [
+    "Pancreatic carcinoma",
+    "Gastric carcinoma",
+    "Ovarian carcinoma",
+    "Lung carcinoma",
+    "Breast carcinoma"
+   ],
+   "answer": "B",
+   "answer_text": "Gastric carcinoma",
+   "explanation": "Gastric carcinoma is now the second most common carcinoma in the UK. It often presents late and so is a difficult disease to treat. The majority are adenocarcinomas with 2–8% being lymphomas. Gastrointestinal stromal tumour (GIST) and neuroendocrine tumours are less common.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007269",
+   "number": "64",
+   "stem": "When analyzing a spirogram, the expiratory reserve volume is defined as which one of the following?",
+   "options": [
+    "The volume of gas remaining in the lungs after maximal expiration",
+    "The volume of gas that can be expired after maximal inspiration",
+    "The maximum volume of gas that can be expired during forced breathing excluding the tidal volume",
+    "The maximum volume of gas that can be expired during forced breathing including the tidal volume",
+    "The volume of gas remaining in the lungs after a normal tidal expiration"
+   ],
+   "answer": "C",
+   "answer_text": "The maximum volume of gas that can be expired during forced breathing excluding the tidal volume",
+   "explanation": "A spirogram is a useful test to perform as part of a pre-assessment before theatre. The expiratory reserve volume is defined as the maximum volume of gas that can be expired during forced breathing in addition to the tidal volume. The tidal volume is the volume of air inspired or expired in a normal breath. The residual volume is the volume of gas remaining in the lungs after maximal expiration.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

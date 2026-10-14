@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q17-18",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007222",
+   "number": "17",
+   "stem": "While performing an endoscopy on a patient with long-term gastro-oesophageal reflux disease (GORD) you notice an area of erythema around the distal third of the oesophagus. Which of the following pathological processes has most likely occurred?",
+   "options": [
+    "Neoplasia",
+    "Hyperplasia",
+    "Heteroplasia",
+    "Dysplasia",
+    "Metaplasia"
+   ],
+   "answer": "E",
+   "answer_text": "Metaplasia",
+   "explanation": "Patients with gastro-oesophageal reflux disease (GORD) reflux gastric acid into the distal oesophagus. The acid causes inflammation to the oesophagus, and if the exposure is severe and chronic enough, metaplastic transformation may take place. Metaplasia is the term used to describe the process where one differentiated cell type is replaced with another. The process is reversible and so, if the irritant is removed, the tissue may return to normal.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007223",
+   "number": "18",
+   "stem": "The following tumour markers are correctly paired with an associated neoplasia except:",
+   "options": [
+    "Ca 15-3: Breast cancer",
+    "Calcitonin: Parathyroid carcinoma",
+    "Ca 19-9: Advanced colorectal carcinoma",
+    "Vanillylmandelic acid: Pheochromocytoma",
+    "Antidiuretic hormone: Oat cell tumour"
+   ],
+   "answer": "B",
+   "answer_text": "Calcitonin: Parathyroid carcinoma",
+   "explanation": "Parathyroid carcinoma may lead to an increase in parathyroid hormone (PTH) production. Further examples of tumour markers include:\n\nPituitary: Adrenocorticotropic hormone (ACTH), growth hormone, prolactin Adrenal: Cortisol Carcinoid: 5-Hydroxyindoleacetic acid (5-HIAA) Oat cell: ACTH, antidiuretic hormone Prostate: Prostate-specific antigen (PSA) Hepatic: α-Fetoprotein (AFP) (Note: Also cirrhosis, pregnancy, hepatitis, neural tube defect) Colorectal: Carcinoembryonic antigen (CEA), Ca 19-9 (advanced) Testicular teratoma: β-hCG, CEA, AFP Testicular seminoma: Placental alkaline phosphatase Breast: Ca 15-3 Pancreatic: Ca 19-9 Thyroid: Thyroglobulin, calcitonin (medullary carcinoma) Phaeochromocytoma: Vanillylmandelic acid",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

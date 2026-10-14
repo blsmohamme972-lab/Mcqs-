@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q21-22",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007226",
+   "number": "21",
+   "stem": "On the general surgical ward you are managing a patient who needs to be nil by mouth for several days. Which statement regarding fluid secretions and absorption in the gastrointestinal tract is correct in order to aid your fluid management regimen?",
+   "options": [
+    "A total of 2.5 L of saliva is secreted per day.",
+    "The small bowel absorbs 4–5 L per day.",
+    "One litre of bile is secreted per day.",
+    "A total of 300 mL of fluid is secreted in faeces.",
+    "The small intestine secretes 1.5 L of fluid per day."
+   ],
+   "answer": "E",
+   "answer_text": "The small intestine secretes 1.5 L of fluid per day.",
+   "explanation": "Mouth – 0.8–1.5 L saliva secreted; stomach – 2–3 L gastric juices secreted; gallbladder – 500 mL bile secreted; pancreas – 1.5 L juices secreted; small bowel – 8–9 L fluid absorbed, 1.5 L fluid secreted; large bowel – 1 L fluid absorbed, 100 mL excreted in faeces. The fluid balance of a patient needs to factor in the absorption and secretion of all parts of the gastrointestinal tract in order to maintain a positive net balance.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007227",
+   "number": "22",
+   "stem": "Which of the following statements is correct regarding the anatomy of the submandibular gland?",
+   "options": [
+    "The submandibular duct arises superiorly from the gland.",
+    "The superficial lobe of the gland lies between the mylohyoid and the posterior belly of the digastric muscle.",
+    "The gland is separated from the parotid gland by the stylomandibular ligament.",
+    "The gland lies superior to the lingual nerve.",
+    "The gland lies inferior to the hypoglossal nerve."
+   ],
+   "answer": "C",
+   "answer_text": "The gland is separated from the parotid gland by the stylomandibular ligament.",
+   "explanation": "The submandibular duct (of Wharton) arises anteriorly, travelling lateral to the tongue, and opens in the papilla lateral to the frenulum anteriorly – it is crossed by the lingual nerve, which lies lateral to the duct at first, but then crosses underneath it to lie medially. The superficial lobe of the gland lies between the mylohyoid and the angle of the mandible. The submandibular gland is separated from the parotid gland posteriorly by the stylomandibular ligament. The lingual nerve lies superior to the submandibular gland; conversely, the hypoglossal nerve lies inferiorly – both of these nerves are at risk of damage during submandibular gland excision, as is the marginal mandibular branch of the facial nerve.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q67-68",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007272",
+   "number": "67",
+   "stem": "Which one of the following statements regarding the borders of the popliteal fossa is correct?",
+   "options": [
+    "Superolateral and superomedial borders are formed by the lateral and medial heads of the gastrocnemius, respectively.",
+    "The superomedial border is formed by semimembranosus and semitendinosus.",
+    "Semimembranosus is superficial to semitendinosus.",
+    "The inferolateral border is formed by the biceps femoris.",
+    "The roof is formed by the popliteal surface of the femur."
+   ],
+   "answer": "B",
+   "answer_text": "The superomedial border is formed by semimembranosus and semitendinosus.",
+   "explanation": "The inferolateral and inferomedial borders are supplied by the lateral and medial heads of the gastrocnemius, respectively. The superomedial border is formed by the semimembranosus and the semitendinosus, with the superolateral border formed by the biceps femoris. The semimembranosus is deep to the semitendinosus. The roof is formed by skin and fascia and the floor is formed by the popliteal surface of the femur.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007273",
+   "number": "68",
+   "stem": "A 23-year-old woman is referred to the Ear, nose and throat (ENT) clinic with a lump in her neck. The ENT senior house officer notes that there is a lump arising from the posterior triangle of the neck. Which of the following structures form the boundaries of the posterior triangle of the neck?",
+   "options": [
+    "Posterior border of sternocleidomastoid, the clavicle and anterior border of trapezius",
+    "Inferior border of mandible, anterior border of trapezius and anterior border of sternocleidomastoid",
+    "Anterior midline of neck, posterior border of sternocleidomastoid and inferior border of mandible",
+    "Styloid process, suprasternal notch and posterior border of sternocleidomastoid",
+    "Digastric muscle inferior border of mandible and anterior border of trapezius"
+   ],
+   "answer": "A",
+   "answer_text": "Posterior border of sternocleidomastoid, the clavicle and anterior border of trapezius",
+   "explanation": "The neck is divided into anterior and posterior triangles by the sternocleidomastoid muscles.\n\nAnterior triangle boundaries:\n\nMedially: The midline Laterally: Anterior border of sternocleidomastoid Superiorly: Lower border of mandible\n\nPosterior triangle boundaries:\n\nAnteriorly: Posterior sternocleidomastoid Posteriorly: Anterior border of trapezius Base: Middle third of the clavicle",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

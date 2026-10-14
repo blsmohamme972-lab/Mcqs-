@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q111-112",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007316",
+   "number": "111",
+   "stem": "An accident and emergency registrar refers a patient with an injured axillary nerve. In which of the following scenarios is this nerve characteristically damaged?",
+   "options": [
+    "Posterior dislocation of the humerus",
+    "Anterior dislocation of the humerus",
+    "Fracture of the surgical neck of the humerus",
+    "Distraction injury of the neck and shoulder",
+    "Fracture of the clavicle"
+   ],
+   "answer": "B",
+   "answer_text": "Anterior dislocation of the humerus",
+   "explanation": "The axillary nerve is a terminal branch of the posterior cord of the brachial plexus. Its course is to run posterolaterally through the quadrangular space of the arm and around the surgical neck of the humerus. It supplies the deltoid and teres minor muscles and an area of skin overlying the inferior aspect of deltoid, called the ‘regimental patch’. The nerve is characteristically damaged in an anterior dislocation of the humerus.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007317",
+   "number": "112",
+   "stem": "A patient undergoes a radical parotidectomy for a malignant parotid tumour, at which time it is found necessary to perform a total division of the left facial (VII) nerve. Postoperatively, which is the most likely sequela?",
+   "options": [
+    "Maintenance of left sided forehead wrinkling.",
+    "Numbness over the cheek on the left side",
+    "Ptosis of the upper eyelid on the left side",
+    "Loss of taste sensation over the anterior two-thirds of the tongue on the left side",
+    "Tendency for food and fluids to collect in the buccal sulcus after meals"
+   ],
+   "answer": "E",
+   "answer_text": "Tendency for food and fluids to collect in the buccal sulcus after meals",
+   "explanation": "The facial nerve supplies all the muscles needed for facial expression including the occipitofrontalis, which wrinkles the forehead. Frontalis has bilateral cortical representation but in this case there is a lower motor neurone injury leading to weakness. A distressing feature is paralysis of the buccinator muscle, which acts to empty the buccal sulcus during mastication. There are no cutaneous sensory fibres in the facial nerve.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

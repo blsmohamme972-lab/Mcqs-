@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q57-58",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007262",
+   "number": "57",
+   "stem": "Acute inflammation is characterized by which one of the following?",
+   "options": [
+    "Plasma cells",
+    "Lymphocytes",
+    "Macrophages",
+    "Slow reaction to tissue injury",
+    "Innate immune response"
+   ],
+   "answer": "E",
+   "answer_text": "Innate immune response",
+   "explanation": "When comparing acute with chronic inflammation, acute inflammation is characterized by the presence of neutrophils and an innate immune response, rapid onset with prominent vasodilation and an increase in vascular permeability, lasting hours to weeks. Chronic inflammation is characterized by the presence of lymphocytes and macrophages, and cell-mediated immunity with a slow prolonged response.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007263",
+   "number": "58",
+   "stem": "A young woman presents to the surgeons late at night following a recent open appendicectomy. Her wound appears red and inflamed with a mottling of the surrounding skin. In addition to the mottling there are several black spots present sporadically located up to 6 cm away from the scar. She is febrile (temperature 38.9°C) and unwell. Which of the following is the best management option?",
+   "options": [
+    "Theatre immediately",
+    "Observe on the ward",
+    "Oral antibiotics",
+    "Intravenous antibiotics",
+    "a and d"
+   ],
+   "answer": "E",
+   "answer_text": "a and d",
+   "explanation": "The patient is likely suffering from necrotizing fasciitis (a rare infection of the deeper layers of the skin and subcutaneous tissues). This would be an unusual complication of an appendicectomy but can occur. Laboratory tests and diagnostic investigations can be useful, but the diagnosis is mainly clinical. The optimum treatment is to resuscitate the patient aggressively and take the patient to theatre for aggressive surgical debridement as soon as possible.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

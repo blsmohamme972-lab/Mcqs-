@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q59-60",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007264",
+   "number": "59",
+   "stem": "A 57-year-old patient has an uneventful open inguinal hernia repair. After 3 months of normal healing, approximately how strong will the resultant scar be as a percentage of the original undamaged skin?",
+   "options": [
+    "50–60%",
+    "60–70%",
+    "70–80%",
+    "80–90%",
+    "90–100%"
+   ],
+   "answer": "C",
+   "answer_text": "70–80%",
+   "explanation": "After 3 months the scar is 70–80% of the tensile strength of unwounded skin. After this time there is little further increase in strength. After 1 week, the strength of the wound is approximately 10% that of the original skin. Over the next 4 weeks the tensile strength rapidly increases but then starts to decrease so that it reaches a plateau of 70–80% at 3 months.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007265",
+   "number": "60",
+   "stem": "With regard to the epidermis, in which layer are the melanin-producing melanocytes located?",
+   "options": [
+    "Stratum corneum",
+    "Stratum lucidum",
+    "Stratum granulosum",
+    "Stratum spinosum",
+    "Stratum basale"
+   ],
+   "answer": "E",
+   "answer_text": "Stratum basale",
+   "explanation": "The stratum corneum is the outermost layer of the epidermis and consists of keratin-filled anuclear cells. The thickness of this layer is determined by what it is exposed to. For example, on the plantar surface of the feet the skin is subject to greater insult than the skin on the dorsal surface, and so will have a thicker protective stratum corneum. Melanocytes are found in the stratum basale.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

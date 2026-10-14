@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q49-50",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007254",
+   "number": "49",
+   "stem": "In acute inflammation, such as when the body responds to a microbial infection, which one of the following statements is incorrect?",
+   "options": [
+    "Neutrophils marginate in response to chemical mediators such as histamine.",
+    "Bradykinin is a vasodilator.",
+    "Bradykinin is a chemical mediator of pain.",
+    "Intercellular adhesion molecule-1 (ICAM-1) is important in adhesion to the vascular endothelium.",
+    "There is decreased vascular permeability."
+   ],
+   "answer": "E",
+   "answer_text": "There is decreased vascular permeability.",
+   "explanation": "Neutrophils migrate in response to chemical mediators such as histamine and to components of the complement cascade. Margination of neutrophil polymorphs is assisted by vasodilation. Increased adhesion results from interaction of molecules on the neutrophil and endothelial surface such as B2-integrin and ICAM-1. In acute inflammation there is increased vascular permeability, mediated by histamine, bradykinin nitric oxide and leukotriene B4.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007255",
+   "number": "50",
+   "stem": "A 38-year-old woman presents to your ear, nose and throat (ENT) clinic complaining of a 1- month history of repeated attacks of vertigo, which are particularly severe when she turns over in bed. You conduct the Hallpike positional manoeuvre, which confirms your diagnosis. Which of the following is the cause of her vertigo?",
+   "options": [
+    "Benign positional paroxysmal vertigo (BPPV)",
+    "Acute labyrinthitis",
+    "Ménière’s disease",
+    "Cervical spondylosis",
+    "Labyrinthine fistula"
+   ],
+   "answer": "A",
+   "answer_text": "Benign positional paroxysmal vertigo (BPPV)",
+   "explanation": "Benign positional paroxysmal vertigo (BPPV) occurs as a result of a degenerative condition of the inner ear where calcified particles are dislodged. The attacks of vertigo are short-lived and are brought on by turning the head. BPPV can occur in cases of chronic otitis media, secondary to head trauma, or spontaneously. The Hallpike positional manoeuvre reproduces the symptoms by rapidly turning the head when it is positioned and held below the rest of the body on the examination couch.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

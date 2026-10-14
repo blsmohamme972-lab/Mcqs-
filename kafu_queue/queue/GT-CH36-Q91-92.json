@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q91-92",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007296",
+   "number": "91",
+   "stem": "Which one of the following statements is true regarding folate deficiency?",
+   "options": [
+    "Folate deficiency leads to a microcytic anaemia.",
+    "Folate is normally absorbed in the terminal ileum.",
+    "The main cause of deficiency is due to an increase in requirement of folate.",
+    "Methotrexate blocks utilization of folate.",
+    "Haemolysis causes a decrease in folate use."
+   ],
+   "answer": "D",
+   "answer_text": "Methotrexate blocks utilization of folate.",
+   "explanation": "The main cause of deficiency is malnutrition, as seen in alcoholics or with regular consumption of overcooked food. Other causes include malabsorption, as seen in coeliac disease and Crohn disease. Increased requirements of folate occur in conditions such as pregnancy, malignancy or haemolysis. Drugs can either block utilization, such as methotrexate, or cause malabsorption, such as anticonvulsants.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007297",
+   "number": "92",
+   "stem": "All of the following are involved in the intrinsic pathway of clotting except:",
+   "options": [
+    "Factor XII",
+    "Factor XI",
+    "Factor IX",
+    "Factor VII",
+    "Calcium"
+   ],
+   "answer": "D",
+   "answer_text": "Factor VII",
+   "explanation": "The initial reaction in the intrinsic pathway is conversion of inactive factor XII to active factor XII (XIIa). This activation, which is catalyzed by high-molecular-weight kininogen and kallikrein, can be brought about in vivo by exposure of blood to collagen fibres underlying the endothelium. Active factor XII then activates factor XI, and active factor XI activates factor IX. Activated factor IX forms a complex with active factor VIII, which is activated when it is separated from the von Willebrand factor (vWF).",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

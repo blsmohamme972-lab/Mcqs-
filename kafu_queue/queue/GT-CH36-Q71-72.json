@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q71-72",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007276",
+   "number": "71",
+   "stem": "Which one of the following statements regarding the pathology of the spleen is incorrect?",
+   "options": [
+    "The spleen is derived from the mesoderm.",
+    "The majority of the normal spleen consists of red pulp.",
+    "White pulp is important in antibody synthesis.",
+    "White pulp hypertrophies in myeloid leukaemia.",
+    "The marginal zone is the area separating red from white pulp."
+   ],
+   "answer": "D",
+   "answer_text": "White pulp hypertrophies in myeloid leukaemia.",
+   "explanation": "Red pulp is composed of connective tissue named the cords of Bilroth and is separated from the white pulp by a marginal zone. About 75% of the spleen consists of red pulp, which acts as a mechanical filter of red blood cells, removing antigens and microorganisms. White pulp contains more lymphoid tissue and plays a part in antibody synthesis and removal of antigen-coated organisms. White pulp is known to hypertrophy in conditions such as lymphoid leukaemia causing splenomegaly.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007277",
+   "number": "72",
+   "stem": "A 30-year-old man involved in a road traffic accident is brought into the resuscitation area of an accident and emergency department. He was in the passenger seat of a car that was hit from the side, causing the door to crush into his left side, which resulted in injury to the lateral aspect of his left knee. X-rays show a fractured left neck of the fibula. Which one of the following would you most likely expect to find on examination?",
+   "options": [
+    "Loss of foot inversion",
+    "Loss of ankle plantar flexion",
+    "Loss of ankle dorsiflexion",
+    "Paralysis of tibialis posterior",
+    "Trendelenburg gait"
+   ],
+   "answer": "C",
+   "answer_text": "Loss of ankle dorsiflexion",
+   "explanation": "In a neck of fibula fracture, the common peroneal nerve is most likely to be damaged as it surrounds the neck as part of its course. The common peroneal nerve supplies muscles in the lateral and anterior compartment of the leg, allowing ankle dorsiflexion and foot eversion. If damaged, the patient is unable to dorsiflex or evert the foot, causing a foot drop and a high stepping gait.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

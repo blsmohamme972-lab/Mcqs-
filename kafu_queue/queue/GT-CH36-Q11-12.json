@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q11-12",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007216",
+   "number": "11",
+   "stem": "Which one of the following structures contributes toward the stability of the ankle joint?",
+   "options": [
+    "Ankle syndesmosis",
+    "Anterior inferior tibiofibular ligament",
+    "Deltoid ligament",
+    "Close apposition of articular surfaces of the tibia and fibula",
+    "All of the above"
+   ],
+   "answer": "E",
+   "answer_text": "All of the above",
+   "explanation": "The ankle joint is synovial in type and involves the talus of the foot and the tibia and fibula of the lower leg. The ankle joint is stabilized by medial (deltoid) and lateral ligaments. Together, the fibula and tibia create a deep mortice for the upper expanded part of the body of the talus. The talus fits tighter into its socket when the foot is dorsiflexed as the wider surface of the talus moves into the ankle.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007217",
+   "number": "12",
+   "stem": "Concerning antidiuretic hormone (ADH), which of the following statements is correct?",
+   "options": [
+    "It is released by the anterior pituitary gland.",
+    "It acts mainly on the proximal convoluted tubule.",
+    "It is stimulated by alcohol.",
+    "Lack of production causes cranial diabetes insipidus.",
+    "It causes the production of a high volume of urine."
+   ],
+   "answer": "D",
+   "answer_text": "Lack of production causes cranial diabetes insipidus.",
+   "explanation": "Antidiuretic hormone (ADH), also known as vasopressin, is released by the posterior pituitary gland. It functions mainly in the distal tubule and collecting duct by increasing permeability to water, hence retaining water and preventing it from being excreted. This results in the production of low-volume concentrated urine during periods of dehydration. Lack of production of ADH causes cranial diabetes insipidus, whereas the inability of the kidneys to respond to ADH causes nephrogenic diabetes insipidus.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

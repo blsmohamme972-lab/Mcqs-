@@ -4,10 +4,10 @@
   "queue_repo": "https://github.com/blsmohamme972-lab/Mcqs-",
   "queue_branch": "claude/ai-biochemistry-image-generation-efl9y3",
   "lessons_repo": "https://github.com/blsmohamme972-lab/MCQs-Mountain-",
-  "batch_size": 4,
+  "batch_size": 2,
   "voice_engine": "breeze",
-  "chatgpt_chunk": 5,
-  "max_concurrent_builders": 8,
+  "chatgpt_chunk": 10,
+  "max_concurrent_builders": 50,
   "lessons_base_branch": "claude/lesson-intro",
   "lessons_repo_slug": "blsmohamme972-lab/MCQs-Mountain-",
   "zip_inbox_url": "https://claude.ai/artifact/SvG5287Mx1TuiNx1XVNFdS"

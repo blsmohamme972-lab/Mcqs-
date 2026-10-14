@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q65-66",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007270",
+   "number": "65",
+   "stem": "A pulmonary artery catheter is a multilumen flow-directed catheter passed through the right side of the heart and into the pulmonary artery. Which of the following physiological parameters is not measured directly by such a catheter?",
+   "options": [
+    "Ejection fraction",
+    "Pulmonary vascular resistance",
+    "Mixed venous oxygen saturation",
+    "Mean arterial pressure",
+    "Mean pulmonary artery pressure"
+   ],
+   "answer": "B",
+   "answer_text": "Pulmonary vascular resistance",
+   "explanation": "Pulmonary artery catheters are useful in calculating a number of cardiovascular parameters in the critically ill for both assessment and therapeutic guidance. Indications include inotropic support, suspicion of acute respiratory distress syndrome (ARDS), septic shock and multiorgan failure. Direct measurements include mean arterial pressure, heart rate, cardiac output, ejection fraction and mixed venous oxygen saturation. Derived variables include cardiac index, stroke volume systemic and pulmonary vascular resistance and oxygen delivery/consumption.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007271",
+   "number": "66",
+   "stem": "Which of the following statements relating to cholinergic receptors is true?",
+   "options": [
+    "Nicotine depresses acetylcholine release from parasympathetic nerve endings.",
+    "Muscarinic receptors are present in most involuntary organs.",
+    "Muscarinic receptors can only be activated by muscarine.",
+    "Only nicotinic receptors can be activated by acetylcholine.",
+    "Muscarinic receptors are mainly found in the skeletal muscle."
+   ],
+   "answer": "B",
+   "answer_text": "Muscarinic receptors are present in most involuntary organs.",
+   "explanation": "All somatic motor neurons, pre-ganglionic neurons and most post-ganglionic parasympathetic neurons are cholinergic; that is, they use acetylcholine (ACh) as their neurotransmitter. The effects of ACh on an organ depend on the type of the cholinergic receptor, either nicotinic or muscarinic. They are named thus because of the fact that nicotine, from tobacco plants, and muscarine, from poisonous mushrooms, are able to stimulate the two different types of receptor, respectively. Nicotinic receptors are found in the neuromuscular junction of skeletal muscle fibres and in autonomic ganglia.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

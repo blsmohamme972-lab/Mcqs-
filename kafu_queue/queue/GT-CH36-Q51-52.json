@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q51-52",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007256",
+   "number": "51",
+   "stem": "Concerning bone physiology, which one of the following statements is true?",
+   "options": [
+    "Once matured, bones are no longer metabolically active.",
+    "Osteoblasts are responsible for bone resorption.",
+    "The inorganic component of bone is referred to as osteoid.",
+    "Thyroxine is involved in bone remodelling.",
+    "Immobility does not cause bone mass to be lost."
+   ],
+   "answer": "D",
+   "answer_text": "Thyroxine is involved in bone remodelling.",
+   "explanation": "The organic component consists of glycoproteins, hyaluronic acid and collagen, whereas the inorganic component consists of ions and minerals. There are four main cell types in bone: osteoprogenitor cells are undifferentiated cells, osteoblasts secrete organic matrix and lay down new bone, osteoclasts reabsorb bone via lytic enzymes and osteocytes are matured bone cells. Bone remodelling is much greater in physically active people, and bone mass can be lost if there is prolonged immobility (disuse osteoporosis). Several hormones are involved in bone remodelling including parathormone, thyroxine, calcitonin and oestrogen.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007257",
+   "number": "52",
+   "stem": "Mineralocorticoid deficiency can cause the following conditions except:",
+   "options": [
+    "Increased urinary sodium (Na⁺) loss",
+    "Increased urinary potassium (K⁺) loss",
+    "Metabolic acidosis",
+    "Postural hypotension",
+    "Buccal pigmentation"
+   ],
+   "answer": "B",
+   "answer_text": "Increased urinary potassium (K⁺) loss",
+   "explanation": "Mineralocorticoid deficiency can be a feature of Addison disease, where there is destruction of the adrenal cortex. This is mainly caused by autoimmune destruction but infection (e.g. tuberculosis) and malignancy (metastasis) can also be a cause. Mineralocorticoid (aldosterone) is produced by the zona glomerulosa of the adrenal cortex. It causes Na⁺ and hence water retention in the body, thereby increasing blood pressure.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

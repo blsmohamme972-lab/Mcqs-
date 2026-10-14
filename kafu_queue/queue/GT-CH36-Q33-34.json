@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q33-34",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007238",
+   "number": "33",
+   "stem": "Which one of the following statements regarding magnesium homeostasis is correct?",
+   "options": [
+    "Dietary magnesium is mainly absorbed in the large bowel.",
+    "The major site for magnesium transport is in the thick ascending loop of Henle.",
+    "Loop diuretics decrease magnesium loss.",
+    "Hypermagnesaemia promotes magnesium reabsorption in the kidney.",
+    "Hypercalcaemia promotes magnesium reabsorption in the kidney by an unknown mechanism."
+   ],
+   "answer": "B",
+   "answer_text": "The major site for magnesium transport is in the thick ascending loop of Henle.",
+   "explanation": "Dietary magnesium is absorbed mainly in the duodenum, with body concentration being regulated by the kidneys. Unlike most salts, magnesium is transported in the thick ascending loop of Henle. Therefore, diuretics can increase magnesium loss. Raised magnesium and calcium levels reduce the amount of magnesium reabsorbed by the loop of Henle.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007239",
+   "number": "34",
+   "stem": "Before performing a mastectomy for breast cancer, knowledge of the surface anatomy and arterial supply to the breast is required. Which one of the following statements regarding the anatomy of the breast is correct?",
+   "options": [
+    "The breast is supplied only by the internal thoracic and lateral thoracic arteries.",
+    "The breast is supplied completely by the branches of the subclavian artery.",
+    "The breast is supplied in part by the intercostal arteries.",
+    "The breast extends vertically from the 2nd to the 4th ribs.",
+    "About 75% of lymph drains into the parasternal lymph nodes."
+   ],
+   "answer": "C",
+   "answer_text": "The breast is supplied in part by the intercostal arteries.",
+   "explanation": "It is important to include this area when performing a mastectomy and examination of the breast. The arterial supply to the breast is from the internal thoracic artery, which is a branch of the subclavian artery. The lateral thoracic and thoracoacromial arteries are branches of the axillary artery. Further blood supply to the breast is from the intercostal arteries.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

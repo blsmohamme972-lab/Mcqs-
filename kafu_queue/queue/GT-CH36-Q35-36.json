@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q35-36",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007240",
+   "number": "35",
+   "stem": "The axillary artery runs from the first rib to the inferior border of teres major. Which of the following arteries is a direct branch of the axillary artery?",
+   "options": [
+    "Vertebral artery",
+    "Internal thoracic artery",
+    "Posterior circumflex humoral",
+    "Costocervical trunk",
+    "Dorsal scapula artery"
+   ],
+   "answer": "C",
+   "answer_text": "Posterior circumflex humoral",
+   "explanation": "Branches of the axillary artery can be classified into three parts with regard to their relation to the pectoralis minor muscle: medial, posterior and lateral to the muscle.\n\nMedial: Superior thoracic artery Posterior: Thoracoacromial artery, lateral thoracic artery Lateral: Subscapular artery, anterior and posterior circumflex humoral arteries\n\nThe vertebral, internal thoracic and dorsal scapula arteries, along with the costocervical trunk, are branches of the subclavian artery.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007241",
+   "number": "36",
+   "stem": "The following statements regarding apoptosis are true except:",
+   "options": [
+    "It can be physiological or pathological.",
+    "It is a regulated process.",
+    "Cell DNA is cleaved by enzymes.",
+    "Cell membrane integrity remains intact.",
+    "It is energy independent."
+   ],
+   "answer": "E",
+   "answer_text": "It is energy independent.",
+   "explanation": "Apoptosis is an energy-dependent process involving cell death by activation of endogenous endonucleases, which digest cell DNA into smaller fragments. It has to be distinguished from cell necrosis, which is invariably pathological. In apoptosis, single unwanted cells are shrunk and phagocytosed by neighbouring cells. Functionally, these include removal of cells with damaged DNA or virally infected cells or elimination of cells in embryonal development during morphogenesis.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q55-56",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007260",
+   "number": "55",
+   "stem": "Which of the following muscles is not attached to the scapula?",
+   "options": [
+    "Serratus anterior",
+    "Rhomboid major",
+    "Pectoralis minor",
+    "Omohyoid",
+    "Subclavius"
+   ],
+   "answer": "E",
+   "answer_text": "Subclavius",
+   "explanation": "Seven muscles attach the scapula to the chest wall and maintain normal scapular control. The two main muscles are trapezius and serratus anterior. The other five are levator scapulae, rhomboids major and minor, pectoralis minor and omohyoid. Winging of the scapula is caused by partial or complete paralysis of the serratus anterior muscle, supplied by the long thoracic nerve.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007261",
+   "number": "56",
+   "stem": "Which of the following statements is correct regarding the anatomy of the adrenal gland?",
+   "options": [
+    "The superior adrenal artery is derived from the renal artery.",
+    "The middle adrenal artery is derived from the abdominal aorta.",
+    "The inferior adrenal artery is derived from the inferior phrenic artery.",
+    "The adrenal gland is usually drained by three adrenal veins.",
+    "The spleen is at risk with right-sided adrenalectomy."
+   ],
+   "answer": "B",
+   "answer_text": "The middle adrenal artery is derived from the abdominal aorta.",
+   "explanation": "The adrenal gland is usually supplied by three adrenal arteries: superior, middle and inferior. These are derived from the inferior phrenic artery, abdominal aorta and renal artery, respectively. The adrenal gland drains into one adrenal vein. On the left, the adrenal vein empties into the left renal vein, and on the right, it empties into the inferior vena cava.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

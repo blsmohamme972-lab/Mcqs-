@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q121-122",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007326",
+   "number": "121",
+   "stem": "You are concerned about myocardial ischaemia in a postoperative patient who is complaining of chest pain. The electorcardiogram shows tachycardia and isolated ST segment depression in leads V1 and V2. Which coronary artery is most likely to be responsible?",
+   "options": [
+    "Circumflex coronary artery",
+    "Left anterior descending coronary artery",
+    "Posterior descending coronary artery",
+    "Left main stem coronary artery",
+    "Right coronary artery"
+   ],
+   "answer": "C",
+   "answer_text": "Posterior descending coronary artery",
+   "explanation": "The coronary artery anatomy is variable, as are the relative territories of myocardium supplied by each of the arteries. ST segment depression across all leads implies ischaemia (angina), whereas isolated ST segment depression in leads V1 and V2 may indicate a posterior myocardial infarction. The most likely artery involved in this case is therefore the posterior descending artery. Either the right coronary or circumflex arteries can supply the posterior descending artery, but it is not possible to identify which from the electrocardiogram alone.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007327",
+   "number": "122",
+   "stem": "Which of the following statements about the axillary artery is incorrect?",
+   "options": [
+    "It starts at the lateral border of the 1st rib.",
+    "It ends at the lower border of the teres minor.",
+    "It is divided into three parts by pectoralis minor.",
+    "It gives off the subscapular artery.",
+    "The axillary vein lies medial to it."
+   ],
+   "answer": "B",
+   "answer_text": "It ends at the lower border of the teres minor.",
+   "explanation": "The axillary artery is a continuation of the subclavian artery and it starts from the lateral border of the 1st rib. It ends at the lower border of teres major, becoming the brachial artery. The axillary artery is divided into three parts by the pectoralis minor. The first part gives off one branch, the superior thoracic artery.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

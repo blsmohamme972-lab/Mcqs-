@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q29-30",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007234",
+   "number": "29",
+   "stem": "A 47-year-old man underwent intramedullary nailing for a mid-shaft fracture of tibia 3 h ago. The ward nurses are concerned as he is in a lot of pain. On examination, he has no neurovascular deficit. He complains of excruciating pain on passive extension of the big toe. Passive dorsiflexion and plantar flexion of the ankle do not cause as much pain. Which of the following is the likely diagnosis?",
+   "options": [
+    "Compartment syndrome of the deep posterior compartment of the leg",
+    "Compartment syndrome of the superficial posterior compartment of the leg",
+    "Compartment syndrome of the anterior compartment of the leg",
+    "Compartment syndrome of the lateral compartment of the leg",
+    "Compartment syndrome of the medial compartment of the leg"
+   ],
+   "answer": "A",
+   "answer_text": "Compartment syndrome of the deep posterior compartment of the leg",
+   "explanation": "In compartment syndrome, pain is worsened by passive stretching of the affected compartment. In this case the muscle being stretched is flexor hallucis longus. This muscle is in the deep posterior compartment of the leg, along with the flexor digitorum longus and tibialis posterior. The anterior compartment contains the tibialis anterior, extensor hallucis longus, extensor digitorum longus and peroneus tertius.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007235",
+   "number": "30",
+   "stem": "A 74-year-old male presents to the clinic with a long history of bilateral leg ulceration. Which of the following statements regarding venous ulcers is correct?",
+   "options": [
+    "Elevation aids in treatment.",
+    "Two-layer compression bandages are the optimal management of venous ulcers.",
+    "Any concomitant arterial disease should be corrected after the venous ulcers are treated.",
+    "Venous ulcers are typically found in the pressure-bearing area.",
+    "Venous ulcers are usually associated with reduced or absent pedal pulses."
+   ],
+   "answer": "A",
+   "answer_text": "Elevation aids in treatment.",
+   "explanation": "Venous ulcers are typically found in the gaiter area, with a sloping edge with sloughy base and a moderate degree of exudate. It is important to exclude coexisting ischaemia with venous ulcers, and treat if present, as treatment of venous ulcers is by elevation and four-layer bandaging with regular dressings, and can compromise blood supply to the area further. The surrounding skin can be hyperpigmented with lipodermatosclerosis.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

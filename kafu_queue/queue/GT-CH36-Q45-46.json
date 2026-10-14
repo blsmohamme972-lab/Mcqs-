@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q45-46",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007250",
+   "number": "45",
+   "stem": "The grey matter in the spinal cord is organized into 10 laminae on each side. Which number lamina contains the alpha motor neurons?",
+   "options": [
+    "I",
+    "IV",
+    "X",
+    "V",
+    "IX"
+   ],
+   "answer": "E",
+   "answer_text": "IX",
+   "explanation": "Alpha motor neurons are large motor neurons of the brainstem and spinal cord. They are responsible for innervating extrafusal muscle fibres. They are located in lamina IX of the spinal cord grey matter.\n\nLaminae of spinal cord are as follows:\n\nI–VI: Posterior/dorsal horn Lamina I: Marginal nucleus of spinal cord Laminae II: Substantia gelatinosa of Rolando Laminae III/IV: Nucleus proprius VII–IX: Anterior/ventral horn Lamina VII: Intermediolateral nucleus, nucleus dorsalis Lamina VIII: Motor interneurons Lamina IX: Motor neurons Lamina X: Neurons bordering central canal",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007251",
+   "number": "46",
+   "stem": "Which of the following tumour suppressor genes is correctly paired with its correct chromosome of origin?",
+   "options": [
+    "APC – chromosome 5",
+    "p53 – chromosome 13",
+    "Retinoblastoma – chromosome 17",
+    "NF1 – chromosome 11",
+    "WT1 – chromosome 17"
+   ],
+   "answer": "A",
+   "answer_text": "APC – chromosome 5",
+   "explanation": "Tumour suppressor genes are normal genes switching off cell proliferation by acting on the cell cycle in G1. Loss of both copies of the tumour suppressor gene is required for cancer to develop.\n\nTumour suppressor gene Chromosome Neoplasms\n\nWT1\n\n11 Wilm’s tumour, bladder cancer Retinoblastoma\n\n13 Retinoblastoma, sarcoma\n\nNF1\n\n17 Neurofibromas\n\nAPC\n\n5 Colorectal cancer\n\np53\n\n17 Lung and breast cancer",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

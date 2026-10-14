@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q123-124",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007328",
+   "number": "123",
+   "stem": "The human body has different skeletal muscle fibres. Regarding muscle fibres, which of the following statements are true?",
+   "options": [
+    "Type IIb fibres have a high oxidative capacity.",
+    "Type I fibres can reach a peak tension in less than 10 ms.",
+    "Type IIb fibres have a high concentration of mitochondria.",
+    "Type I fibres have a low myosin ATPase content.",
+    "White fibres have a low twitch rate."
+   ],
+   "answer": "D",
+   "answer_text": "Type I fibres have a low myosin ATPase content.",
+   "explanation": "They have a high myoglobin content (hence the red colour) and a rich capillary supply that gives them a high oxidative capacity for aerobic respiration. Soleus muscle is postural in nature and contains type 1 fibres. It reaches peak tension in 80–200 ms. Type IIb fibres are thicker and are designed for anaerobic respiration and consequently have fewer mitochondria and less myoglobin. They have a large store of glycogen and a high concentration of glycolytic enzymes giving them a high myosin ATPase content.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007329",
+   "number": "124",
+   "stem": "Which of the following statements regarding the vagus nerve is correct?",
+   "options": [
+    "The vagus nerve does not innervate muscles in the pharynx.",
+    "Activation of the vagus nerve stimulates chief cells in the stomach.",
+    "Stimulation of the vagus decreases intestinal motility.",
+    "The vagus nerve innervates the descending colon.",
+    "The vagus nerve does not innervate the skin."
+   ],
+   "answer": "B",
+   "answer_text": "Activation of the vagus nerve stimulates chief cells in the stomach.",
+   "explanation": "The vagus nerve (CN X) originates in the medulla oblongata and has a wandering (hence the name) course down through the thorax and into the abdomen. Vagal stimulation is parasympathetic and so its effects are related to ‘rest and digest’ activities. These include increasing intestinal motility, stimulating the chief cells to secrete pepsinogen and indirectly stimulating the parietal cells to secrete hydrochloric acid. The vagus also directly stimulates the G-cells to secrete gastrin and the enterochromaffin-like cells to release histamine.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q31-32",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007236",
+   "number": "31",
+   "stem": "A 52-year-old woman presents with acute left-sided loin to groin pain on a background of polyuria and generalized skeletal aches. On examination, she has a serum calcium of 3.1 mmol/L with a raised parathyroid hormone (PTH) concentration of 150 ng/L. A plain kidney, ureter and bladder (KUB) film shows a stone in the left ureter. Which of the following types of renal stone is most likely to be the culprit in this case?",
+   "options": [
+    "Calcium oxalate",
+    "Uric acid",
+    "Struvite",
+    "Cystine",
+    "Calcium phosphate"
+   ],
+   "answer": "E",
+   "answer_text": "Calcium phosphate",
+   "explanation": "The most common form of renal stone is from calcium oxalate, occurring in 80% of cases. These stones can sometimes be seen on plain KUB X-ray films. Calcium phosphate stones are generally associated with primary hyperparathyroidism as in this case (high PTH and high calcium levels). Uric acid forms 10% of cases and produces radiolucent stones.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007237",
+   "number": "32",
+   "stem": "A 46-year-old female presents to the general surgical clinic with a 9-week history of a left-sided neck lump. Following thorough investigation and discussion at the local multidisciplinary meeting, a hemithyroidectomy is performed. The lesion histologically represents a follicular carcinoma. Which of the following statements regarding follicular carcinoma is correct?",
+   "options": [
+    "Radiation exposure is a risk factor for its development.",
+    "Lymph node metastases are typical.",
+    "It has a prevalence of approximately 5% of thyroid carcinomas.",
+    "It has a 5-year survival rate of approximately 70%.",
+    "It is diagnosed by ultrasound and fine-needle aspiration cytology."
+   ],
+   "answer": "D",
+   "answer_text": "It has a 5-year survival rate of approximately 70%.",
+   "explanation": "Follicular carcinoma is the second most common carcinoma of the thyroid, with a prevalence of approximately 15% (following papillary carcinoma, with a prevalence of approximately 80%). Spread is typically haematogenous; lymphatic spread is unusual. It has a 5-year survival rate of approximately 70%. It is diagnosed by ultrasound and excision biopsy to demonstrate extracapsular spread; fine-needle aspiration cytology is unable to differentiate between follicular carcinoma and change follicular adenoma.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

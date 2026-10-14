@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q105-106",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007310",
+   "number": "105",
+   "stem": "An 83-year-old woman presents with a 3-month history of swelling just inferior to the left ear lobule. The lump is 1 cm in diameter, soft and painless to touch. There is no evidence of facial nerve involvement. Of note, you find a small lump in similar position on the contralateral side. Which one of the following is the most likely diagnosis?",
+   "options": [
+    "Pleiomorphic adenoma",
+    "Adenolymphoma",
+    "Adenoid cystic carcinoma",
+    "Sialadenitis",
+    "Chronic parotitis"
+   ],
+   "answer": "B",
+   "answer_text": "Adenolymphoma",
+   "explanation": "Parotid gland tumours account for approximately 80% of all salivary gland tumours; of these, two-thirds are pleiomorphic adenomas. Monomorphic adenomas account for the remaining third, the most common of which is a Warthin tumour, which is an adenolymphoma. These are more commonly bilateral. Weakness of the facial nerve suggests malignant infiltration.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007311",
+   "number": "106",
+   "stem": "Which statement regarding the regulation of sodium and water reabsorption is incorrect?",
+   "options": [
+    "Antidiuretic hormone is produced in the supraoptic nucleus of the hypothalamus.",
+    "Aldosterone stimulates resorption of sodium from the distal tubule.",
+    "Atrial natriuretic peptide increases glomerular filtration.",
+    "Renin release is stimulated by a reduction in sodium levels.",
+    "Antidiuretic hormone secretion is stimulated by an increased arterial pressure."
+   ],
+   "answer": "E",
+   "answer_text": "Antidiuretic hormone secretion is stimulated by an increased arterial pressure.",
+   "explanation": "Antidiuretic hormone is produced in the supraoptic nucleus in the hypothalamus. Stimulation is via osmoreceptors which detect increases in the osmolality of the extracellular fluid. Other stimulating factors include a decrease in circulating volume or reduced arterial pressure. Renin is released from the juxtaglomerular cells in response to a decrease in afferent arteriole pressure or a reduction in sodium.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

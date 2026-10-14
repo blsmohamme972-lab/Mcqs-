@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q25-26",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007230",
+   "number": "25",
+   "stem": "A 24-year-old woman is admitted as an emergency with appendicitis. While awaiting her procedure she is made nil by mouth (NBM) and is put on intravenous fluids. The first bag of fluids put up is 1 L of normal saline. How much sodium (Na⁺) is in this bag?",
+   "options": [
+    "114 mmol/L",
+    "124 mmol/L",
+    "134 mmol/L",
+    "144 mmol/L",
+    "154 mmol/L"
+   ],
+   "answer": "E",
+   "answer_text": "154 mmol/L",
+   "explanation": "The daily requirement of an adult’s fluid intake equates to 3 L/day for an average adult. If an individual is placed nil by mouth (NBM) this requirement is easily achieved with three bags of intravenous fluids each run over 8 h. One litre of normal saline contains 154 mmol/L of Na⁺. The average adult requires 100 mmol/L of Na⁺ per day, as well as 60 mmol/L of potassium per day.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007231",
+   "number": "26",
+   "stem": "Regarding the regulation of gastric secretion, the following statements are true except:",
+   "options": [
+    "Somatostatin inhibits gastrin secretion.",
+    "The majority of gastric secretions are produced during the gastric phase.",
+    "Secretin from the duodenal mucosa further stimulates gastrin release from the stomach.",
+    "Vagal activity stimulates gastric secretion in the cephalic phase.",
+    "Fatty food in the duodenum leads to the release of cholecystokinin."
+   ],
+   "answer": "C",
+   "answer_text": "Secretin from the duodenal mucosa further stimulates gastrin release from the stomach.",
+   "explanation": "Gastric secretion is divided into three phases. In the cephalic phase, the sight, smell, taste or thought of food stimulates the stomach to secrete hydrochloric acid via vagal stimulation. Vagal activity also stimulates gastrin secretion from G-cells, which in turn stimulates further acid secretion. Food entering the stomach stimulates the gastric phase.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

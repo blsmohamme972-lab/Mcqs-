@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q23-24",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007228",
+   "number": "23",
+   "stem": "An 18-year-old is brought into the accident and emergency department with a superficial knife stab wound on the side of his right chest wall. His airway, breathing and circulation are unremarkable. On further assessment he is unable to raise his right arm above the horizontal position. Also, when he presses his hands against a wall, his right scapula protrudes away from the chest wall. Which of the following nerves is most likely damaged in this situation?",
+   "options": [
+    "Suprascapular nerve",
+    "Upper subscapular nerve",
+    "Lower subscapular nerve",
+    "Long thoracic nerve",
+    "Thoracodorsal nerve"
+   ],
+   "answer": "D",
+   "answer_text": "Long thoracic nerve",
+   "explanation": "The nerve injured is most likely to be the long thoracic nerve, which supplies the serratus anterior muscle. This nerve courses superficially over the serratus anterior muscle; hence it is vulnerable to injury especially when the limbs are elevated. The arm cannot be completely abducted above the horizontal position because the serratus anterior is unable to rotate the glenoid cavity superiorly. Also, the scapula moves laterally and posteriorly, a condition termed ‘winged scapula’ whenever the long thoracic nerve is damaged.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007229",
+   "number": "24",
+   "stem": "Regarding wound healing on the skin, the following statements are true except:",
+   "options": [
+    "A Keloid scars are common in Black Africans.",
+    "A Wounds closed surgically heal by primary intention.",
+    "A Wounds that heal by secondary intention involve centripetal growth of epithelium.",
+    "A Hypertrophic scar usually does not extend beyond the wound edges.",
+    "A Keloid scar usually settles spontaneously in up to 18 months."
+   ],
+   "answer": "E",
+   "answer_text": "A Keloid scar usually settles spontaneously in up to 18 months.",
+   "explanation": "Two known abnormalities of wound healing are keloid and hypertrophied scars. In keloid scarring there is excessive collagen and fibroblast production. The scarring usually extends beyond the wound itself and usually does not settle. Hypertrophied scars do not extend beyond the wound edges, take around 3 weeks to develop and usually settle spontaneously within 18 months.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q37-38",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007242",
+   "number": "37",
+   "stem": "An 85-year-old man is admitted following a significant lower gastrointestinal haemorrhage. A blood transfusion is commenced; however, he shortly develops an acute transfusion reaction. Which of the following hypersensitivity reactions is associated with this type of reaction?",
+   "options": [
+    "Type I",
+    "Type II",
+    "Type III",
+    "Type IV",
+    "Type V"
+   ],
+   "answer": "B",
+   "answer_text": "Type II",
+   "explanation": "Hypersensitivity is an altered immunological response in which a severe and harmful reaction occurs to extrinsic antigens. Type I involves an immediate hypersensitivity or allergy due to overproduction of immunoglobulin E (IgE) on mast cells or basophils associated with bee stings, antibiotics and so forth. Type II involves circulating antibodies (IgG/IgM) reacting with antigens on cell surfaces. Examples of this type include transfusion reactions and rhesus incompatibility.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007243",
+   "number": "38",
+   "stem": "Which of the following statements concerning saliva is correct?",
+   "options": [
+    "The saliva from the submandibular glands contains more protein than the saliva from the parotid gland.",
+    "The parotid glands produce a highly mucinous saliva.",
+    "The volume of saliva produced each day is approximately 300 mL.",
+    "Saliva is hypotonic to plasma at all times.",
+    "The basal rate of saliva production is greater from the parotid glands than from the submandibular gland."
+   ],
+   "answer": "D",
+   "answer_text": "Saliva is hypotonic to plasma at all times.",
+   "explanation": "The high viscosity is due to the high mucin content. The basal rate of saliva production is higher from the submandibular gland than from the parotid gland, but this relationship is reversed during stimulation. The volume of saliva produced each day ranges from 500 to 1500 mL. The saliva is hypotonic to plasma at all times, and when flow rates are at their highest, the tonicity of saliva does not exceed 70% of plasma tonicity.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q99-100",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007304",
+   "number": "99",
+   "stem": "Which of the following regarding the regulation of respiration is correct?",
+   "options": [
+    "The pneumotaxic centre is found in the midbrain.",
+    "The apneustic centre in the pons tends to shorten inspiration.",
+    "Peripheral chemoreceptors in the carotid bodies respond to levels of PCO₂.",
+    "The Hering–Breuer reflex prevents overinflation of the lungs.",
+    "Central chemoreceptors respond to changes in the arterial PO₂."
+   ],
+   "answer": "D",
+   "answer_text": "The Hering–Breuer reflex prevents overinflation of the lungs.",
+   "explanation": "The peripheral chemoreceptors are located in the carotid bodies and respond primarily to low levels of PO₂ and in part to arterial pH. The central chemoreceptors are located close to the respiratory centre in the medulla. They are indirectly sensitive to changes in the arterial pH. The Hering–Breuer reflex prevents overinflation of the lungs via stretch receptors.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007305",
+   "number": "100",
+   "stem": "Concerning the loop of Henle and proximal convoluted tubule of the nephron, which of the following statements is correct?",
+   "options": [
+    "A small amount of water and sodium is absorbed from the thick ascending limb.",
+    "The thin descending limb is the major site for reabsorption of solutes.",
+    "The first half of the proximal convoluted tubule absorbs phosphate and lactate.",
+    "Approximately 10% of filtered solutes are reabsorbed by the proximal convoluted tubule.",
+    "The thin descending limb is impermeable to water."
+   ],
+   "answer": "C",
+   "answer_text": "The first half of the proximal convoluted tubule absorbs phosphate and lactate.",
+   "explanation": "The thick ascending limb is impermeable to water. The main structure for the kidney’s reabsorption of solutes is the proximal convoluted tubule – approximately 70% of filtered sodium, chloride, potassium, nearly all the amino acids and glucose, as well as phosphate and lactate are reabsorbed here. Approximately 20% of filtered solutes are absorbed in the thick ascending limb; approximately 20% of filtered water is absorbed in the thin descending limb.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

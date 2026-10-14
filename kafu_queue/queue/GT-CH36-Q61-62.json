@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q61-62",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007266",
+   "number": "61",
+   "stem": "In theatre your registrar asks you to perform an open appendicectomy. Which of the following incisions is commonly used for the operation?",
+   "options": [
+    "Right Kocher’s",
+    "Pfannenstiel",
+    "Lanz",
+    "Right paramedian",
+    "Maylard incision"
+   ],
+   "answer": "C",
+   "answer_text": "Lanz",
+   "explanation": "A Lanz or gridiron incision is used for appendicectomy. The Lanz incision is made horizontally over McBurney’s point within the skin crease. It gives a better cosmetic result. Right Kocher’s or subcostal is used to access the liver, gallbladder and biliary tree.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007267",
+   "number": "62",
+   "stem": "Concerning the course of the thoracic duct, which of the following statements is correct?",
+   "options": [
+    "It arises at L3.",
+    "It passes through the left crus of the diaphragm.",
+    "It ascends anterior to the oesophagus.",
+    "It crosses the midline from right to left at T5.",
+    "It drains into the right internal jugular vein."
+   ],
+   "answer": "D",
+   "answer_text": "It crosses the midline from right to left at T5.",
+   "explanation": "The thoracic duct arises between L1 and L2 as the cysterna chyli. It passes through the right crus of the diaphragm. It ascends posterior to the oesophagus. It crosses the midline from right to left at T5.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

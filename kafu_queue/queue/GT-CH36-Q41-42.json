@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q41-42",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007246",
+   "number": "41",
+   "stem": "When performing a laparoscopic cholecystectomy the surgeon identifies the cystic artery within Calot’s triangle. Which of the following structures make up the triangle?",
+   "options": [
+    "Cystic artery, cystic duct and common hepatic duct",
+    "Cystic duct, right hepatic artery and liver",
+    "Cystic duct, common hepatic duct and liver",
+    "Cystic vein, cystic duct and common hepatic duct",
+    "Liver, cystic artery and right hepatic artery"
+   ],
+   "answer": "C",
+   "answer_text": "Cystic duct, common hepatic duct and liver",
+   "explanation": "The cystic artery is usually a branch of the right hepatic artery. It runs through Calot’s triangle formed by the cystic duct, common hepatic duct and liver. A number of variations in the origin of the cystic artery are found, from the common hepatic artery, left hepatic artery or even the gastroduodenal artery. Venous return is via small veins in the gallbladder bed, with no accompanying vein to the cystic artery.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007247",
+   "number": "42",
+   "stem": "The axillary artery is conventionally divided into three parts, each giving off its own branches. The third part of the axillary artery divides into which of the following branches?",
+   "options": [
+    "Subscapular, circumflex humeral and lateral thoracic arteries",
+    "Posterior circumflex humeral and lateral thoracic arteries",
+    "Subscapular, anterior circumflex and posterior circumflex humeral arteries",
+    "Anterior and posterior circumflex humeral arteries",
+    "Superior thoracic and subscapular arteries"
+   ],
+   "answer": "C",
+   "answer_text": "Subscapular, anterior circumflex and posterior circumflex humeral arteries",
+   "explanation": "The axillary artery starts at the border of the first rib as a continuation of the subclavian artery, and continues as the brachial artery at the tip of teres minor. The axillary artery is split into three parts, each giving off its own branches:\n\nFirst part – this extends from the lateral border of the first rib to the superior border of the pectoralis minor muscle, giving off the superior thoracic artery. Second part – this extends deep to pectoralis minor, giving off the thoracoacromial artery and the lateral thoracic artery. Third part – this extends from the inferior border of pectoralis minor to the inferior border of teres major, giving off the subscapular, anterior and posterior circumflex humeral arteries.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

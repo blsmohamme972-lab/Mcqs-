@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q119-120",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007324",
+   "number": "119",
+   "stem": "Which of the following clinical features are not associated with carpal tunnel syndrome?",
+   "options": [
+    "Nocturnal and early morning exacerbation of symptoms",
+    "Paraesthesia to thumb, index and middle fingers",
+    "Wasting of thenar muscles",
+    "Inability to perform Froment’s test",
+    "Aching up the forearm up to the elbow"
+   ],
+   "answer": "D",
+   "answer_text": "Inability to perform Froment’s test",
+   "explanation": "Any lesion reducing the size of the tunnel will result in compression of the median nerve and hence cause symptoms of carpal tunnel syndrome. Symptoms include paraesthesia, pain and intermittent numbness of the thumb, index and radial half of the ring finger. To relieve these symptoms, surgical division of the flexor retinaculum (carpal tunnel release) may be necessary. The ulnar nerve does not travel within the carpal tunnel and hence signs of ulnar nerve lesion (inability to perform Froment’s test, which tests adductor pollicis) are not indicative of carpal tunnel syndrome.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007325",
+   "number": "120",
+   "stem": "Which of the following increases the physiological dead space in the respiratory system?",
+   "options": [
+    "Standing position",
+    "Neck flexion",
+    "Hyperventilation",
+    "Hypotension",
+    "Bronchoconstriction"
+   ],
+   "answer": "D",
+   "answer_text": "Hypotension",
+   "explanation": "The anatomical dead space is defined as the dead space in that portion of the respiratory system which is external to the alveoli and includes the air-conveying ducts from the nostrils to the terminal bronchioles. Factors increasing anatomical dead space are:\n\nIncreasing size of subject Standing position Increased lung volume Bronchodilation\n\nThe physiological dead space is defined as the total dead space in the entire respiratory system including the alveoli factors increasing physiological dead space:\n\nHypotension Hypoventilation Emphysema Pulmonary embolism Positive pressure ventilation",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q81-82",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007286",
+   "number": "81",
+   "stem": "Which of the following is an acute-phase protein?",
+   "options": [
+    "Fibrinogen",
+    "Leukotriene C₄ (LTC₄)",
+    "Interleukin-1 (IL-1)",
+    "Interleukin-12 (IL-12)",
+    "Interferon-γ (IFN-γ)"
+   ],
+   "answer": "A",
+   "answer_text": "Fibrinogen",
+   "explanation": "During times of acute inflammation the body upregulates certain proteins to help overcome the insult, including acute-phase proteins. These proteins are mainly synthesized in the liver and may reach concentrations several hundred-fold above their normal value. The most commonly used acute-phase protein in current clinical practice is the C-reactive protein (CRP). Other well-known proteins are fibrinogen and serum amyloid A (SAA) protein.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007287",
+   "number": "82",
+   "stem": "Which one of the following statements is correct concerning the portal vein?",
+   "options": [
+    "It carries blood from three major veins: the superior and inferior mesenteric vein and the left gastric vein.",
+    "It is formed posterior to the head of the pancreas.",
+    "It lies posterior to the bile duct in the free edge of the lesser omentum.",
+    "At the porta hepatis the portal vein divides into four branches.",
+    "It lies anterior to the hepatic artery in the free edge of the lesser omentum."
+   ],
+   "answer": "C",
+   "answer_text": "It lies posterior to the bile duct in the free edge of the lesser omentum.",
+   "explanation": "The portal vein is the main channel of the portal system of veins. It carries blood from three major veins: the superior and inferior mesenteric veins and the splenic vein. The portal vein is formed posterior to the neck of the pancreas. The portal vein ascends in the free edge of the lesser omentum to the liver (posterior to the hepatic artery and bile duct).",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

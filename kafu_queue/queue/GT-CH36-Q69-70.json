@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q69-70",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007274",
+   "number": "69",
+   "stem": "Which one of the following conditions is a cause of primary lymphoedema?",
+   "options": [
+    "Milroy disease",
+    "Cancer",
+    "Tuberculosis",
+    "Radiotherapy",
+    "Surgery"
+   ],
+   "answer": "A",
+   "answer_text": "Milroy disease",
+   "explanation": "Milroy disease is a congenital hereditary primary lymphoedema caused by aplasia of the lymph trunks resulting in progressive swelling of one or both legs. It is an example of primary lymphoedema. Secondary lymphoedema is where there is a known cause of lymphatic failure. This includes surgical excision, such as during an axillary dissection, or radiotherapy, which causes a block of fibrous tissue so that regenerating lymph vessels are unable to cross through.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007275",
+   "number": "70",
+   "stem": "Which one of the following statements regarding deep vein thrombosis (DVT) is correct?",
+   "options": [
+    "If a DVT is present, it usually produces a negative Homan’s sign.",
+    "Incidence can be increased in the operating theatre with the use of pneumatic calf compression.",
+    "It can be mistaken for a torn gastrocnemius muscle.",
+    "Incidence is increased with prophylactic low-molecular-weight heparin (LMWH) injections.",
+    "There is an insignificant risk of pulmonary embolism."
+   ],
+   "answer": "C",
+   "answer_text": "It can be mistaken for a torn gastrocnemius muscle.",
+   "explanation": "Differential diagnosis includes a torn gastrocnemius muscle. Homan’s sign involves passive dorsiflexion of the foot causing pain in the calf in cases of deep vein thrombosis (DVT). Risk can be reduced using thromboembolic deterrent stockings, prophylactic low-molecular-weight heparin (LMWH) injections and pneumatic calf compression in theatre.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

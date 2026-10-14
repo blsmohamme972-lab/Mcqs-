@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q75-76",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007280",
+   "number": "75",
+   "stem": "A 55-year-old male presents to the accident and emergency department with epistaxis. His initial observations are within normal range. Which of the following management options should be undertaken first?",
+   "options": [
+    "Sphenopalatine artery ligation",
+    "Application of Merocel packs",
+    "Immediate cautery of bleeding points",
+    "Sucking on an ice cube and compression",
+    "Ear, nose and throat (ENT) referral"
+   ],
+   "answer": "D",
+   "answer_text": "Sucking on an ice cube and compression",
+   "explanation": "Initial management following Airway, Breathing, Circulation (ABC) assessment consists of immediate nasal compression and sucking on an ice cube or lolly for children. There is little evidence that the application of ice packs is beneficial. If bleeding does not stop, then nasal packing is used to achieve an appropriate tamponade. If the bleeding site is visible with minimal blood loss, primary cauterization can be performed.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007281",
+   "number": "76",
+   "stem": "Which of the following statements regarding the hamstring muscles is correct?",
+   "options": [
+    "The hamstring muscles arise from the anterior superior iliac spine.",
+    "Semimembranosus inserts on the lateral condyle of the tibia.",
+    "The short head of biceps femoris originates from the linea aspera.",
+    "All three muscles are supplied by the femoral nerve.",
+    "The hamstring compartment receives its blood supply from only the profunda femoris artery."
+   ],
+   "answer": "C",
+   "answer_text": "The short head of biceps femoris originates from the linea aspera.",
+   "explanation": "They are the semimembranosus, semitendinosus and biceps femoris. Semimembranosus extends from the ischial tuberosity to the medial condyle of the tibia. Semitendinosus arises from the medial aspect of the ischial tuberosity and inserts deep to the gracilis on the upper part of the tibia. The long head of biceps arises with semitendinosus, with the short head arising from the linea aspera.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q13-14",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007218",
+   "number": "13",
+   "stem": "Regarding the cardiac action potential, which of the following statements is incorrect?",
+   "options": [
+    "There is a constant leak of sodium ions out of the cell.",
+    "The influx of calcium ions lengthens the cardiac action potential.",
+    "The cell membrane is repolarized by potassium ions flowing out of the cell.",
+    "Acetylcholine decreases the rate of sodium ion leak.",
+    "Adrenaline increases the rate of sodium ion leak."
+   ],
+   "answer": "A",
+   "answer_text": "There is a constant leak of sodium ions out of the cell.",
+   "explanation": "The cardiac action potential differs from that in a somatic nerve. There is a constant sodium ion leak into the cell causing a gradual increase in the resting membrane potential. Upon reaching threshold the voltage-gated sodium channels open resulting in rapid depolarization. An influx of calcium ions prolongs the cardiac action potential.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007219",
+   "number": "14",
+   "stem": "A 65-year-old man presents to your outpatient clinic with a 3 cm round lump within the region of the parotid gland. During your history you make a note that he has been a lifelong smoker. Subsequent histological examination reveals an encapsulated mass with narrow cystic spaces lined by a double layer of neoplastic epithelial cells. Which one of the following is the most likely diagnosis?",
+   "options": [
+    "Warthin tumour",
+    "Mucoepidermoid carcinoma",
+    "Pleomorphic adenoma",
+    "Ductal papilloma",
+    "Canalicular adenoma"
+   ],
+   "answer": "A",
+   "answer_text": "Warthin tumour",
+   "explanation": "The histology describes a Warthin tumour (papillary cystadenoma lymphomatosum) which is the second most common salivary gland neoplasm. This benign tumour arises almost exclusively in the parotid gland (unlike the other salivary tumours) and is more common in males than females, typically presenting in patients aged 40–60 years. Approximately 10% are multifocal and 10% are bilateral. People who smoke are eight times more likely to develop these tumours than non-smokers.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q47-48",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007252",
+   "number": "47",
+   "stem": "At a follow-up clinic you note a positive Trendelenburg test in a 74-year-old lady following a hip replacement. Injury to which of the following nerves is the most likely explanation?",
+   "options": [
+    "Superior gluteal",
+    "Inferior gluteal",
+    "Obturator",
+    "Tibial",
+    "Femoral"
+   ],
+   "answer": "A",
+   "answer_text": "Superior gluteal",
+   "explanation": "Superior gluteal nerve injury paralyzes the three muscles gluteus medius, gluteus minimus and tensor fascia latae and hence leads to a positive Trendelenburg test. These three muscles, especially the gluteus medius, tilt the pelvis in order to raise the contralateral pelvis during walking, which would otherwise be pulled down by gravity. In the Trendelenburg test, this action of the gluteus medius (superior pelvic tilt of contralateral hip) is absent and we actually observe that there is a downward drop of the unsupported hip because of unopposed action of gravity. This leads to a lurching gait in the patient.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007253",
+   "number": "48",
+   "stem": "Which of these statements about the anatomical snuffbox is correct?",
+   "options": [
+    "The radial border is formed by the tendon of flexor pollicis longus.",
+    "The radial border is formed by the tendon of abductor pollicis brevis.",
+    "The cutaneous branch of the radial nerve lies in the roof of the snuffbox.",
+    "The cephalic vein begins in the floor of the snuffbox.",
+    "The radial artery lies in the roof of the snuffbox."
+   ],
+   "answer": "C",
+   "answer_text": "The cutaneous branch of the radial nerve lies in the roof of the snuffbox.",
+   "explanation": "The anatomical snuffbox lies between the extensor pollicis longus tendon on the ulnar side and the extensor pollicis brevis and abductor pollicis longus tendons on the radial side. The tendons are crossed by the cutaneous branches of the radial nerve in the roof. The cephalic vein begins in the roof of the snuffbox, and the radial artery lies on the floor deep to the tendons. The snuffbox is important clinically as tenderness is associated with fractures of the scaphoid.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

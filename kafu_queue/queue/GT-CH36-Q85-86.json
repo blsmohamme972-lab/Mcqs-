@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q85-86",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007290",
+   "number": "85",
+   "stem": "Low molecular weight heparin (LMWH) is used commonly in surgical patients. When compared with unfractionated heparin, which one of the following statements is correct?",
+   "options": [
+    "Unfractionated heparin requires a once-daily infusion.",
+    "Unfractionated heparin does not require regular activated partial thromboplastin time (APPT) monitoring.",
+    "Unfractionated heparin contains only low-molecular-weight polysaccharides.",
+    "LMWH has a higher risk of heparin-induced thrombocytopenia.",
+    "LMWH reduces the risk of extension or recurrence of DVT by 38% compared with unfractionated heparin."
+   ],
+   "answer": "E",
+   "answer_text": "LMWH reduces the risk of extension or recurrence of DVT by 38% compared with unfractionated heparin.",
+   "explanation": "Unfractionated heparin consists of polymers of varying molecular weights. Low molecular weight heparin (LMWH) is fractionated to contain only short-chain polysaccharides. It is used for deep vein thrombsis (DVT) prophylaxis in surgery, and has also been found to be more efficient at reducing the risk of DVT extending further and reoccurring. LMHW also has a lower risk of heparin-induced thrombocytopenia and, potentially, osteoporosis when compared with unfractionated heparin.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007291",
+   "number": "86",
+   "stem": "A splenectomy is indicated for all but which one of the following conditions?",
+   "options": [
+    "Some cases of traumatic splenic injury",
+    "Idiopathic thrombocytopenic purpura (ITP)",
+    "Sickle cell disease",
+    "Autoimmune haemolytic anaemia",
+    "Hereditary spherocytosis"
+   ],
+   "answer": "C",
+   "answer_text": "Sickle cell disease",
+   "explanation": "Conservative treatment is usually reserved for grades 1, 2 and sometimes 3, but will vary depending on the physiological state of the patient. If the patient becomes unstable, or if the injury is greater than grade 3, a splenectomy is performed. Splenectomy is also performed for idiopathic thrombocytopenic purpura (ITP), hereditary spherocytosis and autoimmune haemolytic anaemia. There is little evidence for splenectomy in sickle cell disease during an acute sequestration crisis over a blood transfusion.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

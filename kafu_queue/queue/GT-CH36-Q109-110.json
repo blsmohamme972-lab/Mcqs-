@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q109-110",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007314",
+   "number": "109",
+   "stem": "The endothelial cells in all of the following produce thrombomodulin except:",
+   "options": [
+    "Hepatic circulation",
+    "Cutaneous circulation",
+    "Cerebral microcirculation",
+    "Renal circulation",
+    "Pulmonary circulation"
+   ],
+   "answer": "C",
+   "answer_text": "Cerebral microcirculation",
+   "explanation": "The endothelium of the blood vessels also plays an active role in preventing the extension of clots. All endothelial cells, except those in the cerebral microcirculation, produce thrombomodulin. This protein binds with thrombin to slow the clotting process. The thrombomodulin–thrombin complex also activates protein C, which acts as an anticoagulant by inactivating activated factors V and VIII.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007315",
+   "number": "110",
+   "stem": "A 72-year-old woman presents with central abdominal pain radiating toward her back over the past 3 h, with several episodes of vomiting and absolute constipation. She has a past history of atrial fibrillation, for which she is on warfarin, and had a cholecystectomy 20 years ago. She has never smoked or drank alcohol. She is clinically dehydrated, with generalized guarding and rebound of the abdomen. Her white cell count is raised at 19 × 10⁹/L and she has a C-reactive\n\nprotein (CRP) of 231. Liver function tests are normal. Her blood gas shows on 15 L O₂: pH 7.27,\n\nPCO₂ 3.4 kPa, PO₂ 14.6 kPa, lactate 7.3, HCO3− 14 mmol/L, base excess (BE) 5.4 mmol/L.\n\nWhich one of the following is the most likely diagnosis?",
+   "options": [
+    "Infarcted bowel",
+    "Pancreatitis",
+    "Pulmonary embolism",
+    "Pneumonia",
+    "None of the above"
+   ],
+   "answer": "A",
+   "answer_text": "Infarcted bowel",
+   "explanation": "The blood gas is consistent with acidosis due to the low pH. There is a low bicarbonate level with a negative base excess, suggesting that this is more of a metabolic acidosis. The history of abdominal pain and atrial fibrillation suggests a small embolus has passed into the arterial system causing bowel infarction. A metabolic acidosis may also fit with pancreatitis; however, with previous gallbladder surgery, normal liver function tests and no history of alcohol abuse, it is less likely.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

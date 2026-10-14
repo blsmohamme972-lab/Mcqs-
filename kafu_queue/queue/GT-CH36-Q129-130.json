@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q129-130",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007334",
+   "number": "129",
+   "stem": "Concerning the blood supply/drainage of the heart, which of the following statements is correct?",
+   "options": [
+    "The anterior interventricular artery arises from the right coronary artery.",
+    "The circumflex artery arises from the left coronary artery.",
+    "The posterior interventricular artery forms an anastomosis with the marginal artery.",
+    "The anterior cardiac veins always drain into the coronary sinus.",
+    "The small cardiac vein always drains directly into the right atrium."
+   ],
+   "answer": "B",
+   "answer_text": "The circumflex artery arises from the left coronary artery.",
+   "explanation": "The blood supply to the heart may be summarized as follows:\n\nLeft coronary artery (arising from the posterior aspect of the aortic sinus) divides into: Anterior interventricular artery (which courses the interventricular groove and forms an anastomosis with the posterior interventricular artery) Circumflex artery (which courses the atrioventricular sulcus and forms an anastomosis with the right coronary artery) Right coronary artery (arising from the anterior aspect of the aortic sinus) divides into: Posterior interventricular artery (the continuation of the posterior interventricular artery, which courses the interventricular groove and forms an anastomosis with the anterior interventricular artery) Marginal branch (which descends over the anterior aspect of the ventricle)\n\nThe anterior cardiac veins always drain directly into the right atrium, whereas the small cardiac veins usually drain into the coronary sinus, but this is variable and sometimes they drain directly into the right atrium.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007335",
+   "number": "130",
+   "stem": "Which of the following statements relating to antidiurectic hormone (ADH) is true?",
+   "options": [
+    "ADH stimulates aquaporins in the distal tubule.",
+    "Decreased blood volume leads to decreased ADH secretion.",
+    "Increased osmolality leads to an increased urine volume.",
+    "Changes in osmolality are detected in the hypothalamus.",
+    "The stretch receptors involved in ADH secretion are found in the aortic arch."
+   ],
+   "answer": "D",
+   "answer_text": "Changes in osmolality are detected in the hypothalamus.",
+   "explanation": "It is produced in the supraoptic nucleus of the hypothalamus and then secreted from the posterior pituitary. ADH stimulates aquaporins (found in the cytoplasm of collecting duct cells) to fuse with the cell membrane. Consequently, the collecting duct becomes more permeable to water and thus more water is absorbed. Changes in blood volume are detected by the stretch receptors in the left atrium and impulses are sent to the hypothalamus to inhibit ADH production.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

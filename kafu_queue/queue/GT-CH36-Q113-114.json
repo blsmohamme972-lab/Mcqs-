@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q113-114",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007318",
+   "number": "113",
+   "stem": "A 65-year-old man who has been investigated by the general practitioner (GP) for lethargy and tiredness is referred to the surgeons with a right upper quadrant mass. The GP was concerned he had a possible small bowel cancer. On examination you note the patient to have oral ulcerations with a marked hepatosplenomegaly. The patient also has multiple masses that can be felt in his neck and supraclavicular fossa. You order a blood test, which provisionally supports your primary diagnosis, after which you obtain a bone marrow biopsy. Which of the following results would practically confirm your diagnosis?",
+   "options": [
+    "Owl eye nuclei",
+    "Auer rods",
+    "Reed–Sternberg cells",
+    "Lymphoblasts",
+    "Aplastic bone marrow"
+   ],
+   "answer": "B",
+   "answer_text": "Auer rods",
+   "explanation": "All these symptoms together are a typical presentation of acute myeloid leukaemia, which has a median age of diagnosis of 65 years and is more common in males. Typically, it can cause gross hepatosplenomegaly with a bone marrow aspirate showing Auer rods, which are almost diagnostic of the condition. Owl eye nuclei represent cytomegalovirus (CMV) infection. Reed–Sternberg cells are used to diagnose Hodgkin lymphoma, but diagnosis is usually gained by lymph node biopsy.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007319",
+   "number": "114",
+   "stem": "Which one of the following is not a recognized treatment option for basal cell carcinoma?",
+   "options": [
+    "Curettage and cautery",
+    "Watch and wait",
+    "Cryotherapy",
+    "Surgical excision",
+    "Sentinel node biopsy"
+   ],
+   "answer": "E",
+   "answer_text": "Sentinel node biopsy",
+   "explanation": "Cryotherapy treats the lesion but provides no tissue for histology. Surgical excision provides a histological specimen, a closed wound and proof of complete excision. Larger lesions may require coverage with a skin graft or even reconstructive surgery. Sentinel node biopsy is part of the recognized treatment options for melanoma.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

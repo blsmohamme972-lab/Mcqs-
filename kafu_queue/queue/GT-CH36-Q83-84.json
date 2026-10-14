@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q83-84",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007288",
+   "number": "83",
+   "stem": "Which of the following structures is found at the transpyloric plane of Addison?",
+   "options": [
+    "Fundus of stomach",
+    "Tail of pancreas",
+    "Inferior mesenteric artery branching from aorta",
+    "Upper border of L3",
+    "Duodenojejunal junction"
+   ],
+   "answer": "E",
+   "answer_text": "Duodenojejunal junction",
+   "explanation": "The transpyloric plane of Addison is a perpendicular plane found midway between the pubic symphysis and the jugular notch. Structures found at this level include:\n\nBody of L1 vertebrae Duodenojejunal junction Hilum of kidneys Portal vein formed from anastomosis of splenic and superior mesenteric veins Attachment of transverse mesocolon Termination of spinal cord Gallbladder fundus Superior mesenteric artery branching off aorta Pancreas neck Hilum of spleen Pylorus of stomach",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007289",
+   "number": "84",
+   "stem": "A 65-year-old Afro-Caribbean man comes to see you in clinic complaining of progressive lower back pain with increasing tiredness and shortness of breath. He has mentioned in the last few days his legs have become discoordinated and he has had difficulty passing urine and opening his bowels. Emergency scans diagnosed spinal cord compression. Prostate-specific antigen (PSA) levels are normal. Which of the following investigations would confirm the diagnosis?",
+   "options": [
+    "A computed tomography (CT) scan of his spine",
+    "Urine sample",
+    "Ultrasound scan (USS) of the abdomen",
+    "Chest X-ray",
+    "Colonoscopy"
+   ],
+   "answer": "B",
+   "answer_text": "Urine sample",
+   "explanation": "Owing to bone marrow infiltration by the myeloma, patients often present with problems of anaemia, infection and bleeding. High paraprotein levels, causing hyperviscosity, lead to renal impairment, amyloidosis and renal infarction. MM is also associated with lytic bone lesions, which can cause spinal cord compression. In two-thirds of cases, urine samples contain Bence–Jones proteins, which are free immunoglobulin light chains (kappa or lambda) which are filtered by the kidney. β-2 microglobulin is a prognostic test.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

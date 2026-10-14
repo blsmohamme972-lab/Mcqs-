@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q43-44",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007248",
+   "number": "43",
+   "stem": "A 20-year-old woman attends accident and emergency with signs of ischaemia in her cerebral and ophthalmic arteries. Which of the following arterial diseases is most likely the cause?",
+   "options": [
+    "Kawasaki disease",
+    "Polyarteritis nodosa",
+    "Buerger’s disease",
+    "Temporal arteritis",
+    "Takayashu disease"
+   ],
+   "answer": "E",
+   "answer_text": "Takayashu disease",
+   "explanation": "The disease involves the small arteries of the limbs. Temporal arteritis – this disease of unknown aetiology affects elderly people causing facial pain and headache. There may also be ocular symptoms, even blindness. Takayashu disease – this rare disease commonly affects young women involving the cerebral, ophthalmic or carotid arteries.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007249",
+   "number": "44",
+   "stem": "Concerning the defecation reflex, which of the following statements is correct?",
+   "options": [
+    "It is triggered when distended rectal walls reach a pressure of 80 mmHg.",
+    "Afferent impulses pass to sacral segments 1 and 2.",
+    "Efferent impulses activate post-ganglionic parasympathetic nervous system neurons of the myenteric plexus.",
+    "Sympathetic stimulation leads to relaxation of the internal anal sphincter.",
+    "Conscious resistance to defecate leads to inhibition of the pudendal nerve."
+   ],
+   "answer": "C",
+   "answer_text": "Efferent impulses activate post-ganglionic parasympathetic nervous system neurons of the myenteric plexus.",
+   "explanation": "The defecation reflex is triggered at an intrarectal pressure of 18 mmHg. Afferent impulses of the reflex pathway pass to sacral segments 1–3. Parasympathetic stimulation leads to relaxation of the internal anal sphincter. Activation of the pudendal nerve leads to increased tone of the external anal sphincter, and is involved in the process of consciously resisting the urge to defecate.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

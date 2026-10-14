@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q73-74",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007278",
+   "number": "73",
+   "stem": "A 38-year-old man sustained a severe fracture of his left elbow, which damaged the ulnar nerve behind the medial epicondyle of the humerus. A month later, he still has a total ulnar nerve paralysis. Which clinical sign is most likely to be present on examination?",
+   "options": [
+    "Sensory loss over the ulnar 3½ digits on the ulnar side of the hand",
+    "Inability to grip a sheet of paper between his fingers when the hand is placed flat on the table",
+    "Excessive sweating over the ulnar border of the left hand",
+    "Index and middle fingers on the affected side are held in the claw position",
+    "Marked wasting of the thenar eminence"
+   ],
+   "answer": "B",
+   "answer_text": "Inability to grip a sheet of paper between his fingers when the hand is placed flat on the table",
+   "explanation": "There is sympathetic interruption, with absence of sweating in the affected area. The thenar muscles are supplied by the median nerve and are therefore spared. Although the fourth and fifth digits are held in the clawed position when the nerve is injured at the wrist, a high lesion paralyzes the long flexors to these two fingers and results in the loss (or at least a marked reduction) of this sign. A test for paralysis of the palmar interossei, supplied by the ulnar nerve, is the inability to adduct the fingers and thus to be unable to grip a sheet of paper between them.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007279",
+   "number": "74",
+   "stem": "A 16-year-old girl is brought into hospital after being struck by a car while riding her bike. The girl wore a helmet that left a bullseye impression on the car windscreen. On examination the patient is confused and does not know where she is. She opens her eyes to speech and localizes to pain. Which of the following is her Glasgow Coma Scale (GCS)?",
+   "options": [
+    "10",
+    "11",
+    "12",
+    "13",
+    "14"
+   ],
+   "answer": "C",
+   "answer_text": "12",
+   "explanation": "The answer is 12 as she is confused but opening her eyes to speech and localizing to pain. The Glasgow Coma Scale (GCS) offers a reliable, reproducible quantitative assessment of a patient’s level of consciousness. It is measured on three scales, with the lowest possible score being 3 and the highest 15.\n\nEye opening\n\n4 – spontaneously 3 – to speech 2 – to pain 1 – not at all\n\nMotor response\n\n6 – obeys commands 5 – localizes pain 4 – withdraws from pain 3 – abnormal flexion to pain 2 – extension to pain 1 – no response\n\nVerbal response\n\n5 – orientated 4 – confused conversation 3 – inappropriate words 2 – incomprehensible sounds 1 – no verbalization",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

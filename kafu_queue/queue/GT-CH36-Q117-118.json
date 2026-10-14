@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q117-118",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007322",
+   "number": "117",
+   "stem": "Which of the following statements regarding incomplete spinal cord injuries is correct?",
+   "options": [
+    "Anterior cord syndrome occurs in syringomyelia.",
+    "Central cord syndrome involves preservation of pain and temperature below the lesion.",
+    "Cauda equina syndrome is an upper motor neuron lesion.",
+    "Posterior cord syndrome is commonly seen in hyperflexion injuries.",
+    "Brown–Sequard syndrome involves loss of pain and temperature on the opposite side below the lesion."
+   ],
+   "answer": "E",
+   "answer_text": "Brown–Sequard syndrome involves loss of pain and temperature on the opposite side below the lesion.",
+   "explanation": "Posterior cord syndrome: Seen in hyperextension injuries leading to loss of proprioception and profound ataxia. Brown–Sequard syndrome: Hemisection of the cord leading to paralysis on the affected side below the lesion. There is also loss of proprioception and fine discrimination. Pain and temperature are lost on the opposite side below the lesion.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007323",
+   "number": "118",
+   "stem": "Which of the following muscles initiates shoulder abduction?",
+   "options": [
+    "Deltoid",
+    "Supraspinatus",
+    "Infraspinatus",
+    "Trapezius",
+    "Subscapularis"
+   ],
+   "answer": "B",
+   "answer_text": "Supraspinatus",
+   "explanation": "The shoulder joint is initially abducted by the supraspinatus muscle, up to 15°. The deltoid muscle then abducts to 90°. Abduction beyond that is by rotation of the scapula by the trapezius and serratus anterior muscle. A painful middle arc (central 30° or so) is caused by supraspinatus tendinitis.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

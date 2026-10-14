@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q07-08",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007212",
+   "number": "7",
+   "stem": "Pepsinogen is an important enzyme involved in food digestion. Which of the following cells found in the gastric wall secrete pepsinogen?",
+   "options": [
+    "Parietal cells",
+    "D-cells",
+    "Enterochromaffin-like cells",
+    "Goblet cells",
+    "Chief cells"
+   ],
+   "answer": "E",
+   "answer_text": "Chief cells",
+   "explanation": "Microscopic examination of the gastric mucosa shows that it is deeply folded. The folds create gastric glands, which open out at gastric pits into the stomach lumen. The exocrine gastric cells are found within the gastric glands. There are a number of secretory cells, which secrete different products into the lumen of the gastric glands and into the blood:\n\nParietal (oxyntic) cells – hydrochloric acid and intrinsic factor D-cells – somatostatin Enterochromaffin-like cells – histamine and serotonin Goblet cells – mucus Chief (peptic) cells – pepsinogen G-cells – gastrin",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007213",
+   "number": "8",
+   "stem": "Which part of the nephron tubercle is impermeable to water?",
+   "options": [
+    "The proximal tubule",
+    "The descending limb of the loop of Henle",
+    "The ascending limb of the loop of Henle",
+    "The distal tubule",
+    "The collecting duct"
+   ],
+   "answer": "C",
+   "answer_text": "The ascending limb of the loop of Henle",
+   "explanation": "High ion concentrations can be established via the countercurrent multiplier mechanism. In the descending limb of the loop of Henle, water is absorbed and NaCl is passively added to the ultrafiltrate. Consequently, the ultrafiltrate is concentrated over four times from the start of the descending loop. In the ascending loop Na⁺ is actively reabsorbed (Cl– passively follows) but this area is impermeable to water.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

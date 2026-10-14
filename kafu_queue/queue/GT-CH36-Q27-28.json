@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q27-28",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007232",
+   "number": "27",
+   "stem": "Different nerves are used for different functions. Which of the following nerve types are used to associated with transmitting pain, touch and temperature?",
+   "options": [
+    "Aα",
+    "Aβ",
+    "Aδ",
+    "B",
+    "C"
+   ],
+   "answer": "C",
+   "answer_text": "Aδ",
+   "explanation": "Peripheral nerves are divided into three broad groups, A, B and C (group A is further subdivided four times), according to the speed of conduction of a nerve. The speed of conduction is governed by two factors: its diameter and whether the axon is myelinated or not. Group A fibres are all myelinated. Group B fibres are smaller but remain myelinated.\n\n| Type | Function | Diameter (μm) | Conduction velocity (m/s) | Myelin |\n| --- | --- | --- | --- | --- |\n| Aα | Motor proprioception | 12–20 | 70–120 | Yes |\n| Aβ | Touch and pressure | 6–13 | 30–90 | Yes |\n| Aγ | Muscle spindles | 3–6 | 15–40 | Yes |\n| Aδ | Pain, touch and temperature | 1–5 | 12–30 | Thin |\n| B | Pre-ganglionic autonomic | 1–3 | 3–15 | Yes |\n| C | Pain (dull ache), post-ganglionic | 0.5–1 | 1 | No |",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007233",
+   "number": "28",
+   "stem": "A 22-year-old horse rider was thrown off a horse and landed on his left shoulder and head, stretching his neck. On examination there is loss of shoulder abduction and lateral rotation as well as loss of elbow flexion and supination. Which nerve roots are likely to be damaged?",
+   "options": [
+    "C5–C6",
+    "C7",
+    "C7–C8",
+    "C8",
+    "T1"
+   ],
+   "answer": "A",
+   "answer_text": "C5–C6",
+   "explanation": "This patient has injured the superior part of his brachial plexus because of an excessive increase in the angle between the neck and shoulder. This gives a characteristic appearance of a ‘waiter’s tip’ position of the affected arm, and the condition known as Erb palsy. C5 and C6 nerve roots combine to form the superior trunk of the brachial plexus.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

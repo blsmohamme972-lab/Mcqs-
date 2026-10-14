@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q05-06",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007210",
+   "number": "5",
+   "stem": "Which of the following is not a site for communication between the portal and systemic venous systems?",
+   "options": [
+    "Between the oesophageal branch of the left gastric vein and the azygous system",
+    "Between the portal tributaries in the mesentery and retroperitoneal veins communicating with the renal, lumbar and phrenic veins",
+    "Between portal branches in the liver and the veins of the abdominal wall",
+    "Between the superior rectal branch of the inferior mesenteric vein and the inferior rectal veins",
+    "Between the superior and inferior pancreaticoduodenal veins"
+   ],
+   "answer": "E",
+   "answer_text": "Between the superior and inferior pancreaticoduodenal veins",
+   "explanation": "There are five areas of portosystemic communication: the lower end of the oesophagus, the upper end of the anal canal, the periumbilical region, the retroperitoneal areas and finally between the portal branches of the liver and veins of the diaphragm across the bare area of the liver. Sites of portosystemic anastomoses\n\nSite\n\nPortal circulation Systemic circulation\n\nLower oesophagus\n\nOesophageal branches of left gastric vein Azygous vein\n\nPeriumbilical\n\nVein of ligamentum teres Superior/inferior epigastric veins Upper anal canal\n\nSuperior rectal vein Middle/inferior rectal veins Retroperitoneal\n\nRight/middle/left colic veins Renal/lumbar/phrenic veins Bare area of liver\n\nHepatic/portal veins Inferior phrenic veins",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007211",
+   "number": "6",
+   "stem": "Which of the following statements regarding the inferior epigastric artery is incorrect?",
+   "options": [
+    "The inferior epigastric artery can be injured during laparoscopic port insertion.",
+    "An inguinal hernia medial to the inferior epigastric artery is described as an indirect hernia.",
+    "It supplies the rectus abdominis muscle.",
+    "It supplies the medial aspect of the anterolateral abdominal wall.",
+    "It anastomoses with the superior epigastric artery."
+   ],
+   "answer": "B",
+   "answer_text": "An inguinal hernia medial to the inferior epigastric artery is described as an indirect hernia.",
+   "explanation": "It runs superiorly entering the rectus sheath below the arcuate line, running deep to the rectus abdominis. It supplies the rectus abdominis muscle and the medial aspect of the anterolateral abdominal wall. Superiorly, it anastomoses with the superior epigastric artery, a branch of the internal thoracic artery, above the umbilicus. The inferior epigastric artery is a landmark in distinguishing between inguinal hernias, with indirect hernias originating lateral to the vessel, and direct hernias originating medially to the artery.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

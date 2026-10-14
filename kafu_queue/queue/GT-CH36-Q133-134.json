@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q133-134",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007338",
+   "number": "133",
+   "stem": "During a total mastectomy in a 65-year-old woman, the consultant surgeon performs a level II axillary dissection. Which one of the following statements is correct?",
+   "options": [
+    "Level II clearance extends up to the lateral border of pectoralis minor.",
+    "Level II clearance extends up to the first rib.",
+    "Level II clearance extends up to axillary vein.",
+    "The intercostobrachial nerve supplying the latissimus dorsi muscle can be damaged.",
+    "The thoracodorsal nerve passes along the posterior wall of the axilla."
+   ],
+   "answer": "E",
+   "answer_text": "The thoracodorsal nerve passes along the posterior wall of the axilla.",
+   "explanation": "A level I axillary clearance extends up to the axillary vein, level II up to the medial border of the pectoralis minor muscle and level III up to the 1st rib. There is a risk of damage to the intercostobrachial nerve, which is a sensory nerve to the axilla and medial aspect of the upper arm. The long thoracic nerve supplying serratus anterior and the thoracodorsal nerve supplying latissimus dorsi can also be damaged. The thoracodorsal nerve passes along the posterior wall of the axilla.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007339",
+   "number": "134",
+   "stem": "Which of the following statements regarding calcium metabolism is incorrect?",
+   "options": [
+    "Parathormone (PTH) is secreted by the parathyroid glands.",
+    "Calcitonin is produced by the parafollicular cells of the thyroid gland.",
+    "Calcitonin acts to decrease calcium levels.",
+    "PTH binds to osteoclasts increasing their expression of receptor activator of nuclear factor kappa B ligand (RANKL).",
+    "Calbindin is important in intestinal calcium absorption."
+   ],
+   "answer": "D",
+   "answer_text": "PTH binds to osteoclasts increasing their expression of receptor activator of nuclear factor kappa B ligand (RANKL).",
+   "explanation": "Parathormone (PTH) is secreted by parathyroid glands and is stimulated by a decrease in calcium and an increase in phosphate. Calcitonin, produced by parafollicular cells of thyroid gland, decreases calcium. PTH increases osteoclastic activity by binding to osteoblasts. Osteoblasts increase their expression of the receptor activator of nuclear factor kappa B ligand (RANKL), which binds to a receptor activator of nuclear factor kappa B (RANK) receptor on the osteoclast.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q09-10",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007214",
+   "number": "9",
+   "stem": "Which of the following premalignant conditions is incorrectly matched with its associated malignant tumour?",
+   "options": [
+    "Epithelial hyperplasia of the breast – carcinoma of the breast",
+    "Xeroderma pigmentosum – skin cancer",
+    "Ulcerative colitis – squamous cell carcinoma of the anus",
+    "Cirrhosis of the liver – hepatocellular carcinoma",
+    "Paget disease – osteogenic sarcoma"
+   ],
+   "answer": "C",
+   "answer_text": "Ulcerative colitis – squamous cell carcinoma of the anus",
+   "explanation": "A premalignant disease is an identifiable lesion/condition associated with an increased risk of developing malignant tumours. Ulcerative colitis is associated with an increased risk of developing adenocarcinoma of the colon or carcinoma of the bile duct.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007215",
+   "number": "10",
+   "stem": "A 25-year-old soldier presents to the emergency department looking anxious, with a 5-day-old wound to the right shoulder, which is rapidly increasing in size. On examination he is hypotensive, feverish, with a 2-cm open wound that is warm and red over his right deltoid. There are surrounding erythema and serosanguineous discharge. You manage to palpate surgical emphysema over the wound. Which of the following organisms is most likely to cause this clinical picture?",
+   "options": [
+    "Clostridium difficile",
+    "Clostridium perfringens",
+    "Clostridium tetani",
+    "Staphylococcus aureus",
+    "Clostridium botulinum"
+   ],
+   "answer": "B",
+   "answer_text": "Clostridium perfringens",
+   "explanation": "Clostridium tetani is the causative organism for tetanus. Clostridium botulinum produces botulinum neurotoxins (causing botulism), which leads to a spreading paralysis. Staphylococcus aureus is implicated in skin infections such as cellulitis. In this scenario, the patient is clinically unwell, with evidence of gas under the skin; therefore the most likely organism involved is Clostridium perfringens.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

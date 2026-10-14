@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q131-132",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007336",
+   "number": "131",
+   "stem": "Which of the following statements is correct concerning Ca²⁺ metabolism?",
+   "options": [
+    "Hypercalcaemia increases secretion of parathormone (PTH).",
+    "Calcitonin reduces serum Ca²⁺ levels.",
+    "Calcitonin plays a key role in daily regulation of Ca²⁺.",
+    "Low Ca²⁺ levels will lead to decreased permeability of Na⁺ channels in nerve cells.",
+    "High Ca²⁺ levels are usually found in secondary hyperparathyroidism."
+   ],
+   "answer": "B",
+   "answer_text": "Calcitonin reduces serum Ca²⁺ levels.",
+   "explanation": "It stimulates the conversion of vitamin D into its active form 1,25-dihydrocholecalciferol. Activated vitamin D increases plasma Ca²⁺ levels by increasing gut uptake, increasing renal absorption and stimulating bone resorption of Ca²⁺. Calcitonin is secreted by parafollicular C-cells in the thyroid gland. Calcitonin acts to reduce Ca²⁺ levels by increasing renal loss and increasing bone reuptake.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007337",
+   "number": "132",
+   "stem": "Which of the following statements regarding the right atrium is false?",
+   "options": [
+    "Forms the right heart border",
+    "Has the coronary sinus opening above the septal cusp of the tricuspid valve",
+    "Has a posterior wall formed by the interatrial septum",
+    "Lies in front of the left atrium",
+    "Has the sinoatrial (SA) node medial to the sulcus terminalis"
+   ],
+   "answer": "E",
+   "answer_text": "Has the sinoatrial (SA) node medial to the sulcus terminalis",
+   "explanation": "The sinoatrial (SA) node lies near the opening of the superior vena cava, at the superior border of the sulcus terminalis. The right atrium forms the right heart border. The orifice of the coronary sinus lies between the opening of the inferior vena cava and the atrioventricular orifice.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

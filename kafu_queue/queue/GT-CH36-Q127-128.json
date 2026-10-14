@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q127-128",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007332",
+   "number": "127",
+   "stem": "Which of the following statements regarding stretch reflexes is true?",
+   "options": [
+    "The reflexes require a minimum of three nerves.",
+    "Stretch reflexes are not present in postural muscles.",
+    "The reflex is initiated by actively stretching the muscle spindles.",
+    "The stretch reflex is most easily demonstrated in flexor muscles.",
+    "The reflex results in an isotonic muscle contraction."
+   ],
+   "answer": "E",
+   "answer_text": "The reflex results in an isotonic muscle contraction.",
+   "explanation": "The reflex is produced when a light tap is placed on the muscle tendon. This action stretches the entire muscle and passively stretches the muscle spindles. Sensory impulses are then sent from the spindle via the sensory neuron to the ventral grey matter of the spinal cord. The sensory nerve synapses with an alpha motor neuron and this fast-conducting motor nerve stimulates the muscle to make an isotonic contraction.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007333",
+   "number": "128",
+   "stem": "Which of the following is the correct boundary of the omental foramen (epiploic foramen or foramen of Winslow)?",
+   "options": [
+    "Anteriorly the hepatic artery",
+    "Posteriorly the hepatic vein",
+    "Superiorly the quadrate lobe of the liver",
+    "Inferiorly the hepatic vein",
+    "None of the above"
+   ],
+   "answer": "A",
+   "answer_text": "Anteriorly the hepatic artery",
+   "explanation": "The boundaries of the omental foramen are anteriorly, the portal vein, hepatic artery and bile duct (all in the free edge of the lesser omentum); posteriorly, the inferior vena cava and right crus of the diaphragm; superiorly, the caudate lobe of the liver; and inferiorly, the superior part of the duodenum, portal vein, hepatic artery and bile duct.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

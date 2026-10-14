@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q19-20",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007224",
+   "number": "19",
+   "stem": "Following history and clinical examination, you are suspicious that your patient has a bone tumour. On reviewing the radiograph of the distal femur you can see that the periosteum has been lifted up and reactive new bone is growing underneath; you identify this appearance as Codman’s triangle. Which bone tumour is this sign characteristically associated with?",
+   "options": [
+    "Osteochondroma",
+    "Osteosarcoma",
+    "Chondrosarcoma",
+    "Osteoid osteoma",
+    "Enchondroma"
+   ],
+   "answer": "B",
+   "answer_text": "Osteosarcoma",
+   "explanation": "Radiographs of osteosarcomas usually show a large, destructive, mixed lytic and blastic mass within the metaphyseal region of the long bones or the limbs. As the tumour grows it penetrates through the cortex and lifts the periosteum. A periosteal reaction results in reactive new bone formation, and the triangle of new bone formed between the cortex and raised ends of the periosteum is known as Codman’s triangle. Eventually, the tumour expands through the periosteum and penetrates the surrounding soft tissue causing streaks of calcification resulting in a ‘sun ray’ appearance.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007225",
+   "number": "20",
+   "stem": "What does the Y descent represent on the Jugular Venous Pressure (JVP) waveform?",
+   "options": [
+    "Closing of the tricuspid valve",
+    "Atrial contraction",
+    "Start of ventricular systole",
+    "Closing of the mitral valve",
+    "Opening of the tricuspid valve"
+   ],
+   "answer": "E",
+   "answer_text": "Opening of the tricuspid valve",
+   "explanation": "During complete heart block atrial contraction may occur at a time when the tricuspid valve is closed causing ‘cannon’ waves. C wave: Represents closure of the tricuspid leaflets in the right atrium at the start of ventricular systole. X descent: The pressure inside the atrium drops as a result of the atrium relaxing and the tricuspid valve moving down during ventricular systole. V wave: The rise in atrial pressure is caused by rapid blood filling prior to opening of the tricuspid valve.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

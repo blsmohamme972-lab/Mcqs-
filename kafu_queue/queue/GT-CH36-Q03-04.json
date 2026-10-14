@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q03-04",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007208",
+   "number": "3",
+   "stem": "Which of the following viruses is correctly paired with the tumours they may cause?",
+   "options": [
+    "Human herpes virus 8 – hepatocellular carcinoma",
+    "Human papilloma virus – anal carcinoma",
+    "Epstein–Barr virus – Kaposi’s sarcoma",
+    "Hepatitis B virus – cervical carcinoma",
+    "Human T-cell leukaemia virus – nasopharyngeal cancer"
+   ],
+   "answer": "B",
+   "answer_text": "Human papilloma virus – anal carcinoma",
+   "explanation": "\n\nVirus\n\nType Tumour\n\nEpstein–Barr\n\nDNA Burkitt’s lymphoma, nasopharyngeal cancer, lymphoma Human herpes virus-8\n\nDNA Kaposi’s sarcoma Human T-cell leukaemia\n\nRNA T-lymphoblastic leukaemia Hepatitis B\n\nDNA Hepatocellular carcinoma Human papilloma\n\nDNA Cervical, anal carcinoma",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007209",
+   "number": "4",
+   "stem": "A 45-year-old has had several units of blood following a significant road traffic collision. He feels unwell and you perform an electrocardiogram (ECG) to look for evidence of hyperkalaemia. Which of the following ECG changes would you expect to find?",
+   "options": [
+    "Peaked T waves",
+    "Prolonged PR interval",
+    "Prolonged QT interval",
+    "All of the above",
+    "a and b only"
+   ],
+   "answer": "A",
+   "answer_text": "Peaked T waves",
+   "explanation": "Ultimately, the patient may develop a cardiac arrhythmia and die. Hyperkalaemia causes the cardiac cell membranes to become hyperpolarized, which leads to decreased cardiac excitability and then in turn hypotension, bradycardia and asytole. Causes include renal insufficiency, medications (such as angiotensin-converting enzyme [ACE] inhibitors and non-steroidal anti-inflammatory drugs [NSAIDs]), mineralocorticoid deficiency, rhabdomyolysis and massive blood transfusions. The electrocardiogram (ECG) changes are reduced P waves, broadening of the QRS complex, sinusoidal ST segment and peaked T waves.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

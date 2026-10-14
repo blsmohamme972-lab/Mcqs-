@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q93-94",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007298",
+   "number": "93",
+   "stem": "Which one of the following statements correctly defines pulse pressure?",
+   "options": [
+    "Difference between the systolic and diastolic blood pressure",
+    "Sum of the systolic and diastolic blood pressure",
+    "Difference between the systolic and stroke volume",
+    "Heart rate multiplied by stroke volume",
+    "Cardiac output multiplied by systemic vascular resistance"
+   ],
+   "answer": "A",
+   "answer_text": "Difference between the systolic and diastolic blood pressure",
+   "explanation": "Pulse pressure is defined as the difference between the systolic and diastolic blood pressure. A narrow pulse pressure is suggestive of significant blood loss or dehydration. However, a narrow pulse pressure can also be caused by aortic stenosis. A high pulse pressure is seen in chronic aortic regurgitation, and in healthy individuals after exercise because of a reduction in peripheral vascular resistance.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007299",
+   "number": "94",
+   "stem": "Concerning the rotator cuff muscles, which of the following statements is correct?",
+   "options": [
+    "Teres minor is an external rotator of the shoulder.",
+    "Abduction of the shoulder is initiated by subscapularis.",
+    "Supraspinatus inserts into the superior aspect of the lesser tuberosity of the humerus.",
+    "Subscapularis inserts into the greater tuberosity of the humerus.",
+    "Infraspinatus is an internal rotator of the shoulder."
+   ],
+   "answer": "A",
+   "answer_text": "Teres minor is an external rotator of the shoulder.",
+   "explanation": "All rotator cuff muscles originate from the scapular; their insertion and function can be summarized as follows:\n\nSupraspinatus Inserts into the superior aspect of greater tuberosity Initiates abduction of the shoulder Infraspinatus Inserts into the middle aspect of greater tuberosity Externally rotates the shoulder Teres minor Inserts into the inferior aspect of greater tuberosity Externally rotates the shoulder Subscapularis Inserts into the lesser tuberosity Internally rotates the shoulder",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}

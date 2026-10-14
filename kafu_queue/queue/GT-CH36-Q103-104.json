@@ -1,0 +1,44 @@
+{
+ "package_id": "GT-CH36-Q103-104",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "36",
+ "chapter_title": "Practice paper",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000007308",
+   "number": "103",
+   "stem": "A 35-year-old woman is admitted for an elective laparoscopic cholecystectomy. Her operation is prolonged and is complicated by damage to the common bile duct. Two days after her operation is noted as having a swollen calf and becomes cold and clammy, with tachypnoea and tachycardia associated with central chest and epigastric pain. Her blood gas on air shows pH 7.48, PCO₂ 3.5 kPa, PO₂ 7.3 kPa, HCO3− 24 mmol/L. Her electrocardiogram and blood results\n\nare pending. Which one of the following is the most likely diagnosis?",
+   "options": [
+    "Pancreatitis",
+    "Pneumonia",
+    "Pulmonary embolism",
+    "Tietze syndrome",
+    "Myocardial infarction"
+   ],
+   "answer": "C",
+   "answer_text": "Pulmonary embolism",
+   "explanation": "The blood gas gives a picture of respiratory alkalosis with hypoxia and hypocapnia. This is typically seen in patients suffering from a pulmonary embolism. Pulmonary embolism can also cause a sinus tachycardia and pleuritic chest pain. Tietze syndrome is a condition of unknown aetiology characterized by chondritis of the costal cartilage.",
+   "has_book_images": false,
+   "prompt": ""
+  },
+  {
+   "qid": "Q000007309",
+   "number": "104",
+   "stem": "A 50-year-old man undergoes an emergency laparotomy for an upper gastrointestinal haemorrhage. At surgery a bleeding duodenal ulcer is found to be the cause of the haemorrhage. Which of the following vessels is the likely cause of bleeding?",
+   "options": [
+    "Short gastric artery",
+    "Left gastric artery",
+    "Right gastric artery",
+    "Gastroduodenal artery",
+    "Right gastroepiploic artery"
+   ],
+   "answer": "D",
+   "answer_text": "Gastroduodenal artery",
+   "explanation": "The short gastric arteries originate from the splenic artery and run in the gastrosplenic ligament. The left gastric artery originates from the celiac trunk and runs up toward the oesophageal opening in the diaphragm providing branches, and downward in the lesser omentum supplying the lesser curvature of the stomach. The right gastric artery originates from the common hepatic artery and also supplies the lesser curvature anastomizing with the left gastric artery. The gastroduodenal artery also originating from the common hepatic artery passes down behind the first part of the duodenum where it may be eroded by an ulcer.",
+   "has_book_images": false,
+   "prompt": ""
+  }
+ ]
+}
