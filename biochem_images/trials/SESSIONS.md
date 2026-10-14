@@ -1,7 +1,8 @@
 # Overnight experiment: cavernous sinus mnemonic, 10 settings
 
-Leader session: session_01EgkwjvrVaqjpuUfdYHYHQ2. Workers push to `claude/cs-trial-NN`
-(folder `biochem_images/trials/out/NN/`: image.png, report.md, result.json).
+Leader session: session_01EgkwjvrVaqjpuUfdYHYHQ2. The `claude/cs-trial-NN` branches were NOT created: workers
+are on `claude/ai-biochemistry-image-generation-efl9y3` and push their results there, each only into its own folder
+`biochem_images/trials/out/NN/` (image.png, report.md, result.json). Check with `git pull --rebase` and `ls biochem_images/trials/out`.
 Opened 2026-10-13 23:35 UTC.
 
 | # | Session | Settings | Est. total |
@@ -19,10 +20,9 @@ Opened 2026-10-13 23:35 UTC.
 
 ## Leader plan (keep checks cheap)
 
-1. Check with `git ls-remote --heads origin 'claude/cs-trial-*'` (which workers pushed) and one
+1. Check with `git pull --rebase -q; ls biochem_images/trials/out` (which workers pushed) and one
    `list_sessions` call. Read a worker's events only if its status is failed or it is overdue.
 2. Check-ins: +30 min (all started?), +90 min, +3 h, +4.5 h, +6 h. Then stop waiting.
 3. A worker overdue by more than 1.5 h, or failed/idle without a push: read its last events,
    send_message with the fix, or rerun the trial in a new session.
-4. When done: fetch each branch, copy `out/NN/{image.png,report.md,result.json}` into this branch,
-   build a contact sheet with settings under each image, push, send the 10 images to the user.
+4. When done: results are already in this branch under out/NN; build a contact sheet with settings under each image, push, send the 10 images to the user.
