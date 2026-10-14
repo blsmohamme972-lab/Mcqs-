@@ -1,0 +1,27 @@
+{
+ "state": "done",
+ "config": {
+  "prompt": "P1",
+  "seed": 42,
+  "turbo": true,
+  "quant": "Q4_K",
+  "W": 768,
+  "H": 768,
+  "steps": 8,
+  "cfg": 1.0,
+  "offload": true,
+  "cache": "auto",
+  "smoke": true,
+  "name": "turbo-q4k-768",
+  "est_hours": 1.1,
+  "overrides": {}
+ },
+ "started": "23:35:37",
+ "updated": "2026-10-14 00:29:36",
+ "note": "downloading qwen_image_2.1_turbo_lora.safetensors (attempt 1, want 913314512)",
+ "step": "15/16 (15.02s/step)",
+ "peak_rss_mb": 11132,
+ "elapsed_min": 36.0,
+ "run_minutes": 36.2,
+ "image": "/home/user/Mcqs-/biochem_images/trials/out/02/image.png"
+}

@@ -1,0 +1,29 @@
+{
+ "id": "02",
+ "name": "turbo-q4k-768",
+ "config": {
+  "prompt": "P1",
+  "seed": 42,
+  "turbo": true,
+  "quant": "Q4_K",
+  "W": 768,
+  "H": 768,
+  "steps": 8,
+  "cfg": 1.0,
+  "offload": true,
+  "cache": "auto",
+  "smoke": true,
+  "name": "turbo-q4k-768",
+  "est_hours": 1.1,
+  "why": "Smaller weights: faster/less memory, quality loss?",
+  "overrides": {}
+ },
+ "setup_min": 8.3,
+ "smoke_seconds": 570,
+ "smoke_peak_rss_mb": 11123,
+ "exit_code": 0,
+ "run_seconds": 2171,
+ "peak_rss_mb": 11132,
+ "sampling_seconds": 1892.49,
+ "decode_seconds": 244.62
+}
