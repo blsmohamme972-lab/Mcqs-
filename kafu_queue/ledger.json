@@ -268,5 +268,15 @@
   "state": "failed",
   "at": "2026-10-14T12:54:27Z",
   "note": "owner limited to 30 builders; released"
+ },
+ "GT-CH36-Q135-135": {
+  "state": "delivered",
+  "at": "2026-10-14T14:29:37Z",
+  "note": "1 lesson, ZIP checked OK (PASS)"
+ },
+ "GT-CH36-Q119-120": {
+  "state": "delivered",
+  "at": "2026-10-14T14:29:37Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
  }
 }
