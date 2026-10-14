@@ -1,0 +1,163 @@
+{
+ "package_id": "GT-CH4-Q173-181",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "4",
+ "chapter_title": "Applied surgical anatomy — Lower Limb",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch4.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000006513",
+   "number": "173",
+   "stem": "Which of the following muscles in the sole of the foot is not supplied by the medial plantar nerve?",
+   "options": [
+    "Flexor digitorum brevis",
+    "Flexor digiti minimi brevis",
+    "Flexor hallucis longus",
+    "Abductor hallucis",
+    "Flexor hallucis brevis"
+   ],
+   "answer": "B",
+   "answer_text": "Flexor digiti minimi brevis",
+   "explanation": "The muscles of the sole of the foot can be arranged in four layers, consisting of the following pattern at the four layers: three muscles, two muscles and two tendons, three muscles, and two muscles and two tendons.\n\nLayer 1: Flexor digitorum brevis (medial plantar nerve), abductor hallucis (medial plantar nerve) and abductor digiti minimi (lateral plantar nerve) Layer 2: Quadratus plantae (lateral plantar nerve), lumbricals (shared between medial and lateral plantar nerves like the hand), and the tendons of hallucis longus and flexor digitorum longus Layer 3: Flexor hallucis brevis (medial plantar nerve), adductor hallucis (lateral plantar nerve) and flexor digiti minimi brevis (lateral plantar nerve) Layer 4: Dorsal and plantar interossei muscles (lateral planter nerve) and the tendons of tibialis posterior and peroneus longus",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Medial Plantar Nerve\".\nCENTER: the sole of the foot drawn as a four-layer cake, label \"Sole: four layers\".\nA waiter character on the big-toe side serves slices, label \"Medial plantar nerve\", to muscles: \"Abductor hallucis\", \"Flexor digitorum brevis\", \"Flexor hallucis brevis\".\nOn the little-toe side another waiter, label \"Lateral plantar nerve\", serves the little-toe muscle, which is highlighted with a gold star, label \"Flexor digiti minimi brevis\".\nBottom banner: \"Answer --> Flexor digiti minimi brevis\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006514",
+   "number": "174",
+   "stem": "Which of the following statements regarding the posterior cruciate ligament is correct?",
+   "options": [
+    "It is attached to the lateral femoral condyle.",
+    "It is made up of three separate bundles.",
+    "It prevents posterior dislocation of the tibia.",
+    "It plays no role in resisting hyperextension.",
+    "It is intrasynovial."
+   ],
+   "answer": "C",
+   "answer_text": "It prevents posterior dislocation of the tibia.",
+   "explanation": "The posterior cruciate ligament is attached to the lateral surface of the medial femoral condyle and extends down to the posterolateral aspect of the tibia. The ligament is made up of two separate bundles which, in turn, resist hyperextension and hyperflexion. The ligament’s main role is to restict posterior displacement of the tibia relative to the femur. The ligament is extrasynovial but intracapsular.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Posterior Cruciate Ligament\".\nCENTER: a cartoon knee joint. A strong rope from the inner thigh bone condyle down to the back of the shin bone works like a seatbelt, stopping the shin bone from sliding backwards. Labels: \"Posterior cruciate ligament\", \"Medial femoral condyle\", \"Stops tibia going back\".\nThe rope is made of two strands, label \"Two bundles\".\nRIGHT: a bubble wrap around the rope outside the slippery lining but inside the joint box, label \"Intracapsular, extrasynovial\".\nBottom banner: \"Answer --> Prevents posterior tibial displacement\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006515",
+   "number": "175",
+   "stem": "Which one of the following is the main function of the psoas major muscle?",
+   "options": [
+    "Flexes the thigh at the hip joint",
+    "Extends the thigh at the hip joint",
+    "Adducts the thigh at the hip joint",
+    "Abducts the thigh at the hip joint",
+    "Assists in the full contraction of the diaphragm"
+   ],
+   "answer": "A",
+   "answer_text": "Flexes the thigh at the hip joint",
+   "explanation": "The psoas major muscle joins the iliacus muscle, which originates broadly over the inner aspect of the iliac wing of the pelvis. This becomes the iliopsoas tendon and inserts on the lesser trochanter of the femur and thus flexes the thigh at the hip joint.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Psoas Major\".\nLEFT: a long muscle like a rope from the lower spine, label \"Psoas major\", joins a fan-shaped muscle from the pelvis bowl, label \"Iliacus\".\nCENTER: together they pass under a bridge, label \"Inguinal ligament\", becoming one tendon, label \"Iliopsoas\", that attaches to a small bump on the femur, label \"Lesser trochanter\".\nRIGHT: a soldier marching, lifting the thigh high, label \"Hip flexion\".\nBottom banner: \"Answer --> Flexes the thigh at the hip\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006516",
+   "number": "176",
+   "stem": "A 31-year-old patient develops a common peroneal nerve palsy after treatment with a below-knee cast for 6 weeks for an undisplaced ankle fracture following a fall. Which one of the following statements regarding clinical examination is true?",
+   "options": [
+    "The patient is unable to stand on tiptoe.",
+    "There would be complete sensory loss below the knee.",
+    "There would be no dorsiflexion of the foot.",
+    "The patient would complain of complete sensory loss on the sole of the foot.",
+    "Sensation would be normal on the dorsum of the foot."
+   ],
+   "answer": "C",
+   "answer_text": "There would be no dorsiflexion of the foot.",
+   "explanation": "The common peroneal nerve can be compressed by a below-knee cast at the level of the neck of the fibula. It supplies the muscles of the anterior and lateral compartments of the leg, producing dorsiflexion of the foot, ankle and toes, as well as eversion of the foot. The superficial peroneal nerve gives sensory supply to most of the dorsum of the foot. The deep peroneal nerve supplies the first web space.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Common Peroneal Palsy\".\nLEFT: a leg in a below-knee plaster cast whose top edge presses on the outer side just below the knee, label \"Below-knee cast\". A yellow nerve wraps around the bone there and is squeezed, labels \"Neck of fibula\" and \"Common peroneal nerve\".\nCENTER: the foot hangs down and the toes drag, the patient lifts the knee high to walk, labels \"Foot drop\" and \"No dorsiflexion\".\nRIGHT: the sole of the foot is happy and still feels, label \"Sole sensation normal\".\nBottom banner: \"Answer --> No dorsiflexion of the foot\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006517",
+   "number": "177",
+   "stem": "Moving from lateral to medial, which of the following describes the order of the structures in the femoral triangle?",
+   "options": [
+    "Femoral vein, femoral artery, femoral nerve",
+    "Femoral nerve, femoral vein, femoral artery",
+    "Femoral nerve, femoral artery, femoral vein, long saphenous vein",
+    "Long saphenous vein, femoral vein, femoral artery, femoral nerve",
+    "Short saphenous vein, femoral vein, femoral artery, femoral nerve"
+   ],
+   "answer": "C",
+   "answer_text": "Femoral nerve, femoral artery, femoral vein, long saphenous vein",
+   "explanation": "From lateral to medial, the femoral triangle contains the femoral nerve and its branches, the femoral artery and its branches, including the profunda femoris, and the femoral vein with its main tributary, the long saphenous vein.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Femoral Triangle NAVY\".\nCENTER: a navy sailor ship sailing across the groin; its crew stand in a line from lateral to medial, with a compass showing \"Lateral\" and \"Medial\".\nCrew: a yellow character, label \"Nerve\"; a red character, label \"Artery\"; a blue character, label \"Vein\"; a small stream joining the blue one from below, label \"Long saphenous vein\".\nA flag on the ship reads \"NAVY\".\nBottom banner: \"Answer --> Nerve, artery, vein, saphenous vein\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006518",
+   "number": "178",
+   "stem": "Which of the following muscles is not present in the anterior compartment of the leg?",
+   "options": [
+    "Tibialis anterior",
+    "Extensor hallucis longus",
+    "Extensor digitorum longus",
+    "Peroneus tertius",
+    "Peroneus brevis"
+   ],
+   "answer": "E",
+   "answer_text": "Peroneus brevis",
+   "explanation": "The muscles of the anterior compartment of the leg are tibialis anterior, extensor hallucis longus, extensor digitorum longus and peroneus tertius. They are all supplied by the deep peroneal nerve and receive their blood supply from the anterior tibial artery. Peroneus brevis is found in the lateral compartment of the leg, along with peroneus longus.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Anterior Leg Compartment\".\nLEFT: a front stage with four musicians playing: labels \"Tibialis anterior\", \"Extensor hallucis longus\", \"Extensor digitorum longus\", \"Peroneus tertius\". A conductor leads them, label \"Deep peroneal nerve\".\nRIGHT: next door in another room, two brothers in matching shirts, labels \"Peroneus longus\" and \"Peroneus brevis\", room sign \"Lateral compartment\". The younger brother waves from the wrong room, highlighted with a gold star.\nBottom banner: \"Answer --> Peroneus brevis\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006519",
+   "number": "179",
+   "stem": "Following open reduction and internal fixation of both the distal tibia and the distal fibula, a patient complains of numbness along the lateral side of the foot. Which nerve is likely to have been injured?",
+   "options": [
+    "Sural nerve",
+    "Saphenous nerve",
+    "Deep peroneal nerve",
+    "Superficial peroneal nerve",
+    "Tibial nerve"
+   ],
+   "answer": "A",
+   "answer_text": "Sural nerve",
+   "explanation": "The sural nerve arises from the tibial nerve. It is purely sensory and supplies the lateral border of the leg and the lateral border of the foot. It lies approximately 1 cm posterior to the distal fibula and may be damaged during operations on the distal fibula. The saphenous nerve supplies the medial aspect of the leg up to the medial malleolus.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Sural Nerve Injury\".\nLEFT: an ankle with a metal plate and screws on the outer bone, label \"Distal fibula fixation\".\nCENTER: a thin yellow nerve running just behind the outer ankle bone gets nicked by a screwdriver, label \"Sural nerve\".\nRIGHT: the outer edge of the foot turns blue with ice and a numb face, label \"Lateral foot numb\". On the inner side of the leg another nerve stays happy, label \"Saphenous: medial side\".\nBottom banner: \"Answer --> Sural nerve\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006520",
+   "number": "180",
+   "stem": "Multiple structures are contained within or pass through the popliteal fossa. Which one of the following statements is correct?",
+   "options": [
+    "The popliteal vein becomes the femoral vein at the adductor hiatus.",
+    "The short saphenous vein is the deepest structure within the fossa.",
+    "The popliteal artery is initially lateral to the tibial nerve, then moves medially when travelling distally though the popliteal fossa.",
+    "The short saphenous vein drains into the femoral vein.",
+    "The popliteal artery is formed from the profunda femoris."
+   ],
+   "answer": "A",
+   "answer_text": "The popliteal vein becomes the femoral vein at the adductor hiatus.",
+   "explanation": "The popliteal fossa contains the short saphenous vein, which drains into the popliteal vein. The popliteal vein ends at the adductor hiatus where it becomes the femoral vein. The popliteal artery is the deepest structure within the fossa, initially lying medial to the tibial nerve and moving more lateral to it as it travels distally. The popliteal artery is a branch of the superficial femoral artery.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Popliteal Vessels\".\nCENTER: a blue vein character walking up through a doorway in the thigh muscles changes its name badge from \"Popliteal vein\" to \"Femoral vein\". Label on the doorway: \"Adductor hiatus\".\nLEFT: a small stream joining the vein behind the knee, label \"Small saphenous vein\".\nRIGHT: in the back of the knee a red artery lies at the very bottom, label \"Popliteal artery: deepest\".\nBottom banner: \"Answer --> Popliteal vein becomes femoral vein\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006521",
+   "number": "181",
+   "stem": "Which of the following structures does not enter the adductor canal?",
+   "options": [
+    "Femoral artery",
+    "Femoral vein",
+    "Nerve to adductor longus",
+    "Nerve to vastus medialis",
+    "Saphenous nerve"
+   ],
+   "answer": "C",
+   "answer_text": "Nerve to adductor longus",
+   "explanation": "It begins at the apex of the femoral triangle and ends at the adductor hiatus. Contents of the canal are the femoral artery and vein, saphenous nerve and nerve to the vastus medialis muscle. The femoral artery and vein pass from the canal through the adductor hiatus to enter the popliteal fossa, becoming the popliteal artery and vein, respectively. The adductor longus is innervated by the obturator nerve, which does not travel within the adductor canal.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Adductor Canal Contents\".\nCENTER: a tunnel entrance in the thigh, label \"Adductor canal\". Walking in happily: a red character \"Femoral artery\", a blue character \"Femoral vein\", a yellow character \"Saphenous nerve\", and a small yellow character \"Nerve to vastus medialis\".\nRIGHT: outside the tunnel, a yellow character stopped by a \"no entry\" sign, label \"Nerve to adductor longus\", with a speech bubble \"I come from the obturator nerve\".\nBottom banner: \"Answer --> Nerve to adductor longus\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  }
+ ]
+}

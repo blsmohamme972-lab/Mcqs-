@@ -1,0 +1,163 @@
+{
+ "package_id": "GT-CH4-Q155-163",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "4",
+ "chapter_title": "Applied surgical anatomy — Lower Limb",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch4.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000006495",
+   "number": "155",
+   "stem": "A 25-year-old gentleman sustains an injury to the common peroneal nerve while playing rugby. Which area of the foot would you touch to test the deep peroneal nerve?",
+   "options": [
+    "The posterolateral aspect of the calf and foot",
+    "The medial aspect of the sole",
+    "The lateral aspect of the sole",
+    "The anterolateral aspect of the calf and most of the dorsum of the foot",
+    "None of the above"
+   ],
+   "answer": "E",
+   "answer_text": "None of the above",
+   "explanation": "The deep peroneal nerve supplies the first web space of the foot. The superficial peroneal nerve supplies the anterolateral aspect of the calf and most of the dorsum of the foot (excluding the first web space). The lateral and medial sole are supplied by the lateral and medial plantar nerves, respectively. The sural nerve supplies the posterolateral aspect of the calf and foot.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Deep Peroneal Nerve\".\nLEFT: a rugby player character limping, a yellow cable (nerve) wrapping around the outer knee, label \"Common peroneal nerve\".\nCENTER: a big friendly cartoon foot seen from above. A tiny scuba diver (the DEEP peroneal) dives into the small gap between the big toe and the second toe, shining a torch there. Label: \"First web space\". Label on the diver: \"Deep peroneal nerve\".\nRIGHT: three other foot areas each with a red cross sign: the top of the foot labeled \"Superficial peroneal\", the outer side of the foot labeled \"Sural\", the sole labeled \"Plantar nerves\". A clipboard shows options A-D all crossed out.\nBottom banner: \"Answer --> None of the above: first web space\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006496",
+   "number": "156",
+   "stem": "A 67-year-old man walks into your orthopaedic clinic after his total hip replacement and you notice he has a Trendelenburg gait. Which muscles are most likely to have been damaged to cause this type of gait?",
+   "options": [
+    "The iliopsoas",
+    "The quadriceps muscles",
+    "The gluteus maximus",
+    "The gluteus minimus and medius",
+    "The short external rotators"
+   ],
+   "answer": "D",
+   "answer_text": "The gluteus minimus and medius",
+   "explanation": "The Trendelenburg gait results from weakness of the hip abductors and the Trendelenburg test assesses the strength of these muscles. The muscles that cause hip abduction are the gluteus medius and minimus. If the right abductors are weak, a Trendelenburg gait will show the left hip dipping instead of rising when the left foot is lifted off the floor. The trunk also lurches to the right side to move the centre of gravity over the right hip and maintain balance.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Trendelenburg Gait\".\nLEFT: an older man after hip surgery standing on his right leg; his left hip drops down like a seesaw tilting, a curved arrow shows the pelvis dipping. Label: \"Trendelenburg gait\".\nCENTER: on the standing hip, two small muscle characters - a medium-sized one and a mini one - lie exhausted and sleeping with \"Zzz\". Labels: \"Gluteus medius\", \"Gluteus minimus\".\nRIGHT: a weightlifter muscle trying to push the thigh outward sideways and failing, label \"Hip abductors weak\". The trunk leans over the standing hip to keep balance, label \"Trunk lurch\".\nBottom banner: \"Answer --> Gluteus medius and minimus\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006497",
+   "number": "157",
+   "stem": "Which one of the following structures forms the medial border of the femoral ring?",
+   "options": [
+    "The pectineal ligament",
+    "The lacunar ligament",
+    "The inguinal ligament",
+    "The femoral vein",
+    "None of the above"
+   ],
+   "answer": "B",
+   "answer_text": "The lacunar ligament",
+   "explanation": "The femoral ring is the superior opening of the femoral canal. The borders of the femoral ring are medially, the lacunar ligament; posteriorly, the pectineal ligament (the fascia covering the pectineus muscle, which overlies the superior ramus); laterally, the femoral vein; and anteriorly, the medial part of the inguinal ligament. The order of the femoral structures (from lateral to medial) is femoral nerve, artery, vein and lymph nodes (acronym NAVY).",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Femoral Ring Borders\".\nCENTER: a round doorway (the femoral ring) at the top of a tunnel going down into the thigh, label \"Femoral ring\".\nFour guards stand around the doorway. MEDIAL guard is a lacy curved curtain, glowing and highlighted, label \"Lacunar ligament (medial)\". Lateral guard is a blue vein character, label \"Femoral vein (lateral)\". Behind the door a stone wall, label \"Pectineal ligament (posterior)\". Above the door a long rope bridge, label \"Inguinal ligament (anterior)\".\nSmall compass in the corner showing \"Medial\" and \"Lateral\".\nBottom banner: \"Answer --> Lacunar ligament\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006498",
+   "number": "158",
+   "stem": "Which of the following muscles form part of Hunter’s canal?",
+   "options": [
+    "The adductor longus",
+    "The adductor magnus",
+    "The sartorius",
+    "All of the above",
+    "b and c only"
+   ],
+   "answer": "D",
+   "answer_text": "All of the above",
+   "explanation": "Hunter’s canal, also known as the adductor canal or the subsartorial canal, is a narrow, fascial canal approximately 15 cm long that lies in the distal medial thigh. The canal, surrounded by fascia and muscle, provides a channel for the femoral vessels to pass into the popliteal region. The canal is bordered anteriorly by the distal third of the sartorius muscle. It has a roof made up of the sartorius and subsartorial fascia.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Hunter's Canal\".\nCENTER: a cartoon hunter with a hat walks through a long tunnel in the inner thigh, carrying a red and a blue hose (femoral artery and vein) toward the back of the knee. Label: \"Hunter's canal\".\nThe tunnel ROOF is a tailor sewing with needle and thread, label \"Sartorius (roof)\". The FLOOR is two big bricks, labels \"Adductor longus\" and \"Adductor magnus\". Along the outer wall a strong muscle, label \"Vastus medialis\".\nRIGHT: the hoses exit through a small door into the knee region, label \"Adductor hiatus\". A checklist shows A, B and C all ticked.\nBottom banner: \"Answer --> All of the above\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006499",
+   "number": "159",
+   "stem": "A 21-year-old man undergoes an emergency fasciotomy after being diagnosed with lower extremity compartment syndrome. The patient was noted to have a decreased dorsiflexion of the ankle, extension of the toe and loss of sensation in the first dorsal web space. Which of the following compartments had raised pressure?",
+   "options": [
+    "Anterior compartment",
+    "Deep posterior compartment",
+    "Superficial posterior compartment",
+    "Lateral compartment",
+    "Medial compartment"
+   ],
+   "answer": "A",
+   "answer_text": "Anterior compartment",
+   "explanation": "Compartment syndrome is a condition whereby the tissue pressure within a fascial compartment exceeds capillary pressure, compromising venous drainage and arterial flow to that compartment. The anterior compartment is supplied by the deep peroneal nerve, the lateral compartment by the superficial peroneal nerve and the deep posterior compartments by the tibial nerve. There is no medial compartment. The first dorsal web space between the second toe and the hallux is an autonomous area of innervation for the deep peroneal nerve.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Anterior Compartment Syndrome\".\nLEFT: a cross-section of the lower leg drawn as a house with four rooms. The front room is swollen and bursting, with a pressure gauge in the red zone. Label: \"Anterior compartment\".\nCENTER: inside the front room a yellow nerve character is squeezed and sweating, label \"Deep peroneal nerve\".\nRIGHT: the foot hangs down and cannot lift (a sad flag that cannot be raised), label \"Weak dorsiflexion\"; toes cannot straighten, label \"Weak toe extension\"; the gap between big toe and second toe has a numb ice cube, label \"First web space numb\". A surgeon opens the room with scissors, label \"Fasciotomy\".\nBottom banner: \"Answer --> Anterior compartment\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006500",
+   "number": "160",
+   "stem": "A 25-year-old woman is involved in a road traffic accident where her pelvis has fractured. It is thought her sciatic nerve has been injured as it exits the pelvis. Which of the following muscles will lose its innervation?",
+   "options": [
+    "Sartorius",
+    "Adductor longus",
+    "Semimembranosus",
+    "Adductor brevis",
+    "Pectineus"
+   ],
+   "answer": "C",
+   "answer_text": "Semimembranosus",
+   "explanation": "The sciatic nerve is the largest nerve in the body and divides at the apex of the popliteal fossa into the tibial nerve and the common peroneal nerve. It supplies articular branches to the hip joint. In general, the sciatic nerve supplies the posterior compartment of the thigh. The biceps femoris, semitendinosus and semimembranosus and the ischial head of the adductor magnus muscles are supplied by the sciatic nerve muscular branches.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Sciatic Nerve Injury\".\nLEFT: a cracked pelvis with a bandage, label \"Pelvic fracture\". A thick yellow power cable leaves the back of the pelvis and is cut with sparks, label \"Sciatic nerve\".\nCENTER: the back of the thigh shows three hamstring light bulbs that are switched off; the middle-inner one is the biggest and highlighted, label \"Semimembranosus\". Small label \"Hamstrings\".\nRIGHT: front and inner thigh muscles stay lit and happy because other nerves supply them: label \"Sartorius: femoral nerve\", label \"Adductors: obturator nerve\".\nBottom banner: \"Answer --> Semimembranosus\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006501",
+   "number": "161",
+   "stem": "When using ultrasound guidance to insert a central venous catheter into the femoral vein, it is noted there are several fascial planes surrounding the various anatomical structures. In which compartment of the femoral sheath does the femoral vein lie in?",
+   "options": [
+    "Intermediate compartment",
+    "Medial compartment",
+    "Lateral compartment",
+    "Anterior compartment",
+    "Posterior compartment"
+   ],
+   "answer": "A",
+   "answer_text": "Intermediate compartment",
+   "explanation": "The vein is only covered by skin and fascia as it courses through the femoral triangle lying superficially. The femoral sheath is a fascial tube that surrounds the femoral artery, vein and the empty space containing lymphatics in the femoral triangle. The sheath is a continuation of the transversalis fascia, an anterior abdominal wall fascia. There are only three compartments of the femoral sheath: lateral, intermediate and medial compartments.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Femoral Sheath Compartments\".\nCENTER: an ultrasound probe on the groin, label \"Ultrasound\". Below it a cutaway of a fabric tube (the sheath) divided into three rooms side by side, label \"Femoral sheath\".\nLateral room: a red artery character, label \"Lateral: artery\". Middle room: a blue vein character smiling with a big catheter needle gently entering it, label \"Intermediate: vein\". Medial room: a small empty room with lymph node beads, label \"Medial: femoral canal\".\nOutside the tube, further lateral, a yellow nerve stands alone, label \"Femoral nerve (outside)\".\nBottom banner: \"Answer --> Intermediate compartment\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006502",
+   "number": "162",
+   "stem": "A 50-year-old man is undergoing a total hip replacement. The operating surgeon takes a lateral approach to the joint. Which of the following anatomical structures does not attach to the greater trochanter?",
+   "options": [
+    "Obturator internus",
+    "Gluteus minimus",
+    "Iliacus",
+    "Piriformis",
+    "Obturator externus"
+   ],
+   "answer": "C",
+   "answer_text": "Iliacus",
+   "explanation": "The lesser trochanter is on the medial aspect of the proximal femur and the psoas and iliacus muscles attach to this prominence. These muscles flex the hip. The greater trochanter is on the lateral aspect of the femur and the following muscles attach to this: piriformis, obturator internus and externus, gluteus medius and minimus, and gemelli.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Greater Trochanter Attachments\".\nCENTER: the top of a femur drawn as a tree with a big stump on the outer side, label \"Greater trochanter\". Several muscle ropes are tied to the big stump, labels \"Piriformis\", \"Obturator internus\", \"Obturator externus\", \"Gluteus minimus\".\nOn the inner side of the femur a small stump, label \"Lesser trochanter\". One rope goes only to the small stump, held by a character with a red X badge for the big stump, label \"Iliacus\".\nA surgeon approaching from the side with a lamp, label \"Lateral approach\".\nBottom banner: \"Answer --> Iliacus\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006503",
+   "number": "163",
+   "stem": "Which of the following statements regarding the adductor canal is not correct?",
+   "options": [
+    "It is bounded posteriorly by the adductor longus proximally.",
+    "It is bounded posteriorly by the adductor magnus distally.",
+    "It is bounded anteromedially by the vastus medialis.",
+    "The femoral artery leaves the canal via the adductor hiatus in the adductor magnus.",
+    "The adductor canal represents the most common site for atherosclerosis in the lower limb."
+   ],
+   "answer": "C",
+   "answer_text": "It is bounded anteromedially by the vastus medialis.",
+   "explanation": "The adductor canal, which clinically represents the most common site for atherosclerosis in the lower limb and is used to expose and ligate the popliteal artery during surgery, is bounded by the adductor longus and magnus posteriorly, the vastus medialis anterolaterally and a fibrous membrane overlapped by the sartorius anteromedially. It contains the femoral artery and vein as well as the saphenous nerve, the nerve to the vastus medialis and two divisions of the obturator nerve.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Adductor Canal Walls\".\nCENTER: a long tunnel in the thigh with a red artery character walking through and leaving by a door, label \"Adductor hiatus\".\nBack wall: two bricks, labels \"Adductor longus (proximal)\" and \"Adductor magnus (distal)\". Outer side wall: a strong muscle, label \"Vastus medialis: anterolateral\". Roof: a tailor with thread, label \"Sartorius: anteromedial\".\nRIGHT: a signpost reading \"Vastus medialis anteromedial?\" with a big red X stamped on it.\nSmall corner icon: an artery clogged with yellow fat, label \"Common atherosclerosis site\".\nBottom banner: \"Answer --> Vastus medialis is anterolateral\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  }
+ ]
+}

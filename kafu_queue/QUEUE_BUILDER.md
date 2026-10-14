@@ -20,7 +20,7 @@ Facts only from the stem, the answer and the explanation; never change the key, 
 If the explanation is wrong or does not explain the key, draw the short, standard, correct reason that
 supports the key (and note the QID in the commit message).
 
-Template (keep this structure; 1200-2500 characters):
+Template (keep this structure; about 900-2500 characters):
 
 ```
 Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for

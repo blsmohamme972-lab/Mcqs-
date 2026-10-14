@@ -1,0 +1,146 @@
+{
+ "package_id": "GT-CH4-Q182-189",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "4",
+ "chapter_title": "Applied surgical anatomy — Lower Limb",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch4.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000006522",
+   "number": "182",
+   "stem": "The following structures are contained within the femoral sheath except:",
+   "options": [
+    "The femoral nerve",
+    "The femoral artery",
+    "The femoral vein",
+    "The femoral canal",
+    "Lymphatics"
+   ],
+   "answer": "A",
+   "answer_text": "The femoral nerve",
+   "explanation": "The femoral sheath is a fascial tube extending approximately 4 cm below the inguinal ligament that encloses proximal parts of the femoral vessels and femoral canal. It does not contain the femoral nerve, which can be found lateral to the sheath. The femoral sheath allows the femoral vessels to glide deep to the inguinal ligament during hip movements. The femoral canal is the medial part of the sheath and contains Cloquet’s node.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Femoral Sheath\".\nCENTER: a sleeping bag lying in the groin, label \"Femoral sheath\". Inside sleep three characters: red \"Femoral artery\", blue \"Femoral vein\", and a small lymph node bead in the inner pocket, label \"Femoral canal\".\nLEFT: outside the bag, on the lateral side, a yellow nerve character stands awake with a lantern, label \"Femoral nerve: outside\".\nBottom banner: \"Answer --> Femoral nerve\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006523",
+   "number": "183",
+   "stem": "Which of the following muscles does not insert into the greater trochanter of the femur?",
+   "options": [
+    "Superior gemellus",
+    "Inferior gemellus",
+    "Quadratus femoris",
+    "Piriformis",
+    "Gluteus minimus"
+   ],
+   "answer": "C",
+   "answer_text": "Quadratus femoris",
+   "explanation": "The muscles that are attached to the greater trochanter are the gluteus medius and minimus, piriformis, superior and inferior gemelli and obturator internus and externus. The quadratus femoris is a part of the above short external rotators of the hip but inserts more inferiorly than the other muscles. Gluteus medius and minimus are hip abductors.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Greater Trochanter\".\nCENTER: the top of the femur drawn as a tree with a big stump on the outer side, label \"Greater trochanter\". Ropes tied to the stump: labels \"Piriformis\", \"Superior gemellus\", \"Inferior gemellus\", \"Gluteus minimus\".\nBELOW: a square block muscle tied lower down on a ridge, not on the stump, highlighted with a gold star, label \"Quadratus femoris\".\nBottom banner: \"Answer --> Quadratus femoris\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006524",
+   "number": "184",
+   "stem": "Which of the following muscles act together to invert the foot?",
+   "options": [
+    "Peroneus brevis and peroneus longus",
+    "Peroneus brevis and peroneus tertius",
+    "Peroneus tertius and tibialis anterior",
+    "Peroneus longus and tibialis posterior",
+    "Tibialis anterior and tibialis posterior"
+   ],
+   "answer": "E",
+   "answer_text": "Tibialis anterior and tibialis posterior",
+   "explanation": "Foot inversion occurs when the foot turns medially at the subtalar joint. The muscles responsible for this movement are tibialis anterior and posterior. When acting independently, the tibialis anterior dorsiflexes the foot and the tibialis posterior plantarflexes the foot. The tibialis anterior is innervated by the deep peroneal nerve, whereas the tibialis posterior is innervated by the tibial nerve.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Foot Inversion\".\nCENTER: a foot is a car and the sole turns inward like turning a steering wheel, label \"Inversion\".\nTwo twin characters named Tib pull the steering wheel together: one in front of the shin, label \"Tibialis anterior\", one behind the shin, label \"Tibialis posterior\".\nRIGHT: two peroneus brothers pull the other way, turning the sole outward, label \"Peronei: eversion\".\nBottom banner: \"Answer --> Tibialis anterior and posterior\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006525",
+   "number": "185",
+   "stem": "Which of the following structures is not found within the popliteal fossa?",
+   "options": [
+    "Saphenous nerve",
+    "Popliteal vein",
+    "Common peroneal nerve",
+    "Posterior cutaneous nerve of thigh",
+    "Small saphenous vein"
+   ],
+   "answer": "A",
+   "answer_text": "Saphenous nerve",
+   "explanation": "The popliteal fossa is formed by the biceps femoris (superolaterally), semimembranosus and semitendinosus (superomedially), and lateral and medial head of the gastrocnemius (inferolaterally and inferomedially, respectively). The main contents of the popliteal fossa are (from superficial to deep) the tibial nerve, popliteal vein and popliteal artery. Other structures within the fossa include the common peroneal nerve, the posterior cutaneous nerve of the thigh, genicular branches of the knee joint, popliteal lymph nodes and lymphatic vessels, and the small saphenous vein (which pierces the fascia of the popliteal fossa to drain into the popliteal vein). The saphenous nerve follows the course of the large saphenous vein, medial to the popliteal fossa.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Popliteal Fossa Contents\".\nCENTER: a diamond-shaped room behind the knee, label \"Popliteal fossa\". Inside: a yellow nerve \"Tibial nerve\", a blue vein \"Popliteal vein\", a red artery \"Popliteal artery\", a yellow nerve heading outward \"Common peroneal nerve\", a small blue stream \"Small saphenous vein\".\nRIGHT: outside the room on the inner side of the leg, a yellow nerve walks hand in hand with a long blue vein, label \"Saphenous nerve: outside\".\nBottom banner: \"Answer --> Saphenous nerve\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006526",
+   "number": "186",
+   "stem": "Which of the following muscles is not found within the posterior compartment of the leg?",
+   "options": [
+    "Tibialis posterior",
+    "Peroneus tertius",
+    "Flexor digitorum longus",
+    "Soleus",
+    "Plantaris"
+   ],
+   "answer": "B",
+   "answer_text": "Peroneus tertius",
+   "explanation": "Muscles in the superficial compartment are the gastrocnemius, soleus and plantaris. Muscles in the deep compartment are the tibialis posterior, flexor hallucis longus, flexor digitorum longus and popliteus. All these muscles are innervated by the tibial nerve and get their blood supply from the posterior tibial artery. The peroneus tertius is found on the anterior compartment of the leg.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Posterior Leg Compartment\".\nLEFT: the back of the calf as a two-storey house. Upstairs (superficial): labels \"Gastrocnemius\", \"Soleus\", \"Plantaris\". Downstairs (deep): labels \"Tibialis posterior\", \"Flexor digitorum longus\", \"Flexor hallucis longus\".\nRIGHT: a muscle character standing at the front door of a different house labeled \"Anterior compartment\", highlighted with a gold star, label \"Peroneus tertius\".\nBottom banner: \"Answer --> Peroneus tertius\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006527",
+   "number": "187",
+   "stem": "Which of the following structures does not travel under the flexor retinaculum behind the medial malleolus?",
+   "options": [
+    "The posterior tibial artery",
+    "The tibial nerve",
+    "The tibialis posterior",
+    "The flexor digitorum longus",
+    "The deep peroneal nerve"
+   ],
+   "answer": "E",
+   "answer_text": "The deep peroneal nerve",
+   "explanation": "Six main structures pass deep to the flexor retinaculum in the foot. They are, from anterior to posterior, the tendon sheath of the tibialis posterior, flexor digitorum longus and flexor hallucis longus, as well as the posterior tibial artery, vein and tibial nerve. A useful mnemonic is ‘Tom, Dick and a very nervous Harry’:\n\nT – tibialis posterior D – flexor digitorum longus A – posterior tibial artery V – posterior tibial vein N – tibial nerve H – flexor hallucis longus",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Tarsal Tunnel\".\nCENTER: behind the inner ankle bone a tunnel with a strap roof, label \"Flexor retinaculum\". Five friends walk through in order, each with a name tag: \"Tom: tibialis posterior\", \"Dick: flexor digitorum longus\", \"And: artery\", \"Very: vein\", \"Nervous: tibial nerve\", \"Harry: flexor hallucis longus\".\nRIGHT: on the front of the ankle, outside the tunnel, a yellow nerve waves, label \"Deep peroneal nerve: front of ankle\".\nBottom banner: \"Answer --> Deep peroneal nerve\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006528",
+   "number": "188",
+   "stem": "Which of the following statements regarding the iliopsoas muscle is correct?",
+   "options": [
+    "It attaches to the greater trochanter of the femur.",
+    "It extends the thigh at the hip joint.",
+    "It is formed by iliacus and the psoas minor muscle.",
+    "It passes deep to the inguinal ligament.",
+    "It is innervated by the superior gluteal nerve."
+   ],
+   "answer": "D",
+   "answer_text": "It passes deep to the inguinal ligament.",
+   "explanation": "The iliopsoas muscle is formed by the merging of iliacus and psoas major. It is the main flexor of the thigh at the hip joint. The muscle passes deep to the inguinal ligament and attaches to the lesser trochanter of the femur. The psoas major is innervated by the anterior rami of lumbar nerves L1, L2 and L3.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Iliopsoas\".\nLEFT: two muscles merge, label \"Psoas major\" and label \"Iliacus\", into one, label \"Iliopsoas\".\nCENTER: the muscle passes under a rope bridge, highlighted with a gold star, label \"Deep to inguinal ligament\", and attaches to a small bump on the femur, label \"Lesser trochanter\".\nRIGHT: a marching soldier lifting the thigh, label \"Hip flexor\", and a power cord from the lumbar spine, label \"L1-L3 nerves\".\nBottom banner: \"Answer --> Passes deep to inguinal ligament\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006529",
+   "number": "189",
+   "stem": "Which of the following muscles acts as a flexor for both the knee joint and the hip joint?",
+   "options": [
+    "Biceps femoris",
+    "Sartorius",
+    "Semimembranosus",
+    "Rectus femoris",
+    "Adductor brevis"
+   ],
+   "answer": "B",
+   "answer_text": "Sartorius",
+   "explanation": "The sartorius is a thin, long muscle located superficially on the anterior part of the thigh. It passes obliquely from lateral to medial, attached proximally at the anterior superior iliac spine and distally at the superior part of the medial aspect of the tibia. It acts on both the hip and knee joints. It also abducts and laterally rotates the thigh at the hip joint.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Sartorius\".\nCENTER: a tailor sits cross-legged sewing; the thigh and knee are bent and the leg is rotated outward, labels \"Hip flexion\" and \"Knee flexion\". A long ribbon muscle runs from the front of the hip bone to the inner side of the shin, labels \"Sartorius\", \"Anterior superior iliac spine\", \"Medial tibia\".\nRIGHT: a smaller muscle on the front of the thigh bends the hip but straightens the knee, label \"Rectus femoris: extends knee\".\nBottom banner: \"Answer --> Sartorius\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  }
+ ]
+}

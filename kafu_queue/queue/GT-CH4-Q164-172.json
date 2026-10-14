@@ -1,0 +1,164 @@
+{
+ "package_id": "GT-CH4-Q164-172",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "chapter_id": "4",
+ "chapter_title": "Applied surgical anatomy — Lower Limb",
+ "export": "exports/GET-THROUGH-MRCS-A-SBA-ch4.export.json",
+ "already_live": false,
+ "items": [
+  {
+   "qid": "Q000006504",
+   "number": "164",
+   "stem": "An elderly woman presents with a fall and a tender right hip. Which of the following is true regarding the hip and neck of femur (NOF) fractures?",
+   "options": [
+    "Limb shortening in NOF fracture is uncommon.",
+    "The lateral circumflex artery supplies the majority of blood to the femoral head.",
+    "Metaphyseal blood supply arises from the extracapsular arterial ring.",
+    "Extracapsular fractures commonly compromise the blood supply.",
+    "The artery of ligamentum teres is the main blood supply to the hip joint."
+   ],
+   "answer": "C",
+   "answer_text": "Metaphyseal blood supply arises from the extracapsular arterial ring.",
+   "explanation": "Limb shortening is a common feature of neck of femur (NOF) fracture and is pathognomonic. The blood supply to the femoral head is of note as fractures of the femoral neck are likely to disrupt the blood supply and lead to avascular necrosis. The medial and lateral circumflex arteries supply the extracapsular arterial ring, with the medial artery being the most important. From the arterial ring, delicate retinacular vessels pass underneath the capsular and up the femoral neck into the head.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Femoral Head Blood Supply\".\nLEFT: an elderly woman who fell holding a tender hip, label \"Neck of femur fracture\".\nCENTER: a big femoral head and neck. Around the base of the neck a glowing red ring like a crown, label \"Extracapsular arterial ring\", fed by two red arteries, labels \"Medial circumflex (main)\" and \"Lateral circumflex\". Thin red vines climb up the neck to the head, label \"Retinacular vessels\". The wide part below the neck receives branches from the ring, label \"Metaphysis\".\nRIGHT: a tiny thin straw from the hip socket to the head, label \"Ligamentum teres: minor\".\nBottom banner: \"Answer --> Metaphysis fed by extracapsular ring\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006505",
+   "number": "165",
+   "stem": "An obese 15-year-old boy presents with pain in the hip. He walks with an antalgic gait with some shortening of the affected limb. Which of the following is the most likely diagnosis?",
+   "options": [
+    "Perthes disease",
+    "Congenital hip dysplasia",
+    "Septic arthritis",
+    "Neck of femur fracture",
+    "Slipped upper femoral epiphysis (SUFE)"
+   ],
+   "answer": "E",
+   "answer_text": "Slipped upper femoral epiphysis (SUFE)",
+   "explanation": "Slipped upper femoral epiphysis (SUFE) most commonly affects overweight boys around the age of puberty (10–15 years). Perthes disease more commonly affects boys but presents earlier (4–10 years). Septic arthritis and neck of femur fractures are incredibly rare in this age of patient and the patient is unlikely to be able to bear weight. Congenital hip dysplasia is a disease that presents in the newborn or is diagnosed in the first few years of life (0–5 years).",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Slipped Upper Femoral Epiphysis\".\nLEFT: an overweight 15-year-old boy with a calendar showing \"10-15 years\", limping and holding his hip, label \"Obese teenage boy\".\nCENTER: the hip drawn as an ice cream cone with the ice cream scoop slipping off the top, label \"Epiphysis slips\". The leg is a little shorter than the other with a ruler, label \"Limb shortening\".\nRIGHT: three other kids as cards: a younger boy aged 4-10 label \"Perthes: younger\", a baby label \"Hip dysplasia: newborn\", a feverish child in bed label \"Septic arthritis: cannot weight bear\".\nBottom banner: \"Answer --> Slipped upper femoral epiphysis\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006506",
+   "number": "166",
+   "stem": "If concerned about compartment syndrome following reperfusion of the lower leg, what action would you perform in order to test the deep part of the posterior compartment of the lower leg?",
+   "options": [
+    "Plantarflexion of the foot",
+    "Eversion of the foot",
+    "Extension of the great toe",
+    "Dorsiflexion of the foot",
+    "Flexion of the 2nd to 5th toes"
+   ],
+   "answer": "C",
+   "answer_text": "Extension of the great toe",
+   "explanation": "If you suspect a patient with compartment syndrome in the lower leg, it is important to be able to clinically isolate all four compartments. Pain on a passive stretch of a muscle is a key diagnostic sign in compartment syndrome. The following are the isolated passive movements for each compartment:\n\nAnterior – foot plantarflexion Lateral – foot inversion Superficial posterior – foot dorsiflexion Deep posterior – great toe extension\n\nCompartment syndrome develops when oedema creates venous occlusion leading to tissue injury and further oedema. Subsequently, pressure within the compartment builds until the arterial supply is compromised, resulting in tissue death.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Deep Posterior Compartment Test\".\nLEFT: a cross-section of the lower leg as a house with four rooms; the deep back room is highlighted and swollen, label \"Deep posterior compartment\".\nCENTER: a doctor's hand gently pulls the patient's big toe upward; a stretched rubber band runs from the big toe back into the deep room and twangs, label \"Flexor hallucis longus\". A pain lightning bolt, label \"Pain on passive stretch\".\nRIGHT: a small cheat card with four arrows: \"Anterior: plantarflex\", \"Lateral: invert\", \"Superficial posterior: dorsiflex\", \"Deep posterior: big toe extension\".\nBottom banner: \"Answer --> Extension of the great toe\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006507",
+   "number": "167",
+   "stem": "Which of the following statements regarding the hamstring muscles is incorrect?",
+   "options": [
+    "The hamstring muscles arise from the ischial tuberosity.",
+    "Semimembranosus inserts on the medial condyle of the tibia.",
+    "The short head of biceps femoris originates from the linea aspera.",
+    "All three muscles are supplied by the sciatic nerve.",
+    "The hamstring compartment receives its blood supply from the femoral artery."
+   ],
+   "answer": "E",
+   "answer_text": "The hamstring compartment receives its blood supply from the femoral artery.",
+   "explanation": "Semitendinosus originates from the medial aspect of the ischial tuberosity and inserts deep to the gracilis on the upper part of the tibia. The long head of the biceps femoris also originates from the ischial tuberosity and the short head originates from the linea aspera. Both heads form one single tendon inserting into the head of the fibula. The hamstring compartment receives its blood supply from the profunda femoris artery.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Hamstring Facts\".\nLEFT: three hamstring muscle characters holding hands, sitting on a bony seat, label \"Ischial tuberosity\". A yellow nerve cable powers them, label \"Sciatic nerve\".\nCENTER: a deep water well feeding a red pipe to the hamstrings, label \"Profunda femoris\". A shiny tap marked \"Femoral artery\" is crossed out with a big red X.\nRIGHT: the short head of biceps femoris grows from a ridge on the back of the femur, label \"Linea aspera\". Semimembranosus attaches to the inner shin top, label \"Medial tibial condyle\".\nBottom banner: \"Answer --> Supply is profunda femoris, not femoral\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006508",
+   "number": "168",
+   "stem": "Concerning the blood supply to the femoral head, which of the following statements is correct?",
+   "options": [
+    "The arterial supply from the ligamentum teres contributes more significantly in adulthood.",
+    "The main blood supply is derived from the obturator artery in the adult.",
+    "Lateral and medial circumflex femoral arteries supply the femoral head via retinacula.",
+    "Vessels from the diaphysis of cancellous bone provide a negligible arterial blood supply in adulthood.",
+    "Fractures that are extracapsular have a high risk of resulting in avascular necrosis."
+   ],
+   "answer": "C",
+   "answer_text": "Lateral and medial circumflex femoral arteries supply the femoral head via retinacula.",
+   "explanation": "The arterial supply from the ligamentum teres contributes more significantly in childhood. The obturator artery gives off a branch via the ligamentum teres, which provides a negligible blood supply to the femoral head in adults. Lateral and medial circumflex femoral arteries supply the femoral head via retinacula, which reflect back in longitudinal bands under the hip capsule. Vessels from the diaphysis of cancellous bone provide a small arterial blood supply in adulthood.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Femoral Head Arteries\".\nLEFT: a child femur with a thick straw from the socket to the head, label \"Ligamentum teres: childhood\".\nCENTER: an adult femoral head and neck with two red arteries wrapping around the neck, labels \"Medial circumflex\" and \"Lateral circumflex\". From them thin red vines run up under the capsule to the head like climbing plants, label \"Retinacular vessels\". In the adult the straw is tiny, label \"Obturator branch: negligible\".\nRIGHT: a crack across the neck cutting the vines, the head turns grey and sad, label \"Intracapsular fracture: AVN risk\".\nBottom banner: \"Answer --> Circumflex arteries via retinacula\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006509",
+   "number": "169",
+   "stem": "Which of the following statements regarding the popliteal fossa is correct?",
+   "options": [
+    "The superior and medial boundary is the biceps femoris.",
+    "The roof contains the terminal branch of the posterior cutaneous nerve.",
+    "The floor contains the oblique popliteal ligament.",
+    "The capsule of the knee joint is found in the roof of the fossa.",
+    "The small saphenous vein is found in the floor of the fossa."
+   ],
+   "answer": "C",
+   "answer_text": "The floor contains the oblique popliteal ligament.",
+   "explanation": "The popliteal fossa is a space located at the back of the knee joint. The boundaries are:\n\nSuperior and medial – semitendinosus Superior and lateral – biceps femoris Inferior and medial – medial head of gastrocnemius Inferior and lateral – lateral head of gastrocnemius Roof – deep fascia Floor – popliteal surface of the femur, capsule of knee joint and oblique popliteal ligament\n\nThe contents include popliteal artery, popliteal vein, tibial nerve, common peroneal nerve and popliteal lymph nodes.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Popliteal Fossa\".\nCENTER: the back of the knee drawn as a diamond-shaped room. Walls are four muscle characters: top inner \"Semitendinosus\", top outer \"Biceps femoris\", lower two \"Gastrocnemius heads\".\nThe FLOOR of the room is highlighted, made of three tiles: \"Femur\", \"Knee capsule\", and a diagonal tile glowing gold, label \"Oblique popliteal ligament\".\nInside the room (contents): a red artery deepest, a blue vein, and a yellow nerve on top, labels \"Popliteal artery\", \"Popliteal vein\", \"Tibial nerve\". The ceiling is a sheet, label \"Roof: deep fascia\".\nBottom banner: \"Answer --> Floor: oblique popliteal ligament\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006510",
+   "number": "170",
+   "stem": "The lower limb below the knee is divided into four compartments. Which of the following statements regarding these compartments is incorrect?",
+   "options": [
+    "The lateral compartment contains the peroneus longus, brevis and tibialis anterior muscles.",
+    "The superficial posterior compartment contains the plantaris muscle and soleus.",
+    "The anterior compartment contains the anterior tibial vessels and tibial nerve.",
+    "The lateral compartment contains the deep peroneal nerve.",
+    "The deep posterior compartment contains the flexor hallucis longus, flexor digitorum longus and peroneus tertius."
+   ],
+   "answer": "B",
+   "answer_text": "The superficial posterior compartment contains the plantaris muscle and soleus.",
+   "explanation": "The anterior compartment contains the tibialis anterior, extensor hallucis longus, extensor digitorum longus and peroneus tertius muscles along with the deep peroneal nerve and anterior tibial vessels. The lateral compartment contains peroneus longus and brevis muscles along with the superficial peroneal nerve and perforations from the peroneal artery. The deep posterior compartment contains tibialis posterior, flexor hallucis longus, flexor digitorum longus, posterior tibial and peroneal arteries and the tibial nerve. The superficial posterior compartment contains soleus, gastrocnemius and plantaris muscles and the medial cutaneous sural nerve.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Leg Compartments\".\nCENTER: a cross-section of the lower leg drawn as a house with four rooms, each with a door sign.\nFront room: musicians with a conductor, labels \"Anterior: tibialis anterior\" and \"Deep peroneal nerve\". Outer room: two brothers, label \"Lateral: peroneus longus and brevis\". Deep back room: label \"Deep posterior: tibial nerve\".\nThe superficial back room is highlighted with a gold star: a big shoe sole character, label \"Soleus\", and a small potted plant character, label \"Plantaris\", with a calf muscle, label \"Superficial posterior\".\nBottom banner: \"Answer --> Superficial posterior: soleus and plantaris\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background.",
+   "owner_flag": "Key B is the only TRUE statement while the stem asks for the incorrect one; image and narration teach the true fact without changing the key."
+  },
+  {
+   "qid": "Q000006511",
+   "number": "171",
+   "stem": "A middle-aged woman undergoes surgery for varicose veins. A saphenofemoral junction ligation is performed. Which of the following tributaries does not commonly join the long saphenous vein at the opening?",
+   "options": [
+    "Superficial epigastric vein",
+    "Superficial external pudendal vein",
+    "Superficial circumflex iliac vein",
+    "Inferior epigastric vein",
+    "Deep external pudendal vein"
+   ],
+   "answer": "D",
+   "answer_text": "Inferior epigastric vein",
+   "explanation": "The long saphenous vein drains the medial end of the dorsal venous arch of the foot. It passes anterior to the medial malleolus ascending the medial side of the leg with the saphenous nerve. It crosses the knee a palm’s breadth medial to the patella and passes along the medial aspect of the thigh through the lower part of the saphenous opening in the cribriform fascia to join the femoral vein 2 cm below and lateral to the pubic tubercle. There are usually four veins that join the long saphenous vein in the region of the saphenous opening: the superficial epigastric vein, superficial external pudendal vein, deep external pudendal vein and superficial circumflex iliac vein.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Saphenofemoral Junction\".\nCENTER: a big blue river (the long saphenous vein) joins a bigger river at a junction near the groin, label \"Saphenofemoral junction\". A surgeon ties a ribbon at the junction, label \"Ligation\".\nFour small streams flow into the junction, each with a label: \"Superficial epigastric\", \"Superficial circumflex iliac\", \"Superficial external pudendal\", \"Deep external pudendal\".\nRIGHT: a fifth stream going somewhere else, deeper, with a \"no entry\" sign, label \"Inferior epigastric: not here\".\nBottom banner: \"Answer --> Inferior epigastric vein\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  },
+  {
+   "qid": "Q000006512",
+   "number": "172",
+   "stem": "Which of the following statements regarding the tibial nerve is correct?",
+   "options": [
+    "Cutaneous supply within the popliteal fossa is via a branch of the sural nerve.",
+    "The roots of the tibial nerve are L3, L4, L5, S1, S2.",
+    "The nerve descends superficial to soleus in the calf.",
+    "The nerve divides into the medial and lateral tibial nerves in the foot.",
+    "It does not supply the extrinsic muscles of the foot."
+   ],
+   "answer": "A",
+   "answer_text": "Cutaneous supply within the popliteal fossa is via a branch of the sural nerve.",
+   "explanation": "The tibial nerve originates from the roots L4, 5, S1, 2, 3. It traverses the popliteal fossa and descends in the calf deep to the soleus. It is accompanied by the posterior tibial vessels, passes behind the medial malleolus and ends by dividing into the medial and lateral plantar nerves in the foot. In the popliteal fossa muscular branches are given to gastrocnemius, popliteus and soleus with a cutaneous branch of the sural nerve.",
+   "has_book_images": false,
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Tibial Nerve\".\nLEFT: a yellow nerve character in the back of the knee hands a small flashlight (skin feeling) to a branch character, labels \"Tibial nerve\" and \"Sural branch: skin\".\nCENTER: the nerve dives under a big shoe-sole muscle, label \"Deep to soleus\". A tag on its backpack, label \"Roots L4-S3\".\nRIGHT: at the inner ankle the nerve splits into two smaller nerves going into the sole, labels \"Medial plantar\" and \"Lateral plantar\".\nBottom banner: \"Answer --> Skin branch via sural nerve\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
+  }
+ ]
+}
