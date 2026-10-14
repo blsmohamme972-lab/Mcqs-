@@ -1,6 +1,24 @@
 {
  "export_type": "kafu_mcq_text_export",
  "schema_version": 1,
+ "exported_at": "2026-10-14T13:42:30.824Z",
+ "source": {
+  "kind": "published",
+  "source_worker": "content-worker",
+  "catalog_url": "https://kafu-content-1.blsmohamme97.workers.dev/catalog.json",
+  "catalog_sha256": "b86f972c19cc9811f217e6f54591092df768c26c6d5072ab0ba520500cd61dfb",
+  "index_url": "https://kafu-content-1.blsmohamme97.workers.dev/books/GET-THROUGH-MRCS-A-SBA/v3/index.json",
+  "index_sha256": "878de8995eb62fb2d34a6d82b3f20cc407d8aa49f634b3872271e20b11ee2530",
+  "snapshot_pinned": true,
+  "chapters": [
+   {
+    "chapter_id": 36,
+    "url": "https://kafu-content-1.blsmohamme97.workers.dev/packs/GET-THROUGH-MRCS-A-SBA/v3/chapter-36.v3.65574157116d.json",
+    "image_url": null,
+    "sha256": "65574157116d933253ffc8840d764a3a6ab37f1c6629df78cc0a3d618c377f6c"
+   }
+  ]
+ },
  "scope": {
   "type": "chapter",
   "book_id": "GET-THROUGH-MRCS-A-SBA",
@@ -9,8 +27,333 @@
   "chapter_id": "36",
   "chapter_title": "Practice paper"
  },
- "source": {
-  "note": "rebuilt from the published chapter pack, sha256 65574157116d933253ffc8840d764a3a6ab37f1c6629df78cc0a3d618c377f6c (matches the owner's export)"
+ "book": {
+  "id": "GET-THROUGH-MRCS-A-SBA",
+  "title": "Get Through MRCS Part A: SBAs",
+  "authors": [
+   "Nikhil Pawa",
+   "Paul Cathcart",
+   "Howard Tribe"
+  ],
+  "field": "medicine",
+  "specialty": "General Surgery",
+  "collection_type": "textbook",
+  "cover_url": "https://kafu-content-1.blsmohamme97.workers.dev/covers/GET-THROUGH-MRCS-A-SBA-v3.webp",
+  "index_url": "https://kafu-content-1.blsmohamme97.workers.dev/books/GET-THROUGH-MRCS-A-SBA/v3/index.json",
+  "version": 3,
+  "questions": 1000,
+  "chapters": [
+   {
+    "id": 36,
+    "title": "Practice paper",
+    "questions": 135,
+    "qids": [
+     "Q000007206",
+     "Q000007207",
+     "Q000007208",
+     "Q000007209",
+     "Q000007210",
+     "Q000007211",
+     "Q000007212",
+     "Q000007213",
+     "Q000007214",
+     "Q000007215",
+     "Q000007216",
+     "Q000007217",
+     "Q000007218",
+     "Q000007219",
+     "Q000007220",
+     "Q000007221",
+     "Q000007222",
+     "Q000007223",
+     "Q000007224",
+     "Q000007225",
+     "Q000007226",
+     "Q000007227",
+     "Q000007228",
+     "Q000007229",
+     "Q000007230",
+     "Q000007231",
+     "Q000007232",
+     "Q000007233",
+     "Q000007234",
+     "Q000007235",
+     "Q000007236",
+     "Q000007237",
+     "Q000007238",
+     "Q000007239",
+     "Q000007240",
+     "Q000007241",
+     "Q000007242",
+     "Q000007243",
+     "Q000007244",
+     "Q000007245",
+     "Q000007246",
+     "Q000007247",
+     "Q000007248",
+     "Q000007249",
+     "Q000007250",
+     "Q000007251",
+     "Q000007252",
+     "Q000007253",
+     "Q000007254",
+     "Q000007255",
+     "Q000007256",
+     "Q000007257",
+     "Q000007258",
+     "Q000007259",
+     "Q000007260",
+     "Q000007261",
+     "Q000007262",
+     "Q000007263",
+     "Q000007264",
+     "Q000007265",
+     "Q000007266",
+     "Q000007267",
+     "Q000007268",
+     "Q000007269",
+     "Q000007270",
+     "Q000007271",
+     "Q000007272",
+     "Q000007273",
+     "Q000007274",
+     "Q000007275",
+     "Q000007276",
+     "Q000007277",
+     "Q000007278",
+     "Q000007279",
+     "Q000007280",
+     "Q000007281",
+     "Q000007282",
+     "Q000007283",
+     "Q000007284",
+     "Q000007285",
+     "Q000007286",
+     "Q000007287",
+     "Q000007288",
+     "Q000007289",
+     "Q000007290",
+     "Q000007291",
+     "Q000007292",
+     "Q000007293",
+     "Q000007294",
+     "Q000007295",
+     "Q000007296",
+     "Q000007297",
+     "Q000007298",
+     "Q000007299",
+     "Q000007300",
+     "Q000007301",
+     "Q000007302",
+     "Q000007303",
+     "Q000007304",
+     "Q000007305",
+     "Q000007306",
+     "Q000007307",
+     "Q000007308",
+     "Q000007309",
+     "Q000007310",
+     "Q000007311",
+     "Q000007312",
+     "Q000007313",
+     "Q000007314",
+     "Q000007315",
+     "Q000007316",
+     "Q000007317",
+     "Q000007318",
+     "Q000007319",
+     "Q000007320",
+     "Q000007321",
+     "Q000007322",
+     "Q000007323",
+     "Q000007324",
+     "Q000007325",
+     "Q000007326",
+     "Q000007327",
+     "Q000007328",
+     "Q000007329",
+     "Q000007330",
+     "Q000007331",
+     "Q000007332",
+     "Q000007333",
+     "Q000007334",
+     "Q000007335",
+     "Q000007336",
+     "Q000007337",
+     "Q000007338",
+     "Q000007339",
+     "Q000007340"
+    ],
+    "url": "https://kafu-content-1.blsmohamme97.workers.dev/packs/GET-THROUGH-MRCS-A-SBA/v3/chapter-36.v3.65574157116d.json",
+    "image_url": null,
+    "bytes": 185192
+   }
+  ]
+ },
+ "book_index": {
+  "schema": 1,
+  "book_id": "GET-THROUGH-MRCS-A-SBA",
+  "version": 3,
+  "title": "Get Through MRCS Part A: SBAs",
+  "authors": [
+   "Nikhil Pawa",
+   "Paul Cathcart",
+   "Howard Tribe"
+  ],
+  "field": "medicine",
+  "specialty": "General Surgery",
+  "collection_type": "textbook",
+  "language": "en",
+  "question_count": 1000,
+  "cover_url": "https://kafu-content-1.blsmohamme97.workers.dev/covers/GET-THROUGH-MRCS-A-SBA-v3.webp",
+  "chapters": [
+   {
+    "id": 36,
+    "title": "Practice paper",
+    "questions": 135,
+    "qids": [
+     "Q000007206",
+     "Q000007207",
+     "Q000007208",
+     "Q000007209",
+     "Q000007210",
+     "Q000007211",
+     "Q000007212",
+     "Q000007213",
+     "Q000007214",
+     "Q000007215",
+     "Q000007216",
+     "Q000007217",
+     "Q000007218",
+     "Q000007219",
+     "Q000007220",
+     "Q000007221",
+     "Q000007222",
+     "Q000007223",
+     "Q000007224",
+     "Q000007225",
+     "Q000007226",
+     "Q000007227",
+     "Q000007228",
+     "Q000007229",
+     "Q000007230",
+     "Q000007231",
+     "Q000007232",
+     "Q000007233",
+     "Q000007234",
+     "Q000007235",
+     "Q000007236",
+     "Q000007237",
+     "Q000007238",
+     "Q000007239",
+     "Q000007240",
+     "Q000007241",
+     "Q000007242",
+     "Q000007243",
+     "Q000007244",
+     "Q000007245",
+     "Q000007246",
+     "Q000007247",
+     "Q000007248",
+     "Q000007249",
+     "Q000007250",
+     "Q000007251",
+     "Q000007252",
+     "Q000007253",
+     "Q000007254",
+     "Q000007255",
+     "Q000007256",
+     "Q000007257",
+     "Q000007258",
+     "Q000007259",
+     "Q000007260",
+     "Q000007261",
+     "Q000007262",
+     "Q000007263",
+     "Q000007264",
+     "Q000007265",
+     "Q000007266",
+     "Q000007267",
+     "Q000007268",
+     "Q000007269",
+     "Q000007270",
+     "Q000007271",
+     "Q000007272",
+     "Q000007273",
+     "Q000007274",
+     "Q000007275",
+     "Q000007276",
+     "Q000007277",
+     "Q000007278",
+     "Q000007279",
+     "Q000007280",
+     "Q000007281",
+     "Q000007282",
+     "Q000007283",
+     "Q000007284",
+     "Q000007285",
+     "Q000007286",
+     "Q000007287",
+     "Q000007288",
+     "Q000007289",
+     "Q000007290",
+     "Q000007291",
+     "Q000007292",
+     "Q000007293",
+     "Q000007294",
+     "Q000007295",
+     "Q000007296",
+     "Q000007297",
+     "Q000007298",
+     "Q000007299",
+     "Q000007300",
+     "Q000007301",
+     "Q000007302",
+     "Q000007303",
+     "Q000007304",
+     "Q000007305",
+     "Q000007306",
+     "Q000007307",
+     "Q000007308",
+     "Q000007309",
+     "Q000007310",
+     "Q000007311",
+     "Q000007312",
+     "Q000007313",
+     "Q000007314",
+     "Q000007315",
+     "Q000007316",
+     "Q000007317",
+     "Q000007318",
+     "Q000007319",
+     "Q000007320",
+     "Q000007321",
+     "Q000007322",
+     "Q000007323",
+     "Q000007324",
+     "Q000007325",
+     "Q000007326",
+     "Q000007327",
+     "Q000007328",
+     "Q000007329",
+     "Q000007330",
+     "Q000007331",
+     "Q000007332",
+     "Q000007333",
+     "Q000007334",
+     "Q000007335",
+     "Q000007336",
+     "Q000007337",
+     "Q000007338",
+     "Q000007339",
+     "Q000007340"
+    ],
+    "url": "https://kafu-content-1.blsmohamme97.workers.dev/packs/GET-THROUGH-MRCS-A-SBA/v3/chapter-36.v3.65574157116d.json",
+    "image_url": null,
+    "bytes": 185192
+   }
+  ],
+  "index_url": "https://kafu-content-1.blsmohamme97.workers.dev/books/GET-THROUGH-MRCS-A-SBA/v3/index.json"
  },
  "chapters": [
   {
@@ -153,7 +496,10 @@
     "Q000007338",
     "Q000007339",
     "Q000007340"
-   ]
+   ],
+   "url": "https://kafu-content-1.blsmohamme97.workers.dev/packs/GET-THROUGH-MRCS-A-SBA/v3/chapter-36.v3.65574157116d.json",
+   "image_url": null,
+   "bytes": 185192
   }
  ],
  "expected_question_count": 135,
@@ -5211,5 +5557,1130 @@
    "status": "source_verified",
    "version": 3
   }
- ]
+ ],
+ "export_metadata": {
+  "question_integrity": [
+   {
+    "qid": "Q000007206",
+    "publisher_fingerprint": "7b2b34c8058af88c59a640f6efabe11e3c38e6128cc3f4fb1cd0f7e8dada67f1",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "5abc9f065ea50021a8d494d209cfa570309237fa5e0bf189f264e370489daa16",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007207",
+    "publisher_fingerprint": "6a47f444807490ef23bbb57d73662028356270efcd7675ee2cab0fc4d69a8a6e",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "5e405a2a944dfba929b2feb436d4bbdb23b71f48f19e8a160c7a2466a862c8f1",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007208",
+    "publisher_fingerprint": "ba76d9ad1fe97d4b4d2ba547cc00834b9edd2a3074f05b183c8c642a1124a3b0",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "2a29f6c9399b600d16f8d7b3076e16375d00b84410040ca9701d2ac4cdbd3dd4",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007209",
+    "publisher_fingerprint": "68b5e391a9d65c1bc4d3285790e6884c948fcbcecfd506cba94d4e7e1a23fc1f",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "6c213e2ef8cc07cdca0a5b58d069c230b6294e0d039d2142eaf9f8b88111ba86",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007210",
+    "publisher_fingerprint": "43a9cc4bb7293077b7422ccf6f23faf4963b0d92859f67c3bfe7ef1cd554216a",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "efce992d144d0cf40c81d8d9f38f10e5284f087ae12cb0da4271d03f1da8cbf8",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007211",
+    "publisher_fingerprint": "f7d995b6064baac0e4bd45bfa45f7e193e15a8641771441f3a0f6c7e3907d718",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "cac467b26ed3fdddecf94920504805ac984dff46ab50f61b6ed737097d3b892d",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007212",
+    "publisher_fingerprint": "31361b95c717aaeb32c286f492711328eccdbf40e3aa445c93846e096078e562",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "ef91e10d7cc4ca6aa94aed44c9f4bcb87c6f38a07f54d1d7b3967926f2094edd",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007213",
+    "publisher_fingerprint": "5f9c36218630d35f13bcf7250e14530ea3447ccca93480d9d31712f47a2c783c",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "98f0d6c0496afd77ece14174f5e97f8d808840dd8a7f48b76ebeb6512820a6ad",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007214",
+    "publisher_fingerprint": "a41add230e522bb4885c98b80d39bcea17fcdb006461198668ae59bed25c6bbe",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "1b3315d9eb23c5a5b8be96b73284ca02ababd186a639099b7a22c88b6b1d33ae",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007215",
+    "publisher_fingerprint": "faee8768d66ad3579fabb23be93a02e35233ebbc09226dd52cfd6f81ca48c2cb",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "42f3a5b2c20db6d8f538eada913463a3b01970249049e88d5b24b6825be54e24",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007216",
+    "publisher_fingerprint": "c34d054680ff88616c949341fea2685ff7501167a2378660ab8fcab1d4325bd0",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "731a1cc478f71818de8d3e4cf3c40bc7a15863bb174f672bcedb349ac76aa43f",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007217",
+    "publisher_fingerprint": "3644f8c269ffc6e6eaf8b33687e27c4753d93198bf8af2b93212037cfdd3eda0",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "83a0a98be34932541b807a8f3866acd5bd28aa822aa5cbf01a89a0fa2685a525",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007218",
+    "publisher_fingerprint": "5d817c2e972733bdf3e3207b3d431cfe00aa8a5b8f084fa09aec63780a04276c",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "18e826608854bc6b7b32e714038e796c64aa4afb21ea18f233500a96c9ed5a05",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007219",
+    "publisher_fingerprint": "eb114c10dc41ae2785bbe957e0cfc80107e8ab36e963ed6a1dbe356c711361a7",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "5196c45bd56950baad47bfbd4ada3e19e9895293ac31abf57d5e21138b54d8de",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007220",
+    "publisher_fingerprint": "4728dfa73975b1c949d138238950e7289115b39ba613ce9b0d961dac218da676",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "47b8ad0a8be043290fa4623de6759f79ef85d13f92bb883e71c83c92efcddc6c",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007221",
+    "publisher_fingerprint": "cbde5ce5f367b7c9630984d4dbbce4291c70a544069ea02e6ee2a6fc0ac27e10",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "f5feb275c6327c38d3d514a15c235d2cfba4ed7f5fa48c679dd6a60c90a9e9bf",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007222",
+    "publisher_fingerprint": "340df9866d726bb8ee36394554e2859ba20e3e6038ff4b07c75c83e6b94988fa",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "1b8b43e51c4dd80ff4c8469677cfd15dd5338a69ea59b67f205ed4749b8e2655",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007223",
+    "publisher_fingerprint": "81447d800362d4525cadbba58a8cc2f9f9f858b2ec74d4a8e7121586e7bac3b3",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "543560ec8825c437e7fbb009e8883949e42823c635fd66ed3a5b3537f222e68d",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007224",
+    "publisher_fingerprint": "2dada6bbf61f5ca78a784080c8823c0e6e1eccdb940e5503213c7e9605dcdd81",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "8770e6b558483ac18b8016728fa18e2b4321da0367eeace8204e859066cfe5f7",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007225",
+    "publisher_fingerprint": "437bf03988c11059fffc62d7e84d9e680c85b2a4a88c0209bee12ba35d49f0cd",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "9ae3ffbef5a7914e8d010e5172ad9440c34ef0ea7876ccb4ad1935c625c7ffe1",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007226",
+    "publisher_fingerprint": "637452822c0909e56eda7c71f03f890688827e59e25a26bd170c94ee5b6400bc",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "858976fef61858288b7a83059e35bc457d834e99888d42d8809b71c491c5754d",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007227",
+    "publisher_fingerprint": "6ed0ee938c54e600d7fe5bf1b1bd1bba5223a158f367d89924ef73c46eb28ee0",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "e6405243880550fae3b5325d0721962de0a5c9e8ce12e4316c94c2b498217846",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007228",
+    "publisher_fingerprint": "0a7a54ff68df34fbde1b1b7bea6b0acd05569af6dccfcd087d78a5172d445319",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "b4870d395733e2a394bc159506d5e35d0dc2b71399c98ed163c2c1c266fc89bf",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007229",
+    "publisher_fingerprint": "399a76652c232b8acda09247355798c2495c78ff4fe4babefa73b9700b30e90e",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "956d6bf51cededdb79f63aea6b546f6491e5c5fa470efe15840b7486e5eb5770",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007230",
+    "publisher_fingerprint": "0ff48bef7ada68845df85afff9578717f41ddf59879033ead236e5a58f6bf97e",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "b7b2186c405afcd5fcabd46a45f6416f83b3fa7dfbfe7d9528512d6031905c9e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007231",
+    "publisher_fingerprint": "db3f91dc827da397b5a50bd69de6b3ecaf2d7cfd29b08c634c54da91f998222a",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "d87ce031de49a60fe0bf4645e3bf4a2328f8150ebb2206ac75357afc9c6b8bf9",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007232",
+    "publisher_fingerprint": "677d16df2aa448056963c6d1b4a4ffb4974f451b8f1d6b0ddd1c624a6d95a580",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "c420a3e52410ed4e3f01d9ba1afc8789a8901c1a039185cd4ab4447b8a31d421",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007233",
+    "publisher_fingerprint": "f412852e0b0ebc7728c98a9930f5fc97cc59a4d2ff16eda6881d8129a1858fc6",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "826a905b668820e881f96bb9b3f93f17c1837ad11a1251810415b614a6f70dc7",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007234",
+    "publisher_fingerprint": "abf7aa6bad4c3119b36beac81aee862f6a54c450abd43ad7703d18c187374e27",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "8bf94ed2a6035f9261c78d9aa28a0a42084818bb862744b7ebe04be31bb870a6",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007235",
+    "publisher_fingerprint": "9d4799c2708bb7d0d2944770f4322433e099f23eb71d9be8fd26ac678e6e0de7",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "7f29df4f919b0e266cfdb1beea5bca16f93f6203e95b1ccae269f0e4ed0dfa13",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007236",
+    "publisher_fingerprint": "25390d7c86f9f2fe5e10717df0eb1f21cc621365c6837b6849122f83f8e64360",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "8784fd6d43c472bd0103a8a59ea8ef20ae6610eee52fcc800c518a8ed29f76f0",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007237",
+    "publisher_fingerprint": "bb8c9d0a14fe287299a48d60e803378d968c3dd609652bbc59e9951d6354c422",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "2223e41f23e06a658fbe86b776385a78dd0b7d582fe5e09a538d8f1d523a01c6",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007238",
+    "publisher_fingerprint": "983b7bc1338ed579e1a85394b6ba84a46de601cf5258cfcb92df4eed6153878d",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "6ac2a474554c469c0c3fb9e06a589650bf1a31b8ab52de44d0509970c6154d7b",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007239",
+    "publisher_fingerprint": "2b4e82be5ddcd432cffe5ce13eb7d6430961a93576b0f5a9d95a406a4a310a38",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "0f107df9270b06f0b0b33a382fbfeea65fbd2f1c64091a90f96346831ac64a2c",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007240",
+    "publisher_fingerprint": "0125eb29cef5b7b9e488515c717ac2145ea2855275e34e3121e6e43c5b47dff8",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "ff2163997b244c37fb97ec00e62aa61d808cceb377fa0dbf47b77df0909d577e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007241",
+    "publisher_fingerprint": "995cf898250e12bb3b4ab5f547645e0126c7f1d641b3c82c79650976e2411adb",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "eb41e5f36423fee0fda72099fb0470ea4e36cf1e99a9a3c19f23276cfa043e46",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007242",
+    "publisher_fingerprint": "64e13870a0ec5e0eca68ff7c565e4711cf068d46c7005f382a72c03410dda85b",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "7fa49128b6803ef8d0a2a38672679631a576b93af3fecf55062d98dda858742b",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007243",
+    "publisher_fingerprint": "1cdb027660d5a535ead0cefbb8345a2e4b0000cb59abacd37722f45d15676849",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "b8f7596ffe8c404b58acdb6953fa297a8a6e862b3aa7962d9b43fafa927d5af2",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007244",
+    "publisher_fingerprint": "56ca148ee87687abb5a8b88f387477f779e2b543492d7c42d8b33363ddfd7c49",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "d72018248ecd944ae40d35ef19e6804209283c5c13ee15fef6c4e396e0c88a2e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007245",
+    "publisher_fingerprint": "5dc460187d9e02f8149bee00bcd844ea437760fcebd77daee51500f56ccf0ead",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "d69abd507c9a26d692faa334d57d3fcfdc9826db636d9a0bed6e1e68d09b2dfa",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007246",
+    "publisher_fingerprint": "d689b23c371cffef4ccf13a22ce53d221aaa74b6aebf000ed95721c894317454",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "167ec1d3947a7f27584e2bb4cc4fab074934f18d920d22ad312291b0f134c74f",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007247",
+    "publisher_fingerprint": "4b89d4b4e0ac2eb170cb379f41494ca66ffa17662d8397f5e212864525a3644f",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "63c1df458275675912318d3e8d67b73b3a515ab8add7fbd840eb5cb731d3a527",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007248",
+    "publisher_fingerprint": "2bef6415446b0129a24b5646a40f3411ad839dc1a52f029b80436645fc8aa827",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "52a7b336b7d14f6d76b41a87d0a46ac5e2591f1066901c3645b356d903a4c8e9",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007249",
+    "publisher_fingerprint": "7d5e63ccdb9894ff5f5e9af7a2ce9ae2f077d5e790a492ea3ccf86884d1d8f62",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "f52e8bf3b993e791eaa89b1e5c44569e4466ce0f24a4d81677134eff905acebc",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007250",
+    "publisher_fingerprint": "12f94545418f03f575393d6378eae1c512c66ebf439de2156d39b5cbe4b027a1",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "5f8291e21277a9e2abbaba8aeb4ed4492cf6ea85569c2bc2feb77e75ba9f35b8",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007251",
+    "publisher_fingerprint": "44be488931129a9321ff56a99bc6251d468450d3e15af5ea8ba5f4c3de8ac074",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "5bea61102386c981672dc9c68d3a9ec084a481be87cab3a6424c2c41d18b46f8",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007252",
+    "publisher_fingerprint": "be9b646a3680705c89a20420149117029ba718490391584fafebf0dd9f1bda21",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "b3be8341ddf3db59b389cf232bea4a8cd25d17fda78d7f83115c6da60efc6481",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007253",
+    "publisher_fingerprint": "c68ba055d06aea60dce1edcc1e2c35606cf0de2e322756390d3e24fb3bf8bf87",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "8b4eef86bb0e773456c07327acc879f311841439af27e14efe976ba3b64a5611",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007254",
+    "publisher_fingerprint": "30a47aac52a1da8f9bb825f211db9d7fc5e0d758012e380ff159e46b91da5056",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "57c4539975fe9fb3ae5bf204a2907acab3a964d9c1d90f5cef26ba9f77201728",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007255",
+    "publisher_fingerprint": "f36a78c56684e4c60ff6ff7c2030b2cb1f56631f7b4aba3e75a26108989fd2f6",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "364d07d355ac4a9036c749d856ae1bf34a5c12fd9cb38c458995c7f2ca9c3d0e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007256",
+    "publisher_fingerprint": "ca5e6b2e78a55bc0c2aa47fbffc691f84eb637fe1a54b94e7578ccbb54325a1f",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "277f871030b5342fffd6a27ef0c78dc780b1bbb86f5e14b8f5cb2dda0fb4b98d",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007257",
+    "publisher_fingerprint": "9d5c94624d824c6d9223a3bc20f269222a1b48da673d6711f24b2a9bfd0967db",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "7e5191685731af004a579597e0d4f5cff7c89fbaeeabbe2fd0c27a8e77f8a8a1",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007258",
+    "publisher_fingerprint": "53552656b7ad256c60eb0b0122fd423c4726710b672d474d2e777168d32e047f",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "5dda6c6ce07706e6007abaae6eaec2b0002c18d834f6de5af82af1b30be6a89f",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007259",
+    "publisher_fingerprint": "18b35efbb29e223709cd2f82f141c62c9c5da195911b2eb362eec72b1fcf57d6",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "2e8679a3f429f65bbea50a83ba3bee0e20d35f5e5d51bef50ee43c9178e9bdb9",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007260",
+    "publisher_fingerprint": "d854b1984789c44797db6b72431ec94559d6751c7abbdcf01d639e8759053d79",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "262c3ece026f3de5f6e470363ceed48dcd51463540acad1adf71f84d1645f161",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007261",
+    "publisher_fingerprint": "32bf050be45142c5546e54c2d40400b8bd16194cb37bc3c68722fa0f4c3eca3e",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "ebc6e27eecefcc059c3e1bc83a9c97a900c9ec9b7072b23ffb0082037d80743e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007262",
+    "publisher_fingerprint": "980affcf73e8caf156349a10dc58d1e925afb716b54ab1bb15e97ded35812c04",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "93920afb12921247e6564bac568f10bd09fb54f0f19bcf5037202ae6d2584da7",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007263",
+    "publisher_fingerprint": "18ebd343a107f6526b0c47366e918f2e6b47c65c5be43b730d4391c6a57520d7",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "28bff95273ba4537f3567768957198fcc123c7ae13a2cfd5ce9061b1ad1d2234",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007264",
+    "publisher_fingerprint": "e410d2207b3900e757695de35432a9b7c2adf4619c644f045070f8b28cd44848",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "581ff49eb7ece09121eaa3d2c5d011ee31591053c7b9e81efca0993d729efaaf",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007265",
+    "publisher_fingerprint": "92f09cfdd37db708d8aac29cc535aff65c1371bdaf3c7671efb2cdf47778d79e",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "5f9694082d4ced646c9d69791228c116a98ad1873d5127b8d468056346875c0e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007266",
+    "publisher_fingerprint": "93fa86e2355fa26da47cc8eabc7af09a839331ba93f0843bfcea357132ebf82f",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "182a5fb079f0391d243bb715a2c3526933d7f5e396e3f8271d3586a7984640a9",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007267",
+    "publisher_fingerprint": "6835b594f1e935e3aabd2998dfba76c9e311a9b50d18a9a8e04c5bda199f263c",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "db85fecfb9403f284e7f9662fd68f61e9ca0c9e474e3de6e08bdd531b61e5c86",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007268",
+    "publisher_fingerprint": "223a009bba0b5a81037c36a83bda70f5e9b63dff46efddf952d843c935433463",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "ad63ffbda6056b58d6e39a49bc26fc60f2cfe5294f4b05d36a34a9fa94a0d6cd",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007269",
+    "publisher_fingerprint": "efc3161493a1456f4bdc1b6c6e5c4df74e3f73630d404a9e3b7ef2ab8e9e9743",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "b59cd259068b420908b37c5de93b720b0b295f233f8b0e1d91bf7ed5d8792cdc",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007270",
+    "publisher_fingerprint": "18c18aa1b5b657f10937bf604d56c5b21b02d56ee4fb77f947aa4ce27d33ded9",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "9741b57c7704333040d1445e8e89c038a6d85a07bf4f2c98857d7c47a44e1d33",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007271",
+    "publisher_fingerprint": "83404f50857adf6d0f7c7473ee4a6879a8deb00abab9d2754a28b40e2d781dc9",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "6eb1367d77c29b493e8c4fc42588082f23d27760415d43bad6a2cb77585451c9",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007272",
+    "publisher_fingerprint": "92d2a6fc1733abd1ef3e4243e5911ac251f0a57807043523f21eb645c0af809a",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "136522b4feffc215e5db2f23cc4da318a8ca81d27f6b25411cd197db43e8d76c",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007273",
+    "publisher_fingerprint": "d009f7e979f0e88973dae7d59dfd841f07eae8bb8ce115e4ae65a36c334241cb",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "87a994ebfd7c622bcdba327e259a931e7ae982150b5744f58039c670faef8d4c",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007274",
+    "publisher_fingerprint": "41d0f2692ec6c491d5b863378e0ee51c543a1ab2c69b9d1cf9ec7a4ce0e54d56",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "68fac8447b286f4bedb0a9db778cda41a61900ecd94c9b303c993f4fa0f0915f",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007275",
+    "publisher_fingerprint": "e6098e6c9e97cbe218328436ac128d34685d1c9b0309f86662d69b5ac9a1a51a",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "14b8770b61213731ed8b8ecc77b88e4c4162b6b973da3a7e2de9d31434daeda1",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007276",
+    "publisher_fingerprint": "6373917b021767efb0e14ca8167607091a6eeb812fd518eebea04a951387200c",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "4b1e54dd681a9184492d6de768f9ae9b3f62b6c15749aa109edc50360a7ba52e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007277",
+    "publisher_fingerprint": "c7a044822454e9182ea089726972818f4900a8cbd731f3578a42a5d69b9855cb",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "b5a8d3f91b310134fcc31f723078aebb0e4c1fb7331974bd2c99569e0045e6e8",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007278",
+    "publisher_fingerprint": "86db700248ecde61ebdd02db24e2575cc28e8a393a51c269a43280675129f5f0",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "1286c659ffb2df28c0f3a25819c84800bc10ea067c3b01887c2fc6efeadc5958",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007279",
+    "publisher_fingerprint": "851ba294ad107801dda1c6171cf940931c033a7c2b88e0f217cc009835bf1dd2",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "5d263286f2286409205fbb8b93ff5b4cc501d7f1b31fd2ebd67e7a0a84e6443c",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007280",
+    "publisher_fingerprint": "abbb85b85922648870460baf8854c35896261788029c0b4fb7d18c5ddc3105de",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "bda29fdc16f5bc2f5f5108def4e933ca4fed83f096c081cbb27d85fa76ae9d32",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007281",
+    "publisher_fingerprint": "439aac151d2062c6070d0a6a43d9fe06929bf4a3bccdaf5d33f06dfdf106438b",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "8f478dd2de8311cf732e0a8e1f15f4ddf4e390347a2b8c20b9edff47a01f5ad5",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007282",
+    "publisher_fingerprint": "57f8185feba368b03e4ee3e1dea4ebbaa196919a321fde7ac4dfb0d31af03e53",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "ea5a7cc8b606d2e2683aa5425f5b1ce4e749a3029edc4a5567d762549d5bbb10",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007283",
+    "publisher_fingerprint": "91baf2ffd91d6f9470c8e57abc8751c41d397cb6be54069399ad65b4be908366",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "d797f1ab9be5321a8c69a5cea0ca4e2429add2f049ab966e433ccf495b210d89",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007284",
+    "publisher_fingerprint": "7e32f3ca8235f78997d5eae282128857ca845f96659a38706cfaffe8774da0d6",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "6058a460d0d11acf2e7883e1ccf7a0f34de711878be7d9fb69175ec1d23bc986",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007285",
+    "publisher_fingerprint": "b5e3530b589e2b65703b069a100548f33e620cd0cb57150507fb3349fe534bbd",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "35a047ceaba36d67fc09ff0d46c481043dfc423be04e3cafa530b4f4c977d97e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007286",
+    "publisher_fingerprint": "4e1700eb16711976b3568ae50aa7c792f2c8304ed3e1d4de3e5ae74c2ced5191",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "4eb4b761a7ab40b6f69c4f38022cd3151791bae15a9f0d687b5bbc28176d5006",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007287",
+    "publisher_fingerprint": "d723f9556cca460c9ff783527e9ce713094c1f848d2c87acde4e0bb34c3b373d",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "7144cab74b1f41b373b411199502a32c70fff9b477b5c486faf9b5c6e436f38d",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007288",
+    "publisher_fingerprint": "b58783017d41311c42006120f377bd6f5774445c487888c7593ae560b3b4dcc6",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "84905e4e979b419309d1fc21c0ec1ee2536ee2811cbe1a16c1d0d93b52ae3a2e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007289",
+    "publisher_fingerprint": "50037ce89ff507a674255f9e5d47493d38433411d9aabac205ae8025d6cf3a33",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "640711abeb1b28ca7ad60930bdca1a597e56dfe27b5dd6d9d30db4a96a238ec2",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007290",
+    "publisher_fingerprint": "b5ebeadd782223b7f21b942d3534e1f293980d47b69b4a2ef15dd81d08d5d4ab",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "488f375cdec698f2f0fd6856ead1957ce8d2a0e3b454cfd2373c985e7b7b48e4",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007291",
+    "publisher_fingerprint": "b485d611d76d1c1020fa65940f6f4ea091fed95cd4bf9bc9145ebb1458f00fdb",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "81bcaabbb23bde158c309a534da070e446cf176946814d3a8eecd1768e43b7df",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007292",
+    "publisher_fingerprint": "e4b3c45bac114cf805875f3470b63c7c9206384a49b201cf65a71b3fbe6e9dfa",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "37cbeb875d5d4ce93d0aad018c891a1652f2044a380f8335985abb93eb0f43b7",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007293",
+    "publisher_fingerprint": "afb5c8cfab17199ecec1ab5bf38c116bf25f3a6f45a53ab69a5873ee8f966874",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "a0cc809ee5878c40129eb916d739be35ba9f89da672474b875d8606320fd5309",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007294",
+    "publisher_fingerprint": "2c951779870f04b21da3b340a4b6b6ceac93b4c4a2be3f32242fa84382cc3315",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "fad6181bf3d78f6a917b7dc666f8347e57c412fd9273954ddb2f066fd6833785",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007295",
+    "publisher_fingerprint": "6b5c96b070315fe260e5a53f8c264f0c7e389d8f164a3c94e510c1f3b7af9ed2",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "21f350e687d60999805d67538acf8f2dd8fd66e850bbbf7405ad3b7c2d3221a2",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007296",
+    "publisher_fingerprint": "fd684b20092ac29b944de9f855cf823492345a68f614376dddd393e4b9d62661",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "89db6ee790651d8da7c35e596e2151fcf62131fb4132b49d81bd14205a652b31",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007297",
+    "publisher_fingerprint": "7185cb3cb3acf7784dbd23f0cf8d1484dbbc215c6fcdfafcffedd12bea9a3eaa",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "2e6a01429e4dfdfa459439351c08d267ce8b36f93e32a7ca52e04cb7e37fe32a",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007298",
+    "publisher_fingerprint": "e5c0c01df6272a61aa413593a390b7328bbd53e7fb6b6f57507f4e6b7ef39e16",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "055eb6eb60cefa19db2915dcb8b3c66aeda010122095c14d44d289c82565bbe0",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007299",
+    "publisher_fingerprint": "8af98f827e22e975e02702ac6f2bf025ed0e69f58376c8595ebbcce3ef5600ee",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "06bc282f2e81c20d06847dfa4daf85d886446bcb7dd92d44f63c836a363439f2",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007300",
+    "publisher_fingerprint": "efc2cd60af4036167dc61ce0bc7db4b1e6452a6f96685c7e1680d02e14c6a870",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "813afbb12ac7dfc79c424a5072b2a65d2a890c141d51ef83257a42ad7039ca73",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007301",
+    "publisher_fingerprint": "bc9f4aee8604de9bcce805c7c7976c432a3766e613d94de84a0f162cde5f055e",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "2191c6fced539e684f2b8d126326b4dc8ce07a175133cd98b55ee455e4c05da5",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007302",
+    "publisher_fingerprint": "caf00d936d53358cd378df844a7a39ac988add48647fbaefb3d45b2a23f532ae",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "09677e05604745ca5f8755a06d7ad74ae6faab212e9a040479a28fa68f679511",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007303",
+    "publisher_fingerprint": "1a0b5d5388b5fedaee970a2e60ea74875528dc3e23ff13998fae7e211d557629",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "9341f0782b14601f453ccd1be4a6973cb6c6a0fa1a1b789b60a0bca1801c87f2",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007304",
+    "publisher_fingerprint": "1e2324674897f441fcc7eb2ae19836af3c4fef0af176f3f3c4ecd6580e06acf9",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "07ee19acf1ccdcdd545bed54c23dfc541cb42441e44e2524aa22bf92adcd4d55",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007305",
+    "publisher_fingerprint": "d3eff1d2b1c0ea0674f10e428b973b04632265004c7c0664eb70fd60fef63b1b",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "1659181c9d0c4d3ebce614062bff22b033183fede94e2303a693a1e8551b0ced",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007306",
+    "publisher_fingerprint": "f96375d3d3e6bea3fe73b68fcd6d31585044df92fa975b69817399e25375e914",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "eec8ba039fea549180a243b09a4eac40271fc532258c6561f19460e3841a2145",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007307",
+    "publisher_fingerprint": "a66c14b99eb97f3b223adda9c71e04da959bf02f7067936089916b03782bd50c",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "81b2e2cb027179e648474bd991c71ad281e930b4193ffcb2e860797cc131b478",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007308",
+    "publisher_fingerprint": "17b9b260440fbf0d4b49350dff7596ffe8ddd35f347ada46f08e9dfafb9eef57",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "834f4e784e9bcc75591e2b219d49cf3a7b7f9211218d220a3f29cb0eca480319",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007309",
+    "publisher_fingerprint": "bf8386ca9bff4f2a8974ad4b660fbdf860c656c6adf2d9e24cc4f6ca5777c8f1",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "9a895b3d43fa998ab0e61b5cf78659e02e04764765bafbec51f21c3880d385ef",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007310",
+    "publisher_fingerprint": "ca5265741c9b2eb79302bb54db5227fce701717f9c2436b9a53197233ff44afc",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "89b3f4f38a5b8680954032c445099f6a55f1bec5449026e084efad35e769463b",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007311",
+    "publisher_fingerprint": "e58069f530a5c1ebbc1cfd92211176c17b16b277e0cbecc0aa51432fc748d2ca",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "cd479e3b0c8bc002339129cf1d9016aa697379006850d0098bb9629327aed3b9",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007312",
+    "publisher_fingerprint": "b15f457458916ee23f94f63cee11c7d5bede8758a755bbdb1357f0e848bf3ad4",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "94e5d8cd2c509ba23396c00123a021bfdc5b7aec4247b55a17e769703ff0390a",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007313",
+    "publisher_fingerprint": "326dae96bc0b99052a2867305bd6119ab712eb5b446d72054da7cb6c7f994570",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "9fb1bbdd050f492ff0f882fac805e64e505294ce5afbe820f91af8dff97a423e",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007314",
+    "publisher_fingerprint": "e2edcda44c411e721cee527f166514c3eb8deb476c4ca35adc3881e0831bd372",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "9f28396e1abab49da17a0b92ada24912b214cbab468a4c79e3a42625bc65688c",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007315",
+    "publisher_fingerprint": "614ce4de5e878630d67017b57d4e9db1e2d02b664c7a0b5cd70ff77bf501c56b",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "4668a3f2265da0da7a810440eff1f88d80629c37ab2b77d305ab412124816323",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007316",
+    "publisher_fingerprint": "65d2d053b92c85d2ad5b4d6a23080ab3170ef09b8a2ca0549a6cbe041f7d6841",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "ce825950d048d9813088bc7d7d3ed1bd12aea4dead4387af40ef68b89e796b12",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007317",
+    "publisher_fingerprint": "f5e299a1e59de166bbf66c56fa6652999bf9db9ca6f3d6f1b4ed539c584c33a4",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "cffbe75e472697bb787327a60d8d182e13b514d4dad603d60d58093e51e1029a",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007318",
+    "publisher_fingerprint": "d7f41a1f709fcda1fe46dbeb80aaf2458eae19ad27f91b8966060007e3246cb0",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "f5ac15566e24d9d1f0eb6bab92a3caa986a1252d7af09aaf338c7b25092fdd81",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007319",
+    "publisher_fingerprint": "691dad6992b8f334fe1bb0433cc637ecf22e79284ab61f677d9ae2ec341dac09",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "8b5550bdf3dd5ac2ba8771b60ca5c0cb5a30d20c50324f0170f7a554b3d1ada4",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007320",
+    "publisher_fingerprint": "3f9c3160ff8cce90f644e7e7b03bac7edb591ae1574cc4074e85ae0534858f0f",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "62f8ec73112925ca76f19bee5df1c57c9e1e236fe76ddb5fa65a621d4155ee0f",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007321",
+    "publisher_fingerprint": "afb7a0e7cd6cbbb936bc352e0139ac92d64ee6f8cde16902229c492439aafb85",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "ac3133745e5304b6294862b512ec58fdb73135745d023f3d807bf05e35bbad30",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007322",
+    "publisher_fingerprint": "b8ea1bb699185678d73713f30e5f08395125826dcf148ecc9bcba490340fe4ff",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "4a367e6bd0eb5912852cf1afd7edd043a95db81056ec4d7dcadbf5e406c34e85",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007323",
+    "publisher_fingerprint": "4cfc0456a36f209673100b056519600e72f9247c46c9f7826675dcb79bfdda33",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "85eb101a357a4e8eb1b55841b7c7c0d3483c0612cf6aa65ddec66a85fe620e72",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007324",
+    "publisher_fingerprint": "e708f07e6b045b70c72868ba7c514fc0cb3c2136c57d91c58f9097e38022a4bd",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "e61df15f65ad760335954fc7b958df73bcdf457062c55dcbaffefe83b257c6f6",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007325",
+    "publisher_fingerprint": "ed124c8a04fc6d5510c5bb6447dabbce271f5d4baef151e844f9cddff20028fb",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "7a4db677b0d80249ba9370982949c6bd91a477add01725426881366fcc02dedc",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007326",
+    "publisher_fingerprint": "b922dbfa56ee2ddb287416d9db8dd45fbc0c8214727f60cb6f0ea08051c7af92",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "4d60f00a3a442bc4f2c1253b5f0ec1765bf77867c5329d05fedda777e3968519",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007327",
+    "publisher_fingerprint": "664207b15a631c7a67296f8b586c7ea26377c9e872bb5e897269cfa89b7ad086",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "215bc46dc8678792c1ffa49186187a44cff6be6c231979b3f8c3340cb8b91dda",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007328",
+    "publisher_fingerprint": "9f158bef2497a93335d51ba07fb8daf6c225734624f14413abaa895084ecc84d",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "54c87978482a02e65808faa2f4296cb18570d4f1ad2699ded484f63955935e6d",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007329",
+    "publisher_fingerprint": "750716cadedd12fb34f2c9ce72e801c67f92eee12772ce0254cf257b5b78f884",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "c61c7004c51c2483b27cddb7e8c1251b2864c9f309295aa619772d5aab589c40",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007330",
+    "publisher_fingerprint": "2c92d30a807c32965fa08fd84600883d7a5b660bf638d02207fccd546f9abba9",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "296044907ad0e9c27d27f067ad8a20f78ffbb7bb7579c2db7137cc97471a273c",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007331",
+    "publisher_fingerprint": "876388573e1169e8f8e7f82211a3a6183e43d65cb238702cc4b0b161951ae68b",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "3a0e3ce36c26d558843ad0b27faf4ed389a5ba5b560c36bf98c3ac5e6e1be233",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007332",
+    "publisher_fingerprint": "d4020e5c44c865219e34656518dbfb7f5cc44fb4beba6749e789ee27b63f59ed",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "7e59ff25205010309a47e62e86da3c96792d65c84e542ca62b13c6c5c1012b94",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007333",
+    "publisher_fingerprint": "6c697f48f112eb374f17c890874df798d2030629ab9a36ba55b2ed952af3b3bd",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "7d54b918aa2a4e6a8387de12ceb1bb7ab5b868026c16c46e9c228ae0b0cbc341",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007334",
+    "publisher_fingerprint": "876388573e1169e8f8e7f82211a3a6183e43d65cb238702cc4b0b161951ae68b",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "33c357d15f0baf89bb249339a645605c00c0a3143312b834df051ad153374628",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007335",
+    "publisher_fingerprint": "df3663feea3917d7e328808d03f613091e77f1efac8438faeb8d001895220e51",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "fc38de0a37ae7f25ef95d39dadf78bcc73f23fbf5519b5c7dbbb0d2b16027601",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007336",
+    "publisher_fingerprint": "2907f8a03f25bf5ab9674045af3fc3c104fadc8f0606f32ad2d3af821ccc7ecf",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "f875bc8440ebdc9b7c7c8e78522a228c93dc287ec37b5816d04860133e24edb5",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007337",
+    "publisher_fingerprint": "32b429f6d0ab20bf073b40ca870c4939cfb76e1ad419083816fb2b1ecd73ca74",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "1b1f7af565ec508bf2a5f0b870b3a427cff7ee9c11ace560dc97c00d4cfe12db",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007338",
+    "publisher_fingerprint": "41bda5228565a709537feaefff08b28ef54c0eacf41f103656ce0a316006e8d3",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "a1012ca196dfeeeeaff77a480296bbfcf91593a09d7ea926505613c54679ac87",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007339",
+    "publisher_fingerprint": "0e04e5985eb93ba4c072251fd127824159b434cbaf4d86c6288b49c7285b0c56",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "6ce7cca9eab6ee79f7137e4d38c63924b052e5a3ad400e356ace68779716f7c5",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   },
+   {
+    "qid": "Q000007340",
+    "publisher_fingerprint": "4207458af8744341982eb8c4470496789450066c0346a4409bff2e255450a916",
+    "publisher_fingerprint_source": "recomputed_from_publish_py_fingerprint_v1",
+    "content_hash": "e7be64f0d56759ba7280fc3c848e0e2a46ce89720ea40d7dbfde8bb50057c638",
+    "content_hash_algorithm": "SHA-256",
+    "content_hash_canonicalization": "kafu-question-canonical-json-v1"
+   }
+  ],
+  "image_bytes_embedded": false,
+  "image_hash_scope": "question_json_only",
+  "image_packs": [
+   {
+    "chapter_id": 36,
+    "url": null,
+    "entry_filenames": [],
+    "checksums_available": false,
+    "entry_checksums": {},
+    "bytes_embedded": false
+   }
+  ],
+  "unavailable_metadata": {
+   "image_entry_checksums": "not published in the chapter manifest",
+   "book_index": null
+  },
+  "content_hash": {
+   "algorithm": "SHA-256",
+   "canonicalization": "kafu-question-canonical-json-v1",
+   "covers": "complete original published question object",
+   "excludes": "export_metadata",
+   "verifies_image_bytes": false
+  },
+  "partition_policy": {
+   "max_part_bytes": 900000,
+   "split_boundary": "question_record",
+   "oversized_single_question": "kept as one record in its own part"
+  }
+ },
+ "ai_instructions": {
+  "retain_fields": [
+   "book_id",
+   "book_version",
+   "chapter_id",
+   "qid",
+   "publisher_fingerprint",
+   "content_hash"
+  ],
+  "image_dependent_content_requires_actual_images": true,
+  "do_not_guess_image_content": true,
+  "image_bytes_embedded": false
+ }
 }

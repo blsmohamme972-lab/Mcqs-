@@ -1,4 +1,5 @@
 Build Kafu image lessons for package PKG = {PKG}, QIDs: {QIDS} (questions {NUMBERS}; {CHAPTER}). The owner asked for this build.
+EXPORT UPDATE (2026-10-14, overrides any older note): the chapter 36 export in the repo was replaced by the full app export with `export_metadata.question_integrity`. Always run `git -C /home/user/Mcqs- pull -q` and copy it again right before scaffold (`cp /home/user/Mcqs-/kafu_queue/exports/GET-THROUGH-MRCS-A-SBA-ch36.export.json work/input/`), even if a copy is already there: an older copy fails with `integrity_missing`.
 One pass, no questions. Send one short Arabic message at the end. Do not message other sessions and do not wait for replies.
 
 RULES THAT PREVENT THE KNOWN FAILURES (read first)
