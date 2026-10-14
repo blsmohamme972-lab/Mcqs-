@@ -1,0 +1,29 @@
+{
+ "id": "09",
+ "name": "full-q6-cfg4-20steps-768",
+ "config": {
+  "prompt": "P1",
+  "seed": 42,
+  "turbo": false,
+  "quant": "Q6_K",
+  "W": 768,
+  "H": 768,
+  "steps": 20,
+  "cfg": 4.0,
+  "offload": true,
+  "cache": "auto",
+  "smoke": true,
+  "name": "full-q6-cfg4-20steps-768",
+  "est_hours": 4.5,
+  "why": "The '5 hour' high-quality setting",
+  "overrides": {}
+ },
+ "setup_min": 9.5,
+ "smoke_seconds": 600,
+ "smoke_peak_rss_mb": 11971,
+ "exit_code": 0,
+ "run_seconds": 8022,
+ "peak_rss_mb": 11976,
+ "sampling_seconds": 7831.27,
+ "decode_seconds": 150.13
+}
