@@ -9,5 +9,6 @@
   "chatgpt_chunk": 5,
   "max_concurrent_builders": 8,
   "lessons_base_branch": "claude/lesson-intro",
-  "lessons_repo_slug": "blsmohamme972-lab/MCQs-Mountain-"
+  "lessons_repo_slug": "blsmohamme972-lab/MCQs-Mountain-",
+  "zip_inbox_url": "https://claude.ai/artifact/SvG5287Mx1TuiNx1XVNFdS"
 }
