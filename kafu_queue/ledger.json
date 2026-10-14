@@ -45,9 +45,9 @@
   "note": "2 lessons, ZIP checked OK (PASS)"
  },
  "GT-CH36-Q11-12": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:03Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:51Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q13-14": {
   "state": "delivered",
@@ -85,9 +85,9 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q27-28": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:04Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:52Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q29-30": {
   "state": "delivered",
@@ -95,9 +95,9 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q31-32": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:04Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:53Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q33-34": {
   "state": "failed",
@@ -120,9 +120,9 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q41-42": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:05Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:52Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q43-44": {
   "state": "failed",
@@ -150,9 +150,9 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q53-54": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:05Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:52Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q55-56": {
   "state": "delivered",
@@ -165,9 +165,9 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q59-60": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:06Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:52Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q61-62": {
   "state": "delivered",
@@ -175,9 +175,9 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q63-64": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:25Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:52Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q65-66": {
   "state": "delivered",
@@ -205,14 +205,14 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q75-76": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:26Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:51Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q77-78": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:26Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:52Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q79-80": {
   "state": "delivered",
@@ -245,9 +245,9 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q91-92": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:26Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:51Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q93-94": {
   "state": "delivered",
@@ -265,9 +265,9 @@
   "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q99-100": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:27Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-14T19:08:52Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q135-135": {
   "state": "delivered",
