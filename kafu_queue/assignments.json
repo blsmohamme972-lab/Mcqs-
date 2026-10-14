@@ -1,7 +1,9 @@
 {
  "queue_branch": "ccr-969bfa9e-ymsm3i",
  "slots": {
-  "01": [],
+  "01": [
+   "GT-CH36-Q45-46"
+  ],
   "02": [
    "GT-CH36-Q09-10",
    "GT-CH36-Q03-04"
