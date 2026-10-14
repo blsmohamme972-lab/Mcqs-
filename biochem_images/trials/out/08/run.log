@@ -1,0 +1,51 @@
+[I] loading diffusion model from '/home/user/models/qwen_image_2.1-Q4_K.gguf' --- diffusion_engine.cpp:734
+[I] load /home/user/models/qwen_image_2.1-Q4_K.gguf using gguf format --- model_loader.cpp:215
+[I] loading llm from '/home/user/models/Qwen3VL-8B-Instruct-Q4_K_M.gguf' --- diffusion_engine.cpp:791
+[I] load /home/user/models/Qwen3VL-8B-Instruct-Q4_K_M.gguf using gguf format --- model_loader.cpp:215
+[I] loading vae from '/home/user/models/qwen_image_2.1_vae_bf16.safetensors' --- diffusion_engine.cpp:805
+[I] load /home/user/models/qwen_image_2.1_vae_bf16.safetensors using safetensors format --- model_loader.cpp:221
+[I] Version: Qwen Image 2.1  --- diffusion_engine.cpp:997
+[I] Weight type stat:                      f32: 145  |    q4_K: 409  |    q6_K: 37   |    bf16: 311   --- diffusion_engine.cpp:1526
+[I] Conditioner weight type stat:          f32: 145  |    q4_K: 217  |    q6_K: 37    --- diffusion_engine.cpp:1527
+[I] Diffusion model weight type stat:     q4_K: 192  |    bf16: 73    --- diffusion_engine.cpp:1528
+[I] VAE weight type stat:                 bf16: 238   --- diffusion_engine.cpp:1529
+[I] using mmap for '/home/user/models/qwen_image_2.1-Q4_K.gguf' --- model_loader.cpp:885
+[I] using mmap for '/home/user/models/Qwen3VL-8B-Instruct-Q4_K_M.gguf' --- model_loader.cpp:885
+[I] using mmap for '/home/user/models/qwen_image_2.1_vae_bf16.safetensors' --- model_loader.cpp:885
+[W] no vision weights detected, vision disabled --- llm.hpp:392
+[I] using VAE for encoding / decoding --- model_builders.cpp:649
+[I] Using flash attention --- diffusion_engine.cpp:1190
+[I] Using flash attention in the diffusion model --- diffusion_engine.cpp:1204
+[I] total params memory size = 8949.76MB (VRAM 0.00MB, RAM 8949.76MB): text_encoders 4302.33MB(RAM), diffusion_model 4003.05MB(RAM), vae 644.38MB(RAM), controlnet 0.00MB(N/A), extensions 0.00MB(N/A) --- diffusion_engine.cpp:1329
+[I] running in FLOW mode --- diffusion_engine.cpp:1470
+[I] generate_image 768x768 --- image.cpp:814
+[I] Using 'qwen' preset for reference images --- diffusion_engine.cpp:3121
+[I] get_sigmas with Flux scheduler --- denoiser.hpp:1196
+[I] sampling using Euler method --- request.cpp:422
+[I] qwen3vl build cached graph cut plan done (taking 2 ms) --- ggml_graph_cut.cpp:1032
+  |#                                                 | 2/397 - 0.00MB/s[K  |########                                          | 61/397 - 2.66GB/s[K  |#########                                         | 67/397 - 1.45GB/s[K  |##########                                        | 78/397 - 1.13GB/s[K  |############                                      | 89/397 - 1016.59MB/s[K  |#############                                     | 97/397 - 898.01MB/s[K  |##############                                    | 105/397 - 810.39MB/s[K  |###############                                   | 115/397 - 968.97MB/s[K  |################                                  | 126/397 - 920.35MB/s[K  |##################                                | 137/397 - 875.66MB/s[K  |###################                               | 149/397 - 844.48MB/s[K  |#####################                             | 159/397 - 814.86MB/s[K  |######################                            | 173/397 - 797.65MB/s[K  |########################                          | 184/397 - 783.47MB/s[K  |#########################                         | 195/397 - 775.35MB/s[K  |###########################                       | 210/397 - 765.29MB/s[K  |############################                      | 222/397 - 762.13MB/s[K  |##############################                    | 236/397 - 748.44MB/s[K  |################################                  | 247/397 - 735.73MB/s[K  |#################################                 | 255/397 - 726.93MB/s[K  |##################################                | 269/397 - 717.05MB/s[K  |####################################              | 280/397 - 707.82MB/s[K  |#####################################             | 291/397 - 702.00MB/s[K  |#######################################           | 303/397 - 695.95MB/s[K  |########################################          | 314/397 - 688.61MB/s[K  |#########################################         | 324/397 - 682.46MB/s[K  |##########################################        | 332/397 - 675.69MB/s[K  |#############################################     | 354/397 - 691.66MB/s[K  |##################################################| 397/397 - 761.20MB/s[K
+[I] loading tensors completed, taking 5.65s (read: 5.63s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s) --- model_loader.cpp:1385
+[I] qwen3vl build cached graph cut plan done (taking 2 ms) --- ggml_graph_cut.cpp:1032
+[I] get_learned_condition completed, taking 37.67s --- image.cpp:529
+[I] generating image: 1/1 - seed 42 --- image.cpp:866
+[I] qwen_image_2_1 build cached graph cut plan done (taking 4 ms) --- ggml_graph_cut.cpp:1032
+[I] memory-mapped 200 tensors in 1 files (4003.00 MB), taking 0.00s --- model_loader.cpp:1030
+  |#####                                             | 23/265 - 0.00MB/s[K  |##################################################| 265/265 - 0.12MB/s[K
+[I] loading tensors completed, taking 0.20s (read: 0.00s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s) --- model_loader.cpp:1385
+[I] qwen_image_2_1 build cached graph cut plan done (taking 4 ms) --- ggml_graph_cut.cpp:1032
+  |====>                                             | 1/12 - 419.54s/it[K[I] qwen_image_2_1 build cached graph cut plan done (taking 3 ms) --- ggml_graph_cut.cpp:1032
+[I] qwen_image_2_1 build cached graph cut plan done (taking 2 ms) --- ggml_graph_cut.cpp:1032
+  |========>                                         | 2/12 - 379.21s/it[K  |============>                                     | 3/12 - 378.30s/it[K  |================>                                 | 4/12 - 372.71s/it[K  |====================>                             | 5/12 - 377.28s/it[K  |=========================>                        | 6/12 - 378.12s/it[K  |=============================>                    | 7/12 - 375.27s/it[K  |=================================>                | 8/12 - 374.82s/it[K  |=====================================>            | 9/12 - 375.14s/it[K  |=========================================>        | 10/12 - 367.67s/it[K  |=============================================>    | 11/12 - 381.18s/it[K  |==================================================| 12/12 - 383.33s/it[K
+[I] sampling completed, taking 4562.62s --- image.cpp:899
+[I] generating 1 latent images completed, taking 4562.62s --- image.cpp:911
+[I] decoding 1 latents --- image.cpp:554
+[I] wan_vae build cached graph cut plan done (taking 1 ms) --- ggml_graph_cut.cpp:1032
+[I] memory-mapped 0 tensors in 0 files (0.00 MB), taking 0.00s --- model_loader.cpp:1030
+  |#                                                 | 2/128 - 0.00MB/s[K  |##################                                | 44/128 - 850.43MB/s[K  |###########################                       | 67/128 - 880.84MB/s[K  |##################################################| 128/128 - 803.15MB/s[K
+[I] loading tensors completed, taking 0.60s (read: 0.03s, memcpy: 0.00s, convert: 0.40s, copy_to_backend: 0.00s) --- model_loader.cpp:1385
+  |===>                                              | 1/16 - 16.73s/it[K  |======>                                           | 2/16 - 15.58s/it[K  |=========>                                        | 3/16 - 16.33s/it[K  |============>                                     | 4/16 - 16.56s/it[K  |===============>                                  | 5/16 - 15.74s/it[K  |==================>                               | 6/16 - 15.60s/it[K  |=====================>                            | 7/16 - 15.60s/it[K  |=========================>                        | 8/16 - 14.92s/it[K  |============================>                     | 9/16 - 14.12s/it[K  |===============================>                  | 10/16 - 16.41s/it[K  |==================================>               | 11/16 - 15.35s/it[K  |=====================================>            | 12/16 - 14.79s/it[K  |========================================>         | 13/16 - 14.72s/it[K  |===========================================>      | 14/16 - 14.65s/it[K  |==============================================>   | 15/16 - 15.84s/it[K  |==================================================| 16/16 - 16.01s/it[K
+[I] latent 1 decoded, taking 248.97s --- image.cpp:620
+[I] decode_first_stage completed, taking 248.97s --- image.cpp:624
+[I] generate_image completed in 4849.44s --- image.cpp:1050
+[I] save result image 0 to '/home/user/Mcqs-/biochem_images/trials/out/08/image.png' (success) --- main.cpp:497
+[I] 1/1 images saved --- main.cpp:573
