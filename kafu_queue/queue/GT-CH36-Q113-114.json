@@ -21,7 +21,7 @@
    "answer_text": "Auer rods",
    "explanation": "All these symptoms together are a typical presentation of acute myeloid leukaemia, which has a median age of diagnosis of 65 years and is more common in males. Typically, it can cause gross hepatosplenomegaly with a bone marrow aspirate showing Auer rods, which are almost diagnostic of the condition. Owl eye nuclei represent cytomegalovirus (CMV) infection. Reed–Sternberg cells are used to diagnose Hodgkin lymphoma, but diagnosis is usually gained by lymph node biopsy.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Auer Rods\".\nLEFT: a 65-year-old man with a big swollen belly (liver and spleen), neck lumps and mouth ulcers, label \"Hepatosplenomegaly\".\nCENTER: a microscope view of a bone marrow biopsy with a big blast cell holding a thin red rod like a needle through it, label \"Auer rods\".\nRIGHT: a banner with a leukaemia blood drop: label \"Acute myeloid leukaemia\". Crossed-out wrong cells: \"Reed-Sternberg\" and \"Owl eye\".\nBottom banner: \"Answer --> Auer rods\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007319",
@@ -38,7 +38,7 @@
    "answer_text": "Sentinel node biopsy",
    "explanation": "Cryotherapy treats the lesion but provides no tissue for histology. Surgical excision provides a histological specimen, a closed wound and proof of complete excision. Larger lesions may require coverage with a skin graft or even reconstructive surgery. Sentinel node biopsy is part of the recognized treatment options for melanoma.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Basal Cell Carcinoma Treatment\".\nLEFT: a pearly shiny bump on a face (basal cell carcinoma) like a pearl on a shell, label \"Basal cell carcinoma\".\nCENTER: friendly treatment tools each with a tick: a spoon with a hot spark \"Curettage and cautery\", a snow cone \"Cryotherapy\", a scalpel \"Surgical excision\", and an eye on a clock \"Watch and wait\".\nRIGHT: a tiny sentinel guard soldier holding a lymph node blob and a big red cross over him, label \"Sentinel node: melanoma\".\nBottom banner: \"Answer --> Sentinel node biopsy is not used\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

@@ -21,7 +21,7 @@
    "answer_text": "Posterior descending coronary artery",
    "explanation": "The coronary artery anatomy is variable, as are the relative territories of myocardium supplied by each of the arteries. ST segment depression across all leads implies ischaemia (angina), whereas isolated ST segment depression in leads V1 and V2 may indicate a posterior myocardial infarction. The most likely artery involved in this case is therefore the posterior descending artery. Either the right coronary or circumflex arteries can supply the posterior descending artery, but it is not possible to identify which from the electrocardiogram alone.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Posterior MI\".\nLEFT: an ECG strip with a tachycardia zigzag, label \"Tachycardia\".\nCENTER-LEFT: a chest lead map where only two electrodes at the front, V1 and V2, show a downward dipping ST segment, labels \"ST depression\" and \"V1 V2\".\nCENTER-RIGHT: a mirror stands in front of the heart showing the back wall of the heart, label \"Mirror: posterior wall\".\nRIGHT: a cartoon heart seen from behind with a small blocked pipe on its back groove, label \"Posterior descending artery\".\nBottom banner: \"Answer --> Posterior descending coronary artery\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007327",
@@ -38,7 +38,7 @@
    "answer_text": "It ends at the lower border of the teres minor.",
    "explanation": "The axillary artery is a continuation of the subclavian artery and it starts from the lateral border of the 1st rib. It ends at the lower border of teres major, becoming the brachial artery. The axillary artery is divided into three parts by the pectoralis minor. The first part gives off one branch, the superior thoracic artery.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Axillary Artery\".\nLEFT: a river starting at the outer edge of a first rib bridge, label \"Starts: 1st rib\".\nCENTER: a small pectoralis minor character acts as a tollgate cutting the river into three parts with the numbers 1, 2 and 3, label \"Pectoralis minor: 3 parts\".\nCENTER-RIGHT: the river ends at a big teres MAJOR character, a large muscle holding a banner, where it turns into the brachial artery, label \"Ends: teres major\".\nRIGHT: a small teres minor character with a big red cross sign, label \"Not teres minor\".\nBottom banner: \"Answer --> Ends at teres major, not minor\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

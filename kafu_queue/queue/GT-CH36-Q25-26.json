@@ -21,7 +21,7 @@
    "answer_text": "154 mmol/L",
    "explanation": "The daily requirement of an adult’s fluid intake equates to 3 L/day for an average adult. If an individual is placed nil by mouth (NBM) this requirement is easily achieved with three bags of intravenous fluids each run over 8 h. One litre of normal saline contains 154 mmol/L of Na⁺. The average adult requires 100 mmol/L of Na⁺ per day, as well as 60 mmol/L of potassium per day.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Normal Saline Sodium\".\nLEFT: a patient with an appendix cartoon, nil by mouth sign, label \"Nil by mouth\".\nCENTER: a big one-litre drip bag with a happy face, label \"1 L normal saline\".\nRIGHT: inside the bag a salt shaker character wearing a Na badge pours salt crystals, a giant counter display shows the amount. Labels: \"Sodium Na+\", \"154 mmol/L\". Three small bags in a row, label \"3 bags per day\".\nBottom banner: \"Answer --> 154 mmol/L\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007231",
@@ -38,7 +38,7 @@
    "answer_text": "Secretin from the duodenal mucosa further stimulates gastrin release from the stomach.",
    "explanation": "Gastric secretion is divided into three phases. In the cephalic phase, the sight, smell, taste or thought of food stimulates the stomach to secrete hydrochloric acid via vagal stimulation. Vagal activity also stimulates gastrin secretion from G-cells, which in turn stimulates further acid secretion. Food entering the stomach stimulates the gastric phase.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Gastric Secretion\".\nLEFT: a head smelling a steak (cephalic phase), a vagus nerve cable going to a stomach, label \"Vagus: cephalic phase\".\nCENTER: food entering a big stomach factory, many acid jets, label \"Gastric phase: most secretion\". Little G-cells pushing the acid button, label \"Gastrin\".\nRIGHT: the duodenum with a greasy burger, a small gallbladder squeezing, label \"Fat: CCK\". A calm green secretin character shown with a red cross trying to press the gastrin button, label \"Secretin does NOT stimulate gastrin\". A small brake character, label \"Somatostatin: inhibits\".\nThe false statement is secretin stimulating gastrin.\nBottom banner: \"Answer --> Secretin stimulates gastrin release\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

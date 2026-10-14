@@ -21,7 +21,7 @@
    "answer_text": "Adenolymphoma",
    "explanation": "Parotid gland tumours account for approximately 80% of all salivary gland tumours; of these, two-thirds are pleiomorphic adenomas. Monomorphic adenomas account for the remaining third, the most common of which is a Warthin tumour, which is an adenolymphoma. These are more commonly bilateral. Weakness of the facial nerve suggests malignant infiltration.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Warthin Tumour\".\nLEFT: an 83-year-old woman touching a small soft lump under each ear lobe (both sides), label \"Bilateral parotid lumps\".\nCENTER: a tiny warthog (Warthin tumour) standing inside the parotid gland holding a cyst bubble, label \"Warthin tumour\".\nRIGHT: the warthog wearing a name tag \"Adenolymphoma\", and a happy intact facial nerve smiling, label \"Facial nerve intact\". A red cross over a scary cloud \"Malignant\".\nBottom banner: \"Answer --> Adenolymphoma (Warthin tumour)\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007311",
@@ -38,7 +38,7 @@
    "answer_text": "Antidiuretic hormone secretion is stimulated by an increased arterial pressure.",
    "explanation": "Antidiuretic hormone is produced in the supraoptic nucleus in the hypothalamus. Stimulation is via osmoreceptors which detect increases in the osmolality of the extracellular fluid. Other stimulating factors include a decrease in circulating volume or reduced arterial pressure. Renin is released from the juxtaglomerular cells in response to a decrease in afferent arteriole pressure or a reduction in sodium.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Sodium and Water Control\".\nLEFT: a hypothalamus brain character with a supraoptic nucleus water-tap labeled \"ADH from supraoptic nucleus\" releasing water-saving drops.\nCENTER: a kidney character with a glomerulus and a salt-saving kidney gate: a juxtaglomerular cell raising a flag \"Renin when sodium low\", and a distal tubule with an aldosterone key \"Aldosterone: sodium in\".\nRIGHT: a blood pressure gauge turning high with an ADH tap closing with a big red cross, and a gauge turning low with the ADH tap opening. Label: \"High pressure: less ADH\". A red stamp \"Incorrect statement\" on a sign \"High pressure raises ADH\".\nBottom banner: \"Answer --> High pressure does not raise ADH\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

@@ -21,7 +21,7 @@
    "answer_text": "Milroy disease",
    "explanation": "Milroy disease is a congenital hereditary primary lymphoedema caused by aplasia of the lymph trunks resulting in progressive swelling of one or both legs. It is an example of primary lymphoedema. Secondary lymphoedema is where there is a known cause of lymphatic failure. This includes surgical excision, such as during an axillary dissection, or radiotherapy, which causes a block of fibrous tissue so that regenerating lymph vessels are unable to cross through.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Primary Lymphoedema\".\nLEFT: a toddler with a swollen leg, a little family tree with a gene symbol drawn as a double helix passing it on. Labels: \"Milroy disease\", \"Congenital\".\nCENTER: the lymph trunks of the leg are drawn as thin pipes that never formed (aplasia), a dead end with a closed gate. Label: \"Lymph trunks absent\".\nRIGHT: a red-crossed set of secondary causes with symbols: scalpel \"Surgery\", radiation sign \"Radiotherapy\", a crab \"Cancer\", a germ \"Tuberculosis\". Label: \"Secondary\".\nBottom banner: \"Answer --> Milroy disease\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007275",
@@ -38,7 +38,7 @@
    "answer_text": "It can be mistaken for a torn gastrocnemius muscle.",
    "explanation": "Differential diagnosis includes a torn gastrocnemius muscle. Homan’s sign involves passive dorsiflexion of the foot causing pain in the calf in cases of deep vein thrombosis (DVT). Risk can be reduced using thromboembolic deterrent stockings, prophylactic low-molecular-weight heparin (LMWH) injections and pneumatic calf compression in theatre.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Deep Vein Thrombosis\".\nLEFT: a calf with a red swollen vein and a clot jam in the pipe. Label: \"DVT\".\nCENTER: a doctor bends the foot up (dorsiflexion) and the patient says ouch, label \"Homan sign\". Next to it a torn gastrocnemius muscle with a sad bandage, label \"Torn gastrocnemius\", an equals mistaken sign between them.\nRIGHT: protective gear shown with green ticks: stockings, a heparin syringe and pneumatic calf pump. Label: \"Prophylaxis lowers risk\". A flying clot to the lung with a warning sign.\nBottom banner: \"Answer --> Mistaken for torn gastrocnemius\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

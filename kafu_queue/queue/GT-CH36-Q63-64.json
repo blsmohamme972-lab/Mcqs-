@@ -21,7 +21,7 @@
    "answer_text": "Gastric carcinoma",
    "explanation": "Gastric carcinoma is now the second most common carcinoma in the UK. It often presents late and so is a difficult disease to treat. The majority are adenocarcinomas with 2–8% being lymphomas. Gastrointestinal stromal tumour (GIST) and neuroendocrine tumours are less common.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Krukenberg Tumour\".\nLEFT: a 76-year-old woman on a stretcher with a hard belly, a surgeon with a scalpel and a pelvic lump. Label: \"Pelvic mass\".\nCENTER: a cartoon ovary with signet ring jewellery on it; small gold rings fill the ovary. Label: \"Krukenberg tumour\".\nRIGHT: a happy stomach character with a pointing arrow travelling down a path to the ovary, label \"Gastric carcinoma\". Other primary organs (pancreas, lung, breast) are small, crossed out.\nBottom banner: \"Answer --> Gastric carcinoma\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007269",
@@ -38,7 +38,7 @@
    "answer_text": "The maximum volume of gas that can be expired during forced breathing excluding the tidal volume",
    "explanation": "A spirogram is a useful test to perform as part of a pre-assessment before theatre. The expiratory reserve volume is defined as the maximum volume of gas that can be expired during forced breathing in addition to the tidal volume. The tidal volume is the volume of air inspired or expired in a normal breath. The residual volume is the volume of gas remaining in the lungs after maximal expiration.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Expiratory Reserve Volume\".\nLEFT: a spirometer drawing a wave on paper, a small lung blowing in the tube. Label: \"Spirogram\".\nCENTER: the wave has a small bump labeled \"Tidal volume\" (a gentle normal breath) and just below it a big dip where a character blows all the air out. Label: \"Expiratory reserve volume\".\nRIGHT: a measuring bracket marks the forced breath out after a normal breath, with the tidal part cut off by a pair of scissors. Label: \"Excludes tidal volume\". The air left in the lungs is a small balloon labeled \"Residual volume\".\nBottom banner: \"Answer --> Forced expiration excluding tidal volume\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

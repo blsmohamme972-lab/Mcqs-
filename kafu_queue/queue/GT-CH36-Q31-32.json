@@ -21,7 +21,7 @@
    "answer_text": "Calcium phosphate",
    "explanation": "The most common form of renal stone is from calcium oxalate, occurring in 80% of cases. These stones can sometimes be seen on plain KUB X-ray films. Calcium phosphate stones are generally associated with primary hyperparathyroidism as in this case (high PTH and high calcium levels). Uric acid forms 10% of cases and produces radiolucent stones.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Hypercalcaemia Stone\".\nLEFT: a woman with loin to groin pain arrow, a bottle-style blood tube with a high level, labels \"Calcium 3.1\", \"PTH 150\".\nCENTER: a big angry parathyroid gland character (four peas) pumping hormone, label \"Primary hyperparathyroidism\".\nRIGHT: a ureter tube with a white stone stuck in it, the stone shaped like a calcium phosphate crystal wearing a halo, label \"Calcium phosphate stone\". Small crossed-out stone signs: \"Calcium oxalate\", \"Uric acid\".\nBottom banner: \"Answer --> Calcium phosphate\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007237",
@@ -38,7 +38,7 @@
    "answer_text": "It has a 5-year survival rate of approximately 70%.",
    "explanation": "Follicular carcinoma is the second most common carcinoma of the thyroid, with a prevalence of approximately 15% (following papillary carcinoma, with a prevalence of approximately 80%). Spread is typically haematogenous; lymphatic spread is unusual. It has a 5-year survival rate of approximately 70%. It is diagnosed by ultrasound and excision biopsy to demonstrate extracapsular spread; fine-needle aspiration cytology is unable to differentiate between follicular carcinoma and change follicular adenoma.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Follicular Carcinoma\".\nLEFT: a thyroid butterfly with a small round lump, a hemithyroidectomy scalpel cutting one wing, label \"Hemithyroidectomy\".\nCENTER: under a microscope, a follicle cell breaking out through its capsule wall like a prisoner escaping, label \"Extracapsular spread\". Label: \"Follicular carcinoma\".\nRIGHT: a red blood cell vehicle carrying the cells away along a vessel (blood spread), label \"Spread by blood\"; a small crossed-out lymph node sign, label \"Lymph nodes: unusual\". A big clock showing 5 years with a bar of 70 percent filled, label \"5-year survival 70%\".\nBottom banner: \"Answer --> 5-year survival approximately 70%\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

@@ -21,7 +21,7 @@
    "answer_text": "Acral lentiginous melanoma",
    "explanation": "There are five subtypes recognized. Superficial spreading is the most common, occurring mostly on the lower limb or trunk. Lentigo maligna are commonly found on the face in elderly patients. Acral lentiginous are more common in darker-skinned people, found mostly on the palms or soles and mucous membranes.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Melanoma Subtypes\".\nLEFT: a dark-skinned cartoon person waving, palms and soles shown, with a big dark spot on the palm and sole. Label: \"Darker skin\".\nCENTER: a tiny hiker (acral) walking along the palm and sole; footprints leave a dark streak. Labels: \"Acral lentiginous\", \"Palms and soles\".\nRIGHT: three other subtypes shown as small characters with red crosses: a sunburnt old face labeled \"Lentigo maligna\", a flat spreading blob labeled \"Superficial spreading\", a round lump labeled \"Nodular\".\nBottom banner: \"Answer --> Acral lentiginous melanoma\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007259",
@@ -38,7 +38,7 @@
    "answer_text": "There is an inflammatory response.",
    "explanation": "Apoptosis involves single cells, whereas necrosis involves groups of cells. The plasma membrane remains intact with apoptosis, but with necrosis there is loss of membrane integrity. With apoptosis there is cell shrinkage, fragmentation and formation of characteristic apoptotic bodies, whereas in necrosis there is cell swelling and lysis with phagocytosis of cell remnants by neutrophils. Apoptosis has no inflammatory response, and the cell remnants are phagocytosed by neighbouring cells.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Necrosis vs Apoptosis\".\nLEFT: a calm cell character packs its bag and shrinks quietly into small bubbles (apoptotic bodies), neighbours eat them tidily. Label: \"Apoptosis: quiet\".\nCENTER: a swollen cell balloon bursts with a bang, its membrane torn, group of cells collapsing together. Labels: \"Necrosis\", \"Swelling and lysis\".\nRIGHT: red flames and neutrophil firefighters rush in with hoses around the burst cells, a red alarm bell rings. Label: \"Inflammation\". Small grey tag on the quiet cell: \"No inflammation\".\nBottom banner: \"Answer --> Necrosis causes inflammation\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

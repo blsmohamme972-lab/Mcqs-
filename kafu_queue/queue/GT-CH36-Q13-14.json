@@ -21,7 +21,7 @@
    "answer_text": "There is a constant leak of sodium ions out of the cell.",
    "explanation": "The cardiac action potential differs from that in a somatic nerve. There is a constant sodium ion leak into the cell causing a gradual increase in the resting membrane potential. Upon reaching threshold the voltage-gated sodium channels open resulting in rapid depolarization. An influx of calcium ions prolongs the cardiac action potential.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Cardiac Action Potential\".\nLEFT: a pacemaker cell as a leaky boat with sodium drops leaking INTO the boat from outside, arrow clearly going in, label \"Sodium leaks IN\".\nCENTER-LEFT: the water level slowly rises to a threshold line, then a big wave, label \"Threshold: depolarization\".\nCENTER: calcium drops pour into the boat and keep the wave high like a plateau, label \"Calcium: longer\".\nRIGHT: potassium drops leave the boat to bring the level down again, label \"Potassium out\", and a big red cross over an arrow of sodium going OUT.\nBottom banner: \"Answer --> Sodium leaks into the cell, not out\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007219",
@@ -38,7 +38,7 @@
    "answer_text": "Warthin tumour",
    "explanation": "The histology describes a Warthin tumour (papillary cystadenoma lymphomatosum) which is the second most common salivary gland neoplasm. This benign tumour arises almost exclusively in the parotid gland (unlike the other salivary tumours) and is more common in males than females, typically presenting in patients aged 40–60 years. Approximately 10% are multifocal and 10% are bilateral. People who smoke are eight times more likely to develop these tumours than non-smokers.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Warthin Tumour\".\nLEFT: a smoker with a cigarette and a round lump near the ear on the parotid, label \"Smoker, parotid lump\".\nCENTER-LEFT: a tiny warthog character wearing a tie and a lymph node hat sits in the lump, a pun on Warthin, label \"Warthin tumour\".\nCENTER-RIGHT: under a microscope a capsule with narrow cystic slits lined by two layers of pink cells, label \"Cysts, double layer\".\nRIGHT: two ears with a small 10 percent sign, label \"10% bilateral\".\nBottom banner: \"Answer --> Warthin tumour\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

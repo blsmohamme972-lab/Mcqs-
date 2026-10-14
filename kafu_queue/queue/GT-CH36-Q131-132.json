@@ -21,7 +21,7 @@
    "answer_text": "Calcitonin reduces serum Ca²⁺ levels.",
    "explanation": "It stimulates the conversion of vitamin D into its active form 1,25-dihydrocholecalciferol. Activated vitamin D increases plasma Ca²⁺ levels by increasing gut uptake, increasing renal absorption and stimulating bone resorption of Ca²⁺. Calcitonin is secreted by parafollicular C-cells in the thyroid gland. Calcitonin acts to reduce Ca²⁺ levels by increasing renal loss and increasing bone reuptake.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Calcium and Calcitonin\".\nLEFT: a thyroid butterfly with small C-shaped cells, label \"C-cells: calcitonin\".\nCENTER: a seesaw with a bone and a calcium ball; calcitonin pushes the calcium ball down, label \"Calcitonin lowers Ca\".\nCENTER-RIGHT: the bone takes calcium back in while the kidney lets it go in urine, labels \"Bone uptake\" and \"Kidney loss\".\nRIGHT: a small red cross over a PTH raising arrow, since PTH is the opposite hormone.\nBottom banner: \"Answer --> Calcitonin reduces serum calcium\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007337",
@@ -38,7 +38,7 @@
    "answer_text": "Has the sinoatrial (SA) node medial to the sulcus terminalis",
    "explanation": "The sinoatrial (SA) node lies near the opening of the superior vena cava, at the superior border of the sulcus terminalis. The right atrium forms the right heart border. The orifice of the coronary sinus lies between the opening of the inferior vena cava and the atrioventricular orifice.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Right Atrium\".\nLEFT: a cartoon heart with the right atrium coloured blue and forming the right edge of the heart, label \"Right heart border\".\nCENTER-LEFT: the coronary sinus as a small door near the tricuspid valve, label \"Coronary sinus opening\".\nCENTER-RIGHT: at the top, a tiny golden pacemaker battery sits at the entrance of the superior vena cava on the upper end of the sulcus terminalis, label \"SA node at SVC\".\nRIGHT: a red cross on a pacemaker battery placed medially in the atrium, label \"Not medial\".\nBottom banner: \"Answer --> SA node is not medial to sulcus\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }
