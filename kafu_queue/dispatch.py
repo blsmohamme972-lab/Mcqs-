@@ -38,12 +38,14 @@ def run_once():
         if keep != slots[s]:
             changed.append(f"UNREADY {set(slots[s]) - set(keep)} from {s}")
             slots[s] = keep
+    led = watch.ledger()
+    done = {k for k, v in led.items() if v.get("state") == "delivered"}
     assigned = {p for v in slots.values() for p in v}
     for p in sorted(ready, key=lambda x: allpk.index(x)):
         if p in assigned:
             continue
         live = [s for s in sorted(slots) if s not in dead]
-        s = min(live, key=lambda k: (len(slots[k]), k))
+        s = min(live, key=lambda k: (len([x for x in slots[k] if x not in done]), k))
         slots[s].append(p)
         changed.append(f"ASSIGN {p} -> {s}")
     total_img = sum(r[1] for r in rows if r[0].startswith(PREFIX))
