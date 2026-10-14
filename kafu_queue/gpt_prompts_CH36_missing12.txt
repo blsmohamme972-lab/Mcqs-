@@ -1,0 +1,20 @@
+===== CHAT 1 (questions 1, 2, 101, 102, 103, 104, 105, 106, 107, 108, 34, 48) =====
+IMPORTANT - FRESH START: I deleted every image from earlier attempts. Ignore any images, files or results from previous chats or from your memory. Do not reuse, link to or re-upload any old image. The ONLY truth is what is in the Drive folder "Books" right now (not the trash): skip a QID only if <QID>.png is listed there now. Every image in this task must be newly generated in this chat.
+
+Task: make one teaching illustration per question and save it to my Google Drive folder "Books" (https://drive.google.com/drive/folders/1A2_GAFmrM-EugAztWI6FgqbAuvXZWNSU).
+
+First read the rules: https://raw.githubusercontent.com/blsmohamme972-lab/Mcqs-/claude/ai-biochemistry-image-generation-efl9y3/kafu_queue/GPT.md
+
+Each QID's ready prompt is under its "## <QID>" heading in:
+- https://raw.githubusercontent.com/blsmohamme972-lab/Mcqs-/claude/ai-biochemistry-image-generation-efl9y3/kafu_queue/queue/GT-CH36-Q01-02.md
+- https://raw.githubusercontent.com/blsmohamme972-lab/Mcqs-/claude/ai-biochemistry-image-generation-efl9y3/kafu_queue/queue/GT-CH36-Q101-102.md
+- https://raw.githubusercontent.com/blsmohamme972-lab/Mcqs-/claude/ai-biochemistry-image-generation-efl9y3/kafu_queue/queue/GT-CH36-Q103-104.md
+- https://raw.githubusercontent.com/blsmohamme972-lab/Mcqs-/claude/ai-biochemistry-image-generation-efl9y3/kafu_queue/queue/GT-CH36-Q105-106.md
+- https://raw.githubusercontent.com/blsmohamme972-lab/Mcqs-/claude/ai-biochemistry-image-generation-efl9y3/kafu_queue/queue/GT-CH36-Q107-108.md
+- https://raw.githubusercontent.com/blsmohamme972-lab/Mcqs-/claude/ai-biochemistry-image-generation-efl9y3/kafu_queue/queue/GT-CH36-Q33-34.md
+- https://raw.githubusercontent.com/blsmohamme972-lab/Mcqs-/claude/ai-biochemistry-image-generation-efl9y3/kafu_queue/queue/GT-CH36-Q47-48.md
+
+YOUR QIDs (only these, in this order): Q000007206, Q000007207, Q000007306, Q000007307, Q000007308, Q000007309, Q000007310, Q000007311, Q000007312, Q000007313, Q000007239, Q000007253
+
+For each QID: if <QID>.png is already in "Books", skip it. Otherwise generate the image from its prompt exactly as written (landscape 3:2, 1536x1024) and save it to "Books" in the same message, named exactly <QID>.png (capital Q, no extra words). Do not stop after generating: generate, then save, then go to the next QID. If a label is wrong or missing, regenerate once. Do not save drafts or duplicates. When finished, reply with one line: saved N/N and the QIDs you could not save. If you cannot save to Drive, say so plainly; do not claim it was saved.
+
