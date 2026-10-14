@@ -22,7 +22,7 @@ BUILD: follow motioncards/LESSON_PROMPT.md on that branch, steps 3-8, with:
 - Check each image's "Answer -->" against the key. A wrong or broken image: leave that QID out, name it, do not fail the package.
 
 FINISH
-- Right after `validate` passes, before SendUserFile: read the owner's ZIP inbox (Artifact action "read", url https://claude.ai/artifact/SvG5287Mx1TuiNx1XVNFdS), then `base64 -w0 dist/MCARDS_{PKG}_r1.zip > dist/MCARDS_{PKG}_r1.zip.b64.txt` and upload it as an asset (Artifact action "publish", same url, asset true, file_path that .b64.txt file, only that one file in the call). If the upload fails, put the exact error in your final message and carry on.
+- Right after `validate` passes, before SendUserFile: read the owner's ZIP inbox (Artifact action "read", url https://claude.ai/artifact/J5yRwS9degoyFckDzPTijN), then `base64 -w0 dist/MCARDS_{PKG}_r1.zip > dist/MCARDS_{PKG}_r1.zip.b64.txt` and upload it as an asset (Artifact action "publish", same url, asset true, file_path that .b64.txt file, only that one file in the call). If the upload fails, put the exact error in your final message and carry on.
 - SendUserFile the ZIP, status "proactive", caption "{PKG}: N lessons, ready for @KafuMcqsbot".
 - Open a PR on {LESSONS_REPO_SLUG}: head lessons/{pkg_lower}, base {BASE_BRANCH}, title "Lessons {PKG}"; list any QID whose explanation or stem you corrected.
 - Final message, one short line in Arabic: N lessons, ZIP sent, PR link, word timing ok or fallback, any QID left out.
