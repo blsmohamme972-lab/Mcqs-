@@ -12,7 +12,7 @@ stop at step 2 without any other tool call or message.
      If the rebase shows someone else already claimed it, skip that package.
 4. Start one builder per claimed package with `create_session` (never `send_message` to an old session: sessions do not
    take tasks from other sessions): title `Kafu lessons · <PKG>`, source_url `https://github.com/blsmohamme972-lab/MCQs-Mountain-`,
-   source_revision = `lessons_base_branch` from config.json, tags `["kafu-lessons"]`, and as the prompt the exact output of
+   source_revision = `lessons_base_branch` from config.json, `model` set explicitly (a child session silently inherits whatever model the caller was switched to; the GT ch4 builders ended up on a mix of models), tags `["kafu-lessons"]`, and as the prompt the exact output of
    `python3 kafu_queue/watch.py builder-prompt <PKG>`.
    - No `create_session`: use a one-shot `create_trigger` (run_once_at now + 2 minutes, create_new_session_on_fire true,
      notifications {"push": true}, initiation "human_schedule") with the same prompt.
