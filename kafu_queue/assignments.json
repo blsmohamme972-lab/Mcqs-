@@ -2,21 +2,26 @@
  "queue_branch": "ccr-969bfa9e-ymsm3i",
  "slots": {
   "01": [
-   "GT-CH36-Q45-46"
+   "GT-CH36-Q45-46",
+   "GT-CH36-Q131-132"
   ],
   "02": [],
   "03": [
-   "GT-CH36-Q09-10"
+   "GT-CH36-Q09-10",
+   "GT-CH36-Q35-36"
   ],
   "04": [
-   "GT-CH36-Q03-04"
+   "GT-CH36-Q03-04",
+   "GT-CH36-Q55-56"
   ],
   "05": [
-   "GT-CH36-Q117-118"
+   "GT-CH36-Q117-118",
+   "GT-CH36-Q69-70"
   ],
   "06": [],
   "07": [
-   "GT-CH36-Q05-06"
+   "GT-CH36-Q05-06",
+   "GT-CH36-Q77-78"
   ],
   "08": [
    "GT-CH36-Q109-110"
@@ -61,9 +66,15 @@
   "24": [],
   "25": [],
   "26": [],
-  "27": [],
-  "28": [],
-  "29": [],
+  "27": [
+   "GT-CH36-Q113-114"
+  ],
+  "28": [
+   "GT-CH36-Q115-116"
+  ],
+  "29": [
+   "GT-CH36-Q121-122"
+  ],
   "30": []
  },
  "note": "slots hold only packages whose images are all in Drive; assigned by dispatch.py; build every package in your slot"
