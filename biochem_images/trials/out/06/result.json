@@ -1,0 +1,27 @@
+{
+ "id": "06",
+ "name": "turbo-q6-768-no-text",
+ "config": {
+  "prompt": "P2",
+  "seed": 42,
+  "turbo": true,
+  "quant": "Q6_K",
+  "W": 768,
+  "H": 768,
+  "steps": 8,
+  "cfg": 1.0,
+  "offload": true,
+  "cache": "auto",
+  "smoke": false,
+  "name": "turbo-q6-768-no-text",
+  "est_hours": 1.1,
+  "why": "Pure Picmonic: no text in the image at all",
+  "overrides": {}
+ },
+ "setup_min": 10.2,
+ "exit_code": 0,
+ "run_seconds": 2140,
+ "peak_rss_mb": 12819,
+ "sampling_seconds": 1858.51,
+ "decode_seconds": 254.03
+}
