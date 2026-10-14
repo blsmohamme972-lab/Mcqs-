@@ -55,19 +55,19 @@
   "note": "2 lessons, ZIP checked OK (PASS)"
  },
  "GT-CH36-Q15-16": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:03Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T18:36:33Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q17-18": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:04Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T18:36:34Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q19-20": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:04Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T18:36:34Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q21-22": {
   "state": "failed",
@@ -110,9 +110,9 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q37-38": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:05Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T18:36:33Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q39-40": {
   "state": "delivered",
@@ -155,14 +155,14 @@
   "note": "stopped by owner"
  },
  "GT-CH36-Q55-56": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:05Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T18:36:33Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q57-58": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:06Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T18:36:32Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q59-60": {
   "state": "failed",
@@ -170,9 +170,9 @@
   "note": "stopped by owner"
  },
  "GT-CH36-Q61-62": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:25Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-14T18:36:33Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q63-64": {
   "state": "failed",
@@ -216,7 +216,7 @@
  },
  "GT-CH36-Q79-80": {
   "state": "delivered",
-  "at": "2026-10-14T18:02:40Z",
+  "at": "2026-10-14T18:36:33Z",
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q81-82": {
@@ -317,6 +317,11 @@
  "GT-CH36-Q133-134": {
   "state": "delivered",
   "at": "2026-10-14T18:19:30Z",
+  "note": "PASS 2 [] ZIP checked"
+ },
+ "GT-CH36-Q125-126": {
+  "state": "delivered",
+  "at": "2026-10-14T18:36:33Z",
   "note": "PASS 2 [] ZIP checked"
  }
 }
