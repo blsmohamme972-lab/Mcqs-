@@ -1,0 +1,56 @@
+[I] loading diffusion model from '/home/user/models/qwen_image_2.1-Q6_K.gguf' --- diffusion_engine.cpp:734
+[I] load /home/user/models/qwen_image_2.1-Q6_K.gguf using gguf format --- model_loader.cpp:215
+[I] loading llm from '/home/user/models/Qwen3VL-8B-Instruct-Q4_K_M.gguf' --- diffusion_engine.cpp:791
+[I] load /home/user/models/Qwen3VL-8B-Instruct-Q4_K_M.gguf using gguf format --- model_loader.cpp:215
+[I] loading vae from '/home/user/models/qwen_image_2.1_vae_bf16.safetensors' --- diffusion_engine.cpp:805
+[I] load /home/user/models/qwen_image_2.1_vae_bf16.safetensors using safetensors format --- model_loader.cpp:221
+[I] Version: Qwen Image 2.1  --- diffusion_engine.cpp:997
+[I] Weight type stat:                      f32: 145  |    q4_K: 217  |    q6_K: 229  |    bf16: 311   --- diffusion_engine.cpp:1526
+[I] Conditioner weight type stat:          f32: 145  |    q4_K: 217  |    q6_K: 37    --- diffusion_engine.cpp:1527
+[I] Diffusion model weight type stat:     q6_K: 192  |    bf16: 73    --- diffusion_engine.cpp:1528
+[I] VAE weight type stat:                 bf16: 238   --- diffusion_engine.cpp:1529
+[I] using mmap for '/home/user/models/qwen_image_2.1-Q6_K.gguf' --- model_loader.cpp:885
+[I] using mmap for '/home/user/models/Qwen3VL-8B-Instruct-Q4_K_M.gguf' --- model_loader.cpp:885
+[I] using mmap for '/home/user/models/qwen_image_2.1_vae_bf16.safetensors' --- model_loader.cpp:885
+[W] no vision weights detected, vision disabled --- llm.hpp:392
+[I] using VAE for encoding / decoding --- model_builders.cpp:649
+[I] Using flash attention --- diffusion_engine.cpp:1190
+[I] Using flash attention in the diffusion model --- diffusion_engine.cpp:1204
+[I] total params memory size = 10665.76MB (VRAM 0.00MB, RAM 10665.76MB): text_encoders 4302.33MB(RAM), diffusion_model 5719.05MB(RAM), vae 644.38MB(RAM), controlnet 0.00MB(N/A), extensions 0.00MB(N/A) --- diffusion_engine.cpp:1329
+[I] running in FLOW mode --- diffusion_engine.cpp:1470
+[W] align generation request up 1280x720 to 1280x736 (multiple=32) --- request.cpp:208
+[I] generate_image 1280x736 --- image.cpp:814
+[I] load /home/user/models/qwen_image_2.1_turbo_lora.safetensors using safetensors format --- model_loader.cpp:221
+[I] apply lora at runtime --- diffusion_engine.cpp:1715
+[I] apply_loras completed, taking 0.29s --- diffusion_engine.cpp:1840
+[I] Using 'qwen' preset for reference images --- diffusion_engine.cpp:3121
+[I] sampling using Euler method --- request.cpp:422
+[I] qwen3vl build cached graph cut plan done (taking 3 ms) --- ggml_graph_cut.cpp:1032
+[I] using mmap for '/home/user/models/qwen_image_2.1-Q6_K.gguf' --- model_loader.cpp:885
+[I] using mmap for '/home/user/models/Qwen3VL-8B-Instruct-Q4_K_M.gguf' --- model_loader.cpp:885
+[I] using mmap for '/home/user/models/qwen_image_2.1_vae_bf16.safetensors' --- model_loader.cpp:885
+  |#                                                 | 5/397 - 16.11MB/s[K  |###                                               | 17/397 - 369.18MB/s[K  |###                                               | 23/397 - 349.51MB/s[K  |#####                                             | 34/397 - 427.64MB/s[K  |#####                                             | 38/397 - 388.35MB/s[K  |#########                                         | 64/397 - 580.81MB/s[K  |############                                      | 89/397 - 676.88MB/s[K  |#################                                 | 131/397 - 1.07GB/s[K  |######################                            | 174/397 - 1.20GB/s[K  |############################                      | 219/397 - 1.29GB/s[K  |##################################                | 263/397 - 1.38GB/s[K  |########################################          | 314/397 - 1.47GB/s[K  |#############################################     | 357/397 - 1.52GB/s[K  |##################################################| 397/397 - 1.59GB/s[K
+[I] loading tensors completed, taking 2.65s (read: 2.63s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s) --- model_loader.cpp:1385
+[I] get_learned_condition completed, taking 42.77s --- image.cpp:529
+[I] generating image: 1/1 - seed 42 --- image.cpp:866
+[I] qwen_image_2_1 build cached graph cut plan done (taking 12 ms) --- ggml_graph_cut.cpp:1032
+[I] memory-mapped 200 tensors in 1 files (5719.00 MB), taking 0.00s --- model_loader.cpp:1030
+  |##                                                | 9/265 - 0.00MB/s[K  |##################################################| 265/265 - 0.12MB/s[K
+[I] loading tensors completed, taking 0.20s (read: 0.03s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s) --- model_loader.cpp:1385
+[I] using mmap for '/home/user/models/qwen_image_2.1_turbo_lora.safetensors' --- model_loader.cpp:885
+  |==================================================| 1/1 - 580.63s/it[K
+[I] sampling completed, taking 580.72s --- image.cpp:899
+[I] generating 1 latent images completed, taking 580.72s --- image.cpp:911
+[I] decoding 1 latents --- image.cpp:554
+[I] wan_vae build cached graph cut plan done (taking 1 ms) --- ggml_graph_cut.cpp:1032
+[I] memory-mapped 0 tensors in 0 files (0.00 MB), taking 0.00s --- model_loader.cpp:1030
+  |#                                                 | 2/128 - 0.00MB/s[K  |##########                                        | 24/128 - 55.80MB/s[K  |###############                                   | 36/128 - 252.67MB/s[K  |####################                              | 50/128 - 357.27MB/s[K  |###########################                       | 67/128 - 438.24MB/s[K  |###############################                   | 78/128 - 392.01MB/s[K  |###############################                   | 78/128 - 326.46MB/s[K  |##################################################| 128/128 - 339.21MB/s[K
+[I] loading tensors completed, taking 1.42s (read: 0.56s, memcpy: 0.00s, convert: 0.80s, copy_to_backend: 0.00s) --- model_loader.cpp:1385
+  |==>                                               | 1/24 - 17.88s/it[K  |====>                                             | 2/24 - 15.11s/it[K  |======>                                           | 3/24 - 15.96s/it[K  |========>                                         | 4/24 - 16.08s/it[K  |==========>                                       | 5/24 - 15.13s/it[K  |============>                                     | 6/24 - 15.53s/it[K  |==============>                                   | 7/24 - 15.53s/it[K  |================>                                 | 8/24 - 15.09s/it[K  |==================>                               | 9/24 - 15.88s/it[K  |====================>                             | 10/24 - 14.34s/it[K  |======================>                           | 11/24 - 15.86s/it[K  |=========================>                        | 12/24 - 16.27s/it[K  |===========================>                      | 13/24 - 16.15s/it[K  |=============================>                    | 14/24 - 15.87s/it[K  |===============================>                  | 15/24 - 15.87s/it[K  |=================================>                | 16/24 - 15.08s/it[K  |===================================>              | 17/24 - 15.04s/it[K  |=====================================>            | 18/24 - 15.13s/it[K  |=======================================>          | 19/24 - 15.42s/it[K  |=========================================>        | 20/24 - 15.25s/it[K  |===========================================>      | 21/24 - 16.04s/it[K  |=============================================>    | 22/24 - 15.58s/it[K  |===============================================>  | 23/24 - 17.02s/it[K  |==================================================| 24/24 - 14.64s/it[K
+[I] latent 1 decoded, taking 375.78s --- image.cpp:620
+[I] decode_first_stage completed, taking 375.78s --- image.cpp:624
+[I] runtime_lora_models: --- diffusion_engine.cpp:1780
+[I] (665 / 665) LoRA tensors have been applied, lora_file_path = /home/user/models/qwen_image_2.1_turbo_lora.safetensors --- lora.hpp:1003
+[I] generate_image completed in 999.90s --- image.cpp:1050
+[I] save result image 0 to '/home/user/Mcqs-/biochem_images/trials/out/05/smoke.png' (success) --- main.cpp:497
+[I] 1/1 images saved --- main.cpp:573

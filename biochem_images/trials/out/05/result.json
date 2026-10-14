@@ -1,0 +1,29 @@
+{
+ "id": "05",
+ "name": "turbo-q6-1280x720",
+ "config": {
+  "prompt": "P1",
+  "seed": 42,
+  "turbo": true,
+  "quant": "Q6_K",
+  "W": 1280,
+  "H": 720,
+  "steps": 8,
+  "cfg": 1.0,
+  "offload": true,
+  "cache": "auto",
+  "smoke": true,
+  "name": "turbo-q6-1280x720",
+  "est_hours": 2.0,
+  "why": "16:9 slide shape",
+  "overrides": {}
+ },
+ "setup_min": 8.3,
+ "smoke_seconds": 1010,
+ "smoke_peak_rss_mb": 12878,
+ "exit_code": 0,
+ "run_seconds": 4661,
+ "peak_rss_mb": 12897,
+ "sampling_seconds": 4209.97,
+ "decode_seconds": 398.21
+}
