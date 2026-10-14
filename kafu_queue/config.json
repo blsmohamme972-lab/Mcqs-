@@ -1,0 +1,9 @@
+{
+  "drive_folder_id": "1A2_GAFmrM-EugAztWI6FgqbAuvXZWNSU",
+  "drive_folder_url": "https://drive.google.com/drive/folders/1A2_GAFmrM-EugAztWI6FgqbAuvXZWNSU",
+  "queue_repo": "https://github.com/blsmohamme972-lab/Mcqs-",
+  "queue_branch": "claude/ai-biochemistry-image-generation-efl9y3",
+  "lessons_repo": "https://github.com/blsmohamme972-lab/MCQs-Mountain-",
+  "batch_size": 10,
+  "voice_engine": "breeze"
+}
