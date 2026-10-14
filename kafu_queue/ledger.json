@@ -1,1 +1,22 @@
-{}
+{
+ "GT-CH4-Q155-163": {
+  "state": "split",
+  "at": "2026-10-14T08:14:11Z",
+  "note": "Head Department builds this package in small parts (V-sessions); the watcher must not start it"
+ },
+ "GT-CH4-Q164-172": {
+  "state": "split",
+  "at": "2026-10-14T08:14:11Z",
+  "note": "Head Department builds this package in small parts (V-sessions); the watcher must not start it"
+ },
+ "GT-CH4-Q173-181": {
+  "state": "split",
+  "at": "2026-10-14T08:14:11Z",
+  "note": "Head Department builds this package in small parts (V-sessions); the watcher must not start it"
+ },
+ "GT-CH4-Q182-189": {
+  "state": "split",
+  "at": "2026-10-14T08:14:11Z",
+  "note": "Head Department builds this package in small parts (V-sessions); the watcher must not start it"
+ }
+}

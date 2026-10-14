@@ -8,6 +8,7 @@ and the ledger does not already show it as building or delivered.
   watch.py ready                 one line per ready package, or NONE
   watch.py status                progress of every package
   watch.py download PKG DIR      save the package's images as DIR/<QID>.png
+  watch.py get DIR QID...        save only these images as DIR/<QID>.png (split builds)
   watch.py claim PKG [NOTE]      ledger: building (commit + push it right after)
   watch.py deliver PKG [NOTE]    ledger: delivered
   watch.py fail PKG REASON       ledger: failed (a later run retries it)
@@ -137,6 +138,18 @@ def main():
             im.load()
             im.convert("RGB").save(dest / f"{it['qid']}.png")
             print(f"{it['qid']}.png  {im.size[0]}x{im.size[1]}  from {imgs[qid][1]}")
+    elif cmd == "get":
+        # get <dest> QID...: download only these images (for a split build of part of a package)
+        dest = Path(sys.argv[2]); dest.mkdir(parents=True, exist_ok=True)
+        imgs = images_by_qid(list_drive(CONFIG["drive_folder_id"]))
+        from PIL import Image
+        for qid in (q.upper() for q in sys.argv[3:]):
+            if qid not in imgs:
+                sys.exit(f"missing image for {qid}")
+            im = Image.open(io.BytesIO(download(imgs[qid][0])))
+            im.load()
+            im.convert("RGB").save(dest / f"{qid}.png")
+            print(f"{qid}.png  {im.size[0]}x{im.size[1]}  from {imgs[qid][1]}")
     elif cmd in ("claim", "deliver", "fail"):
         pkg = sys.argv[2]
         if pkg not in packages():
