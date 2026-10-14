@@ -18,5 +18,255 @@
   "state": "split",
   "at": "2026-10-14T08:14:11Z",
   "note": "Head Department builds this package in small parts (V-sessions); the watcher must not start it"
+ },
+ "GT-CH36-Q01-02": {
+  "state": "building",
+  "at": "2026-10-14T12:49:15Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q03-04": {
+  "state": "building",
+  "at": "2026-10-14T12:49:15Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q05-06": {
+  "state": "building",
+  "at": "2026-10-14T12:49:15Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q07-08": {
+  "state": "building",
+  "at": "2026-10-14T12:49:15Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q09-10": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q11-12": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q13-14": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q15-16": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q17-18": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q19-20": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q21-22": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q23-24": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q25-26": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q27-28": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q29-30": {
+  "state": "building",
+  "at": "2026-10-14T12:49:16Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q31-32": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q33-34": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q35-36": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q37-38": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q39-40": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q41-42": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q43-44": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q45-46": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q47-48": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q49-50": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q51-52": {
+  "state": "building",
+  "at": "2026-10-14T12:49:17Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q53-54": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q55-56": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q57-58": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q59-60": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q61-62": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q63-64": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q65-66": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q67-68": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q69-70": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q71-72": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q73-74": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q75-76": {
+  "state": "building",
+  "at": "2026-10-14T12:49:18Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q77-78": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q79-80": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q81-82": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q83-84": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q85-86": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q87-88": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q89-90": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q91-92": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q93-94": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q95-96": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q97-98": {
+  "state": "building",
+  "at": "2026-10-14T12:49:19Z",
+  "note": "standby, waiting for images (head dept)"
+ },
+ "GT-CH36-Q99-100": {
+  "state": "building",
+  "at": "2026-10-14T12:49:20Z",
+  "note": "standby, waiting for images (head dept)"
  }
 }
