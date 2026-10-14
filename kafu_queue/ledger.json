@@ -35,9 +35,9 @@
   "note": "stopped by owner"
  },
  "GT-CH36-Q07-08": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:03Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T14:18:59Z",
+  "note": "2 lessons, ZIP checked OK (validation PASS), PR not checked"
  },
  "GT-CH36-Q09-10": {
   "state": "failed",
