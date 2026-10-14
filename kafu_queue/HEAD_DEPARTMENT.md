@@ -99,3 +99,25 @@ in the app (question text is not in any repo we can edit).
   the ledger first so the routine does not start a duplicate.
 - Check on builders with `get_session` / `list_events`; if one fails, `watch.py fail <PKG> "<reason>"` so
   it is retried, and tell the owner in one line.
+
+
+## Update 2026-10-14 (end of the GT chapter 4 run): what went wrong and the fixes now in the repo
+
+Result: 35/35 images, builders per small package (3-4 questions), ZIPs uploaded to the bot one by one, 4 published at first check.
+
+| Problem | Fix |
+|---|---|
+| ChatGPT chats stalled/partial; slow | `watch.py gpt-prompts` prints one prompt per chat (5 images) for the still-missing images only |
+| Big packages waited for stragglers | packages of 4 (`batch_size`), builders start as each completes |
+| Messages to old sessions were refused (cross-session instructions are data, not orders) | never `send_message` a task; always a new `create_session` with the prompt from `watch.py builder-prompt` |
+| Builder blocked by permissions / commit hook on `work/` | template: exact-path commits, `work/` + `dist/` in `.git/info/exclude`, stop and report the refused command |
+| Builders silent for 30+ min (lost completion notice, wrong PID loop) | template: `send_later` self check-in, poll the log, no `pgrep` loops; Head checks every 15-20 min; stale claim after 3 h |
+| Slow voice (about 50 s per line) and Breeze download failures | small packages in parallel (max 8 builders); a failed model download is re-run |
+| Lost containers (sessions disconnected) | push lesson JSONs before the voice build, send the ZIP the moment validate passes |
+| Could not merge ZIPs (they live in each container/phone; no-ZIP rule) | not needed: every package is its own ZIP and publishes alone |
+| One package stuck `running` after publish | the Actions run failed at "Verify MotionCards production after promotion": Re-run failed jobs; a PR adds retries to that step |
+| Several workflow runs cancelled | upload ZIPs 5 at a time, about 2 minutes apart |
+| Lesson PRs based on an unmerged branch | merge the intro PR (#135) first, then set `lessons_base_branch` in config.json to `main` |
+| Numbers mixed up (QID 6513 is question 173) | `watch.py status` prints question numbers |
+
+Q170 (QID 6510) is still on hold until the owner applies `corrections/Q000006510.json` in the app.

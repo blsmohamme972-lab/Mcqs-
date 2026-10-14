@@ -3,7 +3,7 @@
 The owner sends a chapter export (`kafu_mcq_text_export` JSON from the app). Turn it into packages
 whose image prompts ChatGPT will draw.
 
-1. Split (8-10 questions per package; the package id becomes the lesson PACKAGE ID):
+1. Split (4 questions per package, `batch_size` in config.json; small packages build in parallel; the package id becomes the lesson PACKAGE ID):
 
        python3 kafu_queue/make_queue.py split <export.json> --pkg-prefix <BOOK>-CH<N> [--qids ...] [--already-live]
 
@@ -43,3 +43,15 @@ Lessons from testing (ChatGPT and Qwen, 2026-10-14):
 - Do not reuse the same object for two meanings (yellow grapes = bacteria, so the clot is not grapes).
 - The bottom banner must start with `Answer -->`: the lesson builder checks it against the key.
 - Questions with book images (`has_book_images: true`): describe only what the stem and explanation say.
+
+## Running a big batch (e.g. 100 questions)
+
+1. `split` makes about 25 packages of 4. Write the prompts, `render` each, `make_queue.py check`, commit and push.
+2. ChatGPT: `python3 kafu_queue/watch.py gpt-prompts` prints one ready prompt per chat (5 images each, 20 chats for 100
+   questions) with the right queue pages and only the QIDs still missing. Re-run it any time: it lists what is still missing.
+3. Builders start by themselves as packages complete (WATCHER.md, at most `max_concurrent_builders` at once); to start one by hand:
+   `python3 kafu_queue/watch.py builder-prompt <PKG>` prints the full prompt for `create_session` (never message an old session).
+4. Upload to the bot: each package is its own ZIP and publishes on its own, nothing to merge. Send them 5 at a time, about
+   2 minutes apart; wait for the "published" replies; `/motioncards-status` shows anything stuck; a package "running" for more than
+   10 minutes usually means its GitHub Actions run (Publish Kafu MotionCards Queue) failed at "Verify MotionCards production after
+   promotion": open the run and press "Re-run failed jobs", then check `/motioncards-status` again.

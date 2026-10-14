@@ -3,7 +3,7 @@
 
   make_queue.py split EXPORT --pkg-prefix BAILEY-CH1 [--size 10] [--qids Q1,Q2] [--already-live]
       Copies the export to exports/ and writes queue/<PKG>.json skeletons
-      (one per 8-10 questions) with the question facts and an empty "prompt".
+      (one per config batch_size questions, default 4: small packages build in parallel and finish fast) with the question facts and an empty "prompt".
   make_queue.py render PKG     After the prompts are written: checks them and writes queue/<PKG>.md,
                                the page ChatGPT reads.
   make_queue.py check          Checks every package.
