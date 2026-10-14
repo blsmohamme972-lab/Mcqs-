@@ -170,103 +170,103 @@
   "note": "standby, waiting for images (head dept)"
  },
  "GT-CH36-Q61-62": {
-  "state": "building",
-  "at": "2026-10-14T12:49:18Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:25Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q63-64": {
-  "state": "building",
-  "at": "2026-10-14T12:49:18Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:25Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q65-66": {
-  "state": "building",
-  "at": "2026-10-14T12:49:18Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:25Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q67-68": {
-  "state": "building",
-  "at": "2026-10-14T12:49:18Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:25Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q69-70": {
-  "state": "building",
-  "at": "2026-10-14T12:49:18Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:25Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q71-72": {
-  "state": "building",
-  "at": "2026-10-14T12:49:18Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q73-74": {
-  "state": "building",
-  "at": "2026-10-14T12:49:18Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q75-76": {
-  "state": "building",
-  "at": "2026-10-14T12:49:18Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q77-78": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q79-80": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q81-82": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q83-84": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q85-86": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q87-88": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q89-90": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q91-92": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q93-94": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:26Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q95-96": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:27Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q97-98": {
-  "state": "building",
-  "at": "2026-10-14T12:49:19Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:27Z",
+  "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q99-100": {
-  "state": "building",
-  "at": "2026-10-14T12:49:20Z",
-  "note": "standby, waiting for images (head dept)"
+  "state": "failed",
+  "at": "2026-10-14T12:54:27Z",
+  "note": "owner limited to 30 builders; released"
  }
 }

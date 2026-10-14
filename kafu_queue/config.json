@@ -7,7 +7,7 @@
   "batch_size": 2,
   "voice_engine": "breeze",
   "chatgpt_chunk": 10,
-  "max_concurrent_builders": 50,
+  "max_concurrent_builders": 30,
   "lessons_base_branch": "main",
   "lessons_repo_slug": "blsmohamme972-lab/MCQs-Mountain-",
   "zip_inbox_url": "https://claude.ai/artifact/SvG5287Mx1TuiNx1XVNFdS"
