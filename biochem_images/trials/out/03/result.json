@@ -1,0 +1,29 @@
+{
+ "id": "03",
+ "name": "turbo-q5-768-no-offload",
+ "config": {
+  "prompt": "P1",
+  "seed": 42,
+  "turbo": true,
+  "quant": "Q5_0",
+  "W": 768,
+  "H": 768,
+  "steps": 8,
+  "cfg": 1.0,
+  "offload": false,
+  "cache": "auto",
+  "smoke": true,
+  "name": "turbo-q5-768-no-offload",
+  "est_hours": 1.3,
+  "why": "Memory experiment: is --offload-to-cpu useless on a CPU-only box? Compare peak RSS",
+  "overrides": {}
+ },
+ "setup_min": 6.3,
+ "smoke_seconds": 600,
+ "smoke_peak_rss_mb": 11964,
+ "exit_code": 0,
+ "run_seconds": 3011,
+ "peak_rss_mb": 11978,
+ "sampling_seconds": 2836.74,
+ "decode_seconds": 139.91
+}
