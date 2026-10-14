@@ -1,0 +1,27 @@
+{
+ "state": "done",
+ "config": {
+  "prompt": "P1",
+  "seed": 42,
+  "turbo": false,
+  "quant": "Q6_K",
+  "W": 1024,
+  "H": 1024,
+  "steps": 12,
+  "cfg": 4.0,
+  "offload": true,
+  "cache": "q8_0",
+  "smoke": true,
+  "name": "full-q6-cfg4-12steps-1024",
+  "est_hours": 5.5,
+  "overrides": {}
+ },
+ "started": "23:35:45",
+ "updated": "2026-10-14 02:39:48",
+ "note": "downloading Qwen3VL-8B-Instruct-Q4_K_M.gguf (attempt 1, want 5027784800)",
+ "step": "24/25 (9.00s/step)",
+ "peak_rss_mb": 11904,
+ "elapsed_min": 157.4,
+ "run_minutes": 157.5,
+ "image": "/home/user/Mcqs-/biochem_images/trials/out/10/image.png"
+}

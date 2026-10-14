@@ -1,0 +1,29 @@
+{
+ "id": "10",
+ "name": "full-q6-cfg4-12steps-1024",
+ "config": {
+  "prompt": "P1",
+  "seed": 42,
+  "turbo": false,
+  "quant": "Q6_K",
+  "W": 1024,
+  "H": 1024,
+  "steps": 12,
+  "cfg": 4.0,
+  "offload": true,
+  "cache": "q8_0",
+  "smoke": true,
+  "name": "full-q6-cfg4-12steps-1024",
+  "est_hours": 5.5,
+  "why": "Maximum attempt: full model, CFG, 1024px (memory risk; smoke test decides)",
+  "overrides": {}
+ },
+ "setup_min": 8.0,
+ "smoke_seconds": 1110,
+ "smoke_peak_rss_mb": 11906,
+ "exit_code": 0,
+ "run_seconds": 9452,
+ "peak_rss_mb": 11904,
+ "sampling_seconds": 9181.49,
+ "decode_seconds": 230.3
+}
