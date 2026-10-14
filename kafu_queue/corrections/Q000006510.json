@@ -1,0 +1,54 @@
+{
+ "qid": "Q000006510",
+ "book_id": "GET-THROUGH-MRCS-A-SBA",
+ "book_version_seen": 3,
+ "source_number": "170",
+ "problem": "Stem asked for the INCORRECT statement, but key B is the only TRUE statement (A, C, D, E are all false).",
+ "fix": "Stem changed to ask for the CORRECT statement; key B unchanged; explanation extended to say why A, C, D and E are wrong.",
+ "before": {
+  "stem": "The lower limb below the knee is divided into four compartments. Which of the following statements regarding these compartments is incorrect?",
+  "answer": "B"
+ },
+ "after": {
+  "stem": "The lower limb below the knee is divided into four compartments. Which of the following statements regarding these compartments is correct?",
+  "answer": "B",
+  "explanation": "The anterior compartment contains the tibialis anterior, extensor hallucis longus, extensor digitorum longus and peroneus tertius muscles along with the deep peroneal nerve and anterior tibial vessels. The lateral compartment contains peroneus longus and brevis muscles along with the superficial peroneal nerve and perforations from the peroneal artery. The deep posterior compartment contains tibialis posterior, flexor hallucis longus, flexor digitorum longus, posterior tibial and peroneal arteries and the tibial nerve. The superficial posterior compartment contains soleus, gastrocnemius and plantaris muscles and the medial cutaneous sural nerve.\n\nB is the only correct statement. A is wrong: tibialis anterior lies in the anterior compartment, not the lateral. C is wrong: the anterior compartment contains the deep peroneal nerve, not the tibial nerve. D is wrong: the lateral compartment contains the superficial peroneal nerve; the deep peroneal nerve is anterior. E is wrong: peroneus tertius is in the anterior compartment, not the deep posterior."
+ },
+ "corrected_question": {
+  "local_id": 170,
+  "chapter_id": 4,
+  "topic": "Lower Limb",
+  "type": "sba",
+  "source_number": "170",
+  "lead_in": "",
+  "stem": "The lower limb below the knee is divided into four compartments. Which of the following statements regarding these compartments is correct?",
+  "options": [
+   "The lateral compartment contains the peroneus longus, brevis and tibialis anterior muscles.",
+   "The superficial posterior compartment contains the plantaris muscle and soleus.",
+   "The anterior compartment contains the anterior tibial vessels and tibial nerve.",
+   "The lateral compartment contains the deep peroneal nerve.",
+   "The deep posterior compartment contains the flexor hallucis longus, flexor digitorum longus and peroneus tertius."
+  ],
+  "answer": "B",
+  "answer_source": "book_key",
+  "explanation": "The anterior compartment contains the tibialis anterior, extensor hallucis longus, extensor digitorum longus and peroneus tertius muscles along with the deep peroneal nerve and anterior tibial vessels. The lateral compartment contains peroneus longus and brevis muscles along with the superficial peroneal nerve and perforations from the peroneal artery. The deep posterior compartment contains tibialis posterior, flexor hallucis longus, flexor digitorum longus, posterior tibial and peroneal arteries and the tibial nerve. The superficial posterior compartment contains soleus, gastrocnemius and plantaris muscles and the medial cutaneous sural nerve.\n\nB is the only correct statement. A is wrong: tibialis anterior lies in the anterior compartment, not the lateral. C is wrong: the anterior compartment contains the deep peroneal nerve, not the tibial nerve. D is wrong: the lateral compartment contains the superficial peroneal nerve; the deep peroneal nerve is anterior. E is wrong: peroneus tertius is in the anterior compartment, not the deep posterior.",
+  "images": [],
+  "explanation_images": [],
+  "group_id": null,
+  "no_shuffle": false,
+  "source_page": 44,
+  "source_pages": [
+   44
+  ],
+  "answer_page": 102,
+  "explanation_source_pages": [
+   102
+  ],
+  "flag": "",
+  "source_label": "Get Through MRCS Part A: SBAs || Edition not stated",
+  "id": "Q000006510",
+  "book_id": "GET-THROUGH-MRCS-A-SBA",
+  "status": "source_verified",
+  "version": 3
+ }
+}
