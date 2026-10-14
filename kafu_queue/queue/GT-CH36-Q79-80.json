@@ -21,7 +21,7 @@
    "answer_text": "Ketoacidosis",
    "explanation": "The anion gap=(Na++K+)−(HCO3−+Cl−). If there is a high anion gap, there is an unmeasured anion present in increased quantities. This can be seen in ketoacidosis and lactic acidosis. A normal anion gap can still be seen in metabolic acidosis.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"High Anion Gap Acidosis\".\nLEFT: a seesaw labeled \"Anion gap\" tilted high, with a heavy sack of unmeasured anions on one side. Label: \"High gap\".\nCENTER: a sweet fruity ketone cloud (nail polish bottle) rising from a sugar-cube character with a sick face. Labels: \"Ketoacidosis\", \"Lactic acidosis\".\nRIGHT: a tiny acid drop character marked \"Metabolic acidosis\" holding the seesaw. A pale small seesaw balanced and crossed out labeled \"Normal gap also possible\".\nBottom banner: \"Answer --> Ketoacidosis\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007285",
@@ -38,7 +38,7 @@
    "answer_text": "For any individual cell, each action potential is of the same amplitude and propagated at the same speed.",
    "explanation": "The Nernst equation can be used to calculate the equilibrium potential, which is the potential difference at which an ion ceases to flow across the cell membrane along its electrochemical gradient. The typical value of the resting membrane potential for a neuron is –70 mV. An action potential is a rapid depolarization followed by subsequent repolarization to the resting membrane potential. The Goldman equation can be used to calculate the resting membrane potential, which is the potential difference across the cell membrane.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Action Potential Rule\".\nLEFT: a neuron character at rest with a battery label \"Resting -70 mV\" and a Goldman badge. Labels: \"Resting potential\", \"Goldman equation\".\nCENTER: a spike of electricity rises (depolarization) then falls back (repolarization), drawn as a mountain with a smooth slope. Labels: \"Depolarization\", \"Repolarization\".\nRIGHT: three identical lightning bolts of the same height running along one nerve cable at the same speed, a sticker \"All or none\" on each. Labels: \"Same amplitude\", \"Same speed\".\nBottom banner: \"Answer --> Each action potential: same amplitude and speed\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

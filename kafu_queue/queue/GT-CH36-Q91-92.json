@@ -21,7 +21,7 @@
    "answer_text": "Methotrexate blocks utilization of folate.",
    "explanation": "The main cause of deficiency is malnutrition, as seen in alcoholics or with regular consumption of overcooked food. Other causes include malabsorption, as seen in coeliac disease and Crohn disease. Increased requirements of folate occur in conditions such as pregnancy, malignancy or haemolysis. Drugs can either block utilization, such as methotrexate, or cause malabsorption, such as anticonvulsants.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Folate Deficiency\".\nLEFT: a leafy green folate plant being overcooked in a pot, an alcoholic drink bottle beside it. Labels: \"Folate\", \"Malnutrition\".\nCENTER: a drug pill character with a purple cross-shape wearing a stop hand blocking the folate plant from going in a cell door. Labels: \"Methotrexate\", \"Blocks folate use\".\nRIGHT: a big pale macrocytic red cell, a sign \"Megaloblastic anaemia\"; small other causes in a queue: \"Pregnancy\", \"Haemolysis\", \"Coeliac\".\nBottom banner: \"Answer --> Methotrexate blocks utilization of folate\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007297",
@@ -38,7 +38,7 @@
    "answer_text": "Factor VII",
    "explanation": "The initial reaction in the intrinsic pathway is conversion of inactive factor XII to active factor XII (XIIa). This activation, which is catalyzed by high-molecular-weight kininogen and kallikrein, can be brought about in vivo by exposure of blood to collagen fibres underlying the endothelium. Active factor XII then activates factor XI, and active factor XI activates factor IX. Activated factor IX forms a complex with active factor VIII, which is activated when it is separated from the von Willebrand factor (vWF).",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Intrinsic Clotting Pathway\".\nLEFT: a roll of collagen fibres under a damaged vessel wall pushing the first domino. Labels: \"Collagen\", \"Factor XII\".\nCENTER: a row of falling dominoes from left to right: \"Factor XII\", \"Factor XI\", \"Factor IX\", then a pair holding hands: \"Factor VIII\" with a calcium coin labeled \"Calcium\".\nRIGHT: one domino standing on a separate side road with a red cross, labeled \"Factor VII\" and a small sign \"Not intrinsic\".\nBottom banner: \"Answer --> Factor VII\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }

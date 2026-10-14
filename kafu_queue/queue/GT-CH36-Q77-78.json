@@ -21,7 +21,7 @@
    "answer_text": "Stage C2",
    "explanation": "The Dukes’ classification predates the more modern Tumour, Nodes, Metastasis (TNM) classification. It was put forward by Dr Cuthbert Dukes in 1932 and originally did not include stage D. The classification is:\n\nStage A: Tumour confined to the bowel wall (not extending beyond muscularis propria) Stage B: Tumour penetrating the bowel wall Stage C1: Lymph node involvement but not including the apical node Stage C2: Lymph node involvement including the apical node Stage D: Distant metastasis",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Dukes' Colon Cancer\".\nLEFT: a bearded old man holding his right side after surgery, a cartoon colon with a purple tumor on the right side. Label: \"Right hemicolectomy\".\nCENTER: the tumor character bursts through the bowel wall like a ball through a paper bag into neighbouring tissue. Label: \"Through the wall\". A small sign \"Dukes 1932\".\nRIGHT: a ladder of lymph node beads going up to a top bead marked with a red flag. Labels: \"Apical node\", \"No metastasis\". A small ladder sign labeled \"C2\".\nBottom banner: \"Answer --> Stage C2\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   },
   {
    "qid": "Q000007283",
@@ -38,7 +38,7 @@
    "answer_text": "Parietal cells",
    "explanation": "The gastric parietal cells produce intrinsic factor, which binds vitamin B₁₂ in the stomach, thereby facilitating its absorption in the ileum. Post-gastrectomy patients require replacement because of the absence of these cells. The G-cells are found in the antral mucosa and upper small bowel and secrete gastrin, which stimulates secretion of acid by parietal cells. Goblet cells are found in the bowel, not stomach.",
    "has_book_images": false,
-   "prompt": ""
+   "prompt": "Create a landscape 3:2 image (1536x1024). Picmonic-style visual mnemonic, fun and medically accurate, for medical students: cute cartoon characters with big friendly eyes, bright flat colors, thick dark outlines, clean pale background, each fact drawn as a memorable visual pun. All text sits in rounded white label boxes with dark navy bold letters, crisp and spelled exactly as given.\nTitle banner at the top: \"Vitamin B12 Absorption\".\nLEFT: a stomach with a big red scissors cut, label \"Total gastrectomy\". Beside it a small gastrin-gun character, label \"Zollinger-Ellison\".\nCENTER: round parietal cell characters wearing key-shaped badges (intrinsic factor) are gone from the stomach wall, shown as empty seats. Labels: \"Parietal cells\", \"Intrinsic factor\".\nRIGHT: a pink B12 capsule cannot find its key and the ileum gate stays locked, while a nurse gives an injection. Labels: \"Vitamin B12\", \"Ileum\", \"Lifelong injections\".\nBottom banner: \"Answer --> Parietal cells\".\nAvoid: garbled or misspelled text, duplicated characters, distorted faces, realistic gore, photographs, watermarks, cluttered dark background."
   }
  ]
 }
