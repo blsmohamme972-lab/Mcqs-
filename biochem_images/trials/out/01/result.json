@@ -1,0 +1,27 @@
+{
+ "id": "01",
+ "name": "turbo-q6-768-baseline",
+ "config": {
+  "prompt": "P1",
+  "seed": 42,
+  "turbo": true,
+  "quant": "Q6_K",
+  "W": 768,
+  "H": 768,
+  "steps": 8,
+  "cfg": 1.0,
+  "offload": true,
+  "cache": "auto",
+  "smoke": false,
+  "name": "turbo-q6-768-baseline",
+  "est_hours": 1.1,
+  "why": "Known-good reference (worked in earlier sessions)",
+  "overrides": {}
+ },
+ "setup_min": 5.2,
+ "exit_code": 0,
+ "run_seconds": 1971,
+ "peak_rss_mb": 12863,
+ "sampling_seconds": 1806.16,
+ "decode_seconds": 132.24
+}
