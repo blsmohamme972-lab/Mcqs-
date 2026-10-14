@@ -25,9 +25,9 @@
   "note": "stopped by owner"
  },
  "GT-CH36-Q03-04": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:03Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T14:49:49Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
  },
  "GT-CH36-Q05-06": {
   "state": "failed",
@@ -40,9 +40,9 @@
   "note": "2 lessons, ZIP checked OK (validation PASS), PR not checked"
  },
  "GT-CH36-Q09-10": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:03Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T14:49:50Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
  },
  "GT-CH36-Q11-12": {
   "state": "failed",
@@ -50,9 +50,9 @@
   "note": "stopped by owner"
  },
  "GT-CH36-Q13-14": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:03Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-14T14:49:49Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
  },
  "GT-CH36-Q15-16": {
   "state": "failed",
@@ -185,9 +185,9 @@
   "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q67-68": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:25Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-14T14:49:49Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
  },
  "GT-CH36-Q69-70": {
   "state": "failed",
@@ -225,9 +225,9 @@
   "note": "owner limited to 30 builders; released"
  },
  "GT-CH36-Q83-84": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:26Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-14T14:49:50Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
  },
  "GT-CH36-Q85-86": {
   "state": "failed",
@@ -277,6 +277,31 @@
  "GT-CH36-Q119-120": {
   "state": "delivered",
   "at": "2026-10-14T14:29:37Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
+ },
+ "GT-CH36-Q117-118": {
+  "state": "delivered",
+  "at": "2026-10-14T14:49:49Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
+ },
+ "GT-CH36-Q109-110": {
+  "state": "delivered",
+  "at": "2026-10-14T14:49:49Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
+ },
+ "GT-CH36-Q129-130": {
+  "state": "delivered",
+  "at": "2026-10-14T14:49:50Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
+ },
+ "GT-CH36-Q113-114": {
+  "state": "delivered",
+  "at": "2026-10-14T14:49:50Z",
+  "note": "2 lessons, ZIP checked OK (PASS)"
+ },
+ "GT-CH36-Q127-128": {
+  "state": "delivered",
+  "at": "2026-10-14T14:49:50Z",
   "note": "2 lessons, ZIP checked OK (PASS)"
  }
 }
