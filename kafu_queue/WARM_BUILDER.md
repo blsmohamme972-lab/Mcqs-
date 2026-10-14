@@ -1,6 +1,6 @@
 # Warm builder (one of 30 sessions): get ready, wait for images, build your own packages
 
-You are builder SLOT <NN>. Your packages are listed under your slot in `kafu_queue/assignments.json` (2-3 packages of 2 questions each, chapter 36).
+You are builder SLOT <NN>. Your packages are listed under `slots["<NN>"]` in `kafu_queue/assignments.json` (JSON: {"queue_branch":..., "slots":{"01":[...],...}}) (2-3 packages of 2 questions each, chapter 36).
 The Head Department session collects your ZIPs from the owner's inbox. It cannot send you tasks: you read your list from the repo yourself.
 Rules of BUILDER_TEMPLATE.md apply in full (read it first). Send one short Arabic message at the end. Never message other sessions.
 
@@ -20,7 +20,7 @@ PHASE 1: SETUP (now, once)
 5. When the voice setup has finished, tell nothing; go to phase 2.
 
 PHASE 2: WAIT FOR IMAGES (poll, cheap)
-Every check: `git -C /home/user/Mcqs- pull -q`, re-read your slot (the Head may change it), then
+Every check: `git -C /home/user/Mcqs- pull -q`, re-read `slots["<NN>"]` (the Head may change it), then
 `python3 /home/user/Mcqs-/kafu_queue/watch.py status | grep -E "<your packages joined with |>"`.
 A package is ready when its line shows `images N/N` (all present). Nothing ready: `send_later` delay_minutes 10, message "check images", end the turn. Stop checking after 10 hours and report what is still missing.
 
