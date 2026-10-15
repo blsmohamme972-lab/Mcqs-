@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Merge several verified Kafu package ZIPs into a few bigger packages (each below the system ceiling).
 
-  python3 -I merge_zips.py MCQS_MOUNTAIN_DIR IN_DIR OUT_DIR PREFIX [CAP_MB]
+  python3 -I merge_zips.py MCQS_MOUNTAIN_DIR IN_DIR OUT_DIR PREFIX [CAP_MB] [START]
 
 IN_DIR   folder with MCARDS_<PKG>_r1.zip files (each already valid)
 OUT_DIR  where MCARDS_<PREFIX>-M<k>_r1.zip files are written
 PREFIX   e.g. GT-CH36 -> package ids GT-CH36-M1, GT-CH36-M2, ...
+START    first number to use for the part ids (default 1; use 4 to continue after M1..M3)
 CAP_MB   size cap per merged ZIP in MiB (default 18.5; the validator's own ceiling is 19)
 
 The member files are copied byte for byte (their SHA-256 values stay valid). Only the manifest is rewritten:
@@ -19,6 +20,7 @@ from pathlib import Path
 
 MOUNT, IN, OUT, PREFIX = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3]), sys.argv[4]
 CAP = int(float(sys.argv[5] if len(sys.argv) > 5 else 18.5) * 1024 * 1024)
+START = int(sys.argv[6]) if len(sys.argv) > 6 else 1
 sys.path.insert(0, str(MOUNT))
 from motioncards.lib import package as P  # noqa: E402
 from motioncards.lib.spec import MANIFEST_NAME  # noqa: E402
@@ -44,7 +46,7 @@ if cur:
 
 OUT.mkdir(parents=True, exist_ok=True)
 total = 0
-for k, g in enumerate(groups, 1):
+for k, g in enumerate(groups, START):
     pid = f"{PREFIX}-M{k}"
     base = g[0][2]
     rows, files = [], {}
