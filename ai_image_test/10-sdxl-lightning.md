@@ -11,7 +11,7 @@
 | Seed | 42 |
 | Size | Generated natively at 960x640 (no resize or crop needed) |
 | Hardware | CPU only (4 threads), float32, diffusers 0.41.0, torch 2.14.1+cpu |
-| Generation time | ~62 s for 4 denoising steps (~15.5 s/step), 74 s including VAE decode; ~105 s total including model loading (weights already cached) |
+| Generation time | ~58 s for 4 denoising steps (~14.6 s/step), 74 s including VAE decode; ~105 s total including model loading (weights already cached) |
 | Peak RAM (process RSS) | ~14.2 GB |
 
 ## How it was run
