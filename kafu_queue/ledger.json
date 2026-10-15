@@ -75,9 +75,9 @@
   "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q23-24": {
-  "state": "failed",
-  "at": "2026-10-14T12:59:04Z",
-  "note": "stopped by owner"
+  "state": "delivered",
+  "at": "2026-10-15T05:15:24Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q25-26": {
   "state": "delivered",
@@ -230,14 +230,14 @@
   "note": "2 lessons, ZIP checked OK (PASS)"
  },
  "GT-CH36-Q85-86": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:26Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-15T05:15:25Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q87-88": {
-  "state": "failed",
-  "at": "2026-10-14T12:54:26Z",
-  "note": "owner limited to 30 builders; released"
+  "state": "delivered",
+  "at": "2026-10-15T05:15:25Z",
+  "note": "PASS 2 [] ZIP checked"
  },
  "GT-CH36-Q89-90": {
   "state": "delivered",
