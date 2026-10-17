@@ -1,0 +1,454 @@
+<title>Monteggia Fracture 2D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@500;600&display=swap">
+<!--
+  Monteggia fracture, 30 s, 2D, keywords only. Drawn live as SVG in the visual language of Manim
+  (black field, Manim CE colour constants, Create / Write / FadeIn / Indicate / Flash).
+  Every frame is a pure function of t, so play, pause and replay are exact.
+
+  Sources (for the reviewing doctor):
+  - Bado JL. The Monteggia lesion. Clin Orthop Relat Res. 1967;50:71-86. PMID 6029027. (types I–IV)
+  - Ring D, Jupiter JB, Simpson NS. Monteggia fractures in adults. J Bone Joint Surg Am. 1998;80(12):1733-44. PMID 9875931. (ORIF of the ulna)
+  - Standard anatomy: radiocapitellar line passes through the capitellum on every view;
+    posterior interosseous nerve winds round the radial neck through supinator (finger drop, wrist extension kept by ECRL).
+  Drawing is schematic: lateral view, elbow extended, anterior up.
+-->
+<style>
+/* Layout: one black Manim-style stage, controls under it. Single dark look by design. */
+:root {
+  --bg: #000000;
+  --edge: #1d1d22;
+  --fg: #ffffff;
+  --muted: #8a8a93;
+  --blue: #58c4dd;   /* BLUE_C */
+  --green: #83c167;  /* GREEN_C */
+  --yellow: #f7d96f; /* YELLOW_C */
+  --red: #fc6255;    /* RED_C */
+  --gold: #f0ac5f;   /* GOLD_C */
+  --grey: #bbbbbb;   /* GREY_B */
+  --serif: "STIX Two Text", "STIX Two", "Latin Modern Roman", "Times New Roman", serif;
+  --arabic: "IBM Plex Sans Arabic", "Geeza Pro", "Noto Sans Arabic", Tahoma, sans-serif;
+  color-scheme: dark;
+}
+html, body { background: var(--bg); color: var(--fg); }
+[hidden] { display: none !important; }
+body { font-family: var(--serif); }
+.wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 14px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 28px; }
+.stage { position: relative; aspect-ratio: 16 / 9; max-width: 100%; border: 1px solid var(--edge); border-radius: 4px; overflow: hidden; background: var(--bg); }
+@media (max-width: 640px) { .stage { aspect-ratio: 4 / 5; } }
+.stage svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.big { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 92px; height: 92px; border-radius: 50%;
+  border: 2px solid var(--fg); background: #000000b3; color: var(--fg); display: grid; place-items: center; cursor: pointer; transition: transform .15s; }
+.big:hover { transform: translate(-50%, -50%) scale(1.06); }
+.big svg { width: 34px; height: 34px; fill: currentColor; position: static; }
+.bar { display: flex; align-items: center; gap: 10px; }
+.bar button { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 16px; border-radius: 21px; border: 1px solid #3a3a42;
+  background: #111114; color: var(--fg); font: 600 16px/1 var(--arabic); cursor: pointer; }
+.bar button:hover { border-color: var(--yellow); }
+.bar button svg { width: 15px; height: 15px; fill: currentColor; }
+button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+.prog { flex: 1; min-width: 40px; height: 3px; background: #26262c; border-radius: 2px; overflow: hidden; }
+.prog i { display: block; height: 100%; width: 0; background: var(--yellow); }
+.time { font: 400 15px/1 var(--serif); color: var(--muted); font-variant-numeric: tabular-nums; min-width: 64px; text-align: right; }
+</style>
+
+<div class="wrap">
+  <div class="stage">
+    <svg id="svg" viewBox="0 0 1600 900" role="img" aria-label="Animated diagram of a Monteggia fracture-dislocation">
+      <defs>
+        <marker id="head" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#ffffff"/>
+        </marker>
+      </defs>
+
+      <g id="dia">
+        <text id="viewTag" x="0" y="120" font-size="22" fill="#8a8a93" font-style="italic">lateral view · anterior ↑</text>
+
+        <!-- humerus, trochlea (behind) and capitellum -->
+        <path id="humerus" pathLength="1" d="M0 208 L270 200 C320 196 350 205 362 222 L362 290 C345 306 310 306 280 300 L0 292 Z"
+              stroke="#bbbbbb" stroke-width="4" fill="#bbbbbb" stroke-linejoin="round"/>
+        <circle id="trochlea" pathLength="1" cx="384" cy="266" r="40" stroke="#888888" stroke-width="3" fill="#888888"/>
+        <circle id="capitellum" pathLength="1" cx="392" cy="226" r="32" stroke="#f0ac5f" stroke-width="4" fill="#f0ac5f"/>
+
+        <!-- ulna: whole bone, then the two fragments that replace it at the fracture -->
+        <path id="ulnaFull" pathLength="1" stroke="#58c4dd" stroke-width="4" fill="#58c4dd" stroke-linejoin="round"
+              d="M340 252 Q336 238 328 234 Q316 244 318 270 Q322 318 372 342 L540 350 L940 342 Q960 336 958 328 Q958 318 940 316 L486 298 Q446 290 430 268 A46 46 0 1 1 340 252 Z"/>
+        <path id="ulnaProx" stroke="#58c4dd" stroke-width="4" fill="#58c4dd" stroke-linejoin="round"
+              d="M340 252 Q336 238 328 234 Q316 244 318 270 Q322 318 372 342 L540 350 L548 338 L536 326 L546 314 L540 304 L486 298 Q446 290 430 268 A46 46 0 1 1 340 252 Z"/>
+
+        <!-- everything distal to the fracture moves as one unit: radius + distal ulna -->
+        <g id="R">
+          <path id="ulnaDist" stroke="#58c4dd" stroke-width="4" fill="#58c4dd" stroke-linejoin="round"
+                d="M540 304 L546 314 L536 326 L548 338 L540 350 L940 342 Q960 336 958 328 Q958 318 940 316 Z"/>
+          <path id="radius" pathLength="1" stroke="#83c167" stroke-width="4" fill="#83c167" stroke-linejoin="round"
+                d="M428 200 Q428 194 436 194 L446 194 Q452 194 452 200 L452 212 L482 214 C600 208 800 198 942 196 Q960 200 958 230 Q958 262 940 266 C800 258 620 250 524 246 Q508 254 494 246 L482 240 L452 242 L452 252 Q452 258 446 258 L436 258 Q428 258 428 252 Z"/>
+          <line id="rcl" pathLength="1" x1="300" y1="226" x2="770" y2="226" stroke="#f7d96f" stroke-width="3" stroke-dasharray="1 1"/>
+        </g>
+
+        <!-- ulnar plate after ORIF -->
+        <g id="plate">
+          <rect pathLength="1" x="440" y="350" width="210" height="14" rx="5" stroke="#dddddd" stroke-width="3" fill="#dddddd" fill-opacity=".25"/>
+          <g stroke="#dddddd" stroke-width="4" stroke-linecap="round">
+            <line x1="470" y1="358" x2="470" y2="318"/><line x1="510" y1="358" x2="510" y2="318"/>
+            <line x1="580" y1="358" x2="580" y2="318"/><line x1="620" y1="358" x2="620" y2="318"/>
+          </g>
+        </g>
+
+        <!-- posterior interosseous nerve, recomputed each frame -->
+        <path id="nerve" pathLength="1" fill="none" stroke="#f7d96f" stroke-width="5" stroke-linecap="round"/>
+        <circle id="pinch" r="22" fill="none" stroke="#fc6255" stroke-width="4"/>
+
+        <!-- mechanism -->
+        <path id="foosh" pathLength="1" d="M1040 286 L972 286" stroke="#ffffff" stroke-width="6" fill="none" marker-end="url(#head)"/>
+        <path id="pron" pathLength="1" d="M749.7 170.3 A30 104 0 1 0 770.3 170.3" stroke="#ffffff" stroke-width="5" fill="none" marker-end="url(#head)"/>
+
+        <g id="flash" stroke="#ffffff" stroke-width="4" stroke-linecap="round"></g>
+
+        <!-- radiocapitellar verdict -->
+        <g id="badge">
+          <circle cx="300" cy="150" r="26" fill="none" stroke-width="4"/>
+          <text x="300" y="161" text-anchor="middle" font-size="32" font-weight="700"></text>
+        </g>
+
+        <text id="lHum" x="150" y="180" text-anchor="middle" font-size="30" fill="#bbbbbb">Humerus</text>
+        <text id="lCap" x="392" y="176" text-anchor="middle" font-size="26" fill="#f0ac5f">Capitellum</text>
+        <text id="lRad" x="720" y="178" text-anchor="middle" font-size="30" fill="#83c167">Radius</text>
+        <text id="lUln" x="720" y="398" text-anchor="middle" font-size="30" fill="#58c4dd">Ulna</text>
+      </g>
+
+      <g id="cards"></g>
+      <g id="mnem" text-anchor="middle"></g>
+      <g id="kw"></g>
+      <text id="title" font-weight="700" fill="#ffffff"></text>
+      <text id="subtitle" text-anchor="middle" fill="#bbbbbb" font-style="italic">proximal ulna fracture + radial head dislocation</text>
+    </svg>
+    <button class="big" id="big" type="button" aria-label="تشغيل"><svg viewBox="0 0 16 16" id="bigIcon"><path d="M4 2l10 6-10 6z"/></svg></button>
+  </div>
+
+  <div class="bar">
+    <button id="play" type="button"><svg viewBox="0 0 16 16" id="playIcon"><path d="M4 2l10 6-10 6z"/></svg><span id="playLabel">تشغيل</span></button>
+    <button id="replay" type="button"><svg viewBox="0 0 16 16"><path d="M8 2.5a5.5 5.5 0 1 1-5.2 3.7l1.6.6A3.8 3.8 0 1 0 8 4.2V6L4.6 3.4 8 .8z"/></svg><span>إعادة</span></button>
+    <div class="prog" aria-hidden="true"><i id="progFill"></i></div>
+    <span class="time" id="time">0.0 s</span>
+  </div>
+</div>
+
+<script>
+(() => {
+  const DUR = 30, POSTER = 7.2;
+  const NS = 'http://www.w3.org/2000/svg';
+  const $ = (id) => document.getElementById(id);
+  const svg = $('svg');
+  const COL = { white: '#ffffff', grey: '#bbbbbb', muted: '#8a8a93', blue: '#58c4dd', green: '#83c167', yellow: '#f7d96f', red: '#fc6255', gold: '#f0ac5f' };
+
+  // ---------- Manim-like timing ----------
+  const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+  const smooth = (x) => x * x * x * (x * (x * 6 - 15) + 10);           // rate_func=smooth
+  const p = (t, a, b) => smooth(clamp((t - a) / (b - a)));               // progress of an animation
+  const live = (t, a, b, fi = 0.4, fo = 0.35) => p(t, a, a + fi) * (1 - p(t, b - fo, b)); // FadeIn ... FadeOut
+  const lerp = (a, b, k) => a + (b - a) * k;
+  const mix = (c1, c2, k) => {
+    const h = (c) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16));
+    const a = h(c1), b = h(c2);
+    return '#' + a.map((v, i) => Math.round(lerp(v, b[i], k)).toString(16).padStart(2, '0')).join('');
+  };
+  const el = (tag, attrs, parent) => {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  };
+  const create = (node, k, fill = 0.18) => {      // Create / DrawBorderThenFill
+    node.style.strokeDasharray = '1';
+    node.style.strokeDashoffset = String(1 - clamp(k * 1.25));
+    node.setAttribute('fill-opacity', fill * clamp((k - 0.55) / 0.45));
+    node.style.opacity = k > 0 ? 1 : 0;
+  };
+
+  // ---------- layouts: landscape 16:9, portrait 3:4 ----------
+  const LAYOUT = {
+    wide: { vb: [1600, 900], dia: [56, 160, 1.12], title0: [800, 440, 92], title1: [70, 92, 50], sub: [800, 520, 38],
+            kw: [1150, 350, 64, 36], cards: [100, 200, 470, 255, 30], mnem: [800, 400, 72] },
+    tall: { vb: [900, 1125], dia: [6, 190, 0.84], title0: [450, 520, 78], title1: [44, 96, 48], sub: [450, 600, 31],
+            kw: [56, 730, 64, 40], cards: [40, 190, 400, 240, 20], mnem: [450, 440, 52] },
+  };
+  let L;
+
+  // ---------- diagram pieces ----------
+  const dia = $('dia'), R = $('R');
+  const PIVOT = [950, 290];
+  const bone = (d) => ({ a: 7 * d, tx: -18 * d, ty: -6 * d });         // dislocated pose: forearm angulates and shortens
+  const move = ([x, y], b) => {
+    const r = (b.a * Math.PI) / 180, dx = x - PIVOT[0], dy = y - PIVOT[1];
+    return [PIVOT[0] + dx * Math.cos(r) - dy * Math.sin(r) + b.tx, PIVOT[1] + dx * Math.sin(r) + dy * Math.cos(r) + b.ty];
+  };
+  // posterior interosseous nerve: fixed above the elbow, carried by the radius around the neck and down the forearm
+  const NERVE = [[[230, 150], 0], [[380, 168], 0], [[466, 190], 1], [[496, 222], 1], [[486, 266], 1], [[620, 286], 1], [[900, 292], 1]];
+  const catmull = (pts) => {
+    let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += ` C${c1[0].toFixed(1)} ${c1[1].toFixed(1)} ${c2[0].toFixed(1)} ${c2[1].toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+    }
+    return d;
+  };
+
+  const flashG = $('flash');
+  const rays = Array.from({ length: 10 }, () => el('line', {}, flashG));
+  function flash(t, a, cx, cy) {                     // Manim Flash
+    const k = clamp((t - a) / 0.45);
+    flashG.style.opacity = k > 0 && k < 1 ? 1 : 0;
+    rays.forEach((ln, i) => {
+      const ang = (i / rays.length) * Math.PI * 2, r0 = 26 + 40 * smooth(k), r1 = 26 + 70 * smooth(clamp(k * 1.6));
+      ln.setAttribute('x1', cx + Math.cos(ang) * r0); ln.setAttribute('y1', cy + Math.sin(ang) * r0);
+      ln.setAttribute('x2', cx + Math.cos(ang) * r1); ln.setAttribute('y2', cy + Math.sin(ang) * r1);
+    });
+  }
+
+  // ---------- title (Write: letters appear left to right) ----------
+  const title = $('title');
+  const TITLE = 'Monteggia fracture';
+  const titleChars = [...TITLE].map((c) => { const s = el('tspan', {}, title); s.textContent = c; return s; });
+
+  // ---------- keywords (FadeIn shift=UP, stacked in slots) ----------
+  const KW = [
+    { a: 5.6, b: 8.2, s: 0, txt: 'Radiocapitellar line', c: COL.yellow },
+    { a: 6.6, b: 8.2, s: 1, txt: '→ capitellum ✓', c: COL.green },
+    { a: 8.4, b: 10.6, s: 0, txt: 'FOOSH', c: COL.white },
+    { a: 9.0, b: 10.6, s: 1, txt: 'Hyperpronation', c: COL.white },
+    { a: 10.8, b: 14.6, s: 0, txt: 'Proximal ⅓ ulna fracture', c: COL.blue },
+    { a: 12.0, b: 14.6, s: 1, txt: 'Radial head → anterior', c: COL.green },
+    { a: 12.9, b: 14.6, s: 2, txt: 'Misses capitellum ✗', c: COL.red },
+    { a: 14.8, b: 19.9, s: 0, txt: 'Bado I – IV', c: COL.yellow },
+    { a: 20.4, b: 24.2, s: 0, txt: 'PIN palsy', c: COL.yellow },
+    { a: 21.2, b: 24.2, s: 1, txt: 'Finger drop', c: COL.white },
+    { a: 21.8, b: 24.2, s: 2, txt: 'Wrist extension spared', c: COL.muted },
+    { a: 24.4, b: 28.0, s: 0, txt: 'Restore ulnar length', c: COL.blue },
+    { a: 25.8, b: 28.0, s: 1, txt: '→ radial head reduces', c: COL.green },
+    { a: 26.4, b: 28.0, s: 2, txt: 'Child: closed reduction', c: COL.white },
+    { a: 26.9, b: 28.0, s: 3, txt: 'Adult: ORIF ulna', c: COL.white },
+  ];
+  const kwG = $('kw');
+  KW.forEach((k) => { k.node = el('text', { fill: k.c }, kwG); k.node.textContent = k.txt; });
+
+  // ---------- Bado cards ----------
+  const CARDS = [
+    { n: 'I', dir: 'Anterior', l1: 'ulnar shaft', l2: 'apex anterior', note: 'most common', c: COL.yellow },
+    { n: 'II', dir: 'Posterior', l1: 'ulnar shaft', l2: 'apex posterior', c: COL.blue },
+    { n: 'III', dir: 'Lateral', l1: 'ulnar metaphysis', l2: 'just below coronoid', c: COL.green },
+    { n: 'IV', dir: 'Anterior', l1: 'radius + ulna', l2: 'both proximal ⅓', c: COL.red },
+  ];
+  const cardsG = $('cards');
+  CARDS.forEach((c, i) => {
+    c.g = el('g', {}, cardsG);
+    c.box = el('rect', { rx: 14, fill: '#000', stroke: c.c, 'stroke-width': 3 }, c.g);
+    c.num = el('text', { fill: c.c, 'font-size': 76, 'font-weight': 700 }, c.g); c.num.textContent = c.n;
+    c.t1 = el('text', { fill: '#fff', 'font-size': 38, 'font-weight': 700 }, c.g); c.t1.textContent = c.dir;
+    c.t2 = el('text', { fill: COL.grey, 'font-size': 28 }, c.g); c.t2.textContent = c.l1;
+    c.t3 = el('text', { fill: COL.grey, 'font-size': 28 }, c.g); c.t3.textContent = c.l2;
+    if (c.note) { c.t4 = el('text', { fill: COL.yellow, 'font-size': 28, 'font-style': 'italic' }, c.g); c.t4.textContent = c.note; }
+  });
+
+  // ---------- mnemonic ----------
+  const mnemG = $('mnem');
+  const M1 = el('text', { 'font-weight': 700 }, mnemG), M2 = el('text', { 'font-weight': 700 }, mnemG), M3 = el('text', { fill: COL.muted, 'font-style': 'italic' }, mnemG);
+  const span = (parent, txt, fill) => { const s = el('tspan', { fill }, parent); s.textContent = txt; return s; };
+  span(M1, 'Monteggia', '#fff'); span(M1, '  →  ', COL.muted); span(M1, 'U', COL.blue); span(M1, 'lna fracture', '#fff');
+  span(M2, 'Galeazzi', '#fff'); span(M2, '  →  ', COL.muted); span(M2, 'R', COL.green); span(M2, 'adius fracture', '#fff');
+  M3.textContent = 'MUGR';
+
+  function layout() {
+    L = matchMedia('(max-width: 640px)').matches ? LAYOUT.tall : LAYOUT.wide;
+    svg.setAttribute('viewBox', `0 0 ${L.vb[0]} ${L.vb[1]}`);
+    dia.setAttribute('transform', `translate(${L.dia[0]} ${L.dia[1]}) scale(${L.dia[2]})`);
+    const [kx, ky, gap, fs] = L.kw;
+    KW.forEach((k) => { k.x = kx; k.y = ky + k.s * gap; k.node.setAttribute('font-size', fs); k.node.setAttribute('x', kx); });
+    const [cx, cy, w, h, g] = L.cards;
+    CARDS.forEach((c, i) => {
+      const x = cx + (i % 2) * (w + g), y = cy + Math.floor(i / 2) * (h + g);
+      c.cx = x + w / 2; c.cy = y + h / 2;
+      c.box.setAttribute('x', x); c.box.setAttribute('y', y); c.box.setAttribute('width', w); c.box.setAttribute('height', h);
+      c.num.setAttribute('x', x + 28); c.num.setAttribute('y', y + 92);
+      const tx = x + (c.n.length > 2 ? 150 : c.n.length > 1 ? 128 : 100);
+      c.t1.setAttribute('x', tx); c.t1.setAttribute('y', y + 78);
+      c.t2.setAttribute('x', tx); c.t2.setAttribute('y', y + 128);
+      c.t3.setAttribute('x', tx); c.t3.setAttribute('y', y + 164);
+      if (c.t4) { c.t4.setAttribute('x', tx); c.t4.setAttribute('y', y + 212); }
+    });
+    const [mx, my, mfs] = L.mnem;
+    M1.setAttribute('x', mx); M1.setAttribute('y', my); M1.setAttribute('font-size', mfs);
+    M2.setAttribute('x', mx); M2.setAttribute('y', my + mfs * 1.5); M2.setAttribute('font-size', mfs);
+    M3.setAttribute('x', mx); M3.setAttribute('y', my + mfs * 3.1); M3.setAttribute('font-size', mfs * 0.7);
+    const [sx, sy, sfs] = L.sub;
+    $('subtitle').setAttribute('x', sx); $('subtitle').setAttribute('y', sy); $('subtitle').setAttribute('font-size', sfs);
+  }
+
+  // ---------- one frame ----------
+  function frame(t) {
+    // title: Write at centre, then move to the corner
+    const w = clamp(t / 2.0);
+    titleChars.forEach((s, i) => { s.setAttribute('opacity', clamp(w * titleChars.length - i)); });
+    const m = p(t, 2.6, 3.3);
+    const [x0, y0, f0] = L.title0, [x1, y1, f1] = L.title1;
+    title.setAttribute('font-size', lerp(f0, f1, m));
+    const tw = title.getComputedTextLength();               // width at the current size
+    title.setAttribute('x', lerp(x0 - tw / 2, x1, m));      // centred → left edge
+    title.setAttribute('y', lerp(y0, y1, m));
+    title.style.opacity = 1 - p(t, 28.0, 28.4) * 0.6;
+    $('subtitle').style.opacity = live(t, 1.0, 3.0, 0.5, 0.4);
+
+    // diagram dims for the Bado cards and the mnemonic
+    dia.style.opacity = 1 - 0.88 * live(t, 14.6, 20.2, 0.4, 0.4) - 0.94 * p(t, 28.0, 28.4);
+
+    // bones: Create then fill
+    create($('humerus'), p(t, 2.8, 3.8), 0.12);
+    create($('trochlea'), p(t, 3.3, 4.1), 0.06);
+    $('trochlea').style.strokeDasharray = p(t, 3.3, 4.1) >= 1 ? '0.02 0.015' : $('trochlea').style.strokeDasharray;
+    create($('capitellum'), p(t, 3.4, 4.2), 0.22);
+    const broken = t >= 10.75;
+    create($('ulnaFull'), p(t, 3.6, 4.6), 0.18);
+    $('ulnaFull').style.opacity = broken ? 0 : $('ulnaFull').style.opacity;
+    for (const id of ['ulnaProx', 'ulnaDist']) { $(id).style.opacity = broken ? 1 : 0; $(id).setAttribute('fill-opacity', 0.18); }
+    create($('radius'), p(t, 4.0, 5.0), 0.18);
+
+    // labels
+    for (const [id, a] of [['lHum', 4.6], ['lCap', 4.8], ['lRad', 5.0], ['lUln', 5.2]]) $(id).style.opacity = live(t, a, 6.6);
+    $('viewTag').style.opacity = live(t, 4.6, 14.6, 0.6, 0.4) * 0.9;
+
+    // the forearm unit: dislocate (11.0–12.6), reduce by restoring ulnar length (24.4–25.8)
+    const d = p(t, 11.0, 12.6) - p(t, 24.4, 25.8);
+    const b = bone(d);
+    R.setAttribute('transform', `translate(${b.tx} ${b.ty}) rotate(${b.a} ${PIVOT[0]} ${PIVOT[1]})`);
+
+    // radiocapitellar line: yellow, red when it misses, green when reduced
+    const rcl = $('rcl');
+    const rk = p(t, 5.4, 6.2);
+    rcl.style.strokeDasharray = rk < 1 ? '1' : '0.02 0.012';
+    rcl.style.strokeDashoffset = rk < 1 ? String(1 - rk) : '0';
+    rcl.style.opacity = rk > 0 ? 1 - live(t, 14.6, 20.2) * 0.9 - p(t, 28.0, 28.4) : 0;
+    let rc = mix(COL.yellow, COL.red, p(t, 12.3, 12.8));
+    rc = mix(rc, COL.green, p(t, 25.8, 26.2));
+    rcl.setAttribute('stroke', rc);
+
+    // capitellum Indicate when the line is first checked
+    const ind = Math.sin(Math.PI * clamp((t - 6.1) / 0.8));
+    const cap = $('capitellum');
+    cap.style.transformBox = 'fill-box'; cap.style.transformOrigin = 'center';
+    cap.style.transform = `scale(${1 + 0.18 * ind})`;
+    cap.setAttribute('stroke', mix(COL.gold, COL.yellow, ind));
+
+    // verdict badge
+    const badge = $('badge'), bc = badge.querySelector('circle'), bt = badge.querySelector('text');
+    let verdict = null;
+    if (t >= 6.6 && t < 10.6) verdict = ['✓', COL.green, 6.6];
+    if (t >= 12.8 && t < 14.6) verdict = ['✗', COL.red, 12.8];
+    if (t >= 26.0 && t < 28.0) verdict = ['✓', COL.green, 26.0];
+    badge.style.opacity = verdict ? p(t, verdict[2], verdict[2] + 0.3) : 0;
+    if (verdict) { bt.textContent = verdict[0]; bt.setAttribute('fill', verdict[1]); bc.setAttribute('stroke', verdict[1]); }
+
+    // mechanism arrows
+    const fo = $('foosh'), pr = $('pron');
+    create(fo, p(t, 8.3, 8.9), 0); fo.style.opacity = live(t, 8.3, 10.8, 0.05, 0.35);
+    fo.setAttribute('transform', `translate(${-10 * Math.sin(Math.PI * clamp((t - 8.9) / 0.5))} 0)`);
+    create(pr, p(t, 8.9, 9.7), 0); pr.style.opacity = live(t, 8.9, 10.8, 0.05, 0.35);
+
+    // fracture flash, then the reduction "snap"
+    flashG.style.opacity = 0;
+    if (t >= 10.55 && t < 11.05) flash(t, 10.55, 542, 326);
+    if (t >= 25.75 && t < 26.25) { const hc = move([440, 226], bone(0)); flash(t, 25.75, hc[0], hc[1]); }
+
+    // PIN
+    const nerve = $('nerve');
+    nerve.setAttribute('d', catmull(NERVE.map(([pt, att]) => (att ? move(pt, b) : pt))));
+    const nk = p(t, 20.2, 21.2);
+    nerve.style.strokeDasharray = '1'; nerve.style.strokeDashoffset = String(1 - nk);
+    nerve.style.opacity = nk > 0 ? 1 - p(t, 27.6, 28.0) : 0;
+    const pinch = $('pinch'), pc = move([494, 222], b);
+    pinch.setAttribute('cx', pc[0]); pinch.setAttribute('cy', pc[1]);
+    const pulse = t > 21.2 && t < 24.4 ? 0.5 + 0.5 * Math.sin((t - 21.2) * 9) : 0;
+    pinch.style.opacity = pulse * (1 - p(t, 24.0, 24.4));
+    pinch.setAttribute('r', 18 + 8 * pulse);
+    nerve.setAttribute('stroke', mix(COL.yellow, COL.red, pulse * 0.7));
+
+    // plate (adult ORIF)
+    const pk = p(t, 26.6, 27.3);
+    const plate = $('plate');
+    plate.style.opacity = pk > 0 ? 1 - p(t, 28.0, 28.4) * 0.8 : 0;
+    create(plate.querySelector('rect'), pk, 0.25);
+    plate.querySelector('g').style.opacity = clamp((pk - 0.6) / 0.4);
+
+    // keywords
+    KW.forEach((k) => {
+      const v = live(t, k.a, k.b);
+      k.node.style.opacity = v;
+      k.node.setAttribute('y', k.y + (1 - p(t, k.a, k.a + 0.4)) * 24);
+    });
+
+    // Bado cards: staggered FadeIn, Indicate type I
+    CARDS.forEach((c, i) => {
+      const a = 15.0 + i * 0.7;
+      const v = live(t, a, 19.9, 0.45, 0.4);
+      const ind1 = i === 0 ? Math.sin(Math.PI * clamp((t - 18.0) / 0.9)) : 0;
+      c.g.style.opacity = v;
+      c.g.setAttribute('transform', `translate(${c.cx} ${c.cy + (1 - p(t, a, a + 0.45)) * 30}) scale(${1 + 0.06 * ind1}) translate(${-c.cx} ${-c.cy})`);
+      c.box.setAttribute('stroke-width', 3 + 3 * ind1);
+    });
+
+    // mnemonic
+    M1.style.opacity = p(t, 28.3, 28.8);
+    M2.style.opacity = p(t, 28.8, 29.3);
+    M3.style.opacity = p(t, 29.3, 29.7);
+  }
+
+  // ---------- player ----------
+  let t = 0, playing = false, started = false, last = 0;
+  const big = $('big');
+  const ICON_PLAY = '<path d="M4 2l10 6-10 6z"/>';
+  const ICON_PAUSE = '<rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/>';
+  const ICON_REPLAY = '<path d="M8 2.5a5.5 5.5 0 1 1-5.2 3.7l1.6.6A3.8 3.8 0 1 0 8 4.2V6L4.6 3.4 8 .8z"/>';
+  function ui() {
+    $('playIcon').innerHTML = playing ? ICON_PAUSE : ICON_PLAY;
+    $('playLabel').textContent = playing ? 'إيقاف' : 'تشغيل';
+    const ended = t >= DUR;
+    big.hidden = playing;
+    $('bigIcon').innerHTML = ended ? ICON_REPLAY : ICON_PLAY;
+    big.setAttribute('aria-label', ended ? 'إعادة' : 'تشغيل');
+  }
+  function draw() {
+    frame(started ? t : POSTER);
+    $('progFill').style.width = (t / DUR) * 100 + '%';
+    $('time').textContent = t.toFixed(1) + ' s';
+  }
+  function play() {
+    if (t >= DUR) t = 0;
+    started = true; playing = true; last = performance.now(); ui();
+  }
+  function pause() { playing = false; ui(); }
+  function replay() { t = 0; started = true; playing = true; last = performance.now(); ui(); }
+  $('play').addEventListener('click', () => (playing ? pause() : play()));
+  $('replay').addEventListener('click', replay);
+  big.addEventListener('click', () => (t >= DUR ? replay() : play()));
+
+  function loop(now) {
+    if (playing) {
+      t += Math.min(0.1, (now - last) / 1000);
+      if (t >= DUR) { t = DUR; playing = false; ui(); }
+    }
+    last = now;
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  layout();
+  matchMedia('(max-width: 640px)').addEventListener('change', layout);
+  ui();
+  // exact-time hook for checking single frames
+  window.__seek = (s) => { started = true; playing = false; t = s; ui(); big.hidden = true; draw(); };
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(loop));
+})();
+</script>
