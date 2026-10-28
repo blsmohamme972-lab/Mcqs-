@@ -107,6 +107,14 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
       <label class="filebtn">🖼️ من المعرض<input id="gal" type="file" accept="image/*"></label>
       <button id="rot" type="button" disabled>↻ تدوير</button>
     </div>
+    <div class="row" id="engRow" hidden>
+      <label class="chk">محرك القراءة
+        <select id="engine">
+          <option value="mlkit" selected>Google ML Kit (أدق)</option>
+          <option value="tess">Tesseract</option>
+        </select>
+      </label>
+    </div>
     <div class="row">
       <label class="chk"><input id="enh" type="checkbox" checked> تحسين الصورة (أبيض وأسود)</label>
       <label class="chk"><input id="desk" type="checkbox" checked> تعديل الميلان تلقائياً</label>
@@ -188,7 +196,7 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
   </section>
 
   <section class="card" aria-labelledby="h-log">
-    <h2 id="h-log">٥. دقة Tesseract في تجاربك</h2>
+    <h2 id="h-log">٥. دقة <span id="engName">Tesseract</span> في تجاربك</h2>
     <div class="stats">
       <div class="stat"><b id="sTests">0</b><span>ورقة مجرّبة</span></div>
       <div class="stat"><b id="sAcc">—</b><span>قيم مقروءة صح</span></div>
@@ -252,11 +260,13 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
 
   // ---------- storage (per-device test log) ----------
   const store = {
-    get() { try { return JSON.parse(localStorage.getItem("abgOcrStats") || "null") || { tests: 0, read: 0, right: 0, expected: 0, missed: 0 }; } catch { return { tests: 0, read: 0, right: 0, expected: 0, missed: 0 }; } },
-    set(s) { try { localStorage.setItem("abgOcrStats", JSON.stringify(s)); } catch {} },
+    key() { return engine() === "mlkit" ? "abgOcrStats_mlkit" : "abgOcrStats"; },
+    get() { try { return JSON.parse(localStorage.getItem(this.key()) || "null") || { tests: 0, read: 0, right: 0, expected: 0, missed: 0 }; } catch { return { tests: 0, read: 0, right: 0, expected: 0, missed: 0 }; } },
+    set(s) { try { localStorage.setItem(this.key(), JSON.stringify(s)); } catch {} },
   };
   function renderStats() {
     const s = store.get();
+    $("engName").textContent = engine() === "mlkit" ? "Google ML Kit" : "Tesseract";
     $("sTests").textContent = s.tests;
     $("sAcc").textContent = s.read ? Math.round(100 * s.right / s.read) + "%" : "—";
     $("sMiss").textContent = s.expected ? s.missed + "/" + s.expected : "—";
@@ -282,9 +292,9 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
   }
 
   // Grayscale + contrast stretch (+ optional Otsu threshold), scaled so text is big enough for Tesseract.
-  function drawProcessed() {
-    if (!bitmap) return;
-    const cv = $("pcv"), ctx = cv.getContext("2d", { willReadFrequently: true });
+  function drawProcessed(cv = $("pcv"), enhance = $("enh").checked) {
+    if (!bitmap) return null;
+    const ctx = cv.getContext("2d", { willReadFrequently: true });
     const w0 = bitmap.width, h0 = bitmap.height, ang = (rotation + skew) * Math.PI / 180;
     const longSide = Math.max(w0, h0), target = Math.min(3000, Math.max(1600, longSide));
     const s = target / longSide, c = Math.abs(Math.cos(ang)), sn = Math.abs(Math.sin(ang));
@@ -293,7 +303,7 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
     ctx.save(); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, W, H);
     ctx.translate(W / 2, H / 2); ctx.rotate(ang);
     ctx.drawImage(bitmap, -w0 * s / 2, -h0 * s / 2, w0 * s, h0 * s); ctx.restore();
-    if (!$("enh").checked) return;
+    if (!enhance) return cv;
     const img = ctx.getImageData(0, 0, W, H), d = img.data, n = W * H, g = new Uint8ClampedArray(n), hist = new Uint32Array(256);
     for (let i = 0; i < n; i++) { const v = (d[i * 4] * 0.299 + d[i * 4 + 1] * 0.587 + d[i * 4 + 2] * 0.114) | 0; g[i] = v; hist[v]++; }
     // contrast stretch between 2nd and 98th percentile
@@ -316,6 +326,7 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
       }
     }
     ctx.putImageData(img, 0, 0);
+    return cv;
   }
 
   // Find the tilt that makes text rows sharpest: rotate dark-pixel coordinates and score the row histogram.
@@ -343,6 +354,23 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
   }
 
   // ---------- OCR ----------
+  // Google ML Kit is available only inside the Android app, through its AbgNative bridge.
+  const hasNative = () => !!(window.AbgNative && typeof window.AbgNative.recognize === "function");
+  const engine = () => hasNative() && $("engine").value === "mlkit" ? "mlkit" : "tess";
+  const nativeJobs = {}; let nativeSeq = 0;
+  window.__nativeOcrDone = (id, res, err) => {
+    const j = nativeJobs[id]; if (!j) return;
+    delete nativeJobs[id];
+    if (err) j.reject(new Error(err)); else j.resolve(res);
+  };
+  function nativeOcr(dataUrl) {
+    return new Promise((resolve, reject) => {
+      const id = "j" + (++nativeSeq);
+      nativeJobs[id] = { resolve, reject };
+      setTimeout(() => { if (nativeJobs[id]) { delete nativeJobs[id]; reject(new Error("Google ML Kit ما رد خلال دقيقة")); } }, 60000);
+      window.AbgNative.recognize(id, dataUrl);
+    });
+  }
   function setStatus(t) { $("status").textContent = t; }
   function setBar(p) { $("barfill").style.width = Math.round(p * 100) + "%"; }
   const STEP = { "loading tesseract core": "تحميل المحرك", "initializing tesseract": "تجهيز المحرك", "loading language traineddata": "تحميل بيانات اللغة", "initializing api": "تجهيز", "recognizing text": "قراءة النص" };
@@ -375,21 +403,31 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
     const t0 = performance.now();
     try {
       setStatus("تجهيز المحرك…"); setBar(0);
-      const w = await getWorker($("psm").value);
-      const { data } = await w.recognize($("pcv"));
-      const secs = ((performance.now() - t0) / 1000).toFixed(1);
-      const lines = [];
-      const words = [];
-      for (const b of data.blocks || []) for (const p of b.paragraphs) for (const l of p.lines) {
-        lines.push({ text: l.text.replace(/\n$/, ""), words: l.words, bbox: l.bbox });
-        words.push(...l.words);
+      const lines = [], words = [];
+      let data;
+      if (engine() === "mlkit") {
+        // ML Kit reads the natural (not black-and-white) image; straightening still applies.
+        setStatus("Google ML Kit يقرأ الصورة…"); setBar(0.3);
+        const cv = drawProcessed(document.createElement("canvas"), false);
+        const res = await nativeOcr(cv.toDataURL("image/jpeg", 0.92));
+        for (const l of res.lines || []) { lines.push(l); words.push(...l.words); }
+        const confs = (res.lines || []).map((l) => l.confidence).filter((c) => typeof c === "number" && c >= 0);
+        data = { text: res.text || "", confidence: confs.length ? confs.reduce((a, b) => a + b, 0) / confs.length : NaN };
+      } else {
+        const w = await getWorker($("psm").value);
+        ({ data } = await w.recognize($("pcv")));
+        for (const b of data.blocks || []) for (const p of b.paragraphs) for (const l of p.lines) {
+          lines.push({ text: l.text.replace(/\n$/, ""), words: l.words, bbox: l.bbox });
+          words.push(...l.words);
+        }
       }
+      const secs = ((performance.now() - t0) / 1000).toFixed(1);
       current = parse(lines, words);
       current.raw = data.text;
       savedThisRead = false; $("chk").checked = false; fillSampleInfo(data.text || "");
       render();
       setBar(1);
-      setStatus(`انتهت القراءة في ${secs} ثانية — دقة تعرّف Tesseract العامة ${Math.round(data.confidence)}%.`);
+      setStatus(`انتهت القراءة في ${secs} ثانية — ${engine() === "mlkit" ? "Google ML Kit" : "Tesseract"}` + (isNaN(data.confidence) ? "." : `، ثقة التعرّف العامة ${Math.round(data.confidence)}%.`));
       $("resCard").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     } catch (e) {
       console.error(e);
@@ -401,7 +439,8 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
   const NUM = /([-−–—]\s?)?(\d+(?:[.,·]\d+)?)/;
   const NUMWORD = /^[-−–—]?\d+(?:[.,·]\d+)?$/;
   function cleanLabel(t) {
-    return t.replace(/[|_]/g, " ")
+    const SUP = { "⁺": "+", "⁻": "-", "²": "2", "³": "3", "₂": "2", "₃": "3", "⁰": "0", "¹": "1" };
+    return t.replace(/[⁺⁻²³₂₃⁰¹]/g, (c) => SUP[c]).replace(/[|_]/g, " ")
       .replace(/^[^A-Za-z$]+/, "")
       .replace(/^.*?(?=\$\s*[O0])/, "")                     // "$0," (sO2) after leading junk
       .replace(/^[A-Za-z)(+]{1,2}\s+(?=[A-Za-z$¢]{2})/, "")  // ↑/↓ flags read as "t", "d", "t+", "y"…
@@ -638,7 +677,7 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
   function report() {
     const vals = current.values;
     const order = ["ph", "pco2", "po2", "hco3", "hco3std", "be", "so2", "fio2", "hb", "hct", "fo2hb", "fcohb", "fmethb", "fhhb", "na", "k", "cl", "ca", "glu", "lac", "temp", "agap", "agapk", "osm"];
-    const out = ["ABG (Tesseract OCR — verify against printout)"];
+    const out = [`ABG (${engine() === "mlkit" ? "Google ML Kit" : "Tesseract"} OCR — verify against printout)`];
     for (const k of order) { const o = vals[k]; if (!o) continue; const p = P.find((x) => x.k === k); out.push(`${p.n.padEnd(9)} ${String(o.v).padStart(6)} ${o.unit}`); }
     return out.join("\n");
   }
@@ -670,7 +709,7 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
   $("cam").addEventListener("change", onFile);
   $("gal").addEventListener("change", onFile);
   $("rot").addEventListener("click", () => { rotation = (rotation + 90) % 360; drawProcessed(); });
-  $("enh").addEventListener("change", drawProcessed);
+  $("enh").addEventListener("change", () => drawProcessed());
   $("desk").addEventListener("change", () => { if (bitmap) { skew = $("desk").checked ? estimateSkew() : 0; drawProcessed(); } });
   $("go").addEventListener("click", run);
   $("confirm").addEventListener("click", confirmTest);
@@ -815,6 +854,10 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
     catch { $("histMsg").textContent = "النسخ التلقائي ما اشتغل في هذا المتصفح."; }
   }
 
+  if (hasNative()) $("engRow").hidden = false;
+  const syncEngine = () => { const ml = engine() === "mlkit"; $("psm").closest("label").hidden = ml; $("enh").closest("label").hidden = ml; renderStats(); };
+  $("engine").addEventListener("change", syncEngine);
+  syncEngine();
   $("chk").addEventListener("change", updateSaveBtn);
   $("bed").addEventListener("input", updateSaveBtn);
   $("save").addEventListener("click", saveOnline);

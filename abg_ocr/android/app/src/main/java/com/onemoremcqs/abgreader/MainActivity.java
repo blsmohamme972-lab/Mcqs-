@@ -48,7 +48,14 @@ public class MainActivity extends Activity {
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 return loader.shouldInterceptRequest(request.getUrl());
             }
+
+            // The page (and the ML Kit bridge) only ever runs from the bundled assets.
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return !"appassets.androidplatform.net".equals(request.getUrl().getHost());
+            }
         });
+        web.addJavascriptInterface(new OcrBridge(this, web), "AbgNative");
         web.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onShowFileChooser(WebView view, ValueCallback<Uri[]> callback, FileChooserParams params) {

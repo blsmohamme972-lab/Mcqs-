@@ -76,3 +76,12 @@ optional MRN (no names), sample time/number (pre-filled from the printout header
 Saved results are listed for everyone the page is shared with, filterable by bed, expandable,
 deletable, and copyable as CSV. Uses the claude.ai artifact database (`abg` collection), so it works
 in the web page only; the APK shows a notice and keeps reading offline.
+
+## v0.5: Google ML Kit engine (APK only)
+The APK adds Google ML Kit text recognition (`com.google.mlkit:text-recognition`, model bundled,
+on-device, free) as the default engine, exposed to the page as `window.AbgNative.recognize(id, dataUrl)`
+(`OcrBridge.java`), returning lines/words with boxes in the same shape as Tesseract's output. The page
+offers an engine switch (ML Kit / Tesseract) and keeps a separate accuracy log per engine for comparison.
+ML Kit receives the straightened colour image (no black-and-white step). APK is ~34 MB (arm64 + armv7).
+The ML Kit path was tested with a simulated bridge (column-split table output); it has not yet been run
+on a physical device.
