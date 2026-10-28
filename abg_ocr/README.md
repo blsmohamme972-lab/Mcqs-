@@ -64,3 +64,8 @@ Tesseract often drops the decimal point (2.9 → "29", 0.6 → "06"). With "Radi
 values the ABL800 prints with fixed decimals (pH 3, Ca 2, most others 1) get the point re-inserted
 and are flagged yellow. Arrow flags read as letters ("↑ cK⁺" → "Tock", "↓ ctHb" → "d ctHb") are handled.
 Result on a straight photo of a real ABL800 printout: 20/20 values correct, HH/BE/anion-gap checks pass.
+
+## v0.3: cross-check against the analyzer's own calculated values
+The ABL800 prints Anion Gap (Na − Cl − HCO3), AnionGap,K (+K) and mOsm (2·Na + Glu). These are now
+read and compared with the values read for Na, K, Cl, HCO3 and Glu. On a phone OCR run Na 152 was
+read as 162; it passed the range and HH checks but is now caught by both the anion gap and mOsm checks.
