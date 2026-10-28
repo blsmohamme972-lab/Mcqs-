@@ -185,6 +185,9 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
   const ALL = [...P, ...PT];
   const DECIMAL = new Set(["ph", "pco2", "hco3", "hco3std", "be", "so2", "fo2hb", "fcohb", "fmethb", "fhhb", "k", "ca", "lac", "hb", "hct", "temp"]);
   const KPA = 7.50062;
+  // Where Tesseract's worker and engine load from (the Android app swaps these for bundled copies).
+  const TESS_BASE = "https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/";
+  const CORE_BASE = "https://cdn.jsdelivr.net/npm/tesseract.js-core@5.1.1";
 
   // ---------- state ----------
   let bitmap = null, rotation = 0, skew = 0, worker = null, workerPsm = null;
@@ -296,10 +299,10 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
       const dataUrl = new URL("tess/eng.traineddata.gz.wasm", location.href).href;
       const shim = `const D=${JSON.stringify(dataUrl)},F=self.fetch.bind(self);` +
         `self.fetch=(u,o)=>/eng\\.traineddata\\.gz$/.test(String(u))?F(D):F(u,o);` +
-        `importScripts("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/worker.min.js");`;
+        `importScripts(${JSON.stringify(new URL(TESS_BASE + "worker.min.js", location.href).href)});`;
       const workerPath = URL.createObjectURL(new Blob([shim], { type: "application/javascript" }));
       worker = await Tesseract.createWorker("eng", 1, {
-        workerPath, workerBlobURL: false, langPath: "https://tessdata.local/eng", gzip: true,
+        workerPath, workerBlobURL: false, corePath: new URL(CORE_BASE, location.href).href, langPath: "https://tessdata.local/eng", gzip: true,
         logger: (m) => { setStatus((STEP[m.status] || m.status) + "…"); if (typeof m.progress === "number") setBar(m.progress); },
         errorHandler: (e) => console.error(e),
       });

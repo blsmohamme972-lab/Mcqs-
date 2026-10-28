@@ -1,0 +1,24 @@
+plugins { id "com.android.application" }
+
+android {
+    namespace "com.onemoremcqs.abgreader"
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.onemoremcqs.abgreader"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "0.1-test"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    // The page and Tesseract files are copied in by prepare_assets.sh.
+    androidResources { noCompress += ["wasm", "js"] }
+}
+
+dependencies {
+    implementation "androidx.webkit:webkit:1.12.1"
+    implementation "androidx.core:core:1.13.1"
+}

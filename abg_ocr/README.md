@@ -45,3 +45,16 @@ Without deskew almost nothing was read. With deskew + row pairing: 9 values corr
 sO2, FO2Hb, Na, Ca, Glu, Lac, …), pH / HCO3 / K / Cl missing, and wrong values including pO2 36.6
 (true 204, "pCO2" read as "po,"), BE 22 (true −2.2), FHHb 11 (1.1), FMetHb 20 (2.0). The pO2 error is
 caught by the sO2 and duplicate-number checks; decimal losses are flagged yellow.
+
+## Android app (APK)
+`android/` wraps the same page in a WebView with every Tesseract file bundled, so it works offline.
+The page is served from assets through `WebViewAssetLoader`; the camera/gallery picker is wired in
+`MainActivity`. A test build is in `release/ABG-Reader-test.apk` (debug-signed).
+
+Build:
+```
+cd abg_ocr/android
+./prepare_assets.sh          # copies index.html + Tesseract into app/src/main/assets
+echo "sdk.dir=$ANDROID_HOME" > local.properties
+gradle assembleDebug         # → app/build/outputs/apk/debug/app-debug.apk
+```
