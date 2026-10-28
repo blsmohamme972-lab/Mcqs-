@@ -97,6 +97,7 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
     </div>
     <div class="row">
       <label class="chk"><input id="enh" type="checkbox" checked> تحسين الصورة (أبيض وأسود)</label>
+      <label class="chk"><input id="desk" type="checkbox" checked> تعديل الميلان تلقائياً</label>
       <label class="chk">طريقة القراءة
         <select id="psm">
           <option value="4" selected>عمود واحد (الأفضل للأوراق)</option>
@@ -153,32 +154,40 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
   // ---------- ABG parameters: label patterns, plausible (impossible-outside) and normal ranges ----------
   // Order matters: more specific labels are tried first so "pCO2" never matches as "pO2", etc.
   const P = [
-    { k: "fo2hb", n: "FO2Hb", re: /^F\s*[O0]\s*2\s*Hb/i, unit: "%", plaus: [0, 100], norm: [94, 99] },
+    { k: "fo2hb", n: "FO2Hb", re: /^F\s*[O0]\s*[2,₂]?\s*Hb/i, unit: "%", plaus: [0, 100], norm: [94, 99] },
     { k: "fcohb", n: "FCOHb", re: /^F?\s*C\s*[O0]\s*Hb/i, unit: "%", plaus: [0, 100], norm: [0, 3] },
-    { k: "fmethb", n: "FMetHb", re: /^F?\s*Met\s*Hb/i, unit: "%", plaus: [0, 100], norm: [0, 1.5] },
-    { k: "fhhb", n: "FHHb", re: /^F?\s*H\s*Hb/i, unit: "%", plaus: [0, 100], norm: [1, 5] },
-    { k: "pco2", n: "pCO2", re: /^p\s*C\s*[O0o]\s*[2z]/i, gas: true, plaus: [5, 200], norm: [35, 45] },
-    { k: "po2", n: "pO2", re: /^p\s*[O0o]\s*[2z](?!\s*\()/i, gas: true, plaus: [5, 700], norm: [80, 100] },
-    { k: "so2", n: "sO2", re: /^[sS5]\s*[O0]\s*[2z]/, unit: "%", plaus: [0, 100], norm: [95, 99] },
+    { k: "fmethb", n: "FMetHb", re: /^F?\s*Met/i, unit: "%", plaus: [0, 40], norm: [0, 1.5] },
+    { k: "fhhb", n: "FHHb", re: /^F?\s*H\s*H[bdp]/i, unit: "%", plaus: [0, 100], norm: [1, 5] },
+    { k: "pco2", n: "pCO2", re: /^p\s*C\s*[O0o]\s*[2z,₂]?(?!\s*[A-Z(]*T\))/i, gas: true, plaus: [5, 200], norm: [35, 45] },
+    { k: "po2", n: "pO2", re: /^p\s*[O0o]\s*[2z,₂]?(?![A-Za-z(])/i, gas: true, plaus: [5, 700], norm: [80, 100] },
+    { k: "so2", n: "sO2", re: /^[sS5]\s*[O0]\s*[2z,₂]?(?![A-Za-z])/, unit: "%", plaus: [0, 100], norm: [95, 99] },
     { k: "hco3std", n: "HCO3 std", re: /^c?\s*HC\s*[O0]\s*[3]?.*(st|std|stand)/i, unit: "mmol/L", plaus: [2, 60], norm: [22, 26] },
     { k: "hco3", n: "HCO3", re: /^c?\s*HC\s*[O0]\s*3/i, unit: "mmol/L", plaus: [2, 60], norm: [22, 26] },
-    { k: "be", n: "BE", re: /^(c?\s*Base|A?BE|SBE|BE\s*\(|BEecf|BEb)/i, unit: "mmol/L", plaus: [-40, 40], norm: [-2, 2], signed: true },
-    { k: "hb", n: "Hb", re: /^c?\s*t?\s*Hb\b/i, unit: "g/dL", plaus: [2, 25], norm: [12, 17.5] },
-    { k: "hct", n: "Hct", re: /^Hct/i, unit: "%", plaus: [5, 75], norm: [36, 50] },
-    { k: "na", n: "Na+", re: /^c?\s*Na\s*[+t]?(?=[\s\d:])/i, unit: "mmol/L", plaus: [90, 200], norm: [135, 145] },
-    { k: "k", n: "K+", re: /^c?\s*K\s*[+*]?(?=[\s\d])/, unit: "mmol/L", plaus: [1, 12], norm: [3.5, 5.0] },
-    { k: "cl", n: "Cl-", re: /^c?\s*C[lI1]\s*[-−]?(?=[\s\d])/, unit: "mmol/L", plaus: [60, 150], norm: [98, 107] },
+    { k: "be", n: "BE", re: /^([ceo]?\s*Base|A?BE|SBE|BE\s*\(|BEecf|BEb)/i, unit: "mmol/L", plaus: [-40, 40], norm: [-2, 2], signed: true },
+    { k: "hb", n: "Hb", re: /^[co]?\s*t?\s*H[bp]\b|^[co]?\s*t\s*H[bp]/i, unit: "g/dL", plaus: [2, 25], norm: [12, 17.5] },
+    { k: "hct", n: "Hct", re: /^H[ce]t/i, unit: "%", plaus: [5, 75], norm: [36, 50] },
+    { k: "na", n: "Na+", re: /^[co]?\s*Na\s*[+t*]?(?=[\s\d:]|$)/i, unit: "mmol/L", plaus: [90, 200], norm: [135, 145] },
+    { k: "k", n: "K+", re: /^[co]?\s*K\s*[+*]?(?=[\s\d]|$)/, unit: "mmol/L", plaus: [1, 12], norm: [3.5, 5.0] },
+    { k: "cl", n: "Cl-", re: /^[co]?\s*C[lI1r]\s*[-−]?(?=[\s\d]|$)/, unit: "mmol/L", plaus: [60, 150], norm: [98, 107] },
     { k: "ca", n: "Ca2+", re: /^(c?\s*Ca\s*[2z]?\s*\+*|iCa)/i, unit: "mmol/L", plaus: [0.3, 3.5], norm: [1.15, 1.33] },
-    { k: "glu", n: "Glu", re: /^c?\s*Glu/i, unit: "mmol/L", plaus: [0.5, 60], norm: [3.9, 7.8] },
-    { k: "lac", n: "Lac", re: /^c?\s*[LlIt1][ae]c/i, unit: "mmol/L", plaus: [0, 30], norm: [0.5, 2.0] },
+    { k: "glu", n: "Glu", re: /^[co]?\s*G[lI1]?[uy]/i, unit: "mmol/L", plaus: [0.5, 60], mgdl: [10, 1100], norm: [3.9, 7.8] },
+    { k: "lac", n: "Lac", re: /^[cso]?\s*[LlIt1][ae]c/i, unit: "mmol/L", plaus: [0, 30], norm: [0.5, 2.0] },
     { k: "fio2", n: "FiO2", re: /^F\s*[I1l]\s*[O0]\s*2/i, unit: "%", plaus: [21, 100], norm: null },
     { k: "temp", n: "Temp", re: /^(T\b|Temp)/i, unit: "°C", plaus: [25, 43], norm: null },
-    { k: "ph", n: "pH", re: /^p\s*H\b/i, unit: "", plaus: [6.5, 8.0], norm: [7.35, 7.45], ph: true },
+    { k: "ph", n: "pH", re: /^p\s*H\b(?!\s*\(\s*T)/i, unit: "", plaus: [6.5, 8.0], norm: [7.35, 7.45], ph: true },
   ];
+  // Temperature-corrected rows, used only when the plain row could not be read.
+  const PT = [
+    { ...P.find((p) => p.k === "ph"), re: /^p\s*H\s*\(\s*T/i, tcorr: true },
+    { ...P.find((p) => p.k === "pco2"), re: /^p\s*C\s*[O0o]\s*[2z,₂L]?\s*\(?\s*T\)/i, tcorr: true },
+    { ...P.find((p) => p.k === "po2"), re: /^p\s*[O0o]\s*[2z,₂L]?\s*\(?\s*T\)/i, tcorr: true },
+  ];
+  const ALL = [...P, ...PT];
+  const DECIMAL = new Set(["ph", "pco2", "hco3", "hco3std", "be", "so2", "fo2hb", "fcohb", "fmethb", "fhhb", "k", "ca", "lac", "hb", "hct", "temp"]);
   const KPA = 7.50062;
 
   // ---------- state ----------
-  let bitmap = null, rotation = 0, worker = null, workerPsm = null;
+  let bitmap = null, rotation = 0, skew = 0, worker = null, workerPsm = null;
   let current = null; // { values: {k: {v, text, unit, conf, line}}, raw }
   const $ = (id) => document.getElementById(id);
 
@@ -204,11 +213,12 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
       bitmap = await new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = URL.createObjectURL(f); });
     }
     rotation = 0;
+    skew = $("desk").checked ? estimateSkew() : 0;
     $("pimg").src = URL.createObjectURL(f);
     $("prev").hidden = false;
     $("go").disabled = false; $("rot").disabled = false;
     drawProcessed();
-    setStatus("الصورة جاهزة. اضغط «اقرأ القيم».");
+    setStatus("الصورة جاهزة" + (Math.abs(skew) >= 0.5 ? ` (عدّلنا الميلان ${skew}°)` : "") + ". اضغط «اقرأ القيم».");
     ev.target.value = "";
   }
 
@@ -216,13 +226,13 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
   function drawProcessed() {
     if (!bitmap) return;
     const cv = $("pcv"), ctx = cv.getContext("2d", { willReadFrequently: true });
-    const w0 = bitmap.width, h0 = bitmap.height, rot = rotation % 360, swap = rot === 90 || rot === 270;
-    const longSide = Math.max(w0, h0), target = Math.min(2600, Math.max(1600, longSide));
-    const s = target / longSide;
-    const W = Math.round((swap ? h0 : w0) * s), H = Math.round((swap ? w0 : h0) * s);
+    const w0 = bitmap.width, h0 = bitmap.height, ang = (rotation + skew) * Math.PI / 180;
+    const longSide = Math.max(w0, h0), target = Math.min(3000, Math.max(1600, longSide));
+    const s = target / longSide, c = Math.abs(Math.cos(ang)), sn = Math.abs(Math.sin(ang));
+    const W = Math.round((w0 * c + h0 * sn) * s), H = Math.round((w0 * sn + h0 * c) * s);
     cv.width = W; cv.height = H;
     ctx.save(); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, W, H);
-    ctx.translate(W / 2, H / 2); ctx.rotate(rot * Math.PI / 180);
+    ctx.translate(W / 2, H / 2); ctx.rotate(ang);
     ctx.drawImage(bitmap, -w0 * s / 2, -h0 * s / 2, w0 * s, h0 * s); ctx.restore();
     if (!$("enh").checked) return;
     const img = ctx.getImageData(0, 0, W, H), d = img.data, n = W * H, g = new Uint8ClampedArray(n), hist = new Uint32Array(256);
@@ -247,6 +257,30 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
       }
     }
     ctx.putImageData(img, 0, 0);
+  }
+
+  // Find the tilt that makes text rows sharpest: rotate dark-pixel coordinates and score the row histogram.
+  function estimateSkew() {
+    const w0 = bitmap.width, h0 = bitmap.height, k = 700 / Math.max(w0, h0), sw = Math.round(w0 * k), sh = Math.round(h0 * k);
+    const cv = document.createElement("canvas"); cv.width = sw; cv.height = sh;
+    const cx = cv.getContext("2d", { willReadFrequently: true }); cx.drawImage(bitmap, 0, 0, sw, sh);
+    const d = cx.getImageData(0, 0, sw, sh).data, g = new Float32Array(sw * sh);
+    for (let i = 0; i < sw * sh; i++) g[i] = d[i * 4] * 0.299 + d[i * 4 + 1] * 0.587 + d[i * 4 + 2] * 0.114;
+    const pts = [];
+    for (let y = 2; y < sh - 2; y++) for (let x = 2; x < sw - 2; x++) {
+      const v = g[y * sw + x], m = (g[y * sw + x - 2] + g[y * sw + x + 2] + g[(y - 2) * sw + x] + g[(y + 2) * sw + x]) / 4;
+      if (v < m - 25) pts.push(x - sw / 2, y - sh / 2);   // dark speck on lighter surroundings = ink
+    }
+    if (pts.length < 200) return 0;
+    const score = (deg) => {
+      const a = deg * Math.PI / 180, sa = Math.sin(a), ca = Math.cos(a), off = sw + sh, bins = new Float32Array(2 * off);
+      for (let i = 0; i < pts.length; i += 2) bins[(pts[i] * sa + pts[i + 1] * ca + off) | 0]++;
+      let t = 0; for (let i = 0; i < bins.length; i++) t += bins[i] * bins[i]; return t;
+    };
+    let best = 0, bs = -1;
+    for (let a = -20; a <= 20; a += 1) { const sc = score(a); if (sc > bs) { bs = sc; best = a; } }
+    for (let a = best - 1; a <= best + 1; a += 0.2) { const sc = score(a); if (sc > bs) { bs = sc; best = a; } }
+    return Math.round(best * 10) / 10;
   }
 
   // ---------- OCR ----------
@@ -286,8 +320,12 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
       const { data } = await w.recognize($("pcv"));
       const secs = ((performance.now() - t0) / 1000).toFixed(1);
       const lines = [];
-      for (const b of data.blocks || []) for (const p of b.paragraphs) for (const l of p.lines) lines.push({ text: l.text.replace(/\n$/, ""), words: l.words });
-      current = parse(lines);
+      const words = [];
+      for (const b of data.blocks || []) for (const p of b.paragraphs) for (const l of p.lines) {
+        lines.push({ text: l.text.replace(/\n$/, ""), words: l.words, bbox: l.bbox });
+        words.push(...l.words);
+      }
+      current = parse(lines, words);
       current.raw = data.text;
       render();
       setBar(1);
@@ -300,47 +338,84 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
   }
 
   // ---------- parsing ----------
-  const NUM = /([-−–—~]\s?)?(\d+(?:[.,·]\d+)?)/;
-  function parse(lines) {
-    const values = {};
+  const NUM = /([-−–—]\s?)?(\d+(?:[.,·]\d+)?)/;
+  const NUMWORD = /^[-−–—]?\d+(?:[.,·]\d+)?$/;
+  function cleanLabel(t) {
+    return t.replace(/[|_]/g, " ")
+      .replace(/^\$/, "s")                                  // "$0," is sO2
+      .replace(/^[^A-Za-z]+/, "")
+      .replace(/^[tT41l]\s+(?=[A-Za-z]{2})/, "")            // ↑/↓ flags read as "t", "4", "1"
+      .trim();
+  }
+  // words: every recognised word with its bbox, used to find a value printed in a separate column.
+  function parse(lines, words) {
+    const values = {}, used = new Set();
     for (const line of lines) {
-      const text = line.text.replace(/[|_]/g, " ").replace(/^[^A-Za-z]+/, "").trim();
+      const text = cleanLabel(line.text);
       if (!text) continue;
-      for (const p of P) {
+      for (const p of ALL) {
         if (values[p.k]) continue;
         const m = text.match(p.re);
         if (!m) continue;
         let rest = text.slice(m[0].length);
-        rest = rest.replace(/^\s*\([^)]*\)/, "");   // "(T)", "(P)", "(B)", "(P,st)" qualifiers
-        rest = rest.replace(/^\s*[-−]\s*(?=\s)/, ""); // trailing "-" of "HCO3-" / "Cl-"
-        rest = rest.replace(/^[\s:=+*]+/, " ");
-        const nm = rest.match(NUM);
-        if (!nm) continue;
+        rest = rest.replace(/^\s*\([^)]*\)[a-z,.]?/, "");  // "(T)", "(P)", "(B)", "(P,st)c" qualifiers
+        rest = rest.replace(/^\s*[-−]\s*(?=\s|$)/, "");     // trailing "-" of "HCO3-" / "Cl-"
+        rest = rest.replace(/^[\s:=+*,.]+/, " ");
+        let nm = rest.match(NUM), conf = null, unitTxt = rest, how = "line";
+        if (nm) conf = wordConf(line.words, nm[2]);
+        else {
+          const hit = rowNeighbour(line, words, used);
+          if (!hit) continue;
+          nm = hit.w.text.match(NUM); conf = hit.w.confidence; unitTxt = hit.unit; how = "row";
+          if (hit.minus && !(nm[1] || "").trim()) nm = ["-" + nm[0], "-", nm[2]];
+          used.add(hit.w);
+        }
         let numTxt = nm[2].replace(/[,·]/g, ".");
         let v = parseFloat(numTxt);
         const neg = !!nm[1] && nm[1].trim() !== "";
         if (neg && p.signed) v = -v;
-        const notes = [];
+        const notes = p.tcorr ? ["مأخوذة من القيم المصحّحة للحرارة (T)"] : [];
         if (neg && !p.signed) notes.push("ظهرت علامة سالب أمام قيمة ما تكون سالبة — تجاهلناها");
+        let unit = p.unit, plaus = p.plaus;
+        if (p.mgdl && (/mg/i.test(unitTxt) || v > p.plaus[1])) { unit = "mg/dL"; plaus = p.mgdl; }
         // pH printed without its decimal point (e.g. "735") — Tesseract dropped the dot.
         if (p.ph && !numTxt.includes(".") && v >= 650 && v <= 800) { v = v / 100; notes.push("الفاصلة العشرية مفقودة — صُحّحت تلقائياً"); }
         // Decimal point lost (e.g. sO2 "970" for 97.0): if ÷10 or ÷100 lands in the possible range, use it and flag it.
-        if (!p.ph && !p.gas && !numTxt.includes(".") && (v > p.plaus[1] || v < p.plaus[0])) {
-          for (const div of [10, 100]) { const c = v / div; if (c >= p.plaus[0] && c <= p.plaus[1]) { notes.push(`قُرئت ${numTxt} — الفاصلة مفقودة غالباً، صُحّحت إلى ${c}`); v = c; break; } }
+        if (!p.ph && !p.gas && !numTxt.includes(".") && (v > plaus[1] || v < plaus[0])) {
+          for (const div of [10, 100]) { const c = v / div; if (c >= plaus[0] && c <= plaus[1]) { notes.push(`قُرئت ${numTxt} — الفاصلة مفقودة غالباً، صُحّحت إلى ${c}`); v = c; break; } }
         }
-        let unit = p.unit;
         if (p.gas) {
-          if (/kpa/i.test(rest)) unit = "kPa";
-          else if (/mm\s*hg/i.test(rest)) unit = "mmHg";
+          if (/kpa/i.test(unitTxt)) unit = "kPa";
+          else if (/mm\s*hg/i.test(unitTxt)) unit = "mmHg";
           else unit = v < (p.k === "pco2" ? 20 : 30) ? "kPa" : "mmHg";
         }
         if (p.k === "fio2" && v > 0 && v <= 1) { v = Math.round(v * 1000) / 10; }
-        const conf = wordConf(line.words, nm[2]);
-        values[p.k] = { v, text: numTxt, unit, conf, line: line.text.trim(), notes, neg };
+        values[p.k] = { v, text: numTxt, unit, plaus, conf, line: line.text.trim(), notes, neg, how };
         break;
       }
     }
     return { values };
+  }
+  // The number whose box sits on the same printed row, closest to the right of the label.
+  function rowNeighbour(line, words, used) {
+    const lb = line.bbox; if (!lb) return null;
+    const h = Math.max(8, lb.y1 - lb.y0), yc = (lb.y0 + lb.y1) / 2;
+    let best = null;
+    for (const w of words) {
+      if (used.has(w) || !NUMWORD.test(w.text)) continue;
+      const b = w.bbox, wyc = (b.y0 + b.y1) / 2;
+      if (b.x0 < lb.x1 - 2 || Math.abs(wyc - yc) > h * 0.55) continue;
+      if (!best || b.x0 < best.bbox.x0) best = w;
+    }
+    if (!best) return null;
+    const bb = best.bbox; let unit = "", minus = false;
+    for (const w of words) {
+      const b = w.bbox, wyc = (b.y0 + b.y1) / 2;
+      if (Math.abs(wyc - yc) > h * 0.55) continue;
+      if (b.x0 >= bb.x1 && b.x0 - bb.x1 < h * 4 && !unit && !NUMWORD.test(w.text)) unit = w.text;
+      if (b.x1 <= bb.x0 + 1 && bb.x0 - b.x1 < h * 1.2 && /^[-−–—]+$/.test(w.text)) minus = true;
+    }
+    return { w: best, unit, minus };
   }
   function wordConf(words, numTxt) {
     let best = null;
@@ -353,10 +428,11 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
   function toMmHg(o) { return o.unit === "kPa" ? o.v * KPA : o.v; }
   function plausRange(p, o) {
     if (p.gas && o.unit === "kPa") return [p.plaus[0] / KPA, p.plaus[1] / KPA];
-    return p.plaus;
+    return o.plaus || p.plaus;
   }
   function normRange(p, o) {
     if (!p.norm) return null;
+    if (o && o.unit === "mg/dL" && p.k === "glu") return [70, 140];
     if (p.gas && o && o.unit === "kPa") return [+(p.norm[0] / KPA).toFixed(1), +(p.norm[1] / KPA).toFixed(1)];
     return p.norm;
   }
@@ -368,6 +444,9 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
       const [a, b] = plausRange(p, o);
       if (o.v < a || o.v > b) { f.level = "bad"; f.msgs.push("قيمة مستحيلة — غالباً قراءة خاطئة"); }
       if (o.conf !== null && o.conf !== undefined && o.conf < 80 && f.level !== "bad") { f.level = "warn"; f.msgs.push(`ثقة القراءة منخفضة (${Math.round(o.conf)}%)`); }
+      if (DECIMAL.has(p.k) && !/\./.test(o.text) && !(o.notes || []).length && o.line !== "(يدوي)" && f.level !== "bad") {
+        f.level = "warn"; f.msgs.push("بدون فاصلة عشرية والجهاز عادة يطبعها — تأكد (مثلاً 22 بدل 2.2)");
+      }
       if (o.notes && o.notes.length && f.level === "ok") f.level = "warn";
       field[p.k] = f;
     }
@@ -384,6 +463,28 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
       ? { level: "ok", text: `✔ فحص Henderson–Hasselbalch: HCO3 المحسوب ${hh.calc.toFixed(1)} ≈ المقروء ${hc.v} — pH و pCO2 و HCO3 متناسقة.` }
       : { level: "bad", text: `✖ فحص Henderson–Hasselbalch فشل: HCO3 المحسوب من pH و pCO2 = ${hh.calc.toFixed(1)} لكن المقروء ${hc.v}. واحد من الثلاثة غالباً مقروء غلط.` });
     else global.push({ level: "warn", text: "ما قدرنا نسوي فحص Henderson–Hasselbalch — نحتاج pH و pCO2 و HCO3 (الفعلي)." });
+    if (vals.be && ph && hc && !isNaN(vals.be.v)) {
+      const beCalc = 0.93 * (hc.v - 24.4 + 14.8 * (ph.v - 7.4));
+      if (Math.abs(beCalc - vals.be.v) > 3) {
+        global.push({ level: "bad", text: `✖ فحص BE: المحسوب من pH و HCO3 ≈ ${beCalc.toFixed(1)} لكن المقروء ${vals.be.v}. غالباً BE مقروء غلط (مثلاً الفاصلة ضايعة).` });
+        if (field.be && field.be.level !== "bad") { field.be.level = "bad"; field.be.msgs.push("ما يتطابق مع pH و HCO3"); }
+      } else global.push({ level: "ok", text: `✔ فحص BE: المحسوب ${beCalc.toFixed(1)} ≈ المقروء ${vals.be.v}.` });
+    }
+    // Same number under two different labels usually means a label was misread (e.g. pCO2 read as pO2).
+    const seen = {};
+    for (const p of P) { const o = vals[p.k]; if (!o || o.line === "(يدوي)" || o.text.replace(/\D/g, "").length < 3) continue; (seen[o.text] = seen[o.text] || []).push(p); }
+    for (const [t, ps] of Object.entries(seen)) if (ps.length > 1) {
+      global.push({ level: "bad", text: `✖ نفس الرقم ${t} ظهر في ${ps.map((p) => p.n).join(" و ")} — غالباً اسم قيمة انقرأ غلط.` });
+      for (const p of ps) if (field[p.k]) { field[p.k].level = "bad"; field[p.k].msgs.push("نفس رقم قيمة ثانية"); }
+    }
+    // pO2 ↔ sO2 (Severinghaus): a low pO2 cannot sit with a near-full saturation, and vice versa.
+    if (vals.po2 && vals.so2 && !isNaN(vals.po2.v) && !isNaN(vals.so2.v)) {
+      const po = toMmHg(vals.po2), so = 100 / (23400 / (po ** 3 + 150 * po) + 1);
+      if (po < 100 && Math.abs(so - vals.so2.v) > 8) {
+        global.push({ level: "bad", text: `✖ فحص pO2 مع sO2: pO2 ${vals.po2.v} يعطي تشبّع ≈ ${so.toFixed(0)}% لكن sO2 المقروء ${vals.so2.v}%. واحد منهم غالباً غلط.` });
+        for (const k of ["po2", "so2"]) if (field[k] && field[k].level !== "bad") { field[k].level = "bad"; field[k].msgs.push("ما يتطابق مع التشبّع"); }
+      }
+    }
     const missing = ["ph", "pco2", "po2", "hco3", "be"].filter((k) => !vals[k]);
     if (missing.length) global.push({ level: "warn", text: "ما انقرت: " + missing.map((k) => P.find((p) => p.k === k).n).join("، ") + " — اكتبها يدوياً إذا موجودة بالورقة." });
     if (vals.na && vals.cl && vals.hco3) {
@@ -483,6 +584,7 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
   $("gal").addEventListener("change", onFile);
   $("rot").addEventListener("click", () => { rotation = (rotation + 90) % 360; drawProcessed(); });
   $("enh").addEventListener("change", drawProcessed);
+  $("desk").addEventListener("change", () => { if (bitmap) { skew = $("desk").checked ? estimateSkew() : 0; drawProcessed(); } });
   $("go").addEventListener("click", run);
   $("confirm").addEventListener("click", confirmTest);
   $("copy").addEventListener("click", copyReport);
