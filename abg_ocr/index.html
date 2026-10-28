@@ -157,7 +157,8 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
       <button id="copy" type="button" disabled>نسخ كنص</button>
     </div>
     <div id="confirmMsg" class="status" role="status"></div>
-    <details><summary>النص الخام اللي قرأه Tesseract</summary><pre id="raw">—</pre></details>
+    <details><summary>النص الخام اللي انقرى</summary><pre id="raw">—</pre>
+      <div class="row"><button id="diag" type="button" disabled>نسخ بيانات التشخيص (للمطوّر)</button></div></details>
     <details><summary>التقرير النصي</summary><pre id="report">—</pre></details>
   </section>
 
@@ -423,6 +424,7 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
       }
       const secs = ((performance.now() - t0) / 1000).toFixed(1);
       current = parse(lines, words);
+      current.lines = lines; current.engine = engine();
       current.raw = data.text;
       savedThisRead = false; $("chk").checked = false; fillSampleInfo(data.text || "");
       render();
@@ -461,7 +463,7 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
         let rest = text.slice(m.index + m[0].length);
         rest = rest.replace(/^[\s~,]*\([^)]*\)[a-z,.¢]?/, "");  // "(T)", "(P)", "(B)", "(P,st)c" qualifiers
         rest = rest.replace(/^\s*[-−]\s*(?=\s|$)/, "");     // trailing "-" of "HCO3-" / "Cl-"
-        rest = rest.replace(/^[\s:=+*,.]+/, " ");
+        rest = rest.replace(/^[\s:=+*,.]+/, " ").replace(/\s[\[{].*$/, "");
         let nm = rest.match(NUM), conf = null, unitTxt = rest, how = "line";
         if (nm) conf = wordConf(line.words, nm[2]);
         else {
@@ -505,15 +507,35 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
     return { values };
   }
   // The number whose box sits on the same printed row, closest to the right of the label.
+  // Box of the label's own words: ML Kit can join a label with text from another row into one line.
+  function labelBox(line) {
+    const own = [];
+    for (const w of line.words || []) { if (!w.bbox || NUMWORD.test(w.text) || /[\[{]/.test(w.text)) break; own.push(w.bbox); }
+    if (!own.length) return line.bbox;
+    return { x0: Math.min(...own.map((b) => b.x0)), y0: Math.min(...own.map((b) => b.y0)), x1: Math.max(...own.map((b) => b.x1)), y1: Math.max(...own.map((b) => b.y1)) };
+  }
   function rowNeighbour(line, words, used) {
-    const lb = line.bbox; if (!lb) return null;
+    const lb = labelBox(line); if (!lb) return null;
     const h = Math.max(8, lb.y1 - lb.y0), yc = (lb.y0 + lb.y1) / 2;
-    let best = null;
+    // A number belongs to a reference range if a bracket sits left of it on its own row
+    // (e.g. "[ 98 - 106 ]") or it is joined to another number by a dash.
+    const rowOf = (w) => { const b = w.bbox, c = (b.y0 + b.y1) / 2, hh = Math.max(6, b.y1 - b.y0) * 0.6; return words.filter((o) => o.bbox && Math.abs((o.bbox.y0 + o.bbox.y1) / 2 - c) <= hh); };
+    const inRange = (w) => {
+      const b = w.bbox, row = rowOf(w).sort((p, q) => p.bbox.x0 - q.bbox.x0), i = row.indexOf(w);
+      if (row.some((o) => o.bbox.x1 <= b.x0 + 1 && o.bbox.x0 >= lb.x1 - 2 && /[\[{]/.test(o.text))) return true;
+      const prev = row[i - 1], next = row[i + 1], next2 = row[i + 2], prev2 = row[i - 2];
+      if (next && /^[-–—]$/.test(next.text) && next2 && NUMWORD.test(next2.text)) return true;
+      if (prev && /^[-–—]$/.test(prev.text) && prev2 && NUMWORD.test(prev2.text)) return true;
+      return /\d\s*[-–—]\s*\d/.test(w.text);
+    };
+    let best = null, bestCost = Infinity;
     for (const w of words) {
-      if (used.has(w) || !NUMWORD.test(w.text)) continue;
-      const b = w.bbox, wyc = (b.y0 + b.y1) / 2;
-      if (b.x0 < lb.x1 - 2 || Math.abs(wyc - yc) > h * 0.55) continue;
-      if (!best || b.x0 < best.bbox.x0) best = w;
+      if (used.has(w) || !w.bbox || !NUMWORD.test(w.text)) continue;
+      const b = w.bbox, dy = Math.abs((b.y0 + b.y1) / 2 - yc);
+      if (b.x0 < lb.x1 - 2 || dy > h * 0.55 || inRange(w)) continue;
+      // Closest row first; among numbers on the row, the leftmost (the value column).
+      const cost = dy / h * 4 + (b.x0 - lb.x1) / Math.max(1, lb.x1 - lb.x0) * 0.25;
+      if (cost < bestCost) { best = w; bestCost = cost; }
     }
     if (!best) return null;
     const bb = best.bbox; let unit = "", minus = false;
@@ -655,7 +677,7 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
     }
     $("raw").textContent = current.raw || "—";
     $("report").textContent = report();
-    $("confirm").disabled = false; $("copy").disabled = false; $("confirmMsg").textContent = "";
+    $("confirm").disabled = false; $("copy").disabled = false; $("diag").disabled = false; $("confirmMsg").textContent = "";
     if (typeof updateSaveBtn === "function") updateSaveBtn();
   }
 
@@ -863,6 +885,14 @@ table.hist tr.detail td { white-space: normal; background: var(--bg); }
   $("save").addEventListener("click", saveOnline);
   $("fbed").addEventListener("change", () => { openRow = null; renderHist(); });
   $("csv").addEventListener("click", copyCsv);
+  // Text plus word boxes of the last read, compact, for diagnosing a misread (no image, no names typed by staff).
+  $("diag").addEventListener("click", async () => {
+    if (!current || !current.lines) return;
+    const r = (b) => b ? [b.x0, b.y0, b.x1, b.y1].map(Math.round) : null;
+    const txt = JSON.stringify({ engine: current.engine, lines: current.lines.map((l) => ({ t: l.text, b: r(l.bbox), w: (l.words || []).map((w) => [w.text, ...(r(w.bbox) || [])]) })) });
+    try { await navigator.clipboard.writeText(txt); $("confirmMsg").textContent = "انسخت بيانات التشخيص — الصقها في المحادثة."; }
+    catch { $("raw").textContent = txt; $("confirmMsg").textContent = "النسخ التلقائي ما اشتغل — البيانات ظاهرة في مربع النص الخام، انسخها يدوياً."; }
+  });
   initDb();
   window.__abg = { parse, evaluate, P }; // for local testing
 })();

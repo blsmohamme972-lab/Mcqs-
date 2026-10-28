@@ -85,3 +85,11 @@ offers an engine switch (ML Kit / Tesseract) and keeps a separate accuracy log p
 ML Kit receives the straightened colour image (no black-and-white step). APK is ~34 MB (arm64 + armv7).
 The ML Kit path was tested with a simulated bridge (column-split table output); it has not yet been run
 on a physical device.
+
+## v0.6: ML Kit row-matching fix
+First real ML Kit run on a phone: 18 values correct, but Na/K/Ca took the lower bound of the *next* row's
+reference range (98, 1.15, 136) and Cl/FHHb were missed. Cause: on a slightly tilted page ML Kit joined
+each label with the next row's "[ lo - hi ]" into one line. Fixes: bracketed ranges are ignored on the
+label's line; row matching uses the label's own word boxes, prefers the nearest row, and skips numbers
+that belong to a reference range. A simulation of the joined lines reproduces the phone's errors with
+v0.5 and reads all 22 values with v0.6. Adds a "copy diagnostic data" button (text + word boxes).
