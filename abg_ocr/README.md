@@ -69,3 +69,10 @@ Result on a straight photo of a real ABL800 printout: 20/20 values correct, HH/B
 The ABL800 prints Anion Gap (Na − Cl − HCO3), AnionGap,K (+K) and mOsm (2·Na + Glu). These are now
 read and compared with the values read for Na, K, Cl, HCO3 and Glu. On a phone OCR run Na 152 was
 read as 162; it passed the range and HH checks but is now caught by both the anion gap and mOsm checks.
+
+## v0.4: online saving (web version)
+After reading and checking a printout, a verified result can be saved online with bed number,
+optional MRN (no names), sample time/number (pre-filled from the printout header when read).
+Saved results are listed for everyone the page is shared with, filterable by bed, expandable,
+deletable, and copyable as CSV. Uses the claude.ai artifact database (`abg` collection), so it works
+in the web page only; the APK shows a notice and keeps reading offline.

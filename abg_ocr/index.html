@@ -79,6 +79,18 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
 .stat span { font-size: .78rem; color: var(--muted); }
 .ltr { direction: ltr; unicode-bidi: isolate; }
 .note { font-size: .82rem; color: var(--muted); }
+.form { display: grid; gap: 10px; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.fld { display: grid; gap: 4px; font-size: .85rem; color: var(--muted); min-width: 0; }
+.fld input { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; min-width: 0; }
+table.hist td { font-family: var(--font-data); font-size: .82rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+table.hist tr.hrow { cursor: pointer; }
+table.hist tr.hrow:hover td, table.hist tr.hrow:focus-visible td { background: var(--bg); }
+table.hist tr.hrow:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+table.hist td.bad { color: var(--bad); font-weight: 600; }
+table.hist tr.detail td { white-space: normal; background: var(--bg); }
+.dgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 4px 12px; direction: ltr; text-align: left; }
+.dgrid span b { font-weight: 600; }
 @media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
 </style>
 
@@ -141,8 +153,42 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
     <details><summary>التقرير النصي</summary><pre id="report">—</pre></details>
   </section>
 
+  <section class="card" aria-labelledby="h-save" id="saveCard">
+    <h2 id="h-save">٣. حفظ أونلاين</h2>
+    <div id="saveOff" class="banner warn">جاري الاتصال بقاعدة البيانات…</div>
+    <div id="saveOn" class="form" hidden>
+      <div class="fields">
+        <label class="fld">رقم السرير *<input id="bed" type="text" inputmode="text" autocomplete="off" placeholder="مثلاً ICU-3"></label>
+        <label class="fld">رقم الملف (MRN)<input id="pref" type="text" autocomplete="off" placeholder="اختياري — بدون اسم"></label>
+        <label class="fld">وقت العيّنة<input id="stime" type="datetime-local"></label>
+        <label class="fld">رقم العيّنة<input id="sno" type="text" inputmode="numeric" autocomplete="off" placeholder="Sample #"></label>
+      </div>
+      <p class="note">لا تكتب اسم المريض. استخدم رقم السرير أو رقم الملف فقط. كل من تشارك معه الصفحة يشوف النتائج المحفوظة.</p>
+      <label class="chk"><input id="chk" type="checkbox"> راجعت كل رقم مع الورقة وصحّحت الغلط</label>
+      <div class="row"><button id="save" class="primary" type="button" disabled>💾 حفظ أونلاين</button></div>
+      <div id="saveMsg" class="status" role="status">اقرأ ورقة أولاً، ثم راجع الأرقام واحفظ.</div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-hist" id="histCard">
+    <h2 id="h-hist">٤. النتائج المحفوظة</h2>
+    <div class="row">
+      <label class="chk">السرير
+        <select id="fbed"><option value="">الكل</option></select>
+      </label>
+      <button id="csv" type="button" disabled>نسخ كجدول (CSV)</button>
+    </div>
+    <div class="tablebox">
+      <table class="res hist">
+        <thead><tr><th>الوقت</th><th>السرير</th><th>pH</th><th>pCO2</th><th>pO2</th><th>HCO3</th><th>BE</th><th>Na</th><th>K</th><th>Lac</th></tr></thead>
+        <tbody id="hbody"><tr><td colspan="10" class="note">لا توجد نتائج محفوظة بعد. بعد قراءة ورقة ومراجعتها، احفظها من القسم ٣ وتظهر هنا لكل الفريق.</td></tr></tbody>
+      </table>
+    </div>
+    <div id="histMsg" class="status" role="status"></div>
+  </section>
+
   <section class="card" aria-labelledby="h-log">
-    <h2 id="h-log">٣. دقة Tesseract في تجاربك</h2>
+    <h2 id="h-log">٥. دقة Tesseract في تجاربك</h2>
     <div class="stats">
       <div class="stat"><b id="sTests">0</b><span>ورقة مجرّبة</span></div>
       <div class="stat"><b id="sAcc">—</b><span>قيم مقروءة صح</span></div>
@@ -340,6 +386,7 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
       }
       current = parse(lines, words);
       current.raw = data.text;
+      savedThisRead = false; $("chk").checked = false; fillSampleInfo(data.text || "");
       render();
       setBar(1);
       setStatus(`انتهت القراءة في ${secs} ثانية — دقة تعرّف Tesseract العامة ${Math.round(data.confidence)}%.`);
@@ -570,6 +617,7 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
     $("raw").textContent = current.raw || "—";
     $("report").textContent = report();
     $("confirm").disabled = false; $("copy").disabled = false; $("confirmMsg").textContent = "";
+    if (typeof updateSaveBtn === "function") updateSaveBtn();
   }
 
   function onEdit(p, txt) {
@@ -629,6 +677,150 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
   $("copy").addEventListener("click", copyReport);
   $("reset").addEventListener("click", () => { store.set({ tests: 0, read: 0, right: 0, expected: 0, missed: 0 }); renderStats(); });
   renderStats();
+
+  // ---------- online saving (artifact db) ----------
+  let db = null, userCap = null, myId = null, rows = [], openRow = null, pendingDelete = null, savedThisRead = false;
+  const SUMMARY = ["ph", "pco2", "po2", "hco3", "be", "na", "k", "lac"];
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
+  const pad = (n) => String(n).padStart(2, "0");
+  const localInput = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  const fmtTime = (iso) => { const d = new Date(iso); return isNaN(d) ? "—" : `${pad(d.getDate())}/${pad(d.getMonth() + 1)} ${pad(d.getHours())}:${pad(d.getMinutes())}`; };
+
+  function saveOffline(msg) { $("saveOff").textContent = msg; $("saveOff").hidden = false; $("saveOn").hidden = true; $("histMsg").textContent = msg; }
+
+  async function initDb() {
+    if (!window.claude || typeof window.claude.use !== "function") {
+      saveOffline("الحفظ أونلاين يشتغل في نسخة الويب من الصفحة (claude.ai). في هذي النسخة القراءة فقط.");
+      return;
+    }
+    try { db = await window.claude.use("db"); userCap = await window.claude.use("user"); } catch { db = null; }
+    if (!db) { saveOffline("ما قدرنا نوصل لقاعدة البيانات. تأكد إنك مسجّل دخول في claude.ai وعندك صلاحية على الصفحة."); return; }
+    try { myId = userCap ? await userCap.id() : null; } catch { myId = null; }
+    $("saveOff").hidden = true; $("saveOn").hidden = false;
+    try { const b = localStorage.getItem("abgLastBed"); if (b) $("bed").value = b; } catch {}
+    updateSaveBtn();
+    db.collection("abg").orderBy("savedAt", "desc").limit(300).onSnapshot(
+      (snap) => { rows = snap.docs.map((d) => ({ id: d.id, ...d.data() })); renderHist(); },
+      (e) => { $("histMsg").textContent = "ما قدرنا نقرأ النتائج المحفوظة (" + (e.code || e.message) + ")."; }
+    );
+  }
+
+  // Sample time and number printed on the ABL800 header, when Tesseract read them.
+  function fillSampleInfo(raw) {
+    const t = raw.match(/(\d{1,2})[:.](\d{2})\s*([AP])\.?\s*M/i), d = raw.match(/(\d{1,2})\/(\d{1,2})\/(20\d\d)/);
+    let when = new Date();
+    if (d) {
+      let h = t ? +t[1] % 12 + (/p/i.test(t[3]) ? 12 : 0) : when.getHours(), m = t ? +t[2] : when.getMinutes();
+      const c = new Date(+d[3], +d[1] - 1, +d[2], h, m);
+      if (!isNaN(c) && +d[1] <= 12) when = c;
+    }
+    $("stime").value = localInput(when);
+    const sn = raw.match(/Sample\s*#?\s*(\d{3,6})/i);
+    $("sno").value = sn ? sn[1] : "";
+  }
+
+  function updateSaveBtn() {
+    const ready = db && current && !savedThisRead && $("chk").checked && $("bed").value.trim();
+    $("save").disabled = !ready;
+  }
+
+  async function saveOnline() {
+    if (!db || !current) return;
+    const ev = evaluate(current.values), values = {}, units = {};
+    for (const p of P) { const o = current.values[p.k]; if (o && !isNaN(o.v)) { values[p.k] = o.v; units[p.k] = o.unit; } }
+    const bed = $("bed").value.trim();
+    const st = new Date($("stime").value);
+    const doc = {
+      bed, mrn: $("pref").value.trim(), sampleNo: $("sno").value.trim(),
+      sampleAt: isNaN(st) ? new Date().toISOString() : st.toISOString(), savedAt: new Date().toISOString(),
+      by: myId, analyzer: $("dev").value, values, units,
+      edited: Object.keys(current.edited || {}),
+      badChecks: ev.global.filter((g) => g.level === "bad").map((g) => g.text),
+    };
+    $("save").disabled = true; $("saveMsg").textContent = "جاري الحفظ…";
+    try {
+      await db.collection("abg").add(doc);
+      savedThisRead = true;
+      try { localStorage.setItem("abgLastBed", bed); } catch {}
+      $("saveMsg").textContent = `✔ انحفظت نتيجة السرير ${bed}${doc.badChecks.length ? " — فيها " + doc.badChecks.length + " فحص فاشل، تعلّمت بالأحمر في السجل" : ""}.`;
+    } catch (e) {
+      $("saveMsg").textContent = "ما انحفظت: " + (e.code === "not_granted" ? "ما عندك صلاحية كتابة على هذي الصفحة — اطلب من صاحبها يعطيك صلاحية." : (e.message || e.code)) ;
+    }
+    updateSaveBtn();
+  }
+
+  async function renderHist() {
+    const beds = [...new Set(rows.map((r) => r.bed).filter(Boolean))].sort();
+    const f = $("fbed"), cur = f.value;
+    f.innerHTML = ""; f.appendChild(el("option", null, "الكل")).value = "";
+    for (const b of beds) f.appendChild(el("option", null, b)).value = b;
+    f.value = beds.includes(cur) ? cur : "";
+    const list = rows.filter((r) => !f.value || r.bed === f.value);
+    $("csv").disabled = !list.length;
+    const tb = $("hbody"); tb.innerHTML = "";
+    if (!list.length) {
+      const tr = el("tr"), td = el("td", "note", rows.length ? "لا توجد نتائج لهذا السرير." : "لا توجد نتائج محفوظة بعد. بعد قراءة ورقة ومراجعتها، احفظها من القسم ٣ وتظهر هنا لكل الفريق.");
+      td.colSpan = 10; tr.appendChild(td); tb.appendChild(tr); return;
+    }
+    let names = {};
+    try { const ids = [...new Set(list.map((r) => r.by).filter(Boolean))]; if (userCap && ids.length) names = await userCap.profiles(ids); } catch {}
+    for (const r of list) {
+      const tr = el("tr", "hrow"); tr.tabIndex = 0;
+      const hasBad = r.badChecks && r.badChecks.length;
+      tr.appendChild(el("td", hasBad ? "bad" : "", (hasBad ? "⚠ " : "") + fmtTime(r.sampleAt)));
+      tr.appendChild(el("td", null, r.bed || "—"));
+      for (const k of SUMMARY) {
+        const v = r.values ? r.values[k] : undefined, p = P.find((x) => x.k === k);
+        const nr = v !== undefined && p ? normRange(p, { unit: r.units && r.units[k] }) : null;
+        tr.appendChild(el("td", nr && (v < nr[0] || v > nr[1]) ? "bad" : "", v === undefined ? "—" : String(v)));
+      }
+      const toggle = () => { openRow = openRow === r.id ? null : r.id; pendingDelete = null; renderHist(); };
+      tr.addEventListener("click", toggle);
+      tr.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
+      tb.appendChild(tr);
+      if (openRow === r.id) tb.appendChild(detailRow(r, names));
+    }
+  }
+
+  function detailRow(r, names) {
+    const tr = el("tr", "detail"), td = el("td"); td.colSpan = 10; tr.appendChild(td);
+    const g = el("div", "dgrid");
+    for (const p of P) {
+      const v = r.values ? r.values[p.k] : undefined; if (v === undefined) continue;
+      const s = el("span"); s.appendChild(el("b", null, p.n + " ")); s.appendChild(document.createTextNode(v + " " + ((r.units && r.units[p.k]) || ""))); g.appendChild(s);
+    }
+    td.appendChild(g);
+    const who = r.by && names[r.by] ? (names[r.by].name || "عضو في الفريق") : "—";
+    td.appendChild(el("p", "note", `وقت العيّنة ${fmtTime(r.sampleAt)} · حُفظت ${fmtTime(r.savedAt)} · بواسطة ${who}` + (r.mrn ? ` · MRN ${r.mrn}` : "") + (r.sampleNo ? ` · Sample # ${r.sampleNo}` : "") + (r.edited && r.edited.length ? ` · صُحّح يدوياً: ${r.edited.length}` : "")));
+    for (const b of r.badChecks || []) td.appendChild(el("div", "banner bad", b));
+    const del = el("button", null, pendingDelete === r.id ? "تأكيد الحذف" : "حذف"); del.type = "button";
+    del.addEventListener("click", async (e) => {
+      e.stopPropagation();
+      if (pendingDelete !== r.id) { pendingDelete = r.id; renderHist(); return; }
+      try { await db.collection("abg").doc(r.id).delete(); openRow = null; } catch (err) { $("histMsg").textContent = "ما انحذفت: " + (err.code === "not_granted" ? "ما عندك صلاحية." : (err.message || err.code)); }
+      pendingDelete = null;
+    });
+    const row = el("div", "row"); row.appendChild(del); td.appendChild(row);
+    return tr;
+  }
+
+  async function copyCsv() {
+    const f = $("fbed").value, list = rows.filter((r) => !f || r.bed === f);
+    const keys = P.map((p) => p.k);
+    const head = ["sampleAt", "bed", "mrn", "sampleNo", ...P.map((p) => p.n), "failedChecks"];
+    const q = (x) => { const t = String(x === undefined || x === null ? "" : x); return /[",\n]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
+    const lines = [head.map(q).join(",")].concat(list.map((r) => [r.sampleAt, r.bed, r.mrn, r.sampleNo, ...keys.map((k) => r.values ? r.values[k] : ""), (r.badChecks || []).length].map(q).join(",")));
+    const txt = lines.join("\n");
+    try { await navigator.clipboard.writeText(txt); $("histMsg").textContent = `انسخ ${list.length} نتيجة — الصقها في Excel أو Google Sheets.`; }
+    catch { $("histMsg").textContent = "النسخ التلقائي ما اشتغل في هذا المتصفح."; }
+  }
+
+  $("chk").addEventListener("change", updateSaveBtn);
+  $("bed").addEventListener("input", updateSaveBtn);
+  $("save").addEventListener("click", saveOnline);
+  $("fbed").addEventListener("change", () => { openRow = null; renderHist(); });
+  $("csv").addEventListener("click", copyCsv);
+  initDb();
   window.__abg = { parse, evaluate, P }; // for local testing
 })();
 </script>
