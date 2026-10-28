@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.MCQs" parent="android:Theme.Material.NoActionBar" />
+</resources>

@@ -1,0 +1,338 @@
+{
+  "format": 1,
+  "id": "ct-ch17-sample",
+  "title": "Ch17 Chest trauma — sample",
+  "version": 1,
+  "source": "Cardiothoracic Surgery, 2nd ed. (Chikwe 2013)",
+  "scenes": [
+    {
+      "id": "tension_ptx",
+      "title": "Tension pneumothorax — the burglar who can't leave",
+      "image": "media/scene.png",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "story": "Building = rib cage (floors = intercostal spaces, roof rail = clavicle). A car crashes (rapid deceleration) and snaps a rib-beam that pierces the lung balloon; a man holding his breath with a zipped mouth pops tiny balloons (closed glottis → alveolar rupture). Air fills the room: the lung gasps and clutches its chest; knocking echoes like a drum (hyper-resonance); the stethoscope hears only a cricket (absent breath sounds). Tension: walls turn to bubble wrap (subcutaneous emphysema), the central wall bows (mediastinal shift), the heart is squeezed and the gauge swings (hemodynamic instability). The firefighter stabs a big needle from the 2nd-floor balcony at the middle of the clavicle rail; the plumber fits a permanent pipe in the side wall between floors 4 and 5, pointing up and forward. The chainsaw stays in its dusty case: thoracotomy rarely indicated.",
+      "regions": [
+        {
+          "id": "beam",
+          "x": 0.02,
+          "y": 0.15,
+          "w": 0.29,
+          "h": 0.2,
+          "label": "Broken rib-beam pierces lung balloon"
+        },
+        {
+          "id": "zipper",
+          "x": 0.02,
+          "y": 0.42,
+          "w": 0.29,
+          "h": 0.2,
+          "label": "Zipped mouth, popping mini-balloons"
+        },
+        {
+          "id": "car",
+          "x": 0.02,
+          "y": 0.7,
+          "w": 0.29,
+          "h": 0.22,
+          "label": "Car crash, sudden stop"
+        },
+        {
+          "id": "drum",
+          "x": 0.34,
+          "y": 0.3,
+          "w": 0.12,
+          "h": 0.18,
+          "label": "Knock = giant drum"
+        },
+        {
+          "id": "heart",
+          "x": 0.47,
+          "y": 0.3,
+          "w": 0.085,
+          "h": 0.18,
+          "label": "Heart squeezed, gauge swinging"
+        },
+        {
+          "id": "lung",
+          "x": 0.575,
+          "y": 0.3,
+          "w": 0.15,
+          "h": 0.18,
+          "label": "Lung gasping, clutching chest"
+        },
+        {
+          "id": "cricket",
+          "x": 0.34,
+          "y": 0.52,
+          "w": 0.14,
+          "h": 0.18,
+          "label": "Stethoscope + lone cricket"
+        },
+        {
+          "id": "wall",
+          "x": 0.5,
+          "y": 0.52,
+          "w": 0.07,
+          "h": 0.32,
+          "label": "Central wall bowed"
+        },
+        {
+          "id": "bubbles",
+          "x": 0.58,
+          "y": 0.52,
+          "w": 0.14,
+          "h": 0.18,
+          "label": "Bubble-wrap walls"
+        },
+        {
+          "id": "firefighter",
+          "x": 0.75,
+          "y": 0.15,
+          "w": 0.23,
+          "h": 0.22,
+          "label": "Hero needle: 2nd floor, mid-clavicle rail"
+        },
+        {
+          "id": "plumber",
+          "x": 0.75,
+          "y": 0.45,
+          "w": 0.23,
+          "h": 0.22,
+          "label": "Pipe floors 4-5, side wall, up & forward"
+        },
+        {
+          "id": "chainsaw",
+          "x": 0.75,
+          "y": 0.74,
+          "w": 0.23,
+          "h": 0.2,
+          "label": "Dusty chainsaw in locked case"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": "ptx.beam",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "beam",
+      "front": "Traumatic pneumothorax — direct lung injury from…?",
+      "back": "Rib fracture.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.car",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "car",
+      "front": "Traumatic pneumothorax — the other cause besides rib fracture?",
+      "back": "Rapid deceleration.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.zipper",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "zipper",
+      "front": "Third mechanism of traumatic pneumothorax?",
+      "back": "Rapid rise in intrathoracic pressure against a closed glottis, causing rupture of the distal alveoli.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.lung",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "lung",
+      "front": "Presenting symptoms of traumatic pneumothorax?",
+      "back": "Dyspnea and chest pain. (Tension adds acute respiratory distress.)",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.drum",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "drum",
+      "front": "Percussion finding?",
+      "back": "Hyper-resonance to percussion.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.cricket",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "cricket",
+      "front": "Auscultation finding?",
+      "back": "Diminished or absent breath sounds.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.bubbles",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "bubbles",
+      "front": "Tension pneumothorax may present with… (skin)?",
+      "back": "Subcutaneous emphysema.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.wall",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "wall",
+      "front": "Tension pneumothorax may present with… (mediastinum)?",
+      "back": "Mediastinal shift.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.heart",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "heart",
+      "front": "Tension pneumothorax may present with… (circulation)?",
+      "back": "Hemodynamic instability.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.firefighter",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "firefighter",
+      "front": "Immediate chest decompression: what, and where?",
+      "back": "Wide-bore needle into the pleural cavity, 2nd intercostal space, midclavicular line.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.plumber",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "plumber",
+      "front": "Definitive management: where is the chest tube placed, and which direction?",
+      "back": "4th or 5th intercostal space, midaxillary line, directing the chest tube anteriorly and superiorly.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.chainsaw",
+      "type": "occlusion",
+      "scene": "tension_ptx",
+      "region": "chainsaw",
+      "front": "Thoracotomy for traumatic pneumothorax?",
+      "back": "Rarely indicated.",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ]
+    },
+    {
+      "id": "ptx.mcq.needle",
+      "type": "mcq",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax"
+      ],
+      "front": "Per this book, immediate decompression of a tension pneumothorax is performed by:",
+      "options": [
+        "A wide-bore needle in the 2nd intercostal space, midclavicular line",
+        "A chest tube in the 5th or 6th intercostal space directed posteriorly",
+        "Emergency thoracotomy",
+        "Obtaining a chest radiograph first"
+      ],
+      "answer": 0,
+      "explanation": "Book p823: wide-bore needle into the pleural cavity, 2nd ICS, midclavicular line. Definitive management is a chest tube (4th/5th ICS, midaxillary line). Note: newer ATLS guidance prefers the 4th/5th ICS anterior to the midaxillary line in adults."
+    },
+    {
+      "id": "ptx.mcq.tube_direction",
+      "type": "mcq",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "pneumothorax",
+        "hemothorax"
+      ],
+      "front": "Chest tube for traumatic pneumothorax (4th/5th ICS, midaxillary line) is directed:",
+      "options": [
+        "Anteriorly and superiorly",
+        "Posteriorly",
+        "Inferiorly",
+        "Medially toward the hilum"
+      ],
+      "answer": 0,
+      "explanation": "Air rises: pneumothorax tube goes anteriorly and superiorly. Contrast hemothorax (same page): wide-bore, at least 36F, 5th or 6th ICS midaxillary line, directed posteriorly."
+    },
+    {
+      "id": "htx.mcq.surgery",
+      "type": "mcq",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p823",
+      "tags": [
+        "ch17",
+        "hemothorax"
+      ],
+      "front": "Hemothorax: indications for surgery (per this book)?",
+      "options": [
+        "Immediate blood loss >1 L, or continued bleeding >100 mL/h for 4 h or more",
+        "Immediate blood loss >500 mL",
+        "Any hemothorax visible on chest radiograph",
+        "Bleeding >50 mL/h for 2 h"
+      ],
+      "answer": 0,
+      "explanation": "Book p823. Tube thoracostomy alone stops bleeding in 80–90% of cases."
+    },
+    {
+      "id": "ch17.box17_1",
+      "type": "basic",
+      "source": "Cardiothoracic Surgery 2e, Ch17 p816 (Box 17.1)",
+      "tags": [
+        "ch17",
+        "primary-survey"
+      ],
+      "front": "Box 17.1 — the five immediately life-threatening chest injuries?",
+      "back": "Tension pneumothorax · Massive hemothorax · Open pneumothorax · Cardiac tamponade · Flail chest."
+    }
+  ]
+}
