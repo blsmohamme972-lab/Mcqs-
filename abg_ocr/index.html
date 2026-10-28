@@ -1,0 +1,493 @@
+<meta charset="utf-8">
+<title>ABG Reader Test</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
+<style>
+/* Layout: one narrow phone column — capture card, then the parsed result sheet, then the test log. */
+:root {
+  --bg: #f3f5f8; --surface: #ffffff; --fg: #17202c; --muted: #5d6878; --line: #dbe1e9;
+  --accent: #2f5bd3; --accent-fg: #ffffff;
+  --ok: #1d7a46; --ok-bg: #e3f4ea; --warn: #8a5a00; --warn-bg: #fff2d6; --bad: #b3261e; --bad-bg: #fde5e3;
+  --font-body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #10151c; --surface: #19212b; --fg: #e6ebf2; --muted: #9aa6b6; --line: #2c3745;
+  --accent: #7d9cff; --accent-fg: #0d1320;
+  --ok: #6fd39a; --ok-bg: #173327; --warn: #f2c25c; --warn-bg: #3a2e12; --bad: #ff8a80; --bad-bg: #3f1d1b;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #10151c; --surface: #19212b; --fg: #e6ebf2; --muted: #9aa6b6; --line: #2c3745;
+  --accent: #7d9cff; --accent-fg: #0d1320;
+  --ok: #6fd39a; --ok-bg: #173327; --warn: #f2c25c; --warn-bg: #3a2e12; --bad: #ff8a80; --bad-bg: #3f1d1b;
+  color-scheme: dark; }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 640px; margin: 0 auto; padding-block: 20px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 16px; }
+h1 { font-size: 1.45rem; margin: 0; text-wrap: balance; }
+h2 { font-size: 1.05rem; margin: 0; }
+.sub { color: var(--muted); margin: 4px 0 0; font-size: .9rem; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+button, .filebtn { font: inherit; font-weight: 500; border-radius: 8px; padding: 10px 14px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--fg); }
+button.primary, .filebtn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+button:disabled { opacity: .5; cursor: default; }
+button:focus-visible, .filebtn:focus-within, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.filebtn input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.filebtn { position: relative; display: inline-flex; }
+select { font: inherit; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); }
+label.chk { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: .9rem; }
+.preview { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.preview figure { margin: 0; min-width: 0; }
+.preview img, .preview canvas { width: 100%; max-width: 100%; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.preview figcaption { font-size: .78rem; color: var(--muted); }
+.bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+.status { font-size: .9rem; color: var(--muted); }
+
+.banner { border-radius: 8px; padding: 10px 12px; font-size: .92rem; }
+.banner.ok { background: var(--ok-bg); color: var(--ok); }
+.banner.warn { background: var(--warn-bg); color: var(--warn); }
+.banner.bad { background: var(--bad-bg); color: var(--bad); }
+
+table.res { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.tablebox { overflow-x: auto; }
+table.res th { text-align: start; color: var(--muted); font-weight: 500; font-size: .78rem; letter-spacing: .03em; padding: 4px 6px; border-bottom: 1px solid var(--line); }
+table.res td { padding: 6px 4px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+td.name { font-family: var(--font-data); font-weight: 600; white-space: nowrap; }
+td.val input { width: 5.2em; font-family: var(--font-data); font-size: 1rem; padding: 6px 8px; border-radius: 6px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg); font-variant-numeric: tabular-nums; }
+td.unit, td.ref { font-family: var(--font-data); color: var(--muted); font-size: .8rem; white-space: nowrap; }
+tr.st-warn td.val input { border-color: var(--warn); background: var(--warn-bg); }
+tr.st-bad td.val input { border-color: var(--bad); background: var(--bad-bg); }
+tr.st-miss td.name { color: var(--muted); font-weight: 400; }
+.flag { font-size: .78rem; display: block; }
+.flag.warn { color: var(--warn); } .flag.bad { color: var(--bad); } .flag.ok { color: var(--ok); }
+.hilo { font-family: var(--font-data); font-weight: 700; margin-inline-start: 4px; }
+.hilo.hi { color: var(--bad); } .hilo.lo { color: var(--accent); }
+
+details summary { cursor: pointer; color: var(--muted); }
+pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-data); font-size: .8rem; background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px; padding: 10px; margin: 8px 0 0; direction: ltr; text-align: left; overflow-x: auto; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.stat { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+.stat b { display: block; font-family: var(--font-data); font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+.stat span { font-size: .78rem; color: var(--muted); }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+.note { font-size: .82rem; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
+</style>
+
+<div class="wrap" dir="rtl">
+  <header>
+    <h1>قارئ ورقة ABG — تجربة</h1>
+    <p class="sub">صوّر ورقة غازات الدم، يقرأها Tesseract داخل الجوال نفسه، وتطلع القيم كنص. الصورة ما تنرسل لأي مكان. <b>للتجربة فقط — لا تُستخدم لقرار علاجي.</b></p>
+  </header>
+
+  <section class="card" aria-labelledby="h-cap">
+    <h2 id="h-cap">١. الصورة</h2>
+    <div class="row">
+      <label class="filebtn primary">📷 صوّر الورقة<input id="cam" type="file" accept="image/*" capture="environment"></label>
+      <label class="filebtn">🖼️ من المعرض<input id="gal" type="file" accept="image/*"></label>
+      <button id="rot" type="button" disabled>↻ تدوير</button>
+    </div>
+    <div class="row">
+      <label class="chk"><input id="enh" type="checkbox" checked> تحسين الصورة (أبيض وأسود)</label>
+      <label class="chk">طريقة القراءة
+        <select id="psm">
+          <option value="4" selected>عمود واحد (الأفضل للأوراق)</option>
+          <option value="6">كتلة نص واحدة</option>
+          <option value="3">تلقائي</option>
+          <option value="11">نص متفرق</option>
+        </select>
+      </label>
+    </div>
+    <p class="note">نصائح: الورقة مسطّحة، الإضاءة بدون ظل، الجوال موازي للورقة، والقيم تعبّي الصورة. <b>غطِّ اسم المريض.</b></p>
+    <div class="preview" id="prev" hidden>
+      <figure><img id="pimg" alt="الصورة الأصلية"><figcaption>الأصلية</figcaption></figure>
+      <figure><canvas id="pcv" aria-label="الصورة بعد التحسين"></canvas><figcaption>اللي يقرأها Tesseract</figcaption></figure>
+    </div>
+    <div class="row"><button id="go" class="primary" type="button" disabled>اقرأ القيم</button></div>
+    <div class="bar" aria-hidden="true"><i id="barfill"></i></div>
+    <div class="status" id="status" role="status">أول مرة يحمّل محرك القراءة (~٣–٧ ميغا)، بعدها يكون أسرع.</div>
+  </section>
+
+  <section class="card" aria-labelledby="h-res" id="resCard">
+    <h2 id="h-res">٢. النتيجة — راجع كل رقم مع الورقة</h2>
+    <div id="checks"></div>
+    <div class="tablebox">
+      <table class="res">
+        <thead><tr><th>القيمة</th><th>المقروء</th><th>الوحدة</th><th>الطبيعي</th></tr></thead>
+        <tbody id="tbody"><tr><td colspan="4" class="note">صوّر ورقة ABG واضغط «اقرأ القيم». القيم تظهر هنا، والأصفر/الأحمر يحتاج مراجعة.</td></tr></tbody>
+      </table>
+    </div>
+    <div class="row">
+      <button id="confirm" class="primary" type="button" disabled>✔ صحّحت الأرقام — سجّل نتيجة التجربة</button>
+      <button id="copy" type="button" disabled>نسخ كنص</button>
+    </div>
+    <div id="confirmMsg" class="status" role="status"></div>
+    <details><summary>النص الخام اللي قرأه Tesseract</summary><pre id="raw">—</pre></details>
+    <details><summary>التقرير النصي</summary><pre id="report">—</pre></details>
+  </section>
+
+  <section class="card" aria-labelledby="h-log">
+    <h2 id="h-log">٣. دقة Tesseract في تجاربك</h2>
+    <div class="stats">
+      <div class="stat"><b id="sTests">0</b><span>ورقة مجرّبة</span></div>
+      <div class="stat"><b id="sAcc">—</b><span>قيم مقروءة صح</span></div>
+      <div class="stat"><b id="sMiss">—</b><span>قيم ما انقرت</span></div>
+    </div>
+    <p class="note">يُحسب بعد ما تصحّح الأرقام وتضغط «سجّل». القيمة «صح» إذا ما احتجت تعدّلها. محفوظ في هذا الجوال فقط.</p>
+    <div class="row"><button id="reset" type="button">مسح السجل</button></div>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  // ---------- ABG parameters: label patterns, plausible (impossible-outside) and normal ranges ----------
+  // Order matters: more specific labels are tried first so "pCO2" never matches as "pO2", etc.
+  const P = [
+    { k: "fo2hb", n: "FO2Hb", re: /^F\s*[O0]\s*2\s*Hb/i, unit: "%", plaus: [0, 100], norm: [94, 99] },
+    { k: "fcohb", n: "FCOHb", re: /^F?\s*C\s*[O0]\s*Hb/i, unit: "%", plaus: [0, 100], norm: [0, 3] },
+    { k: "fmethb", n: "FMetHb", re: /^F?\s*Met\s*Hb/i, unit: "%", plaus: [0, 100], norm: [0, 1.5] },
+    { k: "fhhb", n: "FHHb", re: /^F?\s*H\s*Hb/i, unit: "%", plaus: [0, 100], norm: [1, 5] },
+    { k: "pco2", n: "pCO2", re: /^p\s*C\s*[O0o]\s*[2z]/i, gas: true, plaus: [5, 200], norm: [35, 45] },
+    { k: "po2", n: "pO2", re: /^p\s*[O0o]\s*[2z](?!\s*\()/i, gas: true, plaus: [5, 700], norm: [80, 100] },
+    { k: "so2", n: "sO2", re: /^[sS5]\s*[O0]\s*[2z]/, unit: "%", plaus: [0, 100], norm: [95, 99] },
+    { k: "hco3std", n: "HCO3 std", re: /^c?\s*HC\s*[O0]\s*[3]?.*(st|std|stand)/i, unit: "mmol/L", plaus: [2, 60], norm: [22, 26] },
+    { k: "hco3", n: "HCO3", re: /^c?\s*HC\s*[O0]\s*3/i, unit: "mmol/L", plaus: [2, 60], norm: [22, 26] },
+    { k: "be", n: "BE", re: /^(c?\s*Base|A?BE|SBE|BE\s*\(|BEecf|BEb)/i, unit: "mmol/L", plaus: [-40, 40], norm: [-2, 2], signed: true },
+    { k: "hb", n: "Hb", re: /^c?\s*t?\s*Hb\b/i, unit: "g/dL", plaus: [2, 25], norm: [12, 17.5] },
+    { k: "hct", n: "Hct", re: /^Hct/i, unit: "%", plaus: [5, 75], norm: [36, 50] },
+    { k: "na", n: "Na+", re: /^c?\s*Na\s*[+t]?(?=[\s\d:])/i, unit: "mmol/L", plaus: [90, 200], norm: [135, 145] },
+    { k: "k", n: "K+", re: /^c?\s*K\s*[+*]?(?=[\s\d])/, unit: "mmol/L", plaus: [1, 12], norm: [3.5, 5.0] },
+    { k: "cl", n: "Cl-", re: /^c?\s*C[lI1]\s*[-−]?(?=[\s\d])/, unit: "mmol/L", plaus: [60, 150], norm: [98, 107] },
+    { k: "ca", n: "Ca2+", re: /^(c?\s*Ca\s*[2z]?\s*\+*|iCa)/i, unit: "mmol/L", plaus: [0.3, 3.5], norm: [1.15, 1.33] },
+    { k: "glu", n: "Glu", re: /^c?\s*Glu/i, unit: "mmol/L", plaus: [0.5, 60], norm: [3.9, 7.8] },
+    { k: "lac", n: "Lac", re: /^c?\s*[LlIt1][ae]c/i, unit: "mmol/L", plaus: [0, 30], norm: [0.5, 2.0] },
+    { k: "fio2", n: "FiO2", re: /^F\s*[I1l]\s*[O0]\s*2/i, unit: "%", plaus: [21, 100], norm: null },
+    { k: "temp", n: "Temp", re: /^(T\b|Temp)/i, unit: "°C", plaus: [25, 43], norm: null },
+    { k: "ph", n: "pH", re: /^p\s*H\b/i, unit: "", plaus: [6.5, 8.0], norm: [7.35, 7.45], ph: true },
+  ];
+  const KPA = 7.50062;
+
+  // ---------- state ----------
+  let bitmap = null, rotation = 0, worker = null, workerPsm = null;
+  let current = null; // { values: {k: {v, text, unit, conf, line}}, raw }
+  const $ = (id) => document.getElementById(id);
+
+  // ---------- storage (per-device test log) ----------
+  const store = {
+    get() { try { return JSON.parse(localStorage.getItem("abgOcrStats") || "null") || { tests: 0, read: 0, right: 0, expected: 0, missed: 0 }; } catch { return { tests: 0, read: 0, right: 0, expected: 0, missed: 0 }; } },
+    set(s) { try { localStorage.setItem("abgOcrStats", JSON.stringify(s)); } catch {} },
+  };
+  function renderStats() {
+    const s = store.get();
+    $("sTests").textContent = s.tests;
+    $("sAcc").textContent = s.read ? Math.round(100 * s.right / s.read) + "%" : "—";
+    $("sMiss").textContent = s.expected ? s.missed + "/" + s.expected : "—";
+  }
+
+  // ---------- image input ----------
+  async function onFile(ev) {
+    const f = ev.target.files && ev.target.files[0];
+    if (!f) return;
+    try {
+      bitmap = await createImageBitmap(f, { imageOrientation: "from-image" });
+    } catch {
+      bitmap = await new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = URL.createObjectURL(f); });
+    }
+    rotation = 0;
+    $("pimg").src = URL.createObjectURL(f);
+    $("prev").hidden = false;
+    $("go").disabled = false; $("rot").disabled = false;
+    drawProcessed();
+    setStatus("الصورة جاهزة. اضغط «اقرأ القيم».");
+    ev.target.value = "";
+  }
+
+  // Grayscale + contrast stretch (+ optional Otsu threshold), scaled so text is big enough for Tesseract.
+  function drawProcessed() {
+    if (!bitmap) return;
+    const cv = $("pcv"), ctx = cv.getContext("2d", { willReadFrequently: true });
+    const w0 = bitmap.width, h0 = bitmap.height, rot = rotation % 360, swap = rot === 90 || rot === 270;
+    const longSide = Math.max(w0, h0), target = Math.min(2600, Math.max(1600, longSide));
+    const s = target / longSide;
+    const W = Math.round((swap ? h0 : w0) * s), H = Math.round((swap ? w0 : h0) * s);
+    cv.width = W; cv.height = H;
+    ctx.save(); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, W, H);
+    ctx.translate(W / 2, H / 2); ctx.rotate(rot * Math.PI / 180);
+    ctx.drawImage(bitmap, -w0 * s / 2, -h0 * s / 2, w0 * s, h0 * s); ctx.restore();
+    if (!$("enh").checked) return;
+    const img = ctx.getImageData(0, 0, W, H), d = img.data, n = W * H, g = new Uint8ClampedArray(n), hist = new Uint32Array(256);
+    for (let i = 0; i < n; i++) { const v = (d[i * 4] * 0.299 + d[i * 4 + 1] * 0.587 + d[i * 4 + 2] * 0.114) | 0; g[i] = v; hist[v]++; }
+    // contrast stretch between 2nd and 98th percentile
+    let lo = 0, hi = 255, acc = 0;
+    for (let i = 0; i < 256; i++) { acc += hist[i]; if (acc > n * 0.02) { lo = i; break; } }
+    acc = 0; for (let i = 255; i >= 0; i--) { acc += hist[i]; if (acc > n * 0.02) { hi = i; break; } }
+    const span = Math.max(1, hi - lo);
+    // Local mean threshold (box filter via integral image) copes with uneven light / faded thermal paper.
+    const r = Math.max(8, Math.round(Math.min(W, H) / 40)), I = new Float64Array((W + 1) * (H + 1));
+    for (let y = 0; y < H; y++) { let row = 0; for (let x = 0; x < W; x++) { row += g[y * W + x]; I[(y + 1) * (W + 1) + x + 1] = I[y * (W + 1) + x + 1] + row; } }
+    for (let y = 0; y < H; y++) {
+      const y0 = Math.max(0, y - r), y1 = Math.min(H, y + r + 1);
+      for (let x = 0; x < W; x++) {
+        const x0 = Math.max(0, x - r), x1 = Math.min(W, x + r + 1);
+        const sum = I[y1 * (W + 1) + x1] - I[y0 * (W + 1) + x1] - I[y1 * (W + 1) + x0] + I[y0 * (W + 1) + x0];
+        const mean = sum / ((x1 - x0) * (y1 - y0)), v = g[y * W + x];
+        // dark relative to its neighbourhood → ink; also drop anything near the global paper level
+        const out = v < mean - 10 && (v - lo) * 255 / span < 200 ? 0 : 255;
+        const j = (y * W + x) * 4; d[j] = d[j + 1] = d[j + 2] = out; d[j + 3] = 255;
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+
+  // ---------- OCR ----------
+  function setStatus(t) { $("status").textContent = t; }
+  function setBar(p) { $("barfill").style.width = Math.round(p * 100) + "%"; }
+  const STEP = { "loading tesseract core": "تحميل المحرك", "initializing tesseract": "تجهيز المحرك", "loading language traineddata": "تحميل بيانات اللغة", "initializing api": "تجهيز", "recognizing text": "قراءة النص" };
+
+  async function getWorker(psm) {
+    if (!window.Tesseract) throw new Error("ما انحمّلت مكتبة Tesseract. تأكد من الإنترنت وأعد فتح الصفحة.");
+    if (!worker) {
+      // Language data ships next to the page, named .wasm only so the artifact host serves it.
+      // A tiny wrapper worker redirects Tesseract's request for "eng.traineddata.gz" to that file.
+      const dataUrl = new URL("tess/eng.traineddata.gz.wasm", location.href).href;
+      const shim = `const D=${JSON.stringify(dataUrl)},F=self.fetch.bind(self);` +
+        `self.fetch=(u,o)=>/eng\\.traineddata\\.gz$/.test(String(u))?F(D):F(u,o);` +
+        `importScripts("https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/worker.min.js");`;
+      const workerPath = URL.createObjectURL(new Blob([shim], { type: "application/javascript" }));
+      worker = await Tesseract.createWorker("eng", 1, {
+        workerPath, workerBlobURL: false, langPath: "https://tessdata.local/eng", gzip: true,
+        logger: (m) => { setStatus((STEP[m.status] || m.status) + "…"); if (typeof m.progress === "number") setBar(m.progress); },
+        errorHandler: (e) => console.error(e),
+      });
+    }
+    if (workerPsm !== psm) {
+      await worker.setParameters({ tessedit_pageseg_mode: psm, preserve_interword_spaces: "1" });
+      workerPsm = psm;
+    }
+    return worker;
+  }
+
+  async function run() {
+    $("go").disabled = true;
+    const t0 = performance.now();
+    try {
+      setStatus("تجهيز المحرك…"); setBar(0);
+      const w = await getWorker($("psm").value);
+      const { data } = await w.recognize($("pcv"));
+      const secs = ((performance.now() - t0) / 1000).toFixed(1);
+      const lines = [];
+      for (const b of data.blocks || []) for (const p of b.paragraphs) for (const l of p.lines) lines.push({ text: l.text.replace(/\n$/, ""), words: l.words });
+      current = parse(lines);
+      current.raw = data.text;
+      render();
+      setBar(1);
+      setStatus(`انتهت القراءة في ${secs} ثانية — دقة تعرّف Tesseract العامة ${Math.round(data.confidence)}%.`);
+      $("resCard").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    } catch (e) {
+      console.error(e);
+      setStatus("صار خطأ: " + (e && e.message ? e.message : e) + " — جرّب مرة ثانية أو بصورة أوضح.");
+    } finally { $("go").disabled = false; }
+  }
+
+  // ---------- parsing ----------
+  const NUM = /([-−–—~]\s?)?(\d+(?:[.,·]\d+)?)/;
+  function parse(lines) {
+    const values = {};
+    for (const line of lines) {
+      const text = line.text.replace(/[|_]/g, " ").replace(/^[^A-Za-z]+/, "").trim();
+      if (!text) continue;
+      for (const p of P) {
+        if (values[p.k]) continue;
+        const m = text.match(p.re);
+        if (!m) continue;
+        let rest = text.slice(m[0].length);
+        rest = rest.replace(/^\s*\([^)]*\)/, "");   // "(T)", "(P)", "(B)", "(P,st)" qualifiers
+        rest = rest.replace(/^\s*[-−]\s*(?=\s)/, ""); // trailing "-" of "HCO3-" / "Cl-"
+        rest = rest.replace(/^[\s:=+*]+/, " ");
+        const nm = rest.match(NUM);
+        if (!nm) continue;
+        let numTxt = nm[2].replace(/[,·]/g, ".");
+        let v = parseFloat(numTxt);
+        const neg = !!nm[1] && nm[1].trim() !== "";
+        if (neg && p.signed) v = -v;
+        const notes = [];
+        if (neg && !p.signed) notes.push("ظهرت علامة سالب أمام قيمة ما تكون سالبة — تجاهلناها");
+        // pH printed without its decimal point (e.g. "735") — Tesseract dropped the dot.
+        if (p.ph && !numTxt.includes(".") && v >= 650 && v <= 800) { v = v / 100; notes.push("الفاصلة العشرية مفقودة — صُحّحت تلقائياً"); }
+        // Decimal point lost (e.g. sO2 "970" for 97.0): if ÷10 or ÷100 lands in the possible range, use it and flag it.
+        if (!p.ph && !p.gas && !numTxt.includes(".") && (v > p.plaus[1] || v < p.plaus[0])) {
+          for (const div of [10, 100]) { const c = v / div; if (c >= p.plaus[0] && c <= p.plaus[1]) { notes.push(`قُرئت ${numTxt} — الفاصلة مفقودة غالباً، صُحّحت إلى ${c}`); v = c; break; } }
+        }
+        let unit = p.unit;
+        if (p.gas) {
+          if (/kpa/i.test(rest)) unit = "kPa";
+          else if (/mm\s*hg/i.test(rest)) unit = "mmHg";
+          else unit = v < (p.k === "pco2" ? 20 : 30) ? "kPa" : "mmHg";
+        }
+        if (p.k === "fio2" && v > 0 && v <= 1) { v = Math.round(v * 1000) / 10; }
+        const conf = wordConf(line.words, nm[2]);
+        values[p.k] = { v, text: numTxt, unit, conf, line: line.text.trim(), notes, neg };
+        break;
+      }
+    }
+    return { values };
+  }
+  function wordConf(words, numTxt) {
+    let best = null;
+    for (const w of words || []) if (/\d/.test(w.text) && w.text.replace(/[,·]/g, ".").includes(numTxt.replace(/[,·]/g, "."))) best = best === null ? w.confidence : Math.min(best, w.confidence);
+    if (best === null) for (const w of words || []) if (/\d/.test(w.text)) { best = w.confidence; break; }
+    return best;
+  }
+
+  // ---------- checks ----------
+  function toMmHg(o) { return o.unit === "kPa" ? o.v * KPA : o.v; }
+  function plausRange(p, o) {
+    if (p.gas && o.unit === "kPa") return [p.plaus[0] / KPA, p.plaus[1] / KPA];
+    return p.plaus;
+  }
+  function normRange(p, o) {
+    if (!p.norm) return null;
+    if (p.gas && o && o.unit === "kPa") return [+(p.norm[0] / KPA).toFixed(1), +(p.norm[1] / KPA).toFixed(1)];
+    return p.norm;
+  }
+  function evaluate(vals) {
+    const field = {}; const global = [];
+    for (const p of P) {
+      const o = vals[p.k]; if (!o || o.v === null || isNaN(o.v)) continue;
+      const f = { level: "ok", msgs: [...(o.notes || [])] };
+      const [a, b] = plausRange(p, o);
+      if (o.v < a || o.v > b) { f.level = "bad"; f.msgs.push("قيمة مستحيلة — غالباً قراءة خاطئة"); }
+      if (o.conf !== null && o.conf !== undefined && o.conf < 80 && f.level !== "bad") { f.level = "warn"; f.msgs.push(`ثقة القراءة منخفضة (${Math.round(o.conf)}%)`); }
+      if (o.notes && o.notes.length && f.level === "ok") f.level = "warn";
+      field[p.k] = f;
+    }
+    // Henderson–Hasselbalch: HCO3 = 0.0307 × pCO2(mmHg) × 10^(pH − 6.1)
+    const ph = vals.ph, pc = vals.pco2, hc = vals.hco3;
+    let hh = null;
+    if (ph && pc && hc && !isNaN(ph.v) && !isNaN(pc.v) && !isNaN(hc.v)) {
+      const calc = 0.0307 * toMmHg(pc) * Math.pow(10, ph.v - 6.1);
+      const diff = Math.abs(calc - hc.v), ok = diff <= Math.max(2, calc * 0.08);
+      hh = { calc, diff, ok };
+      if (!ok) for (const k of ["ph", "pco2", "hco3"]) if (field[k] && field[k].level === "ok") { field[k].level = "warn"; field[k].msgs.push("ما يتطابق مع حسبة Henderson–Hasselbalch"); }
+    }
+    if (hh) global.push(hh.ok
+      ? { level: "ok", text: `✔ فحص Henderson–Hasselbalch: HCO3 المحسوب ${hh.calc.toFixed(1)} ≈ المقروء ${hc.v} — pH و pCO2 و HCO3 متناسقة.` }
+      : { level: "bad", text: `✖ فحص Henderson–Hasselbalch فشل: HCO3 المحسوب من pH و pCO2 = ${hh.calc.toFixed(1)} لكن المقروء ${hc.v}. واحد من الثلاثة غالباً مقروء غلط.` });
+    else global.push({ level: "warn", text: "ما قدرنا نسوي فحص Henderson–Hasselbalch — نحتاج pH و pCO2 و HCO3 (الفعلي)." });
+    const missing = ["ph", "pco2", "po2", "hco3", "be"].filter((k) => !vals[k]);
+    if (missing.length) global.push({ level: "warn", text: "ما انقرت: " + missing.map((k) => P.find((p) => p.k === k).n).join("، ") + " — اكتبها يدوياً إذا موجودة بالورقة." });
+    if (vals.na && vals.cl && vals.hco3) {
+      const ag = vals.na.v - vals.cl.v - vals.hco3.v;
+      if (ag < 0 || ag > 40) {
+        global.push({ level: "bad", text: `✖ الفجوة الأنيونية = ${ag.toFixed(1)} — رقم غير منطقي، غالباً Na أو Cl أو HCO3 مقروء غلط.` });
+        for (const k of ["na", "cl", "hco3"]) if (field[k] && field[k].level === "ok") { field[k].level = "warn"; field[k].msgs.push("الفجوة الأنيونية غير منطقية"); }
+      } else global.push({ level: "ok", text: `الفجوة الأنيونية (Na − Cl − HCO3) = ${ag.toFixed(1)} mmol/L` });
+    }
+    return { field, global };
+  }
+
+  // ---------- render ----------
+  function render() {
+    const vals = current.values;
+    const ev = evaluate(vals);
+    $("checks").innerHTML = "";
+    for (const g of ev.global) { const d = document.createElement("div"); d.className = "banner " + g.level; d.textContent = g.text; $("checks").appendChild(d); }
+    const tb = $("tbody"); tb.innerHTML = "";
+    const shown = P.filter((p) => vals[p.k] || ["ph", "pco2", "po2", "hco3", "be", "so2"].includes(p.k));
+    const order = ["ph", "pco2", "po2", "hco3", "hco3std", "be", "so2", "fio2", "hb", "hct", "fo2hb", "fcohb", "fmethb", "fhhb", "na", "k", "cl", "ca", "glu", "lac", "temp"];
+    shown.sort((a, b) => order.indexOf(a.k) - order.indexOf(b.k));
+    for (const p of shown) {
+      const o = vals[p.k], f = ev.field[p.k];
+      const tr = document.createElement("tr");
+      tr.className = !o ? "st-miss" : f ? "st-" + f.level : "";
+      const nr = normRange(p, o);
+      let hilo = "";
+      if (o && nr && !isNaN(o.v)) hilo = o.v > nr[1] ? '<span class="hilo hi">↑</span>' : o.v < nr[0] ? '<span class="hilo lo">↓</span>' : "";
+      tr.innerHTML = `<td class="name ltr"></td><td class="val"><input inputmode="decimal" dir="ltr" autocomplete="off"></td><td class="unit ltr"></td><td class="ref ltr"></td>`;
+      tr.children[0].textContent = p.n;
+      const inp = tr.querySelector("input");
+      inp.id = "v-" + p.k;
+      inp.value = o ? String(o.v) : "";
+      inp.placeholder = o ? "" : "ما انقرأ";
+      inp.setAttribute("aria-label", p.n);
+      inp.addEventListener("change", () => onEdit(p, inp.value));
+      tr.children[1].insertAdjacentHTML("beforeend", hilo);
+      if (f && f.msgs.length) { const s = document.createElement("span"); s.className = "flag " + f.level; s.textContent = f.msgs.join(" · "); tr.children[1].appendChild(s); }
+      tr.children[2].textContent = o ? o.unit : (p.gas ? "mmHg/kPa" : p.unit);
+      tr.children[3].textContent = nr ? `${nr[0]}–${nr[1]}` : "";
+      tb.appendChild(tr);
+    }
+    $("raw").textContent = current.raw || "—";
+    $("report").textContent = report();
+    $("confirm").disabled = false; $("copy").disabled = false; $("confirmMsg").textContent = "";
+  }
+
+  function onEdit(p, txt) {
+    const t = txt.trim().replace(",", ".");
+    if (!current.edited) current.edited = {};
+    if (!current.orig) current.orig = JSON.parse(JSON.stringify(current.values));
+    if (t === "") { delete current.values[p.k]; }
+    else {
+      const v = parseFloat(t);
+      if (isNaN(v)) return;
+      const prev = current.values[p.k];
+      current.values[p.k] = { v, text: t, unit: prev ? prev.unit : (p.gas ? (v < 25 ? "kPa" : "mmHg") : p.unit), conf: 100, line: "(يدوي)", notes: [] };
+    }
+    current.edited[p.k] = true;
+    render();
+  }
+
+  function report() {
+    const vals = current.values;
+    const order = ["ph", "pco2", "po2", "hco3", "hco3std", "be", "so2", "fio2", "hb", "hct", "fo2hb", "fcohb", "fmethb", "fhhb", "na", "k", "cl", "ca", "glu", "lac", "temp"];
+    const out = ["ABG (Tesseract OCR — verify against printout)"];
+    for (const k of order) { const o = vals[k]; if (!o) continue; const p = P.find((x) => x.k === k); out.push(`${p.n.padEnd(9)} ${String(o.v).padStart(6)} ${o.unit}`); }
+    return out.join("\n");
+  }
+
+  // ---------- scoring ----------
+  function confirmTest() {
+    const orig = current.orig || current.values;
+    const fin = current.values, s = store.get();
+    let read = 0, right = 0, expected = 0, missed = 0;
+    for (const p of P) {
+      const o = orig[p.k], f = fin[p.k];
+      if (f) expected++;
+      if (o) { read++; if (f && Math.abs(f.v - o.v) < 1e-9) right++; }
+      else if (f) missed++;
+    }
+    s.tests++; s.read += read; s.right += right; s.expected += expected; s.missed += missed;
+    store.set(s); renderStats();
+    $("confirmMsg").textContent = `سُجّلت: ${right} من ${read} قيمة مقروءة كانت صح، و ${missed} قيمة ما انقرت.`;
+    $("confirm").disabled = true;
+  }
+
+  async function copyReport() {
+    const txt = report();
+    try { await navigator.clipboard.writeText(txt); $("confirmMsg").textContent = "انسخ التقرير."; }
+    catch { const r = document.createRange(); r.selectNodeContents($("report")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); $("report").closest("details").open = true; $("confirmMsg").textContent = "النسخ التلقائي ما اشتغل — النص محدد، انسخه يدوياً."; }
+  }
+
+  // ---------- wire up ----------
+  $("cam").addEventListener("change", onFile);
+  $("gal").addEventListener("change", onFile);
+  $("rot").addEventListener("click", () => { rotation = (rotation + 90) % 360; drawProcessed(); });
+  $("enh").addEventListener("change", drawProcessed);
+  $("go").addEventListener("click", run);
+  $("confirm").addEventListener("click", confirmTest);
+  $("copy").addEventListener("click", copyReport);
+  $("reset").addEventListener("click", () => { store.set({ tests: 0, read: 0, right: 0, expected: 0, missed: 0 }); renderStats(); });
+  renderStats();
+  window.__abg = { parse, evaluate, P }; // for local testing
+})();
+</script>
