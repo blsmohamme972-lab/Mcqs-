@@ -50,6 +50,7 @@ jobs:
 
       - name: Build content packages
         run: |
+          shopt -s nullglob
           for d in content/*/; do
             python3 tools/build_package.py "$d" "dist/$(basename "$d").zip"
           done

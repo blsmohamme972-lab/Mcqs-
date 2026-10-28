@@ -5,7 +5,7 @@ Captions come from the occlusion cards (`back`) of that scene, so the reel and t
 teach the same facts. Pass --audio to mux a narration track (e.g. from Breeze TTS 2 / Fish S2 Pro).
 
 Usage:
-  python3 tools/render_reel.py content/ct-ch17-sample tension_ptx [--audio narration.wav]
+  python3 tools/render_reel.py content/<package-id> <scene-id> [--audio narration.wav]
 Writes media/<scene>_reel.mp4 inside the package and sets the scene's "video" in manifest.json.
 Needs Pillow and ffmpeg.
 """

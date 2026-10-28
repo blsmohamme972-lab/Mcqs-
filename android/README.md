@@ -30,8 +30,8 @@ cd android
 ## Make a content package
 
 ```bash
-python3 tools/render_reel.py content/ct-ch17-sample tension_ptx   # optional: vertical reel video
-python3 tools/build_package.py content/ct-ch17-sample dist/ct-ch17-sample.zip
+python3 tools/render_reel.py content/<package-id> <scene-id>   # optional: vertical reel video
+python3 tools/build_package.py content/<package-id> dist/<package-id>.zip
 ```
 
 Normally you don't do this by hand: pushing to `content/` publishes it and the app pulls it

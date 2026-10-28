@@ -3,7 +3,7 @@
 The folder holds manifest.json plus the media it references (see docs/package-format.md).
 Validation mirrors the app's importer, so a zip that passes here imports cleanly.
 
-Usage: python3 tools/build_package.py content/ct-ch17-sample dist/ct-ch17-sample.zip
+Usage: python3 tools/build_package.py content/<package-id> dist/<package-id>.zip
 """
 import json
 import os
