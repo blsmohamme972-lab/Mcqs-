@@ -14,13 +14,36 @@ android {
         applicationId = "com.mcqs.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.1.0"
+        // CI passes the run number so every published build is a newer version.
+        val build = System.getenv("BUILD_NUMBER")?.toIntOrNull() ?: 0
+        versionCode = 100 + build
+        versionName = "0.2.$build"
+        buildConfigField("String", "UPDATE_INDEX_URL",
+            "\"https://github.com/blsmohamme972-lab/Mcqs-/releases/latest/download/index.json\"")
+    }
+
+    // The signing key never lives in the repo: CI decodes it from the MCQS_KEYSTORE_B64 secret.
+    // One fixed key means in-app updates install over the previous version.
+    val keystorePath = System.getenv("MCQS_KEYSTORE_PATH")
+    signingConfigs {
+        if (keystorePath != null) {
+            create("personal") {
+                storeFile = file(keystorePath)
+                storePassword = System.getenv("MCQS_KEYSTORE_PASSWORD")
+                keyAlias = "mcqs"
+                keyPassword = System.getenv("MCQS_KEYSTORE_PASSWORD")
+            }
+        }
     }
 
     buildTypes {
+        val personal = signingConfigs.findByName("personal")
+        debug {
+            if (personal != null) signingConfig = personal
+        }
         release {
             isMinifyEnabled = false
+            signingConfig = personal
         }
     }
     compileOptions {
@@ -32,6 +55,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     testOptions {
         unitTests.isIncludeAndroidResources = true

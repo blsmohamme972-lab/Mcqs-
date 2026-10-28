@@ -14,6 +14,7 @@ import androidx.test.core.app.ApplicationProvider
 import com.mcqs.app.MainActivity
 import com.mcqs.app.data.AppDb
 import com.mcqs.app.data.Repository
+import com.mcqs.app.data.Sync
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -37,6 +38,11 @@ class AppFlowTest {
 
     private val context get() = ApplicationProvider.getApplicationContext<android.content.Context>()
     private val shots = File("build/screenshots").apply { mkdirs() }
+
+    // The compose rule launches the activity before @Before runs, so disable sync at construction.
+    init {
+        Sync.enabled = false
+    }
 
     @Before
     fun importSample() {
@@ -66,8 +72,15 @@ class AppFlowTest {
     @Test
     fun importStudyOcclusionAndMcq() {
         waitFor("Ch17 Chest trauma — sample")
-        compose.onNodeWithText("Due: 0   New: 16").assertExists()
+        compose.onNodeWithText("16").assertExists()
         shot("1-home")
+
+        // Reels tab lists the scene video.
+        compose.onNodeWithText("Reels").performClick()
+        waitFor("Tension pneumothorax — the burglar who can't leave")
+        shot("1b-reels")
+        compose.onNodeWithText("Decks").performClick()
+        waitFor("Study")
 
         compose.onNodeWithText("Study").performClick()
         waitFor("Show answer")

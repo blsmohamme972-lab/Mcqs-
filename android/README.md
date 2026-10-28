@@ -1,9 +1,11 @@
 # MCQs — Android app
 
+Style: [`../docs/style-guide.md`](../docs/style-guide.md).
+
 Personal study app: spaced-repetition cards (FSRS-6) mixed with visual-mnemonic scenes and videos.
 Content arrives as a zip package (see [`../docs/package-format.md`](../docs/package-format.md)).
 
-## What's in v0.1
+## What's in v0.2
 
 | Feature | Notes |
 |---|---|
@@ -11,7 +13,9 @@ Content arrives as a zip package (see [`../docs/package-format.md`](../docs/pack
 | Card types | `occlusion` (scene image, hide-all-guess-one, ~0.2 s reveal), `mcq` (options reshuffled daily; a wrong pick allows only *Again*), `basic`. |
 | Scheduling | FSRS-6, ported from py-fsrs 6.3.2 and checked against it on 1,326 reviews. Learning steps 1 m / 10 m, relearning 10 m, 90 % retention, 20 new cards/day, day starts 04:00. |
 | Scenes | Per-deck scene list; scene page plays the video (Media3) and shows the image with optional region labels and the story. Pinch-zoom on all scene images. |
-| Offline | Everything is stored on the phone; no account, no network. |
+| Reels | Shorts-style vertical feed of every scene video: swipe, autoplay loop, tap to pause, jump to the scene's cards. |
+| Auto-update | On open, pulls changed content packages and offers new app versions from the latest GitHub release. |
+| Offline | Everything studied is stored on the phone; sync only downloads. |
 
 ## Build
 
@@ -26,10 +30,12 @@ cd android
 ## Make a content package
 
 ```bash
-python3 tools/build_package.py samples/tension_pneumothorax dist/ct-ch17-sample.zip
+python3 tools/render_reel.py content/ct-ch17-sample tension_ptx   # optional: vertical reel video
+python3 tools/build_package.py content/ct-ch17-sample dist/ct-ch17-sample.zip
 ```
 
-Copy the zip to the phone and import it in the app.
+Normally you don't do this by hand: pushing to `content/` publishes it and the app pulls it
+automatically (see [`../docs/package-format.md`](../docs/package-format.md#publishing-automatic)).
 
 ## Layout
 

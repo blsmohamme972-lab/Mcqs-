@@ -60,6 +60,20 @@ ct-ch17.zip
 
 Unknown fields are ignored, so newer tools can add fields without breaking older app versions.
 
+## Publishing (automatic)
+
+Put each package folder under `content/<package-id>/`. Every push that touches `content/`,
+`android/` or `tools/` runs `.github/workflows/publish.yml`, which:
+
+1. runs the app's tests and builds a signed APK (version code = 100 + run number);
+2. zips every `content/*` folder (deterministic zips: unchanged content keeps the same sha256);
+3. writes `index.json` (app version + each package's URL and sha256);
+4. publishes them as a GitHub release `v0.2.<run>` (the newest 10 are kept).
+
+The app reads `releases/latest/download/index.json` when it opens (at most every 2 minutes, or
+via the refresh button), downloads packages whose sha256 changed, and offers the new APK when its
+version code is higher. Android always asks you to confirm an app install.
+
 ## Updating a package
 
 Re-import a zip with the **same package `id`** to update it:

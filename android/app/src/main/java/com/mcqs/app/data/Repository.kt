@@ -17,6 +17,8 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
 import java.io.File
+import java.security.DigestInputStream
+import java.security.MessageDigest
 import java.util.Calendar
 
 class Repository(private val context: Context) {
@@ -29,9 +31,18 @@ class Repository(private val context: Context) {
     /** Imports (or updates) a content zip. Review progress is kept for cards whose id is unchanged. */
     suspend fun importZip(uri: Uri): Manifest = withContext(Dispatchers.IO) {
         val staging = File(decksRoot, "staging-${System.nanoTime()}")
-        val input = context.contentResolver.openInputStream(uri)
-            ?: throw InvalidPackageException("cannot open file")
-        val manifest = input.use { ZipExtractor.extract(it, staging) }
+        // Copy first so the hash covers the whole file (ZipInputStream stops before the central directory).
+        val copy = File(context.cacheDir, "import-${System.nanoTime()}.zip")
+        val digest = MessageDigest.getInstance("SHA-256")
+        val manifest = try {
+            val input = context.contentResolver.openInputStream(uri)
+                ?: throw InvalidPackageException("cannot open file")
+            DigestInputStream(input, digest).use { src -> copy.outputStream().use { src.copyTo(it) } }
+            copy.inputStream().use { ZipExtractor.extract(it, staging) }
+        } finally {
+            copy.delete()
+        }
+        val sha = digest.digest().joinToString("") { "%02x".format(it) }
 
         val dir = File(decksRoot, "${manifest.id}-${System.currentTimeMillis()}")
         if (!staging.renameTo(dir)) {
@@ -40,7 +51,7 @@ class Repository(private val context: Context) {
         }
         val old = dao.deck(manifest.id)
         try {
-            db.withTransaction { writeManifest(manifest, dir) }
+            db.withTransaction { writeManifest(manifest, dir, sha) }
         } catch (e: Throwable) {
             dir.deleteRecursively()
             throw e
@@ -49,8 +60,8 @@ class Repository(private val context: Context) {
         manifest
     }
 
-    private suspend fun writeManifest(m: Manifest, dir: File) {
-        dao.upsertDeck(DeckEntity(m.id, m.title, m.version, m.source, dir.path, System.currentTimeMillis()))
+    private suspend fun writeManifest(m: Manifest, dir: File, sha: String) {
+        dao.upsertDeck(DeckEntity(m.id, m.title, m.version, m.source, dir.path, System.currentTimeMillis(), sha))
         dao.deleteScenes(m.id)
         dao.insertScenes(m.scenes.mapIndexed { i, s ->
             SceneEntity(

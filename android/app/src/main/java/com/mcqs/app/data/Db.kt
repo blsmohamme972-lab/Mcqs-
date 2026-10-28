@@ -1,6 +1,8 @@
 package com.mcqs.app.data
 
 import android.content.Context
+import androidx.room.AutoMigration
+import androidx.room.ColumnInfo
 import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Entity
@@ -23,6 +25,8 @@ data class DeckEntity(
     /** Absolute path of the extracted package directory. */
     val dir: String,
     val importedAt: Long,
+    /** sha256 of the imported zip; sync skips packages whose published hash matches. */
+    @ColumnInfo(defaultValue = "NULL") val sha256: String? = null,
 )
 
 @Entity(tableName = "scenes", primaryKeys = ["deckId", "id"])
@@ -92,8 +96,29 @@ data class DeckSummary(
     val scenes: Int,
 )
 
+/** A scene with a video, for the Reels feed. */
+data class ReelItem(
+    val deckId: String,
+    val sceneId: String,
+    val deckTitle: String,
+    val title: String,
+    val image: String?,
+    val video: String,
+    val story: String?,
+    val dir: String,
+)
+
 @Dao
 interface StudyDao {
+    @Query(
+        """
+        SELECT s.deckId, s.id AS sceneId, d.title AS deckTitle, s.title, s.image, s.video, s.story, d.dir
+        FROM scenes s JOIN decks d ON d.id = s.deckId
+        WHERE s.video IS NOT NULL ORDER BY d.title, s.ord
+        """
+    )
+    fun reels(): Flow<List<ReelItem>>
+
     @Query(
         """
         SELECT d.id, d.title, d.version,
@@ -194,7 +219,8 @@ interface StudyDao {
 
 @Database(
     entities = [DeckEntity::class, SceneEntity::class, CardEntity::class, ReviewStateEntity::class, ReviewLogEntity::class],
-    version = 1,
+    version = 2,
+    autoMigrations = [AutoMigration(from = 1, to = 2)],
 )
 abstract class AppDb : RoomDatabase() {
     abstract fun dao(): StudyDao

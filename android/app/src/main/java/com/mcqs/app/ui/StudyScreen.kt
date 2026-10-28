@@ -1,6 +1,18 @@
 package com.mcqs.app.ui
 
-import androidx.compose.foundation.BorderStroke
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,17 +27,12 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -143,12 +150,13 @@ fun StudyScreen(repo: Repository, deckId: String, onBack: () -> Unit, onOpenScen
     val ui by vm.ui.collectAsStateWithLifecycle()
     LaunchedEffect(Unit) { vm.refresh() }
 
-    Scaffold(topBar = {
+    Scaffold(containerColor = Ink, topBar = {
         TopAppBar(
-            title = { Text(ui.deck?.title ?: "", maxLines = 1) },
+            title = { Text(ui.deck?.title ?: "", maxLines = 1, style = MaterialTheme.typography.titleMedium) },
             navigationIcon = {
                 IconButton(onClick = onBack) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back") }
             },
+            colors = TopAppBarDefaults.topAppBarColors(containerColor = Ink),
         )
     }) { padding ->
         Box(Modifier.padding(padding).fillMaxSize()) {
@@ -164,14 +172,14 @@ fun StudyScreen(repo: Repository, deckId: String, onBack: () -> Unit, onOpenScen
 @Composable
 private fun DoneView(reviewed: Int, onBack: () -> Unit, modifier: Modifier) {
     Column(modifier.padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("All caught up", style = MaterialTheme.typography.headlineSmall)
+        Text("All caught up", style = MaterialTheme.typography.headlineLarge.brand())
         Spacer(Modifier.height(8.dp))
         Text(
             "Reviewed $reviewed card(s) this session.\nCome back later for the next due cards.",
-            textAlign = TextAlign.Center,
+            textAlign = TextAlign.Center, color = TextLo,
         )
-        Spacer(Modifier.height(16.dp))
-        Button(onClick = onBack) { Text("Back to decks") }
+        Spacer(Modifier.height(20.dp))
+        GradientButton(onClick = onBack) { Text("Back to decks", style = MaterialTheme.typography.labelLarge, color = Color.White) }
     }
 }
 
@@ -184,10 +192,10 @@ private fun CardView(ui: StudyUi, vm: StudyViewModel, onOpenScene: (String) -> U
             Modifier
                 .weight(1f)
                 .verticalScroll(rememberScrollState())
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
-            Text(card.front, style = MaterialTheme.typography.titleMedium)
+            Text(card.front, style = MaterialTheme.typography.titleLarge)
 
             val imageRel = if (card.type == CardType.OCCLUSION) ui.scene?.image else card.image
             val bitmap = rememberBitmap(imageRel?.let { java.io.File(deck.dir, it) })
@@ -197,6 +205,7 @@ private fun CardView(ui: StudyUi, vm: StudyViewModel, onOpenScene: (String) -> U
                     regions = if (card.type == CardType.OCCLUSION) ui.regions else emptyList(),
                     targetId = card.regionId,
                     revealed = ui.revealed,
+                    modifier = Modifier.clip(RoundedCornerShape(20.dp)).border(1.dp, Line, RoundedCornerShape(20.dp)),
                 )
             }
 
@@ -206,32 +215,36 @@ private fun CardView(ui: StudyUi, vm: StudyViewModel, onOpenScene: (String) -> U
                 }
             }
 
-            if (ui.revealed) {
-                HorizontalDivider()
-                card.back?.let { Text(it, style = MaterialTheme.typography.bodyLarge) }
-                card.explanation?.let { Text(it, style = MaterialTheme.typography.bodyMedium) }
-                card.source?.let {
-                    Text("Source: $it", style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant)
-                }
-                val scene = ui.scene
-                if (scene != null && (scene.video != null || card.type != CardType.OCCLUSION)) {
-                    OutlinedButton(onClick = { onOpenScene(scene.id) }) {
-                        Icon(Icons.Filled.PlayArrow, null)
-                        Text(" Scene: ${scene.title}")
+            AnimatedVisibility(ui.revealed, enter = fadeIn(tween(180)) + expandVertically(tween(180))) {
+                Column(
+                    Modifier.fillMaxWidth().clip(RoundedCornerShape(20.dp)).background(Panel)
+                        .border(1.dp, Line, RoundedCornerShape(20.dp)).padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
+                    card.back?.let { Text(it, style = MaterialTheme.typography.titleMedium.copy(color = Cyan)) }
+                    card.explanation?.let { Text(it, style = MaterialTheme.typography.bodyMedium, color = TextHi) }
+                    card.source?.let { Text("Source: $it", style = MaterialTheme.typography.labelSmall, color = TextLo) }
+                    val scene = ui.scene
+                    if (scene != null && (scene.video != null || card.type != CardType.OCCLUSION)) {
+                        GradientButton(onClick = { onOpenScene(scene.id) }, brush = CoolGradient,
+                            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Icon(Icons.Filled.PlayArrow, null, tint = Color.White)
+                                Text(" Watch: ${scene.title}", color = Color.White, style = MaterialTheme.typography.labelLarge,
+                                    maxLines = 1)
+                            }
+                        }
                     }
                 }
             }
         }
 
-        Surface(tonalElevation = 3.dp) {
-            Box(Modifier.fillMaxWidth().padding(12.dp)) {
-                when {
-                    ui.revealed -> RatingRow(ui, wrongMcq = card.type == CardType.MCQ && ui.chosen != card.answer, vm::answer)
-                    card.type == CardType.MCQ -> Text("Choose an answer", Modifier.align(Alignment.Center))
-                    else -> Button(onClick = vm::reveal, modifier = Modifier.fillMaxWidth().height(52.dp)) {
-                        Text("Show answer")
-                    }
+        Box(Modifier.fillMaxWidth().background(Panel).navigationBarsPadding().padding(12.dp)) {
+            when {
+                ui.revealed -> RatingRow(ui, wrongMcq = card.type == CardType.MCQ && ui.chosen != card.answer, vm::answer)
+                card.type == CardType.MCQ -> Text("Choose an answer", Modifier.align(Alignment.Center).padding(14.dp), color = TextLo)
+                else -> GradientButton(onClick = vm::reveal, modifier = Modifier.fillMaxWidth().height(54.dp)) {
+                    Text("Show answer", style = MaterialTheme.typography.titleMedium, color = Color.White)
                 }
             }
         }
@@ -240,40 +253,43 @@ private fun CardView(ui: StudyUi, vm: StudyViewModel, onOpenScene: (String) -> U
 
 @Composable
 private fun McqOption(text: String, index: Int, answer: Int?, chosen: Int?, revealed: Boolean, onClick: () -> Unit) {
-    val color = when {
-        !revealed -> MaterialTheme.colorScheme.outline
-        index == answer -> CorrectGreen
-        index == chosen -> WrongRed
-        else -> MaterialTheme.colorScheme.outlineVariant
+    val (border, fill, textColor) = when {
+        !revealed -> Triple(Line, Panel, TextHi)
+        index == answer -> Triple(CorrectGreen, CorrectGreen.copy(alpha = 0.12f), CorrectGreen)
+        index == chosen -> Triple(WrongRed, WrongRed.copy(alpha = 0.12f), WrongRed)
+        else -> Triple(Line, Panel, TextLo.copy(alpha = 0.6f))
     }
-    OutlinedButton(
-        onClick = onClick,
-        enabled = !revealed || index == answer || index == chosen,
-        border = BorderStroke(if (revealed && (index == answer || index == chosen)) 2.dp else 1.dp, color),
-        modifier = Modifier.fillMaxWidth(),
-    ) {
-        Text(text, Modifier.fillMaxWidth(), textAlign = TextAlign.Start,
-            color = if (revealed && index == answer) CorrectGreen else Color.Unspecified)
-    }
+    Text(
+        text,
+        style = MaterialTheme.typography.bodyLarge,
+        color = textColor,
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(16.dp))
+            .background(fill)
+            .border(if (revealed && (index == answer || index == chosen)) 2.dp else 1.dp, border, RoundedCornerShape(16.dp))
+            .clickable(enabled = !revealed, onClick = onClick)
+            .padding(horizontal = 16.dp, vertical = 14.dp),
+    )
 }
 
 @Composable
 private fun RatingRow(ui: StudyUi, wrongMcq: Boolean, onRate: (Rating) -> Unit) {
-    Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.fillMaxWidth()) {
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
         for (rating in Rating.entries) {
             // A wrong MCQ answer can only be rated Again: the card wasn't known.
             val enabled = !wrongMcq || rating == Rating.Again
-            val colors = when (rating) {
-                Rating.Again -> ButtonDefaults.buttonColors(containerColor = WrongRed, contentColor = Color.White)
-                Rating.Good -> ButtonDefaults.buttonColors()
-                else -> ButtonDefaults.filledTonalButtonColors()
+            val brush = when (rating) {
+                Rating.Again -> SolidColor(WrongRed)
+                Rating.Hard -> SolidColor(Panel2)
+                Rating.Good -> BrandGradient
+                Rating.Easy -> CoolGradient
             }
-            Button(onClick = { onRate(rating) }, enabled = enabled, colors = colors,
-                modifier = Modifier.weight(1f).height(56.dp),
-                contentPadding = ButtonDefaults.TextButtonContentPadding) {
+            GradientButton(onClick = { onRate(rating) }, enabled = enabled, brush = brush,
+                modifier = Modifier.weight(1f).height(58.dp), contentPadding = PaddingValues(4.dp)) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(rating.name, style = MaterialTheme.typography.labelLarge)
-                    Text(ui.intervals[rating] ?: "", style = MaterialTheme.typography.labelSmall)
+                    Text(rating.name, style = MaterialTheme.typography.labelLarge, color = Color.White)
+                    Text(ui.intervals[rating] ?: "", style = MaterialTheme.typography.labelSmall, color = Color.White.copy(alpha = 0.8f))
                 }
             }
         }

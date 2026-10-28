@@ -55,10 +55,11 @@
 ## 3. برومبت توليد الصورة (English — أدق مع مولدات الصور)
 
 ```
-A single-panel medical visual mnemonic illustration, clean flat vector cartoon style
-(like Pixorize / Picmonic), bold outlines, soft cel shading, limited palette
-(warm pink, sky blue, cream, red accents), plain light background, 16:9 landscape,
-high detail but uncluttered, every element clearly separated with breathing room.
+A single-panel medical visual mnemonic illustration. Style: cute chibi characters with big
+expressive eyes, glossy soft-3D vector look, rounded shapes, vibrant neon accents
+(hot pink #FF3D7F, violet #8B5CF6, cyan #22D3EE) on a deep dark navy background, soft rim
+lighting and subtle glow, playful and charming, family-friendly (see docs/style-guide.md).
+16:9 landscape, high detail but uncluttered, every element clearly separated with breathing room.
 NO text, NO letters, NO numbers, NO labels, NO speech bubbles anywhere in the image.
 
 SETTING: a cross-section of a cartoon apartment building shaped like a human rib cage,

@@ -3,7 +3,7 @@
 The folder holds manifest.json plus the media it references (see docs/package-format.md).
 Validation mirrors the app's importer, so a zip that passes here imports cleanly.
 
-Usage: python3 tools/build_package.py samples/tension_pneumothorax dist/ct-ch17-sample.zip
+Usage: python3 tools/build_package.py content/ct-ch17-sample dist/ct-ch17-sample.zip
 """
 import json
 import os
@@ -91,16 +91,24 @@ def main(src, out):
         print("INVALID:\n  " + "\n  ".join(errors))
         sys.exit(1)
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
-    with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
-        for dirpath, _, files in os.walk(src):
-            for name in sorted(files):
-                if os.path.splitext(name)[1] in SKIP:
-                    continue
-                full = os.path.join(dirpath, name)
-                rel = os.path.relpath(full, src).replace(os.sep, "/")
-                # Media is already compressed; store it to keep import fast.
-                kind = zipfile.ZIP_DEFLATED if rel.endswith(".json") else zipfile.ZIP_STORED
-                z.write(full, rel, compress_type=kind)
+    entries = []
+    for dirpath, dirs, files in os.walk(src):
+        dirs.sort()
+        for name in sorted(files):
+            if os.path.splitext(name)[1] in SKIP or name.startswith("."):
+                continue
+            full = os.path.join(dirpath, name)
+            entries.append((os.path.relpath(full, src).replace(os.sep, "/"), full))
+    # Deterministic zip (fixed timestamps, sorted entries): unchanged content -> identical sha256,
+    # so the app only downloads packages that really changed.
+    with zipfile.ZipFile(out, "w") as z:
+        for rel, full in sorted(entries):
+            info = zipfile.ZipInfo(rel, date_time=(1980, 1, 1, 0, 0, 0))
+            info.external_attr = 0o644 << 16
+            # Media is already compressed; store it to keep import fast.
+            info.compress_type = zipfile.ZIP_DEFLATED if rel.endswith(".json") else zipfile.ZIP_STORED
+            with open(full, "rb") as f:
+                z.writestr(info, f.read())
     print(f"OK {m['id']} v{m.get('version', 1)}: {len(m['cards'])} cards, "
           f"{len(m.get('scenes', []))} scenes -> {out}")
 
