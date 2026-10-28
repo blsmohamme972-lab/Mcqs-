@@ -58,3 +58,9 @@ cd abg_ocr/android
 echo "sdk.dir=$ANDROID_HOME" > local.properties
 gradle assembleDebug         # → app/build/outputs/apk/debug/app-debug.apk
 ```
+
+## v0.2: ABL800 decimal profile
+Tesseract often drops the decimal point (2.9 → "29", 0.6 → "06"). With "Radiometer ABL800" selected,
+values the ABL800 prints with fixed decimals (pH 3, Ca 2, most others 1) get the point re-inserted
+and are flagged yellow. Arrow flags read as letters ("↑ cK⁺" → "Tock", "↓ ctHb" → "d ctHb") are handled.
+Result on a straight photo of a real ABL800 printout: 20/20 values correct, HH/BE/anion-gap checks pass.

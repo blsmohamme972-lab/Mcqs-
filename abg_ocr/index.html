@@ -98,6 +98,12 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
     <div class="row">
       <label class="chk"><input id="enh" type="checkbox" checked> تحسين الصورة (أبيض وأسود)</label>
       <label class="chk"><input id="desk" type="checkbox" checked> تعديل الميلان تلقائياً</label>
+      <label class="chk">جهاز التحليل
+        <select id="dev">
+          <option value="abl" selected>Radiometer ABL800</option>
+          <option value="other">جهاز آخر</option>
+        </select>
+      </label>
       <label class="chk">طريقة القراءة
         <select id="psm">
           <option value="4" selected>عمود واحد (الأفضل للأوراق)</option>
@@ -162,16 +168,16 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
     { k: "po2", n: "pO2", re: /^p\s*[O0o]\s*[2z,₂]?(?![A-Za-z(])/i, gas: true, plaus: [5, 700], norm: [80, 100] },
     { k: "so2", n: "sO2", re: /^[sS5]\s*[O0]\s*[2z,₂]?(?![A-Za-z])/, unit: "%", plaus: [0, 100], norm: [95, 99] },
     { k: "hco3std", n: "HCO3 std", re: /^c?\s*HC\s*[O0]\s*[3]?.*(st|std|stand)/i, unit: "mmol/L", plaus: [2, 60], norm: [22, 26] },
-    { k: "hco3", n: "HCO3", re: /^c?\s*HC\s*[O0]\s*3/i, unit: "mmol/L", plaus: [2, 60], norm: [22, 26] },
+    { k: "hco3", n: "HCO3", re: /^c?\s*HC\s*[O0]\s*[3,₃]?/i, unit: "mmol/L", plaus: [2, 60], norm: [22, 26] },
     { k: "be", n: "BE", re: /^([ceo]?\s*Base|A?BE|SBE|BE\s*\(|BEecf|BEb)/i, unit: "mmol/L", plaus: [-40, 40], norm: [-2, 2], signed: true },
     { k: "hb", n: "Hb", re: /^[co]?\s*t?\s*H[bp]\b|^[co]?\s*t\s*H[bp]/i, unit: "g/dL", plaus: [2, 25], norm: [12, 17.5] },
     { k: "hct", n: "Hct", re: /^H[ce]t/i, unit: "%", plaus: [5, 75], norm: [36, 50] },
     { k: "na", n: "Na+", re: /^[co]?\s*Na\s*[+t*]?(?=[\s\d:]|$)/i, unit: "mmol/L", plaus: [90, 200], norm: [135, 145] },
-    { k: "k", n: "K+", re: /^[co]?\s*K\s*[+*]?(?=[\s\d]|$)/, unit: "mmol/L", plaus: [1, 12], norm: [3.5, 5.0] },
+    { k: "k", n: "K+", re: /^(?:[Tt][o0]?)?[co]?\s*[Kk]\s*[+*'?]?(?=[\s\d]|$)/, unit: "mmol/L", plaus: [1, 12], norm: [3.5, 5.0] },
     { k: "cl", n: "Cl-", re: /^[co]?\s*C[lI1r]\s*[-−]?(?=[\s\d]|$)/, unit: "mmol/L", plaus: [60, 150], norm: [98, 107] },
     { k: "ca", n: "Ca2+", re: /^(c?\s*Ca\s*[2z]?\s*\+*|iCa)/i, unit: "mmol/L", plaus: [0.3, 3.5], norm: [1.15, 1.33] },
     { k: "glu", n: "Glu", re: /^[co]?\s*G[lI1]?[uy]/i, unit: "mmol/L", plaus: [0.5, 60], mgdl: [10, 1100], norm: [3.9, 7.8] },
-    { k: "lac", n: "Lac", re: /^[cso]?\s*[LlIt1][ae]c/i, unit: "mmol/L", plaus: [0, 30], norm: [0.5, 2.0] },
+    { k: "lac", n: "Lac", re: /^[cso]?\s*[lI1]?\s*[LlIt1][ae]c/i, unit: "mmol/L", plaus: [0, 30], norm: [0.5, 2.0] },
     { k: "fio2", n: "FiO2", re: /^F\s*[I1l]\s*[O0]\s*2/i, unit: "%", plaus: [21, 100], norm: null },
     { k: "temp", n: "Temp", re: /^(T\b|Temp)/i, unit: "°C", plaus: [25, 43], norm: null },
     { k: "ph", n: "pH", re: /^p\s*H\b(?!\s*\(\s*T)/i, unit: "", plaus: [6.5, 8.0], norm: [7.35, 7.45], ph: true },
@@ -183,6 +189,7 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
     { ...P.find((p) => p.k === "po2"), re: /^p\s*[O0o]\s*[2z,₂L]?\s*\(?\s*T\)/i, tcorr: true },
   ];
   const ALL = [...P, ...PT];
+  const ABL_DP = { ph: 3, pco2: 1, hco3: 1, hco3std: 1, be: 1, so2: 1, fo2hb: 1, fcohb: 1, fmethb: 1, fhhb: 1, k: 1, ca: 2, lac: 1, hb: 1, hct: 1, temp: 1 };
   const DECIMAL = new Set(["ph", "pco2", "hco3", "hco3std", "be", "so2", "fo2hb", "fcohb", "fmethb", "fhhb", "k", "ca", "lac", "hb", "hct", "temp"]);
   const KPA = 7.50062;
   // Where Tesseract's worker and engine load from (the Android app swaps these for bundled copies).
@@ -345,9 +352,10 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
   const NUMWORD = /^[-−–—]?\d+(?:[.,·]\d+)?$/;
   function cleanLabel(t) {
     return t.replace(/[|_]/g, " ")
+      .replace(/^[^A-Za-z$]+/, "")
+      .replace(/^[tTdi41l)(]\s+(?=[A-Za-z$¢]{2})/, "")      // ↑/↓ flags read as "t", "d", "i", "4", "1"
       .replace(/^\$/, "s")                                  // "$0," is sO2
-      .replace(/^[^A-Za-z]+/, "")
-      .replace(/^[tT41l]\s+(?=[A-Za-z]{2})/, "")            // ↑/↓ flags read as "t", "4", "1"
+      .replace(/^¢/, "c")
       .trim();
   }
   // words: every recognised word with its bbox, used to find a value printed in a separate column.
@@ -361,7 +369,7 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
         const m = text.match(p.re);
         if (!m) continue;
         let rest = text.slice(m[0].length);
-        rest = rest.replace(/^\s*\([^)]*\)[a-z,.]?/, "");  // "(T)", "(P)", "(B)", "(P,st)c" qualifiers
+        rest = rest.replace(/^[\s~,]*\([^)]*\)[a-z,.¢]?/, "");  // "(T)", "(P)", "(B)", "(P,st)c" qualifiers
         rest = rest.replace(/^\s*[-−]\s*(?=\s|$)/, "");     // trailing "-" of "HCO3-" / "Cl-"
         rest = rest.replace(/^[\s:=+*,.]+/, " ");
         let nm = rest.match(NUM), conf = null, unitTxt = rest, how = "line";
@@ -381,6 +389,13 @@ pre { white-space: pre-wrap; word-break: break-word; font-family: var(--font-dat
         if (neg && !p.signed) notes.push("ظهرت علامة سالب أمام قيمة ما تكون سالبة — تجاهلناها");
         let unit = p.unit, plaus = p.plaus;
         if (p.mgdl && (/mg/i.test(unitTxt) || v > p.plaus[1])) { unit = "mg/dL"; plaus = p.mgdl; }
+        // ABL800 prints a fixed number of decimals per value, so a number read without its point gets it back.
+        const dp = $("dev").value === "abl" && !(p.gas && /kpa/i.test(unitTxt)) ? ABL_DP[p.k] : 0;
+        if (dp && !numTxt.includes(".")) {
+          const c = +(Math.abs(v) / 10 ** dp).toFixed(dp) * Math.sign(v || 1);
+          notes.push(`قُرئت ${numTxt} بدون فاصلة — الجهاز يطبع ${dp === 1 ? "رقم واحد" : dp + " أرقام"} بعد الفاصلة، فصارت ${c}`);
+          v = c; numTxt = String(Math.abs(c));
+        }
         // pH printed without its decimal point (e.g. "735") — Tesseract dropped the dot.
         if (p.ph && !numTxt.includes(".") && v >= 650 && v <= 800) { v = v / 100; notes.push("الفاصلة العشرية مفقودة — صُحّحت تلقائياً"); }
         // Decimal point lost (e.g. sO2 "970" for 97.0): if ÷10 or ÷100 lands in the possible range, use it and flag it.
