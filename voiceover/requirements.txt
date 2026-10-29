@@ -1,0 +1,10 @@
+# Voice-over toolchain (Claude Code side only; nothing here ships to students).
+# Install into its own venv:  python3 -m venv ~/.venvs/kafu-voice && ~/.venvs/kafu-voice/bin/pip install -r voiceover/requirements.txt
+# Also needs ffmpeg with libopus (and libx264 for review videos) on PATH.
+kokoro-onnx==0.6.1        # Kokoro-82M runtime (model weights Apache-2.0, downloaded by `voiceover.py setup`)
+onnxruntime==1.30.0
+soundfile==0.14.0
+numpy==2.5.3
+faster-whisper==1.2.1     # listen-back check (MIT); model base.en downloaded on first use
+ctranslate2==4.8.2
+playwright==1.57.0        # same pin as the repo CI; review videos reuse motioncards render (Chromium via MOTIONCARDS_CHROMIUM)

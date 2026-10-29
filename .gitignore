@@ -1,2 +1,21 @@
 dist/
 __pycache__/
+*.pyc
+*.log
+/tmp/
+
+# Review videos are sent to the owner in chat only, never committed.
+*.mp4
+# Voice engine test clips (`voiceover.py sample`) are sent to the owner in chat only.
+/work/voice-sample/
+# Lean storage: of a lesson only the text is kept, lessons/<QID>.lesson.json (plus the tiny selection.json).
+# Images, voice, built scenes, the export copy and the ZIP stay out: the ZIP goes to the owner in chat and lives in
+# the bot, and the image and the export come back from the owner or the bot when a lesson is edited.
+/work/*/lessons/*
+!/work/*/lessons/*.lesson.json
+/work/*/voice/
+/work/*/scenes/
+/work/*/input/
+/work/input/
+/work/autobuild/
+/dist/
