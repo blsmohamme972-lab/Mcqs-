@@ -17,4 +17,6 @@ scaffold` → `lessons/<QID>.lesson.json` → `tools/motioncards.py lesson` (voi
 The app, bot and publisher are not here; they stay in MCQs-Mountain-. In `kafu_queue/`, `KAFU_MOUNTAIN` (the
 project code for the checks) can point at this repository: everything the checks import (`motioncards/`) is here.
 
-Tests: `for t in tools/tests/test_*.py; do python3 -m unittest $t; done`
+Only the method is here: no book exports, voice samples, art or past lessons. Each run brings its own export and images.
+
+Tests: `python3 -m unittest tools/tests/test_lessons.py`
