@@ -16,6 +16,39 @@ TYPES = {"basic", "occlusion", "mcq"}
 SKIP = {".py", ".pyc"}
 
 
+def validate_lecture(s, root):
+    """Mirror of SceneDef.lectureErrors in the app (pkg/Lecture.kt)."""
+    lec = s.get("lecture")
+    if lec is None:
+        return []
+    who = f"scene {s['id']} lecture"
+    errors = []
+    if not s.get("image"):
+        errors.append(f"{who}: needs the scene image")
+    if lec.get("audio") and not os.path.isfile(os.path.join(root, lec["audio"])):
+        errors.append(f"{who}: missing file {lec['audio']!r}")
+    if lec.get("duration") is not None and lec["duration"] <= 0:
+        errors.append(f"{who}: duration must be > 0")
+    ids = {r["id"] for r in s.get("regions", [])}
+    hidden = lec.get("hidden", [])
+    errors += [f"{who}: unknown hidden region {h!r}" for h in hidden if h not in ids]
+    last = 0.0
+    for i, c in enumerate(lec.get("cues", [])):
+        if c["at"] < last:
+            errors.append(f"{who}: cue {i} is before the previous cue")
+        last = max(last, c["at"])
+        if c.get("focus") is not None and c["focus"] not in ids:
+            errors.append(f"{who}: cue {i} unknown focus region {c['focus']!r}")
+        errors += [f"{who}: cue {i} reveals {r!r} which is not hidden" for r in c.get("reveal", []) if r not in hidden]
+        if c.get("zoom") is not None and c["zoom"] <= 0:
+            errors.append(f"{who}: cue {i} zoom must be > 0")
+        if c.get("camera") is not None and c["camera"].get("zoom", 1.0) <= 0:
+            errors.append(f"{who}: cue {i} camera zoom must be > 0")
+        if c.get("effect") not in (None, "pulse"):
+            errors.append(f"{who}: cue {i} unknown effect {c['effect']!r}")
+    return errors
+
+
 def validate(m, root):
     errors = []
     if m.get("format") != 1:
@@ -38,6 +71,7 @@ def validate(m, root):
         scenes[s["id"]] = s
         media(f"scene {s['id']}", s.get("image"))
         media(f"scene {s['id']}", s.get("video"))
+        errors += validate_lecture(s, root)
         seen = set()
         for r in s.get("regions", []):
             if r["id"] in seen:

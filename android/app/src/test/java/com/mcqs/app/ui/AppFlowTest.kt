@@ -79,7 +79,7 @@ class AppFlowTest {
         compose.onNodeWithText("Reels").performClick()
         waitFor("Tension pneumothorax — the burglar who can't leave")
         shot("1b-reels")
-        compose.onNodeWithText("Decks").performClick()
+        compose.onNodeWithText("Anki").performClick()
         waitFor("Study")
 
         compose.onNodeWithText("Study").performClick()

@@ -225,7 +225,7 @@ private fun CardView(ui: StudyUi, vm: StudyViewModel, onOpenScene: (String) -> U
                     card.explanation?.let { Text(it, style = MaterialTheme.typography.bodyMedium, color = TextHi) }
                     card.source?.let { Text("Source: $it", style = MaterialTheme.typography.labelSmall, color = TextLo) }
                     val scene = ui.scene
-                    if (scene != null && (scene.video != null || card.type != CardType.OCCLUSION)) {
+                    if (scene != null && (scene.video != null || scene.lectureJson != null || card.type != CardType.OCCLUSION)) {
                         GradientButton(onClick = { onOpenScene(scene.id) }, brush = CoolGradient,
                             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)) {
                             Row(verticalAlignment = Alignment.CenterVertically) {

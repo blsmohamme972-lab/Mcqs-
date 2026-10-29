@@ -2,6 +2,14 @@ package com.mcqs.app.ui
 
 import android.net.Uri
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.input.pointer.pointerInput
+import com.mcqs.app.pkg.LectureDef
+import com.mcqs.app.pkg.LectureTimeline
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -80,7 +88,7 @@ fun ScenesScreen(repo: Repository, deckId: String, onBack: () -> Unit, onOpen: (
                         }
                         Column(Modifier.weight(1f)) {
                             Text(s.title, style = MaterialTheme.typography.titleMedium)
-                            val meta = listOfNotNull(if (s.video != null) "▶ video" else null, s.source).joinToString(" · ")
+                            val meta = listOfNotNull(if (s.lectureJson != null) "▶ lecture" else if (s.video != null) "▶ video" else null, s.source).joinToString(" · ")
                             if (meta.isNotEmpty()) Text(meta, style = MaterialTheme.typography.bodySmall)
                         }
                     }
@@ -114,6 +122,21 @@ fun SceneDetailScreen(repo: Repository, deckId: String, sceneId: String, onBack:
             if (bitmap != null) {
                 val regions = remember(scene) {
                     manifestJson.decodeFromString(ListSerializer(RegionDef.serializer()), scene.regionsJson)
+                }
+                scene.lectureJson?.let { json ->
+                    val timeline = remember(scene) {
+                        LectureTimeline(manifestJson.decodeFromString(LectureDef.serializer(), json), regions)
+                    }
+                    val clock = rememberLectureClock(timeline, timeline.lecture.audio?.let { File(deck.dir, it) }, active = true)
+                    Box(
+                        Modifier.fillMaxWidth().aspectRatio(4 / 5f).clip(RoundedCornerShape(20.dp))
+                            .pointerInput(scene) { detectTapGestures(onTap = { clock.toggle() }) }
+                    ) {
+                        LectureView(bitmap, timeline, regions, clock.time, Modifier.fillMaxSize(), captionBottomPadding = 20)
+                        Box(Modifier.align(Alignment.BottomStart).fillMaxWidth().height(3.dp).background(Panel2)) {
+                            Box(Modifier.fillMaxWidth(clock.progress).height(3.dp).background(BrandGradient))
+                        }
+                    }
                 }
                 if (regions.any { it.label != null }) {
                     FilterChip(selected = labels, onClick = { labels = !labels }, label = { Text("Show labels") })

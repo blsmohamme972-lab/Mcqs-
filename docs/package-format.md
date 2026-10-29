@@ -60,6 +60,44 @@ ct-ch17.zip
 
 Unknown fields are ignored, so newer tools can add fields without breaking older app versions.
 
+## Lectures (Reels)
+
+A scene with a `lecture` plays in the **Reels** tab as a live lecture: the app shows the scene
+image, plays the narration, and moves a camera over the image on cue — no video file needed.
+
+```json
+"scenes": [{
+  "id": "tension_ptx", "title": "Tension pneumothorax", "image": "media/scene.png",
+  "regions": [ { "id": "car", "x": 0.02, "y": 0.70, "w": 0.29, "h": 0.22 }, … ],
+  "lecture": {
+    "audio": "media/tension_ptx.mp3",
+    "hidden": ["firefighter"],
+    "cues": [
+      { "at": 0.0,  "caption": "Tension pneumothorax" },
+      { "at": 3.2,  "focus": "car", "caption": "Rapid deceleration" },
+      { "at": 7.5,  "focus": "beam", "zoom": 3.0, "effect": "pulse" },
+      { "at": 12.0, "focus": "firefighter", "reveal": ["firefighter"], "caption": "Needle decompression" },
+      { "at": 18.0, "camera": { "x": 0.5, "y": 0.5, "zoom": 1.0 }, "caption": "" }
+    ]
+  }
+}]
+```
+
+| Field | Meaning |
+|---|---|
+| `audio` | Narration (mp3/m4a/wav/ogg). The lecture clock follows it; tap pauses both. Optional: without audio the lecture runs on its own clock. |
+| `duration` | Seconds. Default: the audio length, or last cue + 3 s. Lectures loop like reels. |
+| `hidden` | Regions masked at the start. |
+| `cues[].at` | Seconds from the start; cues must be in time order. |
+| `cues[].focus` | Region the camera glides to (and outlines in cyan). Zoom fits the region unless `zoom` is set. |
+| `cues[].camera` | Explicit camera `{x, y, zoom}` (image fractions; zoom 1 = whole image). |
+| `cues[].caption` | Subtitle from this cue on; `""` clears it. |
+| `cues[].reveal` | Hidden regions to uncover (0.3 s fade). |
+| `cues[].effect` | `"pulse"`: the outline throbs. |
+| `cues[].transition` | Seconds the camera move takes (default 0.8). |
+
+A scene can instead carry a ready-made `video`; it plays in Reels as a normal video.
+
 ## Publishing (automatic)
 
 Put each package folder under `content/<package-id>/`. Every push that touches `content/`,

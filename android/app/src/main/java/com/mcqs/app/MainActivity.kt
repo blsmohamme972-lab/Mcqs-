@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
                                     indicatorColor = Panel2,
                                 )
                                 NavigationBarItem(tab == 0, { tab = 0 }, { Icon(Icons.Filled.Home, null) },
-                                    label = { Text("Decks") }, colors = colors)
+                                    label = { Text("Anki") }, colors = colors)
                                 NavigationBarItem(tab == 1, { tab = 1 }, { Icon(Icons.Filled.PlayArrow, null) },
                                     label = { Text("Reels") }, colors = colors)
                             }

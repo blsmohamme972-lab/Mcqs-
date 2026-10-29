@@ -40,6 +40,7 @@ data class SceneEntity(
     val source: String?,
     val regionsJson: String,
     val ord: Int,
+    @ColumnInfo(defaultValue = "NULL") val lectureJson: String? = null,
 )
 
 /** [uid] is "deckId/cardId": stable across re-imports so review progress survives updates. */
@@ -96,25 +97,28 @@ data class DeckSummary(
     val scenes: Int,
 )
 
-/** A scene with a video, for the Reels feed. */
+/** A scene with a video or a lecture, for the Reels feed. */
 data class ReelItem(
     val deckId: String,
     val sceneId: String,
     val deckTitle: String,
     val title: String,
     val image: String?,
-    val video: String,
+    val video: String?,
     val story: String?,
     val dir: String,
+    val regionsJson: String,
+    val lectureJson: String?,
 )
 
 @Dao
 interface StudyDao {
     @Query(
         """
-        SELECT s.deckId, s.id AS sceneId, d.title AS deckTitle, s.title, s.image, s.video, s.story, d.dir
+        SELECT s.deckId, s.id AS sceneId, d.title AS deckTitle, s.title, s.image, s.video, s.story, d.dir,
+               s.regionsJson, s.lectureJson
         FROM scenes s JOIN decks d ON d.id = s.deckId
-        WHERE s.video IS NOT NULL ORDER BY d.title, s.ord
+        WHERE s.video IS NOT NULL OR s.lectureJson IS NOT NULL ORDER BY d.title, s.ord
         """
     )
     fun reels(): Flow<List<ReelItem>>
@@ -219,8 +223,8 @@ interface StudyDao {
 
 @Database(
     entities = [DeckEntity::class, SceneEntity::class, CardEntity::class, ReviewStateEntity::class, ReviewLogEntity::class],
-    version = 2,
-    autoMigrations = [AutoMigration(from = 1, to = 2)],
+    version = 3,
+    autoMigrations = [AutoMigration(from = 1, to = 2), AutoMigration(from = 2, to = 3)],
 )
 abstract class AppDb : RoomDatabase() {
     abstract fun dao(): StudyDao

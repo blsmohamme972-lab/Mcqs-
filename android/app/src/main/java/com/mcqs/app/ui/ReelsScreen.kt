@@ -11,6 +11,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -64,6 +65,11 @@ import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.PlayerView
 import com.mcqs.app.data.ReelItem
 import com.mcqs.app.data.Repository
+import com.mcqs.app.pkg.LectureDef
+import com.mcqs.app.pkg.LectureTimeline
+import com.mcqs.app.pkg.RegionDef
+import com.mcqs.app.pkg.manifestJson
+import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.coroutines.delay
 import java.io.File
 
@@ -79,8 +85,8 @@ fun ReelsScreen(repo: Repository, onStudy: (String) -> Unit, onScene: (String, S
     if (reels.isEmpty()) {
         Column(Modifier.fillMaxSize().padding(32.dp), verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("No reels yet", style = MaterialTheme.typography.headlineSmall.brand())
-            Text("Scenes with a video show up here.", color = TextLo)
+            Text("No lectures yet", style = MaterialTheme.typography.headlineSmall.brand())
+            Text("Scenes with a lecture or a video show up here.", color = TextLo)
         }
         return
     }
@@ -123,9 +129,15 @@ fun ReelsScreen(repo: Repository, onStudy: (String) -> Unit, onScene: (String, S
     LaunchedEffect(pager.currentPage, reels) {
         val reel = reels.getOrNull(pager.currentPage) ?: return@LaunchedEffect
         progress = 0f
-        player.setMediaItem(MediaItem.fromUri(Uri.fromFile(File(reel.dir, reel.video))))
-        player.prepare()
-        player.play()
+        // The shared player is for video reels; lecture pages run their own audio clock.
+        if (reel.lectureJson == null && reel.video != null) {
+            player.setMediaItem(MediaItem.fromUri(Uri.fromFile(File(reel.dir, reel.video))))
+            player.prepare()
+            player.play()
+        } else {
+            player.stop()
+            player.clearMediaItems()
+        }
     }
     LaunchedEffect(player) {
         while (true) {
@@ -141,6 +153,11 @@ fun ReelsScreen(repo: Repository, onStudy: (String) -> Unit, onScene: (String, S
         key = { "${reels[it].deckId}/${reels[it].sceneId}" },
     ) { page ->
         val reel = reels[page]
+        val active = page == pager.currentPage
+        if (reel.lectureJson != null) {
+            LecturePage(reel, active, onStudy = { onStudy(reel.deckId) }, onScene = { onScene(reel.deckId, reel.sceneId) })
+            return@VerticalPager
+        }
         Box(
             Modifier.fillMaxSize().pointerInput(page) {
                 detectTapGestures(onTap = { if (player.playWhenReady) player.pause() else player.play() })
@@ -150,7 +167,7 @@ fun ReelsScreen(repo: Repository, onStudy: (String) -> Unit, onScene: (String, S
             if (poster != null) {
                 Image(poster, null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop, alpha = 0.35f)
             }
-            if (page == pager.currentPage) {
+            if (active) {
                 AndroidView(
                     factory = {
                         PlayerView(it).apply {
@@ -167,27 +184,47 @@ fun ReelsScreen(repo: Repository, onStudy: (String) -> Unit, onScene: (String, S
                     modifier = Modifier.fillMaxSize(),
                 )
             }
-
-            AnimatedVisibility(!playing && page == pager.currentPage, Modifier.align(Alignment.Center),
-                enter = fadeIn(), exit = fadeOut()) {
-                Box(Modifier.size(84.dp).clip(CircleShape).background(Color.Black.copy(alpha = 0.45f)),
-                    contentAlignment = Alignment.Center) {
-                    Icon(Icons.Filled.PlayArrow, "Play", tint = Color.White, modifier = Modifier.size(52.dp))
-                }
-            }
-
-            ReelOverlay(reel, Modifier.align(Alignment.BottomStart),
-                onStudy = { onStudy(reel.deckId) }, onScene = { onScene(reel.deckId, reel.sceneId) })
-
-            if (page == pager.currentPage) {
-                Box(Modifier.align(Alignment.BottomStart).fillMaxWidth().height(3.dp).background(Color.White.copy(alpha = 0.2f))) {
-                    Box(Modifier.fillMaxWidth(progress).height(3.dp).background(BrandGradient))
-                }
-            }
-            Text("Reels", style = MaterialTheme.typography.titleLarge, color = Color.White,
-                modifier = Modifier.statusBarsPadding().padding(16.dp))
+            ReelChrome(reel, active, playing, progress, onStudy = { onStudy(reel.deckId) },
+                onScene = { onScene(reel.deckId, reel.sceneId) })
         }
     }
+}
+
+/** A live lecture page: the app moves the image itself, synced to the narration. */
+@Composable
+private fun LecturePage(reel: ReelItem, active: Boolean, onStudy: () -> Unit, onScene: () -> Unit) {
+    val regions = remember(reel) { manifestJson.decodeFromString(ListSerializer(RegionDef.serializer()), reel.regionsJson) }
+    val timeline = remember(reel) {
+        LectureTimeline(manifestJson.decodeFromString(LectureDef.serializer(), reel.lectureJson!!), regions)
+    }
+    val clock = rememberLectureClock(timeline, timeline.lecture.audio?.let { File(reel.dir, it) }, active)
+    val bitmap = rememberBitmap(reel.image?.let { File(reel.dir, it) }, maxDim = 2048)
+    Box(Modifier.fillMaxSize().pointerInput(reel) { detectTapGestures(onTap = { clock.toggle() }) }) {
+        if (bitmap != null) {
+            LectureView(bitmap, timeline, regions, if (active) clock.time else 0.0, Modifier.fillMaxSize())
+        }
+        ReelChrome(reel, active, clock.playing, clock.progress, onStudy, onScene)
+    }
+}
+
+/** Overlay shared by video and lecture reels: play icon, title/story, actions, progress bar. */
+@Composable
+private fun BoxScope.ReelChrome(reel: ReelItem, active: Boolean, playing: Boolean, progress: Float,
+                                onStudy: () -> Unit, onScene: () -> Unit) {
+    AnimatedVisibility(!playing && active, Modifier.align(Alignment.Center), enter = fadeIn(), exit = fadeOut()) {
+        Box(Modifier.size(84.dp).clip(CircleShape).background(Color.Black.copy(alpha = 0.45f)),
+            contentAlignment = Alignment.Center) {
+            Icon(Icons.Filled.PlayArrow, "Play", tint = Color.White, modifier = Modifier.size(52.dp))
+        }
+    }
+    ReelOverlay(reel, Modifier.align(Alignment.BottomStart), onStudy = onStudy, onScene = onScene)
+    if (active) {
+        Box(Modifier.align(Alignment.BottomStart).fillMaxWidth().height(3.dp).background(Color.White.copy(alpha = 0.2f))) {
+            Box(Modifier.fillMaxWidth(progress).height(3.dp).background(BrandGradient))
+        }
+    }
+    Text("Reels", style = MaterialTheme.typography.titleLarge, color = Color.White,
+        modifier = Modifier.statusBarsPadding().padding(16.dp))
 }
 
 @Composable

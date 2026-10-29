@@ -26,6 +26,9 @@ data class RemoteApp(val versionCode: Int, val versionName: String, val url: Str
 @Serializable
 data class RemotePackage(val id: String, val title: String, val version: Int, val url: String, val sha256: String, val size: Long)
 
+/** The release (or its index.json) doesn't exist yet: nothing has been published. */
+class NotPublishedException(url: String) : IOException("nothing published at $url")
+
 data class SyncResult(val updated: List<String>, val appUpdate: RemoteApp?)
 
 /**
@@ -82,7 +85,9 @@ class Sync(private val context: Context, private val repo: Repository) {
         conn.connectTimeout = 15_000
         conn.readTimeout = 30_000
         conn.instanceFollowRedirects = true
-        if (conn.responseCode != 200) throw IOException("HTTP ${conn.responseCode} for $url")
+        val code = conn.responseCode
+        if (code == 404) throw NotPublishedException(url)
+        if (code != 200) throw IOException("HTTP $code for $url")
         return conn
     }
 

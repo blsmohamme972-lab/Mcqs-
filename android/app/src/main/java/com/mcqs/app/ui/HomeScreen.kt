@@ -51,6 +51,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import com.mcqs.app.BuildConfig
 import com.mcqs.app.data.DeckSummary
+import com.mcqs.app.data.NotPublishedException
 import com.mcqs.app.data.RemoteApp
 import com.mcqs.app.data.Repository
 import com.mcqs.app.data.Sync
@@ -88,6 +89,8 @@ fun HomeScreen(repo: Repository, sync: Sync, onStudy: (String) -> Unit, onScenes
                 SyncState.appUpdate = result.appUpdate
                 SyncState.status = if (result.updated.isEmpty()) "Up to date" else "Updated: ${result.updated.joinToString()}"
                 now = System.currentTimeMillis()
+            } catch (e: NotPublishedException) {
+                SyncState.status = "Nothing published yet"
             } catch (e: Exception) {
                 SyncState.status = "Offline — using saved content"
             } finally {

@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import androidx.room.withTransaction
 import com.mcqs.app.pkg.InvalidPackageException
+import com.mcqs.app.pkg.LectureDef
 import com.mcqs.app.pkg.Manifest
 import com.mcqs.app.pkg.RegionDef
 import com.mcqs.app.pkg.ZipExtractor
@@ -69,6 +70,7 @@ class Repository(private val context: Context) {
                 story = s.story, source = s.source,
                 regionsJson = manifestJson.encodeToString(ListSerializer(RegionDef.serializer()), s.regions),
                 ord = i,
+                lectureJson = s.lecture?.let { manifestJson.encodeToString(LectureDef.serializer(), it) },
             )
         })
         val cards = m.cards.mapIndexed { i, c ->
