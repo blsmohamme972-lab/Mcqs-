@@ -1,0 +1,34 @@
+{
+  "drive_folder_id": "1A2_GAFmrM-EugAztWI6FgqbAuvXZWNSU",
+  "drive_folder_url": "https://drive.google.com/drive/folders/1A2_GAFmrM-EugAztWI6FgqbAuvXZWNSU",
+  "drive_folder_name": "Books",
+  "repo": "https://github.com/blsmohamme972-lab/Mcqs-",
+  "repo_slug": "blsmohamme972-lab/Mcqs-",
+  "queue_branch": "master",
+  "lessons_base_branch": "master",
+  "batch_size": 6,
+  "gpt_set_size": 8,
+  "gpt_writer_questions": 8,
+  "voice_engine": "breeze",
+  "zip_inbox_url": "https://claude.ai/artifact/BcZ7JpoXUHuokR2u1w9z1y",
+  "max_package_zip_mb": 10,
+  "merge_part_mb": 9,
+  "minutes_per_question": 15,
+  "builder_cost_usd": {
+    "claude-haiku-5-5": {
+      "session": 0.03,
+      "per_hour": 0.01,
+      "per_package": 0.005
+    },
+    "claude-sonnet-5-5": {
+      "session": 0.2,
+      "per_hour": 0.25,
+      "per_package": 0.05
+    }
+  },
+  "head_cost_usd": {
+    "head session (measured, run 1)": 30
+  },
+  "setup_minutes": 20,
+  "_measured_2026_10_16": "Breeze on 4 CPU cores: 13-17 min per question (about 18 s of work per second of speech); voice setup about 20 min per session; Sonnet builders $0.4-1.2 per session; Head about $40 for run 1"
+}
