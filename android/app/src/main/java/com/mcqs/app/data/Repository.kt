@@ -71,6 +71,7 @@ class Repository(private val context: Context) {
                 regionsJson = manifestJson.encodeToString(ListSerializer(RegionDef.serializer()), s.regions),
                 ord = i,
                 lectureJson = s.lecture?.let { manifestJson.encodeToString(LectureDef.serializer(), it) },
+                entry = s.entry,
             )
         })
         val cards = m.cards.mapIndexed { i, c ->

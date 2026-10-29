@@ -154,6 +154,10 @@ fun ReelsScreen(repo: Repository, onStudy: (String) -> Unit, onScene: (String, S
     ) { page ->
         val reel = reels[page]
         val active = page == pager.currentPage
+        if (reel.entry != null) {
+            McardPage(reel, onScene = { onScene(reel.deckId, reel.sceneId) })
+            return@VerticalPager
+        }
         if (reel.lectureJson != null) {
             LecturePage(reel, active, onStudy = { onStudy(reel.deckId) }, onScene = { onScene(reel.deckId, reel.sceneId) })
             return@VerticalPager
@@ -275,4 +279,18 @@ private fun ReelAction(icon: ImageVector, label: String, onClick: () -> Unit) {
         }
         Text(label, style = MaterialTheme.typography.labelSmall, color = Color.White)
     }
+}
+
+/** An MCARDS image lesson in the feed: a poster card; tapping plays it full-screen in landscape. */
+@Composable
+private fun McardPage(reel: ReelItem, onScene: () -> Unit) {
+    var open by remember { mutableStateOf(false) }
+    Box(Modifier.fillMaxSize().background(Color.Black).clickable { open = true }.testTag("mcard-${reel.sceneId}")) {
+        Column(Modifier.align(Alignment.Center).padding(32.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            Icon(Icons.Filled.PlayArrow, null, Modifier.size(96.dp), tint = Color.White)
+            Text(reel.title, style = MaterialTheme.typography.headlineSmall.brand(), color = Color.White)
+            Text("${reel.deckTitle} · landscape lesson with voice", color = TextLo)
+        }
+    }
+    if (open) McardPlayer(File(reel.dir, reel.entry!!), onClose = { open = false })
 }

@@ -126,3 +126,16 @@ Re-import a zip with the **same package `id`** to update it:
 The asked region is masked in the accent colour; every other region gets a neutral mask
 ("hide all, guess one") so mask shapes don't leak answers. On reveal the asked mask fades out
 in ~0.2 s and the region is outlined. Pinch to zoom, double-tap to reset.
+
+## Kafu image lessons (`MCARDS_*.zip`)
+
+The app also imports the zips made by the image-lesson method (`VIDEOS.md`): a zip with `motioncards-manifest.json`
+(`package_type: kafu-motioncards`) and `entries/Q<9 digits>.html`. Each lesson becomes one scene (`entry`), so it shows
+in Reels and in the deck's scene list. Anki cards are unchanged; an MCARDS deck simply has none, and a normal
+`manifest.json` package can still be imported next to it.
+
+* Every entry's SHA-256 is checked against the manifest before the deck is stored.
+* Lessons are landscape. Tapping one opens a full-screen landscape player (`ui/McardPlayer.kt`) that acts as the
+  lesson's host: it connects over the MessageChannel protocol, takes the embedded Ogg Opus voice (checksum verified),
+  plays it and drives the picture from the voice clock. Tap pauses / resumes, Back closes.
+* The package version is `package_revision`; re-importing a newer revision replaces the deck (same id).

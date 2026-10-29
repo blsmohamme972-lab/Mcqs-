@@ -88,7 +88,7 @@ fun ScenesScreen(repo: Repository, deckId: String, onBack: () -> Unit, onOpen: (
                         }
                         Column(Modifier.weight(1f)) {
                             Text(s.title, style = MaterialTheme.typography.titleMedium)
-                            val meta = listOfNotNull(if (s.lectureJson != null) "▶ lecture" else if (s.video != null) "▶ video" else null, s.source).joinToString(" · ")
+                            val meta = listOfNotNull(if (s.entry != null) "▶ landscape lesson" else if (s.lectureJson != null) "▶ lecture" else if (s.video != null) "▶ video" else null, s.source).joinToString(" · ")
                             if (meta.isNotEmpty()) Text(meta, style = MaterialTheme.typography.bodySmall)
                         }
                     }
@@ -118,6 +118,11 @@ fun SceneDetailScreen(repo: Repository, deckId: String, sceneId: String, onBack:
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             scene.video?.let { VideoPlayer(File(deck.dir, it)) }
+            scene.entry?.let { e ->
+                var open by remember { mutableStateOf(false) }
+                androidx.compose.material3.Button(onClick = { open = true }) { Text("▶ Play landscape lesson") }
+                if (open) McardPlayer(File(deck.dir, e), onClose = { open = false })
+            }
             val bitmap = rememberBitmap(scene.image?.let { File(deck.dir, it) })
             if (bitmap != null) {
                 val regions = remember(scene) {

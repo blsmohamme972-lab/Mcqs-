@@ -41,6 +41,8 @@ data class SceneEntity(
     val regionsJson: String,
     val ord: Int,
     @ColumnInfo(defaultValue = "NULL") val lectureJson: String? = null,
+    /** Relative path of an MCARDS entry (HTML lesson), or null. */
+    @ColumnInfo(defaultValue = "NULL") val entry: String? = null,
 )
 
 /** [uid] is "deckId/cardId": stable across re-imports so review progress survives updates. */
@@ -109,6 +111,7 @@ data class ReelItem(
     val dir: String,
     val regionsJson: String,
     val lectureJson: String?,
+    val entry: String?,
 )
 
 @Dao
@@ -116,9 +119,9 @@ interface StudyDao {
     @Query(
         """
         SELECT s.deckId, s.id AS sceneId, d.title AS deckTitle, s.title, s.image, s.video, s.story, d.dir,
-               s.regionsJson, s.lectureJson
+               s.regionsJson, s.lectureJson, s.entry
         FROM scenes s JOIN decks d ON d.id = s.deckId
-        WHERE s.video IS NOT NULL OR s.lectureJson IS NOT NULL ORDER BY d.title, s.ord
+        WHERE s.video IS NOT NULL OR s.lectureJson IS NOT NULL OR s.entry IS NOT NULL ORDER BY d.title, s.ord
         """
     )
     fun reels(): Flow<List<ReelItem>>
@@ -223,8 +226,8 @@ interface StudyDao {
 
 @Database(
     entities = [DeckEntity::class, SceneEntity::class, CardEntity::class, ReviewStateEntity::class, ReviewLogEntity::class],
-    version = 3,
-    autoMigrations = [AutoMigration(from = 1, to = 2), AutoMigration(from = 2, to = 3)],
+    version = 4,
+    autoMigrations = [AutoMigration(from = 1, to = 2), AutoMigration(from = 2, to = 3), AutoMigration(from = 3, to = 4)],
 )
 abstract class AppDb : RoomDatabase() {
     abstract fun dao(): StudyDao

@@ -29,6 +29,9 @@ data class SceneDef(
     val regions: List<RegionDef> = emptyList(),
     /** Live lecture: image + narration + camera/highlight timeline (see Lecture.kt). */
     val lecture: LectureDef? = null,
+    /** MCARDS image lesson: compiled HTML card (landscape) with its voice embedded (see Mcards.kt). */
+    val entry: String? = null,
+    val durationMs: Int? = null,
 )
 
 /** Rectangle in normalized image coordinates (0..1, origin top-left). */
@@ -90,6 +93,7 @@ fun Manifest.validate(hasFile: (String) -> Boolean): List<String> {
         if (sceneById.put(s.id, s) != null) errors += "duplicate scene id '${s.id}'"
         media("scene ${s.id}", s.image)
         media("scene ${s.id}", s.video)
+        media("scene ${s.id}", s.entry)
         errors += s.lectureErrors(hasFile)
         val regionIds = mutableSetOf<String>()
         for (r in s.regions) {
