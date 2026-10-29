@@ -20,3 +20,21 @@ project code for the checks) can point at this repository: everything the checks
 Only the method is here: no book exports, voice samples, art or past lessons. Each run brings its own export and images.
 
 Tests: `python3 -m unittest tools/tests/test_lessons.py`
+
+## Book lessons (explain our book, not MCQs)
+
+The owner's direction: the image + voice lessons explain the **content of our book** (about one minute per topic), not
+questions. They go to our app only, not to the Kafu bot, so there is no QID from the bot, no answer key and no question
+fingerprint. Same engine (`motioncards/lib/lesson.py`: image, camera, voice track, entry HTML), different source and package:
+
+| Step | Command |
+|---|---|
+| Topics of a chapter (text only, committed) | `booklessons/chapters/ch01.json` (18 topics, 100–135 words each) |
+| One ChatGPT image prompt per topic | `python3 tools/booklessons.py prompts ch01` → `work/BOOK-CH01/prompts/<id>.txt` |
+| Owner draws the pictures | save as `work/BOOK-CH01/images/<id>.png` (landscape 16:9) |
+| Voice + scene (ask the engine question first) | `~/.venvs/kafu-voice/bin/python tools/booklessons.py build ch01 --engine breeze` |
+| Package | `python3 tools/booklessons.py package ch01` → `BOOK-CH01_r1.zip` (`booklessons-manifest.json` + `entries/`) |
+
+The app imports that zip (Reels feed + scene list, landscape player with the voice). Lean storage as before: commit only
+text (`booklessons/`), never images, voice or zips. Topic ids `Q9<chapter 2><topic 2>0000` are only the engine's internal id.
+Facts in the lesson text must come from the book page named in `pages`; check against the PDF before recording.

@@ -54,6 +54,7 @@ object ZipExtractor {
             val manifest = try {
                 when {
                     manifestFile.isFile -> manifestJson.decodeFromString(Manifest.serializer(), manifestFile.readText())
+                    File(root, Mcards.BOOK_MANIFEST_NAME).isFile -> Mcards.convertBook(File(root, Mcards.BOOK_MANIFEST_NAME).readText()) { path -> File(root, path).takeIf { isSafeFile(root, path) }?.readBytes() }
                     mcards.isFile -> Mcards.convert(mcards.readText()) { path -> File(root, path).takeIf { isSafeFile(root, path) }?.readBytes() }
                     else -> throw InvalidPackageException("manifest.json not found at zip root (nor ${Mcards.MANIFEST_NAME})")
                 }

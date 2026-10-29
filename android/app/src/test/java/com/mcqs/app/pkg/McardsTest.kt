@@ -32,4 +32,13 @@ class McardsTest {
         try { Mcards.convert(manifest("0".repeat(64))) { html.toByteArray() }; fail() }
         catch (e: InvalidPackageException) { assertTrue(e.message!!.contains("checksum")) }
     }
+
+    @Test fun convertsBookLessons() {
+        val text = """{"package_type":"mcqs-booklessons","schema_version":1,"package_id":"BOOK-CH01","package_revision":2,"book":"CTS 2e","chapter":1,
+          "chapter_title":"Preoperative assessment","lessons":[{"id":"ch01-02-angina","qid":"Q901020000","title":"Angina","pages":"2","takeaway":"Grade it",
+          "duration_ms":62000,"entry_path":"entries/Q901020000.html","entry_sha256":"$sha"}]}"""
+        val m = Mcards.convertBook(text) { html.toByteArray() }
+        assertEquals("BOOK-CH01", m.id); assertEquals("Ch 1 · Preoperative assessment", m.title); assertEquals(2, m.version)
+        val s = m.scenes.single(); assertEquals("ch01-02-angina", s.id); assertEquals("p 2", s.source); assertEquals(62000, s.durationMs)
+    }
 }
