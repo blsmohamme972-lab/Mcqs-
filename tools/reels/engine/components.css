@@ -1,0 +1,69 @@
+/* Reusable reel components. Each section is owned by the component of the same name in components.js. */
+
+/* rich headline */
+.rich { text-wrap: balance; }
+.wd { display: inline-block; will-change: transform, opacity, filter; }
+.wd.em { font-style: italic; padding-right: .06em; }
+
+.eyebrow { position: absolute; display: flex; align-items: center; gap: 16px; font: 500 26px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--t3); }
+.edot { width: 14px; height: 14px; border-radius: 50%; flex: none; }
+
+/* tile (icon + label), glow driven by --lit */
+.tile { position: absolute; display: flex; border-radius: 32px; overflow: hidden;
+  background: linear-gradient(160deg, var(--panel-2), var(--panel));
+  border: 1.5px solid color-mix(in srgb, var(--tone) calc(var(--lit) * 100%), var(--hair-2));
+  box-shadow: 0 30px 70px -30px rgba(0,0,0,.8), 0 0 calc(70px * var(--lit)) -6px color-mix(in srgb, var(--tone) calc(var(--lit) * 55%), transparent); }
+.tile::before { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, var(--tone) calc(var(--lit) * 22%), transparent), transparent 70%); }
+.tile-col { flex-direction: column; justify-content: center; align-items: flex-start; gap: 22px; padding: 0 34px; }
+.tile-row { flex-direction: row; align-items: center; gap: 26px; padding: 0 30px; }
+.tile-ic { position: relative; flex: none; display: grid; place-items: center; width: 104px; height: 104px; border-radius: 28px;
+  color: color-mix(in srgb, var(--tone) calc(40% + var(--lit) * 60%), var(--t3)); background: color-mix(in srgb, var(--tone) calc(8% + var(--lit) * 16%), rgba(255,255,255,.04)); }
+.tile-row .tile-ic { width: 88px; height: 88px; border-radius: 24px; }
+.tile-tx { position: relative; min-width: 0; }
+.tile-lb { font: 700 36px/1.12 var(--sans); letter-spacing: -.015em; color: color-mix(in srgb, var(--t1) calc(55% + var(--lit) * 45%), var(--t3)); }
+.tile-sub { margin-top: 8px; font: 500 22px/1 var(--mono); letter-spacing: .12em; color: var(--t3); text-transform: uppercase; }
+
+/* underline sweep */
+.uline { position: absolute; left: 0; width: calc(100% * var(--w)); border-radius: 99px; --w: 0; }
+
+/* status badge: icon + label */
+.status { display: inline-flex; align-items: center; gap: .32em; padding: .32em .7em .32em .5em; border-radius: 999px; font-weight: 800; letter-spacing: .02em; text-transform: uppercase;
+  color: #fff; background: color-mix(in srgb, var(--tone) 88%, #000); }
+.status .icon { flex: none; }
+
+/* metro-style map station (reel 01) */
+.stn { position: absolute; left: 0; right: 0; height: 66px; --tone: var(--t3); --lit: 0; }
+.stn .node { position: absolute; left: 104px; top: 18px; width: 30px; height: 30px; border-radius: 50%; box-sizing: border-box;
+  border: 4px solid color-mix(in srgb, var(--tone) calc(50% + var(--lit) * 50%), #2a2a3c); background: color-mix(in srgb, var(--tone) calc(var(--lit) * 100%), var(--ink));
+  box-shadow: 0 0 calc(34px * var(--lit)) color-mix(in srgb, var(--tone) calc(var(--lit) * 70%), transparent); }
+.stn .ic { position: absolute; left: 176px; top: 9px; color: color-mix(in srgb, var(--tone) calc(55% + var(--lit) * 45%), var(--t3)); }
+.stn .lb { position: absolute; left: 248px; top: 0; right: 150px; white-space: nowrap; font: 600 40px/66px var(--sans); letter-spacing: -.012em;
+  color: color-mix(in srgb, var(--t1) calc(62% + var(--lit) * 38%), var(--t3)); }
+.stn.main .lb { font-weight: 700; }
+.stn .pg { position: absolute; right: 72px; top: 0; font: 500 26px/66px var(--mono); letter-spacing: .1em; color: var(--t3); text-transform: uppercase; }
+.rail { position: absolute; left: 117px; width: 4px; border-radius: 4px; }
+.grp { position: absolute; left: 176px; display: flex; align-items: center; gap: 18px; font: 500 24px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--t3); }
+.grp b { font: 700 30px/1 var(--sans); letter-spacing: 0; color: var(--t1); }
+
+/* numbered aim panel (reel 01) */
+.apanel { position: absolute; left: 72px; width: 936px; height: 344px; padding: 24px 36px; }
+.apanel .ph { position: absolute; left: 36px; top: 22px; display: flex; align-items: baseline; gap: 22px; }
+.apanel .ph b { font: 400 92px/1 var(--serif); color: var(--t1); letter-spacing: -.02em; }
+.apanel .ph span { font: 700 42px/1 var(--sans); letter-spacing: -.015em; color: var(--t1); }
+.aim { position: absolute; left: 36px; right: 36px; height: 72px; --hl: 0; }
+.aim .ic { position: absolute; left: 0; top: 14px; color: var(--tone); }
+.aim .tx { position: absolute; left: 70px; top: 0; white-space: nowrap; font: 600 38px/72px var(--sans); letter-spacing: -.012em; color: var(--t1); }
+.aim::before { content: ""; position: absolute; inset: 0 -16px 0 -16px; border-radius: 20px; background: color-mix(in srgb, var(--tone) calc(var(--hl) * 22%), transparent); }
+.hero { font-size: 560px; line-height: .8; letter-spacing: -0.03em; }
+.hero2 { font-size: 190px; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; }
+
+/* hotspot + callout (body maps) */
+.hot { position: absolute; }
+.hot .core { position: absolute; left: calc(50% - var(--core) / 2); top: calc(50% - var(--core) / 2); width: var(--core); height: var(--core); border-radius: 50%; background: var(--tone); box-shadow: 0 0 34px 6px var(--tone); }
+.hot .r { position: absolute; inset: 0; border-radius: 50%; border: 3px solid var(--tone); opacity: 0; }
+.co { position: absolute; display: flex; align-items: center; gap: 14px; white-space: nowrap; font: 700 40px/1.2 var(--sans); letter-spacing: -.012em; color: var(--t1); }
+.co .icon { color: var(--tone); }
+.co.left { flex-direction: row-reverse; text-align: right; }
+
+/* SVG children transform around their own centre, like HTML elements */
+svg *:not(svg) { transform-box: fill-box; transform-origin: 50% 50%; }
