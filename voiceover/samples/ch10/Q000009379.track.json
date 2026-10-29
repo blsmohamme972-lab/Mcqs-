@@ -1,0 +1,33 @@
+{
+ "qid": "Q000009379",
+ "file": "Q000009379.opus",
+ "mime": "audio/ogg; codecs=opus",
+ "bytes": 13175,
+ "sha256": "a27712e64ab230798e21f27cb17f8f5062c1751bf6c6182a33400f1ad156cc8f",
+ "track_ms": 7241,
+ "card_ms": 8000,
+ "voice": "af_heart",
+ "lang": "en-us",
+ "engine": "kokoro-82M v1.0 (Apache-2.0) via kokoro-onnx 0.6.1",
+ "bitrate": "16k",
+ "cues": [
+  {
+   "t_ms": 250,
+   "end_ms": 2394,
+   "text": "No insulin: glucose can't enter.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 2820,
+   "end_ms": 4239,
+   "text": "Cells burn fat instead.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 5120,
+   "end_ms": 7141,
+   "text": "Ketones build up: acidosis.",
+   "speed": 1.05
+  }
+ ]
+}

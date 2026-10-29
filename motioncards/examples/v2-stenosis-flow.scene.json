@@ -1,0 +1,66 @@
+{
+  "schema_version": 2,
+  "qid": "Q000000003",
+  "duration_ms": 12000,
+  "takeaway": "A narrowed segment forces the same flow through a smaller lumen, so velocity rises there and flow becomes disturbed downstream.",
+  "stage": {"width": 640, "height": 560, "background": "url:bg"},
+  "gradients": [
+    {"id": "bg", "kind": "radial", "cx": 0.5, "cy": 0.45, "r": 0.75, "stops": [{"offset": 0, "color": "#ffffff"}, {"offset": 1, "color": "#eef4f4"}]},
+    {"id": "lumen", "kind": "linear", "angle": 90, "stops": [{"offset": 0, "color": "#fbe3df"}, {"offset": 0.5, "color": "#fff3f1"}, {"offset": 1, "color": "#fbe3df"}]},
+    {"id": "plaque", "kind": "linear", "angle": 90, "stops": [{"offset": 0, "color": "#f7dd7a"}, {"offset": 1, "color": "#e9b949"}]}
+  ],
+  "camera": {"keys": [
+    {"t": 0, "x": 320, "y": 280, "zoom": 1},
+    {"t": 5200, "x": 320, "y": 280, "zoom": 1},
+    {"t": 7000, "x": 360, "y": 290, "zoom": 1.2, "ease": "sine"},
+    {"t": 10200, "x": 360, "y": 290, "zoom": 1.2},
+    {"t": 11400, "x": 320, "y": 280, "zoom": 1, "ease": "sine"}
+  ]},
+  "layers": [
+    {"type": "text", "text": "Stenosis: same flow, smaller lumen", "x": 320, "y": 58, "size": 30, "weight": 800, "max_width": 580, "fit": true, "fixed": true},
+    {"type": "text", "text": "Normal artery", "x": 320, "y": 108, "size": 20, "color": "@muted", "fixed": true, "show": [0, 3600], "exit": "fade"},
+    {"type": "text", "text": "Plaque narrows the lumen", "x": 320, "y": 108, "size": 20, "color": "@artery_dark", "weight": 700, "fixed": true, "show": [3600, 12000], "enter": "type"},
+
+    {"type": "path", "id": "lumen", "fill": "url:lumen", "stroke": "none",
+     "d": "M 40 220 C 200 220 240 220 320 220 C 400 220 440 220 600 220 L 600 380 C 440 380 400 380 320 380 C 240 380 200 380 40 380 Z",
+     "show": [0, 12000]},
+
+    {"type": "particles", "d": "M 46 300 L 594 300", "count": 26, "r": 9, "shape": "rbc", "fill": "@blood", "spread": 54, "seed": 4,
+     "speed": 110, "size_jitter": 0.2,
+     "keys": [{"t": 4000, "speed": 110}, {"t": 6200, "speed": 230}]},
+
+    {"type": "path", "fill": "url:plaque", "stroke": "#c99a2e", "stroke_width": 2, "shadow": "soft",
+     "d": "M 180 222 C 250 222 270 222 320 222 C 370 222 390 222 460 222 Z",
+     "show": [3400, 12000], "enter": "fade",
+     "keys": [
+       {"t": 3600, "d": "M 180 222 C 250 222 270 222 320 222 C 370 222 390 222 460 222 Z"},
+       {"t": 5600, "d": "M 180 222 C 250 222 262 268 320 268 C 378 268 390 222 460 222 Z"}
+     ]},
+    {"type": "path", "fill": "url:plaque", "stroke": "#c99a2e", "stroke_width": 2, "shadow": "soft",
+     "d": "M 180 378 C 250 378 270 378 320 378 C 370 378 390 378 460 378 Z",
+     "show": [3400, 12000], "enter": "fade",
+     "keys": [
+       {"t": 3600, "d": "M 180 378 C 250 378 270 378 320 378 C 370 378 390 378 460 378 Z"},
+       {"t": 5600, "d": "M 180 378 C 250 378 262 332 320 332 C 378 332 390 378 460 378 Z"}
+     ]},
+
+    {"type": "line", "x1": 40, "y1": 216, "x2": 600, "y2": 216, "stroke": "@artery_dark", "stroke_width": 9},
+    {"type": "line", "x1": 40, "y1": 384, "x2": 600, "y2": 384, "stroke": "@artery_dark", "stroke_width": 9},
+
+    {"type": "group", "show": [6400, 12000], "enter": "pop", "layers": [
+      {"type": "arrow", "x1": 352, "y1": 300, "x2": 470, "y2": 300, "stroke": "@accent", "stroke_width": 10, "glow": "#ffd2c4"},
+      {"type": "text", "text": "Velocity ↑", "x": 380, "y": 440, "size": 22, "weight": 800, "color": "@accent", "box": {"fill": "#ffffff", "stroke": "#f3c3b5"}}
+    ]},
+
+    {"type": "group", "show": [7600, 12000], "enter": "fade", "layers": [
+      {"type": "path", "d": "M 488 270 C 520 250 545 282 520 298 C 500 312 480 290 500 278", "stroke": "@vein", "stroke_width": 4, "enter": {"effect": "draw", "ms": 900},
+       "repeat": {"every_ms": 1600}, "keys": [{"t": 0, "rotate": 0}, {"t": 1600, "rotate": 360, "ease": "linear"}]},
+      {"type": "path", "d": "M 530 320 C 565 300 588 336 560 350 C 540 362 520 340 540 328", "stroke": "@vein", "stroke_width": 4, "enter": {"effect": "draw", "ms": 900},
+       "repeat": {"every_ms": 1900}, "keys": [{"t": 0, "rotate": 0}, {"t": 1900, "rotate": -360, "ease": "linear"}]},
+      {"type": "text", "text": "Disturbed flow", "x": 535, "y": 440, "size": 20, "weight": 700, "color": "@vein_dark", "box": {"fill": "#ffffff", "stroke": "#c9d8ee"}}
+    ]},
+
+    {"type": "text", "text": "Q = A × v → smaller A, higher v", "x": 320, "y": 515, "size": 22, "weight": 700, "font": "mono", "color": "@ink",
+     "fixed": true, "show": [8800, 12000], "enter": "slide_up", "box": {"fill": "#ffffff", "stroke": "@line"}}
+  ]
+}

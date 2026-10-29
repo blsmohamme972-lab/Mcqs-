@@ -1,0 +1,281 @@
+{
+  "about": "Professional, licence-checked medical art stored in the repo so cards start from real illustrations instead of hand-drawn shapes. Import with: python3 tools/motioncards.py import-svg lib:<name> --scene <scene.json> --id <id> --box x,y,w,h (the credit is added automatically). Source: Servier Medical Art (smart.servier.com) via the bioicons repository (github.com/duerrsimon/bioicons), CC BY 3.0: attribution is required and modifying the art is allowed.",
+  "art": {
+    "healthy-lung": {
+      "file": "art/healthy-lung.svg",
+      "view": "coronal thorax: both lungs with lobes and fissures, trachea, larynx, rib ends, diaphragm floor",
+      "use": "pleura, lungs, diaphragm, phrenic nerve, mediastinum"
+    },
+    "lung": {
+      "file": "art/lung.svg",
+      "view": "both lungs with trachea and main bronchi, no ribs",
+      "use": "lobes, bronchi, tumours"
+    },
+    "pneumothorax": {
+      "file": "art/pneumothorax.svg",
+      "view": "thorax like healthy-lung with the left lung collapsed and air shaded blue",
+      "use": "pneumothorax, collapse"
+    },
+    "lung-cancer": {
+      "file": "art/lung-cancer.svg",
+      "view": "smoker's lung with a tumour beside a healthy lung (has small text labels; hide or cover them)",
+      "use": "bronchial carcinoma"
+    },
+    "trachea-bronchi": {
+      "file": "art/trachea-bronchi.svg",
+      "view": "trachea and branching bronchial tree",
+      "use": "airways, foreign body, carina"
+    },
+    "heart": {
+      "file": "art/heart.svg",
+      "view": "anterior heart with great vessels, SVC/IVC in blue, coronary arteries",
+      "use": "heart, SVC, aorta, coronaries"
+    },
+    "heart-front": {
+      "file": "art/heart-front.svg",
+      "view": "anterior heart, cropped, larger chambers",
+      "use": "heart surface anatomy"
+    },
+    "heart-valves": {
+      "file": "art/heart-valves.svg",
+      "view": "heart opened to show the valves",
+      "use": "valves, murmurs"
+    },
+    "aorta": {
+      "file": "art/aorta.svg",
+      "view": "whole aorta from arch to bifurcation with branches",
+      "use": "aortic branches, aneurysm, dissection"
+    },
+    "stomach": {
+      "file": "art/stomach.svg",
+      "view": "simple stomach with distal oesophagus and duodenum, no labels",
+      "use": "stomach, fundoplication, GOJ"
+    },
+    "hiatal-hernia": {
+      "file": "art/hiatal-hernia.svg",
+      "view": "sliding hiatus hernia: oesophagus, diaphragm band, stomach above and below",
+      "use": "hiatus hernia, GOJ, diaphragm"
+    },
+    "paraesophagal-hernia": {
+      "file": "art/paraesophagal-hernia.svg",
+      "view": "rolling (para-oesophageal) hernia through the hiatus",
+      "use": "para-oesophageal hernia"
+    },
+    "liver": {
+      "file": "art/liver.svg",
+      "view": "liver silhouette, anterior",
+      "use": "liver, right upper quadrant"
+    },
+    "lymphatic-system": {
+      "file": "art/lymphatic-system.svg",
+      "view": "stomach with lymphatics and green lymph nodes along the curvatures",
+      "use": "gastric lymph drainage, nodes"
+    },
+    "pancreas": {
+      "file": "art/pancreas.svg",
+      "view": "pancreas alone, anterior view, head on the left of the image, tail on the right",
+      "use": "pancreas, pseudocyst, head mass, splenic artery course"
+    },
+    "spleen": {
+      "file": "art/spleen-1.svg",
+      "view": "spleen alone (bioicons file spleen-1.svg)",
+      "use": "splenic injury, splenic artery, left upper quadrant"
+    },
+    "kidney": {
+      "file": "art/kidney-1.svg",
+      "view": "single kidney with ureter",
+      "use": "retroperitoneum, renal vessels"
+    },
+    "man-standing": {
+      "file": "art/old-man.svg",
+      "view": "clothed older man standing, front view",
+      "use": "patient figure: referred pain, symptoms"
+    },
+    "liver-3d": {
+      "file": "art/liver-3d.svg",
+      "view": "liver with right and left lobes and inferior surface shading, anterior view (right lobe on the left of the image)",
+      "use": "liver trauma, Pringle manoeuvre, porta hepatis"
+    },
+    "pelvis-front": {
+      "file": "art/togo-pelvis-male-anterior.svg",
+      "view": "male bony pelvis, anterior view: sacrum, iliac wings, pubic symphysis, obturator foramina",
+      "use": "pelvic brim, iliac vessels, ureters, pelvic fractures",
+      "credit": "Togo Picture Gallery © DBCLS, CC BY 4.0",
+      "style": "togo"
+    },
+    "pelvis-back": {
+      "file": "art/togo-pelvis-male-posterior.svg",
+      "view": "male bony pelvis, posterior view: sacrum with sacral foramina, ischial spines and tuberosities",
+      "use": "sacral roots, pudendal nerve, sciatic notch",
+      "credit": "Togo Picture Gallery © DBCLS, CC BY 4.0",
+      "style": "togo"
+    },
+    "hip-bone-lateral": {
+      "file": "art/togo-hip-bone-right-lateral.svg",
+      "view": "right hip bone, lateral view: acetabulum, obturator foramen",
+      "use": "obturator canal and hernia, acetabulum",
+      "credit": "Togo Picture Gallery © DBCLS, CC BY 4.0",
+      "style": "togo"
+    },
+    "back-muscles": {
+      "file": "art/musculature-back.svg",
+      "view": "whole body from behind with superficial muscles (buttocks visible)",
+      "use": "dermatomes of the back and buttock, sciatica",
+      "style": "servier"
+    },
+    "bladder": {
+      "file": "art/bladder.svg",
+      "view": "bladder opened in coronal section with ureters entering and the start of the urethra",
+      "use": "bladder, ureteric orifices, bladder neck",
+      "style": "servier"
+    },
+    "rectum": {
+      "file": "art/rectum.svg",
+      "view": "rectum and anal canal opened in coronal section with sphincters and ischioanal fat",
+      "use": "anal canal, sphincters, fistula, haemorrhoids",
+      "style": "servier"
+    },
+    "kidney-cut": {
+      "file": "art/kidney-2.svg",
+      "view": "single kidney with renal pelvis and upper ureter, darker style",
+      "use": "kidney, pelviureteric junction, ureter",
+      "style": "servier"
+    },
+    "pelvis-front-female": {
+      "file": "art/togo-pelvis-female-anterior.svg",
+      "view": "female bony pelvis, anterior view (wider, rounder inlet)",
+      "use": "female pelvic anatomy, ureters, rectum",
+      "credit": "Togo Picture Gallery © DBCLS, CC BY 4.0",
+      "style": "togo"
+    },
+    "pelvis-back-female": {
+      "file": "art/togo-pelvis-female-posterior.svg",
+      "view": "female bony pelvis, posterior view: sacral foramina, ischial spines",
+      "use": "pudendal nerve, sacral roots in women",
+      "credit": "Togo Picture Gallery © DBCLS, CC BY 4.0",
+      "style": "togo"
+    },
+    "platelet": {
+      "file": "art/platetelet-1.svg",
+      "view": "single resting platelet (disc), small",
+      "use": "platelets, haemostasis, ITP, antiplatelet drugs; reuse as a <use> template",
+      "license": "CC BY 3.0",
+      "source": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-by-3.0/Blood_Immunology/Servier/platetelet-1.svg",
+      "credit": "Platelet: Servier Medical Art, CC BY 3.0",
+      "style": "servier",
+      "reason": "The library has no blood cells; haemostasis and bleeding-disorder cards need a real platelet instead of a drawn dot.",
+      "used_in": [
+        "Q000009366"
+      ]
+    },
+    "platelet-activated": {
+      "file": "art/platetelet-6.svg",
+      "view": "single activated, flattened platelet with spread pseudopods",
+      "use": "platelet adhesion and plug formation; cross-fade from 'platelet'",
+      "license": "CC BY 3.0",
+      "source": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-by-3.0/Blood_Immunology/Servier/platetelet-6.svg",
+      "credit": "Activated platelet: Servier Medical Art, CC BY 3.0",
+      "style": "servier",
+      "reason": "Pairs with 'platelet' to show adhesion/activation by cross-fading two real drawings (the doc forbids morphing organic shapes).",
+      "used_in": [
+        "Q000009366"
+      ]
+    },
+    "red-cell": {
+      "file": "art/erythrocyte-1.svg",
+      "view": "single red blood cell (biconcave disc), small",
+      "use": "blood flow inside vessels, anaemia, haemorrhage; reuse as a <use> template",
+      "license": "CC BY 3.0",
+      "source": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-by-3.0/Blood_Immunology/Servier/erythrocyte-1.svg",
+      "credit": "Red blood cell: Servier Medical Art, CC BY 3.0",
+      "style": "servier",
+      "reason": "Blood-flow cards repeatedly need a red-cell sprite; the library has none.",
+      "used_in": [
+        "Q000009366"
+      ]
+    },
+    "capillary-bed": {
+      "file": "art/capillaries.svg",
+      "view": "capillary network between an arteriole (red, left) and a venule (blue, right)",
+      "use": "microcirculation, DIC microthrombi, sepsis, shock, emboli, oedema",
+      "license": "CC BY 3.0",
+      "source": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-by-3.0/Human_physiology/Servier/capillaries.svg",
+      "credit": "Capillary bed: Servier Medical Art, CC BY 3.0",
+      "style": "servier",
+      "reason": "No microcirculation art exists in the library; DIC, sepsis and shock questions all happen at capillary level.",
+      "used_in": [
+        "Q000009368"
+      ]
+    },
+    "iv-bag": {
+      "file": "art/perfusion-bag.svg",
+      "view": "IV infusion bag hanging on a drip stand with giving set",
+      "use": "IV fluids, transfusion, drug infusions, reversal agents",
+      "license": "CC BY 3.0",
+      "source": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-by-3.0/Human_physiology/Servier/perfusion-bag.svg",
+      "credit": "IV infusion bag: Servier Medical Art, CC BY 3.0",
+      "style": "servier",
+      "reason": "Fluid, transfusion and drug-reversal questions are common in MRCS; a consistent Servier drip avoids clip-art icons.",
+      "used_in": [
+        "Q000009367"
+      ]
+    },
+    "leg-back": {
+      "file": "art/leg-behin.svg",
+      "view": "right lower limb from behind, thigh to foot (skin outline)",
+      "use": "calf DVT, varicose veins, popliteal fossa, lower-limb nerves and dermatomes",
+      "license": "CC BY 3.0",
+      "source": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-by-3.0/Human_physiology/Servier/leg-behin.svg",
+      "credit": "Leg: Servier Medical Art, CC BY 3.0",
+      "style": "servier",
+      "reason": "The library has no limb drawings; lower-limb DVT and vascular cards need one.",
+      "used_in": [
+        "Q000009370"
+      ]
+    },
+    "brain": {
+      "file": "art/brain-2.svg",
+      "view": "whole brain, left lateral view: cerebrum, cerebellum and brainstem (front of the brain on the right of the image)",
+      "use": "hypothalamus and medulla (vasomotor) centres, head injury, raised ICP, cerebral perfusion",
+      "license": "CC BY 3.0",
+      "source": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-by-3.0/Human_physiology/Servier/brain-2.svg",
+      "credit": "Brain: Servier Medical Art, CC BY 3.0",
+      "style": "servier",
+      "reason": "The library had no brain drawing; central control questions (temperature, vasomotor, ICP) need one with a visible brainstem.",
+      "used_in": [
+        "Q000009372"
+      ]
+    },
+    "hand": {
+      "file": "art/hand.svg",
+      "view": "right hand, dorsal view, fingers spread, cut at the wrist; mirror it (scale(-1 1)) for the left hand",
+      "use": "Raynaud's and digital vasospasm, hyperhidrosis, hand nerves and infections",
+      "license": "CC BY 3.0",
+      "source": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-by-3.0/Human_physiology/Servier/hand.svg",
+      "credit": "Hand: Servier Medical Art, CC BY 3.0",
+      "style": "servier",
+      "reason": "The library had no upper-limb drawing; hand vasospasm, sweating and nerve questions need a hand.",
+      "used_in": [
+        "Q000009373",
+        "Q000009375"
+      ]
+    },
+    "body-veins": {
+      "file": "art/venous-circulation-body.svg",
+      "view": "whole standing body, front view, translucent skin showing the venous system, heart, liver and kidneys",
+      "use": "whole-body physiology: temperature (core vs periphery), hypothermia, shock, heat syncope, blood pooling",
+      "license": "CC BY 3.0",
+      "source": "https://raw.githubusercontent.com/duerrsimon/bioicons/main/static/icons/cc-by-3.0/Human_physiology/Servier/venous-circulation-body.svg",
+      "credit": "Human body: Servier Medical Art, CC BY 3.0",
+      "style": "servier",
+      "reason": "The only whole-body drawing was a clothed man; core/periphery and blood-pooling cards need a see-through body.",
+      "used_in": [
+        "Q000009371",
+        "Q000009376",
+        "Q000009377"
+      ]
+    }
+  },
+  "credit": "Servier Medical Art (smart.servier.com), CC BY 3.0",
+  "credit_note": "Each item uses 'credit' when present, otherwise the top-level 'credit'. Never mix styles (servier vs togo) in one card."
+}

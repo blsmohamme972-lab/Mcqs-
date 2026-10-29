@@ -1,0 +1,95 @@
+{
+  "schema_version": 2,
+  "qid": "Q000000008",
+  "duration_ms": 10000,
+  "takeaway": "Deoxygenated HbS polymerises, red cells sickle and become rigid, and they obstruct small vessels (vaso-occlusion → ischaemia).",
+  "stage": {
+    "width": 640,
+    "height": 560,
+    "background": "#fbf7f4"
+  },
+  "layers": [
+    {
+      "type": "text",
+      "text": "Sickle cell disease: from HbS to vaso-occlusion",
+      "x": 320,
+      "y": 52,
+      "size": 27,
+      "weight": 800,
+      "max_width": 600,
+      "fit": true,
+      "fixed": true
+    },
+    {
+      "type": "text",
+      "text": "1 · Oxygenated red cells: flexible discs flow freely",
+      "x": 320,
+      "y": 450,
+      "size": 19,
+      "weight": 700,
+      "color": "@ink",
+      "max_width": 580,
+      "fit": true,
+      "max_lines": 2,
+      "box": {
+        "fill": "#ffffff",
+        "stroke": "@line"
+      },
+      "fixed": true,
+      "show": [
+        0,
+        3400
+      ],
+      "enter": "none"
+    },
+    {
+      "type": "text",
+      "text": "2 · Low O₂: HbS polymerises → rigid sickled cells",
+      "x": 320,
+      "y": 450,
+      "size": 19,
+      "weight": 700,
+      "color": "#6a3d8f",
+      "max_width": 580,
+      "fit": true,
+      "max_lines": 2,
+      "box": {
+        "fill": "#ffffff",
+        "stroke": "@line"
+      },
+      "fixed": true,
+      "show": [
+        3400,
+        6000
+      ],
+      "enter": "type"
+    },
+    {
+      "type": "text",
+      "text": "3 · Sickled cells jam small vessels → vaso-occlusion, ischaemia",
+      "x": 320,
+      "y": 450,
+      "size": 19,
+      "weight": 700,
+      "color": "@artery_dark",
+      "max_width": 580,
+      "fit": true,
+      "max_lines": 2,
+      "box": {
+        "fill": "#ffffff",
+        "stroke": "@line"
+      },
+      "fixed": true,
+      "show": [
+        6000,
+        10000
+      ],
+      "enter": "type"
+    }
+  ],
+  "svg": "<svg><defs><linearGradient id=\"wall\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#b5363b\"/><stop offset=\"1\" stop-color=\"#8d2228\"/></linearGradient></defs>\n<path id=\"lumen\" d=\"M -20 240 L 380 240 C 440 240 450 272 500 272 L 660 272 L 660 328 L 500 328 C 450 328 440 360 380 360 L -20 360 Z\" fill=\"#fde4e1\"/>\n<g id=\"cells\"/>\n<path d=\"M -20 240 L 380 240 C 440 240 450 272 500 272 L 660 272\" fill=\"none\" stroke=\"url(#wall)\" stroke-width=\"12\" stroke-linecap=\"round\"/>\n<path d=\"M -20 360 L 380 360 C 440 360 450 328 500 328 L 660 328\" fill=\"none\" stroke=\"url(#wall)\" stroke-width=\"12\" stroke-linecap=\"round\"/>\n<g id=\"o2\" opacity=\"0\"><rect x=\"40\" y=\"170\" width=\"92\" height=\"38\" rx=\"19\" fill=\"#ffffff\" stroke=\"#c9b4dc\"/><text x=\"86\" y=\"195\" text-anchor=\"middle\" font-size=\"19\" font-weight=\"800\" fill=\"#6a3d8f\" font-family=\"system-ui,sans-serif\">O₂ ↓</text></g>\n<defs><g id=\"rbc\" transform=\"translate(-22 -21.324) scale(0.447 0.447)\"><defs><clipPath clipPathUnits=\"userSpaceOnUse\" id=\"rbc-0\"><path d=\"M1.04 3.28H99.3V98.74H1.04z\" /></clipPath></defs><path clip-path=\"url(#rbc-0)\" d=\"M28.02 18.79C16.19 26.54 6.24 33.46 3.56 47.33c-1.92 11.39-1.52 24.03 5.76 34.22 16.03 22.83 54.29 20.39 75.67-5.68C106.38 49.77 97.98 17.15 79.63 8.2c-17.95-6.56-27.14-3.28-51.61 10.59z\" fill=\"#f5765d\" fill-rule=\"evenodd\" /><path clip-path=\"url(#rbc-0)\" d=\"M79.27 10.19c-6.52-2.04-11.47-3.28-16.83-2.84 4.2 0 8.04 1.2 13.03 2.84 17.59 8.55 25.27 39.94 4.96 64.4-10.35 13.03-25.26 19.95-39.46 20.35 14.95 0.4 31.78-6.12 43.29-20.35 20.27-24.46 12.23-55.85-5-64.4z\" fill=\"#f44d32\" fill-rule=\"evenodd\" /><path d=\"M14.27 79.95c-6.88-10.19-7.28-22.03-5.36-32.62 2.68-12.63 11.87-19.55 23.34-26.46C45.65 12.71 54.45 8.63 62.48 7.4c-9.55 0-18.35 4.52-34.06 13.47C17.35 27.78 7.76 34.7 5.48 47.33c-2.32 11.03-1.52 22.83 5.36 32.62 7.64 10.99 20.67 15.87 34.46 14.67-12.27 0-23.75-4.88-31.02-14.67z\" fill=\"#f9bba6\" fill-rule=\"evenodd\" /><path d=\"M58.6 25.3c23.71 0.84 22.95 30.62-2.28 43.65-25.23 13.03-35.58-4.08-34.78-14.67 0.76-13.87 22.95-28.54 37.06-28.98z\" fill=\"#f44d32\" fill-rule=\"evenodd\" /><path d=\"M70.12 29.3c6.52 9.79 1.16 26.94-16.87 36.34-13.39 6.92-22.55 5.28-27.94 0.8 5 6.92 14.95 10.99 31.02 2.44 20.31-10.19 24.87-30.98 13.79-39.58zM49.85 26.5c-9.95 2.04-22.59 12.27-25.66 19.99 5-5.28 16.11-15.87 25.66-19.99z\" fill=\"#e12a19\" fill-rule=\"evenodd\" /><path d=\"M40.26 74.64c7.67 0.8 35.94-9.79 36.34-33.1 1.88 9.83-9.55 33.9-36.34 33.1z\" fill=\"#fefefe\" fill-rule=\"evenodd\" /><path clip-path=\"url(#rbc-0)\" d=\"M28.06 18.83C16.23 26.58 6.28 33.5 3.6 47.37c-1.92 11.39-1.52 24.03 5.76 34.22 16.03 22.83 54.29 20.39 75.67-5.68C106.42 49.81 98.02 17.19 79.67 8.23c-17.95-6.56-27.14-3.28-51.61 10.59\" fill=\"none\" stroke=\"#333\" stroke-width=\"1.68\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M58.64 25.3c9.2 0.44 14.91 5.32 16.43 13.07 1.92 8.95-3.04 21.99-18.71 30.14-14.15 7.32-22.59 4.88-27.18 1.6-5.36-4.04-8.04-10.99-7.63-15.87-0.4 5.28 1.52 12.23 7.28 16.31 4.96 3.64 13.39 6.08 27.9-1.24 15.71-8.15 21.03-21.99 19.15-31.38-1.56-7.71-8.04-12.19-17.23-12.63z\" fill=\"#333\" fill-rule=\"evenodd\" /></g></defs><defs><g id=\"sickle\" transform=\"translate(-26.256 -20) scale(0.226 0.226)\"><defs><clipPath clipPathUnits=\"userSpaceOnUse\" id=\"sickle-0\"><path d=\"M13.51 5.52h231.62V182.29H13.51z\" /></clipPath></defs><path clip-path=\"url(#sickle-0)\" d=\"M23.91 7.55C1.96 11.99 21.83 133.32 80.31 168.98c58.48 36.7 168.14-23.39 162.94-52.33-5.24-28.94-70 0-129.52-15.59-74.16-20.03-66.84-99.1-89.83-93.5z\" fill=\"#ed9075\" fill-rule=\"evenodd\" /><path d=\"M221.35 122.21c-3.12-5.56-33.42 6.68-74.19 12.23-37.62 4.48-63.76-5.56-81.55-31.18 8.39 23.39 39.73 45.65 69 43.45 20.91-1.12 74.23-24.5 86.75-24.5z\" fill=\"#f7cbba\" fill-rule=\"evenodd\" /><path d=\"M205.68 122.29c-13.55 3.32-34.46 8.88-58.52 12.19-28.22 3.32-50.17-1.12-66.92-15.55 5.24 8.88 33.46 26.62 64.84 19.99 31.34-5.56 54.37-14.43 60.6-16.63z\" fill=\"#fff\" fill-rule=\"evenodd\" /><path d=\"M222.31 118.89c-4.16-5.56-33.42 5.56-74.11 11.11-40.73 5.56-68.96-6.68-86.71-38.94-5.24-12.27 7.32 7.79 24.02 17.79 17.75 10.03 44.89 8.91 76.23 6.68 30.3-3.32 55.37-6.68 60.56 3.36z\" fill=\"#e66a4a\" fill-rule=\"evenodd\" /><path clip-path=\"url(#sickle-0)\" d=\"M86.55 166.74c16.71 13.39 59.52 14.47 100.26-4.44 41.73-18.95 60.52-40.14 50.09-49.05 1.04 7.83-23.99 32.34-77.23 49.05-47.01 15.59-68.92 5.56-73.11 4.44z\" fill=\"#e66a4a\" fill-rule=\"evenodd\" /><path d=\"M26.9 10.83c-10.47 3.36-9.39 22.31-3.12 57.92 6.28 35.66 30.34 73.52 41.81 83.51-12.55-14.47-29.26-57.88-35.54-94.62-5.24-35.66-5.24-44.57-3.16-46.81z\" fill=\"#f7cbba\" fill-rule=\"evenodd\" /><path d=\"M41.62 117.73c-8.31-14.43-15.63-32.22-17.71-48.93-5.2-28.9-6.28-44.49-3.12-52.29-1.04 10.03 5.2 65.64 20.83 101.22z\" fill=\"#fff\" fill-rule=\"evenodd\" /><path d=\"M133.52 123.33c-36.58 2.24-57.49-12.19-64.8-22.23 17.79 24.46 43.93 33.34 79.43 28.9 30.34-4.44 53.33-11.11 65.84-12.23-11.47-2.2-48.05 3.36-80.47 5.56z\" fill=\"#d54730\" fill-rule=\"evenodd\" /><path clip-path=\"url(#sickle-0)\" d=\"M23.95 7.59C2 12.03 21.87 133.36 80.35 169.02c58.48 36.7 168.14-23.39 162.94-52.33-5.24-28.94-70 0-129.52-15.59-74.16-20.03-66.84-99.1-89.83-93.5\" fill=\"none\" stroke=\"#333\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M66.6 98.98c17.79 25.55 43.93 35.5 81.55 31.06 40.77-5.52 70.04-16.63 74.19-11.07M61.48 91.14c1.08 1.12 1.08 2.24 2.16 3.36\" fill=\"none\" stroke=\"#333\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /></g></defs></svg>",
+  "script": "// Authored part only: the cell artwork is imported (#rbc, #sickle) and reused with <use>.\nconst N = 12, L = 720, V = 0.11, JAM = 5200, NARROW = 470;\nconst cells = [];\nconst flowX = (i, t) => ((i * L / N + V * t) % L) - 40;\nfunction setup(api) {\n  const layer = api.$(\"#cells\");\n  for (let i = 0; i < N; i++) {\n    const g = api.el(\"g\", {}, layer);\n    const n = api.el(\"use\", {href: \"#rbc\"}, g), s = api.el(\"use\", {href: \"#sickle\"}, g);\n    cells.push({g, n, s, y: 300 + ((i * 37) % 5 - 2) * 9, x0: flowX(i, JAM)});\n  }\n  // Queue order at the moment of jamming: cells already past the narrowing leave, the rest pile up behind it.\n  const waiting = cells.filter(c => c.x0 < NARROW).sort((a, b) => b.x0 - a.x0);\n  waiting.forEach((c, k) => { c.stop = NARROW - k * 40; });\n  cells.filter(c => c.x0 >= NARROW).forEach(c => { c.stop = 720; });\n}\nfunction render(t, api) {\n  const deox = api.seg(t, 3200, 4600, \"ease_in_out\");\n  api.set(api.$(\"#lumen\"), {fill: api.mixColor(\"#fde4e1\", \"#ece0f1\", deox)});\n  api.set(api.$(\"#o2\"), {opacity: api.seg(t, 3200, 3700)});\n  const jam = api.seg(t, JAM, 7600, \"ease_out\");\n  cells.forEach((c, i) => {\n    const x = t < JAM ? flowX(i, t) : c.x0 + (c.stop - c.x0) * jam;\n    const sick = api.seg(t, 3800 + i * 60, 4800 + i * 60, \"ease_in_out\");\n    const wobble = (1 - jam) * 8 * Math.sin(t / 300 + i);\n    api.set(c.g, {transform: `translate(${x.toFixed(1)} ${c.y}) rotate(${(wobble + sick * (i % 2 ? 20 : -15)).toFixed(1)})`});\n    api.set(c.n, {opacity: 1 - sick}); api.set(c.s, {opacity: sick});\n  });\n}",
+  "credits": [
+    "Cells: Servier Medical Art, CC BY 3.0"
+  ]
+}

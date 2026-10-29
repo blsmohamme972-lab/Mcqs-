@@ -1,0 +1,33 @@
+{
+ "qid": "Q000009383",
+ "file": "Q000009383.opus",
+ "mime": "audio/ogg; codecs=opus",
+ "bytes": 12061,
+ "sha256": "1ccc966610ed94f510bbfec5b9bbd45fa6c66a85d1b667463488175205f3d3a6",
+ "track_ms": 6929,
+ "card_ms": 8000,
+ "voice": "af_heart",
+ "lang": "en-us",
+ "engine": "kokoro-82M v1.0 (Apache-2.0) via kokoro-onnx 0.6.1",
+ "bitrate": "16k",
+ "cues": [
+  {
+   "t_ms": 250,
+   "end_ms": 2079,
+   "text": "Energy in equals energy used.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 2820,
+   "end_ms": 4166,
+   "text": "Now eat less than you use.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 5120,
+   "end_ms": 6829,
+   "text": "Fat is burned: weight falls.",
+   "speed": 1.05
+  }
+ ]
+}

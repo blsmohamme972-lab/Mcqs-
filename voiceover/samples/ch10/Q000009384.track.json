@@ -1,0 +1,33 @@
+{
+ "qid": "Q000009384",
+ "file": "Q000009384.opus",
+ "mime": "audio/ogg; codecs=opus",
+ "bytes": 12983,
+ "sha256": "9648f5f625c9179c82d245ef5b45f2b5c14551dddf8736b67339e3a1bc235a14",
+ "track_ms": 7006,
+ "card_ms": 8000,
+ "voice": "af_heart",
+ "lang": "en-us",
+ "engine": "kokoro-82M v1.0 (Apache-2.0) via kokoro-onnx 0.6.1",
+ "bitrate": "16k",
+ "cues": [
+  {
+   "t_ms": 250,
+   "end_ms": 2292,
+   "text": "A fractured femur: major stress.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 2820,
+   "end_ms": 4453,
+   "text": "Her metabolic rate rises.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 5120,
+   "end_ms": 6906,
+   "text": "So give more energy in her PN.",
+   "speed": 1.05
+  }
+ ]
+}

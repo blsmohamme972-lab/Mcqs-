@@ -1,0 +1,10 @@
+{
+  "canonicalization":"kafu-question-canonical-json-v1",
+  "vectors":[
+    {
+      "question":{"id":"Q000000001","type":"sba","stem":"  Café\n  Δ  ","options":[" First\tchoice ","Second"],"answer":"A","explanation":"Line one\nLine two","source_page":4,"extra":{"enabled":true,"value":2}},
+      "publisher_fingerprint":"f974b7764447562bbc7a4083a9b20c1ced3114e1ca9f2957b8c83d2ef42be80b",
+      "content_hash":"1abd05beb57b4b1d3b942838be09834ec86367e5176e2f5d86136e3ca0108c6f"
+    }
+  ]
+}

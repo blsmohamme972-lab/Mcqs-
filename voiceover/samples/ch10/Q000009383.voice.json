@@ -1,0 +1,27 @@
+{
+ "qid": "Q000009383",
+ "duration_ms": 8000,
+ "voice": "af_heart",
+ "lang": "en-us",
+ "speed": 1.05,
+ "beats": [
+  {
+   "start_ms": 0,
+   "end_ms": 2700,
+   "caption": "Energy in = energy used: weight stays the same",
+   "say": "Energy in equals energy used."
+  },
+  {
+   "start_ms": 2700,
+   "end_ms": 5000,
+   "caption": "Eat less energy than the body uses",
+   "say": "Now eat less than you use."
+  },
+  {
+   "start_ms": 5000,
+   "end_ms": 8000,
+   "caption": "The deficit is drawn from fat stores → weight falls",
+   "say": "Fat is burned: weight falls."
+  }
+ ]
+}

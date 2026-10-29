@@ -1,0 +1,186 @@
+[
+ {
+  "qid": "Q000009378",
+  "beats": [
+   {
+    "say": "Plasma osmolality falls.",
+    "heard": "plasma osmolality falls,",
+    "score": 1.0,
+    "onset_error_ms": 0
+   },
+   {
+    "say": "Water floods brain cells.",
+    "heard": "water floods brain cells,",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Brain cells swell: confusion.",
+    "heard": "brain cells swell, confusion.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   }
+  ]
+ },
+ {
+  "qid": "Q000009379",
+  "beats": [
+   {
+    "say": "No insulin: glucose can't enter.",
+    "heard": "No insulin, glucose can't enter.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Cells burn fat instead.",
+    "heard": "Cells burn fat instead.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Ketones build up: acidosis.",
+    "heard": "Ketones build up, acidosis.",
+    "score": 1.0,
+    "onset_error_ms": 0
+   }
+  ]
+ },
+ {
+  "qid": "Q000009380",
+  "beats": [
+   {
+    "say": "Injured lungs can't take up oxygen.",
+    "heard": "Injured lungs can't take up oxygen,",
+    "score": 1.0,
+    "onset_error_ms": 0
+   },
+   {
+    "say": "Tissues turn anaerobic.",
+    "heard": "tissues turn anaerobic.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Lactic acid lowers the pH.",
+    "heard": "Lactic acid lowers the pH.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   }
+  ]
+ },
+ {
+  "qid": "Q000009381",
+  "beats": [
+   {
+    "say": "Trauma triggers a cortisol surge.",
+    "heard": "Trauma triggers a cortisol surge.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Muscle yields amino acids.",
+    "heard": "Muscle yields amino acids.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "The liver makes new glucose.",
+    "heard": "The liver makes new glucose.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   }
+  ]
+ },
+ {
+  "qid": "Q000009382",
+  "beats": [
+   {
+    "say": "The liver makes clotting factors.",
+    "heard": "The liver makes clotting factors.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Sick liver: less prothrombin.",
+    "heard": "Sick liver, less prothrombin.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Clotting slows, the INR rises.",
+    "heard": "Clotting slows, the INR rises. So, that's what this is. We do have a great story about how we can film the film.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   }
+  ]
+ },
+ {
+  "qid": "Q000009383",
+  "beats": [
+   {
+    "say": "Energy in equals energy used.",
+    "heard": "Energy and equals energy used.",
+    "score": 0.939,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Now eat less than you use.",
+    "heard": "Now eat less than you use.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Fat is burned: weight falls.",
+    "heard": "Fat is burned, weight falls.",
+    "score": 1.0,
+    "onset_error_ms": 40
+   }
+  ]
+ },
+ {
+  "qid": "Q000009384",
+  "beats": [
+   {
+    "say": "A fractured femur: major stress.",
+    "heard": "A fractured femur, major stress.",
+    "score": 1.0,
+    "onset_error_ms": 0
+   },
+   {
+    "say": "Her metabolic rate rises.",
+    "heard": "Her metabolic rate rises.",
+    "score": 1.0,
+    "onset_error_ms": 20
+   },
+   {
+    "say": "So give more energy in her PN.",
+    "heard": "So give more energy in her P .N.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   }
+  ]
+ },
+ {
+  "qid": "Q000009385",
+  "beats": [
+   {
+    "say": "Swallowed blood becomes ammonia.",
+    "heard": "Swallowed blood becomes ammonia.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "The failing liver can't clear it.",
+    "heard": "The failing liver can't clear it.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   },
+   {
+    "say": "Ammonia reaches the brain: drowsiness.",
+    "heard": "Ammonia reaches the brain, drowsiness.",
+    "score": 1.0,
+    "onset_error_ms": 10
+   }
+  ]
+ }
+]

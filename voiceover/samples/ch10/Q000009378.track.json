@@ -1,0 +1,33 @@
+{
+ "qid": "Q000009378",
+ "file": "Q000009378.opus",
+ "mime": "audio/ogg; codecs=opus",
+ "bytes": 12287,
+ "sha256": "93284f0492d18d424d95bbb0c9164f09b1935ecbfcdff3562ad6056965c63954",
+ "track_ms": 7034,
+ "card_ms": 8000,
+ "voice": "af_heart",
+ "lang": "en-us",
+ "engine": "kokoro-82M v1.0 (Apache-2.0) via kokoro-onnx 0.6.1",
+ "bitrate": "16k",
+ "cues": [
+  {
+   "t_ms": 250,
+   "end_ms": 1918,
+   "text": "Plasma osmolality falls.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 2820,
+   "end_ms": 4330,
+   "text": "Water floods brain cells.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 5120,
+   "end_ms": 6934,
+   "text": "Brain cells swell: confusion.",
+   "speed": 1.05
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "qid": "Q000009385",
+ "file": "Q000009385.opus",
+ "mime": "audio/ogg; codecs=opus",
+ "bytes": 13852,
+ "sha256": "c1f6344e93bfbe1d8e5a60321d7d3cd8b8f05c49335e183d95834f796581f398",
+ "track_ms": 7656,
+ "card_ms": 8000,
+ "voice": "af_heart",
+ "lang": "en-us",
+ "engine": "kokoro-82M v1.0 (Apache-2.0) via kokoro-onnx 0.6.1",
+ "bitrate": "16k",
+ "cues": [
+  {
+   "t_ms": 250,
+   "end_ms": 2041,
+   "text": "Swallowed blood becomes ammonia.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 2820,
+   "end_ms": 4432,
+   "text": "The failing liver can't clear it.",
+   "speed": 1.05
+  },
+  {
+   "t_ms": 5120,
+   "end_ms": 7556,
+   "text": "Ammonia reaches the brain: drowsiness.",
+   "speed": 1.05
+  }
+ ]
+}
