@@ -247,14 +247,14 @@ class VivaTests(unittest.TestCase):
         with self.assertRaises(ValueError): lib.parse_report('{"items": [{"n": 1, "result": "ok"}]}')
         with self.assertRaises(ValueError): lib.parse_report('{"topics": [{"t": 1, "mark": 9}], "items": []}')
 
-    def test_agent_pages_need_no_other_file(self):
+    def test_one_page_holds_the_viva_and_the_schedule(self):
         plan, _ = self.run_session({"ch01.p002.01": {"result": "wrong"}}, topics=1, topic_marks={1: 5})
         nxt = lib.plan_session(self.bank, self.state, NOW + timedelta(days=1), sid="S20261102-0900")
-        st = lib.status_markdown(self.bank, self.state, NOW, nxt)
-        for want in ("Due now", "S20261102-0900", "| 2026-11-01 | S", "Memory per topic", "Weakest cards", "Do not compute FSRS"):
-            self.assertIn(want, st)
-        page = lib.next_markdown(nxt, self.bank, self.state)
-        self.assertIn("Do not open any other file", page); self.assertIn("Model answer:", page)
+        page = lib.viva_page(self.bank, self.state, NOW, nxt)
+        for want in ("Part 1: the viva (S20261102-0900)", "Model answer:", "Part 2: spaced repetition", "Due now",
+                     "| 2026-11-01 | S", "Memory per topic", "Weakest cards", "never work it out yourself"):
+            self.assertIn(want, page)
+        self.assertIn("No viva is planned", lib.viva_page(self.bank, self.state, NOW, None))
 
     def test_state_round_trips(self):
         self.run_session({}, topics=1)

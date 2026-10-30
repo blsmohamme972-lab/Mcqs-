@@ -16,8 +16,8 @@
   examiner.py mark     <sid> report.json       apply the report: topic marks 4-8 (pass 6), FSRS for every question
   examiner.py rank     [--chapters 1] [--top 20]  the bank by importance: tier shares, warnings, the top cards
   examiner.py status                           due cards, tiers, viva marks per viva, recent results, weakest cards
-  examiner.py publish                          rewrite examiner/STATUS.md and examiner/NEXT.md (session and mark do it too):
-                                               the two pages any agent reads instead of the JSON and the FSRS maths
+  examiner.py publish                          rewrite examiner/VIVA.md (session and mark do it too): the one page with
+                                               the next viva and the spaced repetition, read instead of the JSON
 Needs py-fsrs 6.3.2 (`pip install fsrs==6.3.2`, the engine the app's Fsrs.kt is verified against) and pdftotext.
 """
 import argparse, json, sys
@@ -57,7 +57,7 @@ def print_coverage(n: int, data) -> None:
 
 
 def open_plan(state: dict):
-    """The newest planned viva that is not marked yet (the one NEXT.md shows)."""
+    """The newest planned viva that is not marked yet (the one VIVA.md shows)."""
     for p in sorted(SESSIONS.glob("S*.plan.json"), reverse=True):
         plan = json.loads(p.read_text(encoding="utf-8"))
         if plan["session"] not in state["sessions"]: return plan
@@ -65,10 +65,8 @@ def open_plan(state: dict):
 
 
 def publish(bank: dict, state: dict, now, plan=None) -> None:
-    """STATUS.md (the spaced repetition) and NEXT.md (the next viva, self-contained): what agents read."""
-    plan = plan or open_plan(state)
-    if plan: (HOME / "NEXT.md").write_text(lib.next_markdown(plan, bank, state), encoding="utf-8")
-    (HOME / "STATUS.md").write_text(lib.status_markdown(bank, state, now, plan), encoding="utf-8")
+    """VIVA.md: the next viva (self-contained) and the spaced repetition on one page, what the owner and agents read."""
+    (HOME / lib.PAGE).write_text(lib.viva_page(bank, state, now, plan or open_plan(state)), encoding="utf-8")
 
 
 def new_session(bank, state, at, a):
@@ -126,7 +124,7 @@ def main():
         if not bank: sys.exit("the bank is empty: make cards first (examiner.py pages, then add)")
         plan = new_session(bank, state, now, a)
         if not plan: sys.exit("nothing to ask: no card is due and no new card is left in that scope")
-        publish(bank, state, now, plan); out = HOME / "NEXT.md"
+        publish(bank, state, now, plan); out = HOME / lib.PAGE
         kinds = [i["kind"] for i in plan["items"]]
         print(f"{plan['session']} ({plan['mode']}): {len(plan['topics'])} topics, {plan['minutes']} min; "
               f"{kinds.count('review')} review, {kinds.count('new')} new, {kinds.count('teach')} teach "
@@ -157,11 +155,11 @@ def main():
         if skipped: print(f"not reached (still due): {', '.join(skipped)}")
         nxt = new_session(bank, state, now + timedelta(days=1), a)  # the next viva is ready on GitHub, planned for tomorrow
         publish(bank, state, now, nxt)
-        print(f"next viva: {nxt['session'] if nxt else 'none (nothing due or new)'}; wrote examiner/STATUS.md and examiner/NEXT.md")
+        print(f"next viva: {nxt['session'] if nxt else 'none (nothing due or new)'}; wrote examiner/{lib.PAGE}")
 
     elif a.cmd == "publish":
         bank, state = lib.load_bank(BANK), lib.load_state(STATE)
-        publish(bank, state, now); print("wrote examiner/STATUS.md and examiner/NEXT.md")
+        publish(bank, state, now); print(f"wrote examiner/{lib.PAGE}")
 
     elif a.cmd == "rank":
         cards = [c for c in lib.load_bank(BANK).values() if not a.chapters or c["chapter"] in a.chapters]

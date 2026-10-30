@@ -1,10 +1,9 @@
 # Voice examiner: the board viva, done by talking
 
-> **For AI agents (and for reading on the phone): read two pages, not the code or the JSON.**
-> [`STATUS.md`](STATUS.md) is the spaced repetition already computed: what is due on which day, memory per topic,
-> viva results, weakest cards. [`NEXT.md`](NEXT.md) is the next viva, self-contained: paste it into a voice chat and
-> the examiner needs nothing else. Both are rewritten by `session` and `mark`. FSRS is maths over timestamps
-> (`state.json`) done by `py-fsrs`; never work it out by hand. The questions, readable: [`bank/ch01.md`](bank/ch01.md).
+> **One page for everything: [`VIVA.md`](VIVA.md).** Part 1 is the next viva, self-contained: give the page to a
+> Claude or ChatGPT voice chat and say "start the viva". Part 2 is the spaced repetition already computed: what is due
+> on which day, memory per topic, viva results, weakest cards. `session` and `mark` rewrite it. Agents read this page,
+> never the JSON, and never work FSRS out by hand. The questions, readable: [`bank/ch01.md`](bank/ch01.md).
 
 Instead of flipping cards, you sit an oral exam (a viva). ChatGPT or Claude plays the two examiners in a voice call
 and runs it like the UK Intercollegiate FRCS (Cardiothoracic Surgery) Section 2 viva:
