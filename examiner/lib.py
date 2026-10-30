@@ -575,6 +575,27 @@ def nudge_related(failed: list[str], state: dict, bank: dict, now: datetime) -> 
     return rows
 
 
+# ---------- readable Q&A page ----------
+
+def qa_markdown(data: dict) -> str:
+    """One chapter's bank as a plain question-and-answer page to read (GitHub renders it): topics in book order,
+    must-know first inside each topic. Written next to the JSON by `add` / `export`; the JSON stays the source."""
+    cards = data["cards"]
+    first_page: dict[str, int] = {}
+    for c in cards: first_page[c["topic"]] = min(first_page.get(c["topic"], c["page"]), c["page"])
+    tiers = {t: sum(tier(c) == t for c in cards) for t in TIERS}
+    out = [f"# Chapter {data['chapter']}: {data['title']}", "",
+           f"{len(cards)} questions and short answers from the book ({BOOK}), every fact of the chapter covered. "
+           f"A must know {tiers['A']}, B should know {tiers['B']}, C nice to know {tiers['C']}. "
+           "Generated from `ch%02d.json` (`tools/examiner.py export`): edit the JSON, not this page." % data["chapter"], ""]
+    for topic in sorted(first_page, key=lambda t: (first_page[t], t)):
+        tc = sorted((c for c in cards if c["topic"] == topic), key=lambda c: (tier(c), c["level"], c["id"]))
+        out += [f"## {topic} (p{first_page[topic]})", ""]
+        for k, c in enumerate(tc, 1):
+            out += [f"{k}. **Q:** {c['q']}  ", f"   **A:** {c['a']}  ", f"   _{tier(c)} {TIERS[tier(c)]} · p{c['page']}_", ""]
+    return "\n".join(out)
+
+
 # ---------- status ----------
 
 def status(bank: dict, state: dict, now: datetime) -> dict:

@@ -75,6 +75,12 @@ class BankTests(unittest.TestCase):
                 lib.merge_cards(f, 1, "Pre-op", {"cards": [card("ch01.p002.03", facts=["p002.f02"])]})
             self.assertEqual(lib.load_bank(Path(d))["ch01.p002.01"]["a"], "New.")  # the failed merge wrote nothing
 
+    def test_qa_page_lists_every_question_and_answer_by_topic(self):
+        data = {"chapter": 1, "title": "Pre-op", **chapter_file([card("ch01.p003.01"), card("ch01.p002.01", importance=imp(3, 3, 3, 3, 3))])}
+        md = lib.qa_markdown(data)
+        self.assertLess(md.index("## Topic of page 2"), md.index("## Topic of page 3"))
+        self.assertEqual(md.count("**Q:**"), 2); self.assertEqual(md.count("**A:**"), 2); self.assertIn("A must know", md)
+
     def test_coverage_finds_missing_pages_and_untested_facts(self):
         data = chapter_file([card("ch01.p002.01")], pages={"2": {"facts": ["NYHA I", "NYHA II"]}, "3": {"skip": "full-page figure"}})
         cv = lib.coverage(data, [2, 3, 4])

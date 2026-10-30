@@ -4,6 +4,7 @@
   examiner.py pages    ch01 [--pages 2-6]      page text + the bank-writing rules -> work/examiner/qa/<ch>_pPPP-PPP.prompt.md
   examiner.py add      ch01 bank.json          check the page facts and cards (importance, ladder level, facts tested)
                                                and merge them into examiner/bank/ch01.json; prints coverage and tiers
+  examiner.py export   [ch01 ...]              the bank as a readable Q&A page -> examiner/bank/ch01.md (add does it too)
   examiner.py coverage [ch01 ...]              pages without facts, facts no card tests (nothing in the book is lost)
   examiner.py session  [--topics 6] [--viva critical|cardiac|congenital|thoracic] [--chapters 1 2] [--new 12]
                        [--tier A] [--mode exam|practice]
@@ -54,7 +55,7 @@ def print_coverage(n: int, data) -> None:
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["pages", "add", "coverage", "session", "show", "mark", "rank", "status"])
+    ap.add_argument("cmd", choices=["pages", "add", "export", "coverage", "session", "show", "mark", "rank", "status"])
     ap.add_argument("args", nargs="*"); ap.add_argument("--pages")
     ap.add_argument("--topics", type=int, default=lib.FULL_VIVA); ap.add_argument("--viva", choices=list(lib.VIVAS))
     ap.add_argument("--new", type=int, default=12); ap.add_argument("--chapters", type=int, nargs="*")
@@ -82,6 +83,12 @@ def main():
         print(f"ch{n:02d}: {added} cards added, {replaced} replaced; tiers " + ", ".join(f"{t} {v:.0%}" for t, v in cal["share"].items()))
         for w in cal["warnings"]: print("WARNING:", w)
         print_coverage(n, chapters[n])
+        (BANK / f"ch{n:02d}.md").write_text(lib.qa_markdown(chapters[n]), encoding="utf-8")
+
+    elif a.cmd == "export":
+        chapters = lib.load_chapters(BANK)
+        for n in [int(str(c).removeprefix("ch")) for c in a.args] or sorted(chapters):
+            out = BANK / f"ch{n:02d}.md"; out.write_text(lib.qa_markdown(chapters[n]), encoding="utf-8"); print(out)
 
     elif a.cmd == "coverage":
         chapters = lib.load_chapters(BANK)
