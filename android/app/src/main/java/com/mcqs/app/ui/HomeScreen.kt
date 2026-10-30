@@ -77,6 +77,7 @@ fun HomeScreen(repo: Repository, sync: Sync, onStudy: (String) -> Unit, onScenes
     val snackbar = remember { SnackbarHostState() }
     var importing by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
+    var downloading by remember { mutableStateOf(false) }
     var confirmDelete by remember { mutableStateOf<DeckSummary?>(null) }
 
     fun runSync(force: Boolean) {
@@ -146,7 +147,15 @@ fun HomeScreen(repo: Repository, sync: Sync, onStudy: (String) -> Unit, onScenes
                 if (importing || SyncState.running) LinearProgressIndicator(Modifier.fillMaxWidth().padding(top = 8.dp))
             }
             SyncState.appUpdate?.let { app ->
-                item { UpdateBanner(app) { scope.launch { runCatching { sync.installApp(app) }.onFailure { error = "Update failed: ${it.message}" } } } }
+                item {
+                    UpdateBanner(app, downloading) {
+                        if (!downloading) scope.launch {
+                            downloading = true
+                            runCatching { sync.installApp(app) }.onFailure { error = "Update failed: ${it.message}" }
+                            downloading = false
+                        }
+                    }
+                }
             }
             if (decks.isEmpty()) {
                 item {
@@ -189,17 +198,19 @@ fun HomeScreen(repo: Repository, sync: Sync, onStudy: (String) -> Unit, onScenes
 }
 
 @Composable
-private fun UpdateBanner(app: RemoteApp, onUpdate: () -> Unit) {
+private fun UpdateBanner(app: RemoteApp, downloading: Boolean, onUpdate: () -> Unit) {
     Row(
         Modifier.fillMaxWidth().clip(RoundedCornerShape(20.dp)).background(BrandGradient).padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {
             Text("New version ${app.versionName}", style = MaterialTheme.typography.titleMedium, color = Color.White)
-            Text("Tap update, then confirm install", style = MaterialTheme.typography.bodySmall, color = Color.White.copy(alpha = 0.85f))
+            // The APK is about 10 MB: say so while it downloads, or the tap looks like it did nothing.
+            Text(if (downloading) "Downloading, the installer opens next" else "Tap update, then confirm install",
+                style = MaterialTheme.typography.bodySmall, color = Color.White.copy(alpha = 0.85f))
         }
         Text(
-            "Update",
+            if (downloading) "Wait…" else "Update",
             style = MaterialTheme.typography.labelLarge, color = Ink,
             modifier = Modifier.clip(RoundedCornerShape(50)).background(Color.White)
                 .clickable(onClick = onUpdate).padding(horizontal = 16.dp, vertical = 8.dp),
