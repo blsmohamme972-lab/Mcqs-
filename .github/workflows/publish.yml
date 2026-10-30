@@ -57,8 +57,10 @@ jobs:
       - name: Build content packages (content/ and the viva decks made from examiner/bank)
         run: |
           shopt -s nullglob
-          pip install -q fsrs==6.3.2
-          python3 tools/examiner.py appdeck "$RUNNER_TEMP/viva"
+          pip install -q fsrs==6.3.2 pdfplumber==0.11.10
+          # Figures only with an app update in the same release: older apps show a basic card's picture before the
+          # answer, and the book's labelled figures would give answers away.
+          python3 tools/examiner.py appdeck "$RUNNER_TEMP/viva" $([ -f dist/MCQs.apk ] && echo --figures)
           for d in content/*/ "$RUNNER_TEMP"/viva/*/; do
             python3 tools/build_package.py "$d" "dist/$(basename "$d").zip"
           done

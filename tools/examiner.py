@@ -5,8 +5,8 @@
   examiner.py add      ch01 bank.json          check the page facts and cards (importance, ladder level, facts tested)
                                                and merge them into examiner/bank/ch01.json; prints coverage and tiers
   examiner.py export   [ch01 ...]              the bank as a readable Q&A page -> examiner/bank/ch01.md (add does it too)
-  examiner.py appdeck  <out-dir>               the bank as app decks: <out-dir>/viva-chNN/manifest.json (CI publishes them,
-                                               the app syncs them into its Anki tab)
+  examiner.py appdeck  <out-dir> [--figures]   the bank as app decks: <out-dir>/viva-chNN/manifest.json (CI publishes them,
+                                               the app syncs them into its Anki tab); --figures adds the book's figures
   examiner.py coverage [ch01 ...]              pages without facts, facts no card tests (nothing in the book is lost)
   examiner.py session  [--topics 6] [--viva critical|cardiac|congenital|thoracic] [--chapters 1 2] [--new 12]
                        [--tier A] [--mode exam|practice]
@@ -120,6 +120,7 @@ def main():
     ap.add_argument("--new", type=int, default=12); ap.add_argument("--chapters", type=int, nargs="*")
     ap.add_argument("--tier", nargs="*", choices=list(lib.TIERS)); ap.add_argument("--top", type=int, default=20)
     ap.add_argument("--mode", choices=["exam", "practice"], default="exam")
+    ap.add_argument("--figures", action="store_true", help="appdeck: cut the book's figures into the decks")
     a = ap.parse_args(); now = lib.utcnow()
 
     if a.cmd == "pages":
@@ -151,10 +152,11 @@ def main():
 
     elif a.cmd == "appdeck":
         for n, data in sorted(lib.load_chapters(BANK).items()):
-            m = lib.app_manifest(data)
-            out = Path(a.args[0]) / m["id"]; out.mkdir(parents=True, exist_ok=True)
+            out = Path(a.args[0]) / f"viva-ch{n:02d}"; out.mkdir(parents=True, exist_ok=True)
+            figs = lib.render_figures(data, chapter_pdf(n)[2], out / "media") if a.figures else {}
+            m = lib.app_manifest(data, figs)
             (out / "manifest.json").write_text(json.dumps(m, ensure_ascii=False, indent=1), encoding="utf-8")
-            print(f"{out}: {len(m['cards'])} cards")
+            print(f"{out}: {len(m['cards'])} cards, {sum('image' in c for c in m['cards'])} with a figure")
 
     elif a.cmd == "coverage":
         chapters = lib.load_chapters(BANK)

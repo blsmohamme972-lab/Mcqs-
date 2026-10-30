@@ -110,7 +110,8 @@ def check_card(c: dict) -> None:
     ladder, the page facts it tests, and its importance."""
     m = CARD_ID_RE.fullmatch(c.get("id", ""))
     if not m: raise ValueError(f"bad id {c.get('id')!r} (want chNN.pPPP.NN)")
-    extra = set(c) - {"id", "chapter", "page", "topic", "type", "level", "q", "a", "points", "facts", "importance", "related", "tags"}
+    extra = set(c) - {"id", "chapter", "page", "topic", "type", "level", "q", "a", "points", "facts", "importance", "related",
+                      "tags", "figure"}
     if extra: raise ValueError(f"{c['id']}: unknown fields {sorted(extra)}")
     if c.get("chapter") != int(m[1]) or c.get("page") != int(m[2]): raise ValueError(f"{c['id']}: chapter/page do not match the id")
     if c.get("type") not in TYPES: raise ValueError(f"{c['id']}: type must be one of {TYPES}")
@@ -150,8 +151,13 @@ def fact_ids(pages: dict) -> list[str]:
 def check_chapter(data: dict) -> None:
     check_pages(data.get("pages", {}))
     known = set(fact_ids(data.get("pages", {})))
+    figures = data.get("figures", {})
+    for f, v in figures.items():
+        if not (re.fullmatch(r"\d+\.\d+", f) and isinstance(v.get("page"), int) and v.get("title")):
+            raise ValueError(f"figure {f}: needs a page number and a title")
     for c in data["cards"]:
         check_card(c)
+        if "figure" in c and c["figure"] not in figures: raise ValueError(f"{c['id']}: unknown figure {c['figure']}")
         missing = [f for f in c["facts"] if f not in known]
         if missing: raise ValueError(f"{c['id']}: tests facts that are not in the page list: {missing}")
 
@@ -189,6 +195,7 @@ def merge_cards(bank_file: Path, chapter: int, title: str, new: dict) -> tuple[i
     """Add or replace page facts (by page) and cards (by id) in one chapter's bank file; returns (added, replaced)."""
     data = json.loads(bank_file.read_text(encoding="utf-8")) if bank_file.exists() else {"chapter": chapter, "title": title, "pages": {}, "cards": []}
     check_pages(new.get("pages", {}))
+    if new.get("figures"): data["figures"] = {**data.get("figures", {}), **new["figures"]}
     data["pages"].update({str(int(p)): v for p, v in new.get("pages", {}).items()})
     data["pages"] = dict(sorted(data["pages"].items(), key=lambda x: int(x[0])))
     have = {c["id"]: i for i, c in enumerate(data["cards"])}
@@ -262,6 +269,9 @@ STEP 2, CARDS. Write short viva questions until EVERY fact is tested by at least
 - topic: the page's heading (the viva topic the card belongs to; keep the same wording for the same heading).
 - page and id: the printed page of the card's main fact; id chNN.pPPP.NN (01, 02 ... in page order).
 - related: ids of cards on the same idea (so a failure on one brings the others forward).
+- figure: when a card is about a figure of the book (a film, a scan, a diagram), its number, e.g. "1.3"; list the
+  figures in "figures": {{"1.3": {{"page": <printed page of the picture>, "title": "<a few words>"}}}}. The app shows
+  the picture (cut from the book, without its caption) with the question.
 
 IMPORTANCE (rate every card; the study order is built from it, never what is left out)
 Score each criterion 0-3 for a cardiothoracic surgeon and a board examiner, judged against the WHOLE specialty, not
@@ -273,7 +283,7 @@ this page. The tool computes the score and the tier (A must know, B should know,
   Low-importance facts still get their cards: they are asked later, not dropped.
 
 Reply with ONLY one JSON object:
-{{"pages": {{"<page>": {{"facts": ["...", ...]}} or {{"skip": "reason"}}, ...}},
+{{"pages": {{"<page>": {{"facts": ["...", ...]}} or {{"skip": "reason"}}, ...}}, "figures": {{...}},
  "cards": [{{"id", "chapter", "page", "topic", "type", "level", "q", "a", "points", "facts": ["pPPP.fNN", ...],
             "importance": {{"safety", "decision", "frequency", "exam", "core", "why"}}, "related"}}, ...]}}
 """
@@ -657,16 +667,50 @@ def viva_page(bank: dict, state: dict, now: datetime, plan: dict | None) -> str:
 
 # ---------- the app's Anki deck ----------
 
-def app_manifest(data: dict) -> dict:
+def figure_box(page) -> tuple[float, float, float, float]:
+    """The figure on a book page (a pdfplumber page), with its labels but without the body text above it or the
+    caption below it (the caption's legend would give the answers away)."""
+    words = page.extract_words()
+    caps = [w for i, w in enumerate(words) if w["text"] == "Fig." and i + 1 < len(words) and words[i + 1]["text"][:1].isdigit()]
+    if page.images: top = min(i["top"] for i in page.images)
+    else: top = min(w["top"] for w in words if w["text"] in ("(a)", "(b)"))  # a vector drawing starts at its first label
+    if page.images and not caps: bottom = max(i["bottom"] for i in page.images) + 4
+    else: bottom = min(c["top"] for c in caps) - 2
+    lines: dict[int, list] = {}
+    for w in words:
+        if 60 < w["top"] < top: lines.setdefault(round(w["top"]), []).append(w)
+    body = [max(w["bottom"] for w in l) for l in lines.values() if max(w["x1"] for w in l) - min(w["x0"] for w in l) > 120]
+    return 26, min(max([60] + [b + 3 for b in body]), top - 2), 272, bottom
+
+
+def render_figures(data: dict, pdf: Path, media: Path) -> dict[str, str]:
+    """Cut each figure of a chapter out of its PDF as PNG -> {figure: "media/fig-1-3.png"}."""
+    import pdfplumber  # only the app-deck build needs it
+    out = {}
+    media.mkdir(parents=True, exist_ok=True)
+    with pdfplumber.open(pdf) as doc:
+        first = book_page(doc.pages[0].extract_text() or "") or 1
+        for f, v in data.get("figures", {}).items():
+            page = doc.pages[v["page"] - first]
+            name = f"fig-{f.replace('.', '-')}.png"
+            page.crop(figure_box(page)).to_image(resolution=200).save(media / name)
+            out[f] = f"media/{name}"
+    return out
+
+
+def app_manifest(data: dict, images: dict[str, str] | None = None) -> dict:
     """One chapter's bank as an app content package (docs/package-format.md): basic cards, most important first, so
-    the app's new cards (shown in manifest order) start with what matters. CI publishes it; the app syncs it."""
+    the app's new cards (shown in manifest order) start with what matters, each with its figure of the book when it
+    has one. CI publishes it; the app syncs it."""
+    images = images or {}
     cards = sorted(data["cards"], key=lambda c: (-importance_score(c["importance"]), c["page"], c["id"]))
     return {"format": 1, "id": f"viva-ch{data['chapter']:02d}", "title": f"Viva Ch{data['chapter']}: {data['title']}",
             "version": len(cards), "source": BOOK, "scenes": [],
             "cards": [{"id": c["id"], "type": "basic", "front": c["q"], "back": c["a"],
                        "explanation": "Key points: " + "; ".join(c["points"]),
                        "source": f"Ch{c['chapter']} p{c['page']} · {tier(c)} {TIERS[tier(c)]} · {c['topic']}",
-                       "tags": [tier(c), c["topic"]]} for c in cards]}
+                       "tags": [tier(c), c["topic"]],
+                       **({"image": images[c["figure"]]} if c.get("figure") in images else {})} for c in cards]}
 
 
 # ---------- readable Q&A page ----------

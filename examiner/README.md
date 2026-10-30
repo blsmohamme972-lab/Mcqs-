@@ -26,7 +26,9 @@ card. Importance decides what you meet first, never what is left out.
 
 Every push that changes `examiner/bank/` publishes the bank as app decks (`viva-ch01`, ...; `examiner.py appdeck`,
 run by `.github/workflows/publish.yml`), and the app pulls them on start: nothing to download or import. The cards
-come most important first. In a deck, **Copy for GPT → Copy 10 / 20 / 30 questions** copies the next cards in study
+come most important first; a card about a figure of the book (a film, a scan, an angiogram, a TOE view) shows
+that figure, cut from the PDF without its caption, under the answer once revealed (`figures` in the bank, `figure` on
+the card; published together with an app update). In a deck, **Copy for GPT → Copy 10 / 20 / 30 questions** copies the next cards in study
 order (due ones first, then new) with their answers, key points and intervals, plus a short examiner brief. Paste
 it into a ChatGPT voice chat: it reads each question aloud, you answer and follow the same card in the app, it
 tells you which button to press, and you rate it in the app, which keeps the schedule.

@@ -81,6 +81,19 @@ class BankTests(unittest.TestCase):
         self.assertLess(md.index("## Topic of page 2"), md.index("## Topic of page 3"))
         self.assertEqual(md.count("**Q:**"), 2); self.assertEqual(md.count("**A:**"), 2); self.assertIn("A must know", md)
 
+    def test_figures_are_checked_cut_from_the_book_and_put_on_their_cards(self):
+        data = {"chapter": 1, "title": "Pre-op", **chapter_file([card("ch01.p019.01", figure="1.5"), card("ch01.p019.02")]),
+                "figures": {"1.5": {"page": 19, "title": "Angiographic views"}}}
+        lib.check_chapter(data)
+        with self.assertRaises(ValueError): lib.check_chapter({**data, "figures": {}})
+        pdf = next((ROOT / "Cardiothoracic_Surgery_Chapters").glob("Chapter_01_*.pdf"))
+        with tempfile.TemporaryDirectory() as d:
+            imgs = lib.render_figures(data, pdf, Path(d) / "media")
+            self.assertEqual(imgs, {"1.5": "media/fig-1-5.png"})
+            self.assertGreater((Path(d) / "media" / "fig-1-5.png").stat().st_size, 2000)
+        cards = {c["id"]: c for c in lib.app_manifest(data, imgs)["cards"]}
+        self.assertEqual(cards["ch01.p019.01"]["image"], "media/fig-1-5.png"); self.assertNotIn("image", cards["ch01.p019.02"])
+
     def test_coverage_finds_missing_pages_and_untested_facts(self):
         data = chapter_file([card("ch01.p002.01")], pages={"2": {"facts": ["NYHA I", "NYHA II"]}, "3": {"skip": "full-page figure"}})
         cv = lib.coverage(data, [2, 3, 4])

@@ -246,7 +246,12 @@ private fun CardView(ui: StudyUi, vm: StudyViewModel, onOpenScene: (String) -> U
         ) {
             Text(card.front, style = MaterialTheme.typography.titleLarge)
 
-            val imageRel = if (card.type == CardType.OCCLUSION) ui.scene?.image else card.image
+            // A basic card's picture (e.g. the book's figure) belongs to the answer: its labels would give it away.
+            val imageRel = when (card.type) {
+                CardType.OCCLUSION -> ui.scene?.image
+                CardType.BASIC -> card.image.takeIf { ui.revealed }
+                else -> card.image
+            }
             val bitmap = rememberBitmap(imageRel?.let { java.io.File(deck.dir, it) })
             if (bitmap != null) {
                 SceneImage(
