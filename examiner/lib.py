@@ -30,7 +30,7 @@ FLUENCY = ("fluent", "hesitant", "guessed")
 CONFIDENCE = ("sure", "unsure")
 CARD_ID_RE = re.compile(r"ch(\d\d)\.p(\d{3,4})\.(\d\d)")
 FACT_ID_RE = re.compile(r"p(\d{3,4})\.f(\d\d)")
-Q_MAX, A_MAX = 160, 300     # short: a question said in one breath, an answer in about 20 seconds
+Q_MAX, A_MAX = 160, 200     # short: a question said in one breath, an answer in a few seconds
 DUE_AHEAD = timedelta(hours=6)  # a card due later today is still asked now
 LEECH_LAPSES = 4            # this many failures after learning it: teach it instead of quizzing it
 NUDGE_TO = timedelta(days=1)    # a failed card pulls its page siblings forward to tomorrow
@@ -256,7 +256,8 @@ STEP 2, CARDS. Write short viva questions until EVERY fact is tested by at least
   2 understanding (why, mechanism, interpret, classify), 3 management (assess, decide, operate, what next),
   4 complications, outcomes and evidence (what goes wrong, results, controversy). Write cards on every rung the
   pages support, so a topic can be climbed.
-- a: the model answer, 1-2 short sentences, in the page's own facts.
+- a: the model answer, SHORT: a phrase or one short sentence, at most about 20 words (for a list, just the items),
+  in the page's own facts. If a fact needs a long answer, split it into several short cards.
 - points: 1-4 key points the student must say for full marks (names, numbers, thresholds, as the page words them).
 - topic: the page's heading (the viva topic the card belongs to; keep the same wording for the same heading).
 - page and id: the printed page of the card's main fact; id chNN.pPPP.NN (01, 02 ... in page order).
