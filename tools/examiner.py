@@ -16,9 +16,12 @@
   examiner.py mark     <sid> report.json       apply the report: topic marks 4-8 (pass 6), FSRS for every question
   examiner.py rank     [--chapters 1] [--top 20]  the bank by importance: tier shares, warnings, the top cards
   examiner.py status                           due cards, tiers, viva marks per viva, recent results, weakest cards
+  examiner.py publish                          rewrite examiner/STATUS.md and examiner/NEXT.md (session and mark do it too):
+                                               the two pages any agent reads instead of the JSON and the FSRS maths
 Needs py-fsrs 6.3.2 (`pip install fsrs==6.3.2`, the engine the app's Fsrs.kt is verified against) and pdftotext.
 """
 import argparse, json, sys
+from datetime import timedelta
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -53,9 +56,33 @@ def print_coverage(n: int, data) -> None:
     if cv["facts_untested"]: print(f"  facts no card tests: {', '.join(cv['facts_untested'])}")
 
 
+def open_plan(state: dict):
+    """The newest planned viva that is not marked yet (the one NEXT.md shows)."""
+    for p in sorted(SESSIONS.glob("S*.plan.json"), reverse=True):
+        plan = json.loads(p.read_text(encoding="utf-8"))
+        if plan["session"] not in state["sessions"]: return plan
+    return None
+
+
+def publish(bank: dict, state: dict, now, plan=None) -> None:
+    """STATUS.md (the spaced repetition) and NEXT.md (the next viva, self-contained): what agents read."""
+    plan = plan or open_plan(state)
+    if plan: (HOME / "NEXT.md").write_text(lib.next_markdown(plan, bank, state), encoding="utf-8")
+    (HOME / "STATUS.md").write_text(lib.status_markdown(bank, state, now, plan), encoding="utf-8")
+
+
+def new_session(bank, state, at, a):
+    plan = lib.plan_session(bank, state, at, a.topics, a.new, a.chapters, a.viva, a.tier, a.mode)
+    if not plan["items"]: return None
+    SESSIONS.mkdir(parents=True, exist_ok=True); WORK.mkdir(parents=True, exist_ok=True)
+    (SESSIONS / f"{plan['session']}.plan.json").write_text(json.dumps(plan, indent=1) + "\n", encoding="utf-8")
+    (WORK / f"{plan['session']}.prompt.md").write_text(lib.examiner_prompt(plan, bank, state), encoding="utf-8")
+    return plan
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["pages", "add", "export", "coverage", "session", "show", "mark", "rank", "status"])
+    ap.add_argument("cmd", choices=["pages", "add", "export", "coverage", "session", "show", "mark", "rank", "status", "publish"])
     ap.add_argument("args", nargs="*"); ap.add_argument("--pages")
     ap.add_argument("--topics", type=int, default=lib.FULL_VIVA); ap.add_argument("--viva", choices=list(lib.VIVAS))
     ap.add_argument("--new", type=int, default=12); ap.add_argument("--chapters", type=int, nargs="*")
@@ -97,12 +124,9 @@ def main():
     elif a.cmd == "session":
         bank, state = lib.load_bank(BANK), lib.load_state(STATE)
         if not bank: sys.exit("the bank is empty: make cards first (examiner.py pages, then add)")
-        plan = lib.plan_session(bank, state, now, a.topics, a.new, a.chapters, a.viva, a.tier, a.mode)
-        if not plan["items"]: sys.exit("nothing to ask: no card is due and no new card is left in that scope")
-        SESSIONS.mkdir(parents=True, exist_ok=True); WORK.mkdir(parents=True, exist_ok=True)
-        (SESSIONS / f"{plan['session']}.plan.json").write_text(json.dumps(plan, indent=1) + "\n", encoding="utf-8")
-        out = WORK / f"{plan['session']}.prompt.md"
-        out.write_text(lib.examiner_prompt(plan, bank, state), encoding="utf-8")
+        plan = new_session(bank, state, now, a)
+        if not plan: sys.exit("nothing to ask: no card is due and no new card is left in that scope")
+        publish(bank, state, now, plan); out = HOME / "NEXT.md"
         kinds = [i["kind"] for i in plan["items"]]
         print(f"{plan['session']} ({plan['mode']}): {len(plan['topics'])} topics, {plan['minutes']} min; "
               f"{kinds.count('review')} review, {kinds.count('new')} new, {kinds.count('teach')} teach "
@@ -131,6 +155,13 @@ def main():
         asked = {it["n"] for it in report["items"]}
         skipped = [it["id"] for it in plan["items"] if it["n"] not in asked]
         if skipped: print(f"not reached (still due): {', '.join(skipped)}")
+        nxt = new_session(bank, state, now + timedelta(days=1), a)  # the next viva is ready on GitHub, planned for tomorrow
+        publish(bank, state, now, nxt)
+        print(f"next viva: {nxt['session'] if nxt else 'none (nothing due or new)'}; wrote examiner/STATUS.md and examiner/NEXT.md")
+
+    elif a.cmd == "publish":
+        bank, state = lib.load_bank(BANK), lib.load_state(STATE)
+        publish(bank, state, now); print("wrote examiner/STATUS.md and examiner/NEXT.md")
 
     elif a.cmd == "rank":
         cards = [c for c in lib.load_bank(BANK).values() if not a.chapters or c["chapter"] in a.chapters]

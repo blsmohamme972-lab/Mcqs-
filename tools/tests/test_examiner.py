@@ -247,6 +247,15 @@ class VivaTests(unittest.TestCase):
         with self.assertRaises(ValueError): lib.parse_report('{"items": [{"n": 1, "result": "ok"}]}')
         with self.assertRaises(ValueError): lib.parse_report('{"topics": [{"t": 1, "mark": 9}], "items": []}')
 
+    def test_agent_pages_need_no_other_file(self):
+        plan, _ = self.run_session({"ch01.p002.01": {"result": "wrong"}}, topics=1, topic_marks={1: 5})
+        nxt = lib.plan_session(self.bank, self.state, NOW + timedelta(days=1), sid="S20261102-0900")
+        st = lib.status_markdown(self.bank, self.state, NOW, nxt)
+        for want in ("Due now", "S20261102-0900", "| 2026-11-01 | S", "Memory per topic", "Weakest cards", "Do not compute FSRS"):
+            self.assertIn(want, st)
+        page = lib.next_markdown(nxt, self.bank, self.state)
+        self.assertIn("Do not open any other file", page); self.assertIn("Model answer:", page)
+
     def test_state_round_trips(self):
         self.run_session({}, topics=1)
         with tempfile.TemporaryDirectory() as d:
