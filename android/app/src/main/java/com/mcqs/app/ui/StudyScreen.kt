@@ -38,6 +38,17 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.TextButton
+import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.AnnotatedString
+import android.widget.Toast
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -51,6 +62,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.mcqs.app.data.CardEntity
 import com.mcqs.app.data.DeckEntity
+import com.mcqs.app.data.GptCopy
 import com.mcqs.app.data.Repository
 import com.mcqs.app.data.SceneEntity
 import com.mcqs.app.pkg.CardType
@@ -111,6 +123,14 @@ class StudyViewModel(private val repo: Repository, private val deckId: String) :
         }
     }
 
+    /** "Copy for GPT": the next [n] cards (due first, then new) as text for a voice examiner; null when none. */
+    suspend fun gptText(n: Int): Pair<Int, String>? {
+        val deck = ui.value.deck ?: repo.dao.deck(deckId) ?: return null
+        val now = System.currentTimeMillis()
+        val batch = repo.nextBatch(deckId, n, now)
+        return if (batch.isEmpty()) null else batch.size to GptCopy.text(deck.title, batch, now)
+    }
+
     /** Called when the screen is (re)opened: a finished session may have new due cards by now. */
     fun refresh() {
         if (ui.value.done) viewModelScope.launch { loadNext() }
@@ -156,6 +176,7 @@ fun StudyScreen(repo: Repository, deckId: String, onBack: () -> Unit, onOpenScen
             navigationIcon = {
                 IconButton(onClick = onBack) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back") }
             },
+            actions = { CopyForGpt(vm) },
             colors = TopAppBarDefaults.topAppBarColors(containerColor = Ink),
         )
     }) { padding ->
@@ -164,6 +185,34 @@ fun StudyScreen(repo: Repository, deckId: String, onBack: () -> Unit, onOpenScen
                 ui.loading -> CircularProgressIndicator(Modifier.align(Alignment.Center))
                 ui.done -> DoneView(ui.reviewedThisSession, onBack, Modifier.align(Alignment.Center))
                 else -> CardView(ui, vm, onOpenScene)
+            }
+        }
+    }
+}
+
+/** Copy 10 / 20 / 30 questions with their answers for a ChatGPT voice examiner, then rate them here as usual. */
+@Composable
+private fun CopyForGpt(vm: StudyViewModel) {
+    val context = LocalContext.current
+    val clipboard = LocalClipboardManager.current
+    val scope = rememberCoroutineScope()
+    var open by remember { mutableStateOf(false) }
+    Box {
+        TextButton(onClick = { open = true }) { Text("Copy for GPT", color = Cyan, style = MaterialTheme.typography.labelLarge) }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            for (n in listOf(10, 20, 30)) {
+                DropdownMenuItem(text = { Text("Copy $n questions") }, onClick = {
+                    open = false
+                    scope.launch {
+                        val copied = vm.gptText(n)
+                        if (copied == null) {
+                            Toast.makeText(context, "No questions left to copy", Toast.LENGTH_SHORT).show()
+                        } else {
+                            clipboard.setText(AnnotatedString(copied.second))
+                            Toast.makeText(context, "Copied ${copied.first} questions: paste them in ChatGPT", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                })
             }
         }
     }

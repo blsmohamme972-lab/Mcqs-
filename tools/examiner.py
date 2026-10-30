@@ -5,6 +5,8 @@
   examiner.py add      ch01 bank.json          check the page facts and cards (importance, ladder level, facts tested)
                                                and merge them into examiner/bank/ch01.json; prints coverage and tiers
   examiner.py export   [ch01 ...]              the bank as a readable Q&A page -> examiner/bank/ch01.md (add does it too)
+  examiner.py appdeck  <out-dir>               the bank as app decks: <out-dir>/viva-chNN/manifest.json (CI publishes them,
+                                               the app syncs them into its Anki tab)
   examiner.py coverage [ch01 ...]              pages without facts, facts no card tests (nothing in the book is lost)
   examiner.py session  [--topics 6] [--viva critical|cardiac|congenital|thoracic] [--chapters 1 2] [--new 12]
                        [--tier A] [--mode exam|practice]
@@ -112,7 +114,7 @@ def do_mark(sid: str, report: dict, a, now) -> None:
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["pages", "add", "export", "coverage", "session", "show", "mark", "inbox", "rank", "status", "publish"])
+    ap.add_argument("cmd", choices=["pages", "add", "export", "appdeck", "coverage", "session", "show", "mark", "inbox", "rank", "status", "publish"])
     ap.add_argument("args", nargs="*"); ap.add_argument("--pages")
     ap.add_argument("--topics", type=int, default=lib.FULL_VIVA); ap.add_argument("--viva", choices=list(lib.VIVAS))
     ap.add_argument("--new", type=int, default=12); ap.add_argument("--chapters", type=int, nargs="*")
@@ -146,6 +148,13 @@ def main():
         chapters = lib.load_chapters(BANK)
         for n in [int(str(c).removeprefix("ch")) for c in a.args] or sorted(chapters):
             out = BANK / f"ch{n:02d}.md"; out.write_text(lib.qa_markdown(chapters[n]), encoding="utf-8"); print(out)
+
+    elif a.cmd == "appdeck":
+        for n, data in sorted(lib.load_chapters(BANK).items()):
+            m = lib.app_manifest(data)
+            out = Path(a.args[0]) / m["id"]; out.mkdir(parents=True, exist_ok=True)
+            (out / "manifest.json").write_text(json.dumps(m, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"{out}: {len(m['cards'])} cards")
 
     elif a.cmd == "coverage":
         chapters = lib.load_chapters(BANK)

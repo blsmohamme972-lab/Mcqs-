@@ -655,6 +655,20 @@ def viva_page(bank: dict, state: dict, now: datetime, plan: dict | None) -> str:
     return "\n".join(out) + "\n"
 
 
+# ---------- the app's Anki deck ----------
+
+def app_manifest(data: dict) -> dict:
+    """One chapter's bank as an app content package (docs/package-format.md): basic cards, most important first, so
+    the app's new cards (shown in manifest order) start with what matters. CI publishes it; the app syncs it."""
+    cards = sorted(data["cards"], key=lambda c: (-importance_score(c["importance"]), c["page"], c["id"]))
+    return {"format": 1, "id": f"viva-ch{data['chapter']:02d}", "title": f"Viva Ch{data['chapter']}: {data['title']}",
+            "version": len(cards), "source": BOOK, "scenes": [],
+            "cards": [{"id": c["id"], "type": "basic", "front": c["q"], "back": c["a"],
+                       "explanation": "Key points: " + "; ".join(c["points"]),
+                       "source": f"Ch{c['chapter']} p{c['page']} · {tier(c)} {TIERS[tier(c)]} · {c['topic']}",
+                       "tags": [tier(c), c["topic"]]} for c in cards]}
+
+
 # ---------- readable Q&A page ----------
 
 def qa_markdown(data: dict) -> str:

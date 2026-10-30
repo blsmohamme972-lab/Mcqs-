@@ -5,7 +5,7 @@ name: Build & publish
 on:
   push:
     branches: [master, ccr-56cc3122-ubuyzv]
-    paths: ["android/**", "content/**", "tools/**", ".github/workflows/**"]
+    paths: ["android/**", "content/**", "examiner/bank/**", "tools/**", ".github/workflows/**"]
   workflow_dispatch:
 
 permissions:
@@ -37,21 +37,29 @@ jobs:
           MCQS_KEYSTORE_B64: ${{ secrets.MCQS_KEYSTORE_B64 }}
           MCQS_KEYSTORE_PASSWORD: ${{ secrets.MCQS_KEYSTORE_PASSWORD }}
         run: |
+          mkdir -p ../dist
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
           if [ -z "$MCQS_KEYSTORE_B64" ] || [ -z "$MCQS_KEYSTORE_PASSWORD" ]; then
-            echo "::error::Add the MCQS_KEYSTORE_B64 and MCQS_KEYSTORE_PASSWORD repository secrets (Settings → Secrets and variables → Actions)."
-            exit 1
+            # Without the key no installable update can be signed, but the content (decks) still goes out.
+            echo "::warning::No app update in this release: add the MCQS_KEYSTORE_B64 and MCQS_KEYSTORE_PASSWORD repository secrets (Settings → Secrets and variables → Actions)."
+            ./gradlew --no-daemon testDebugUnitTest
+            exit 0
           fi
           export MCQS_KEYSTORE_PATH="$RUNNER_TEMP/mcqs.jks"
           echo "$MCQS_KEYSTORE_B64" | base64 -d > "$MCQS_KEYSTORE_PATH"
-          echo "sdk.dir=$ANDROID_HOME" > local.properties
           ./gradlew --no-daemon testDebugUnitTest assembleRelease
-          mkdir -p ../dist
           cp app/build/outputs/apk/release/app-release.apk ../dist/MCQs.apk
 
-      - name: Build content packages
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build content packages (content/ and the viva decks made from examiner/bank)
         run: |
           shopt -s nullglob
-          for d in content/*/; do
+          pip install -q fsrs==6.3.2
+          python3 tools/examiner.py appdeck "$RUNNER_TEMP/viva"
+          for d in content/*/ "$RUNNER_TEMP"/viva/*/; do
             python3 tools/build_package.py "$d" "dist/$(basename "$d").zip"
           done
 

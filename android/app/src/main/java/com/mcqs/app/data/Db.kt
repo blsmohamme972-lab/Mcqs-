@@ -202,6 +202,25 @@ interface StudyDao {
     )
     suspend fun nextUnseen(deckId: String): CardEntity?
 
+    /** Seen cards due before [until], earliest first: the order the study screen shows them in. */
+    @Query(
+        """
+        SELECT r.* FROM review_state r JOIN cards c ON c.uid = r.uid
+        WHERE r.deckId = :deckId AND c.active AND r.due <= :until
+        ORDER BY r.due LIMIT :limit
+        """
+    )
+    suspend fun dueStates(deckId: String, until: Long, limit: Int): List<ReviewStateEntity>
+
+    @Query(
+        """
+        SELECT * FROM cards WHERE deckId = :deckId AND active
+          AND uid NOT IN (SELECT uid FROM review_state)
+        ORDER BY ord LIMIT :limit
+        """
+    )
+    suspend fun unseenCards(deckId: String, limit: Int): List<CardEntity>
+
     @Query("SELECT COUNT(*) FROM review_log WHERE deckId = :deckId AND wasNew AND time >= :since")
     suspend fun newIntroducedSince(deckId: String, since: Long): Int
 

@@ -35,10 +35,11 @@ def main(dist, base, version_code, version_name):
     index = {
         "format": 1,
         "generatedAt": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+        # No APK in this release (signing secrets missing): the content still goes out, the app keeps its version.
         "app": {
             "versionCode": int(version_code), "versionName": version_name,
             "url": f"{base}/MCQs.apk", "sha256": sha256(os.path.join(dist, "MCQs.apk")),
-        },
+        } if os.path.isfile(os.path.join(dist, "MCQs.apk")) else None,
         "packages": packages,
     }
     with open(os.path.join(dist, "index.json"), "w") as f:

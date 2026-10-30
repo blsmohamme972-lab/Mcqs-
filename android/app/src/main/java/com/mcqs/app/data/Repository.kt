@@ -120,6 +120,16 @@ class Repository(private val context: Context) {
         return null
     }
 
+    /**
+     * The next [n] cards in study order, for "Copy for GPT": due cards first (earliest due), then unseen cards in
+     * deck order. No daily new-card limit: the owner asked for exactly [n].
+     */
+    suspend fun nextBatch(deckId: String, n: Int, now: Long = System.currentTimeMillis()): List<BatchCard> {
+        val due = dao.dueStates(deckId, now, n).mapNotNull { st -> dao.card(st.uid)?.let { BatchCard(it, st.toSrs()) } }
+        val fresh = if (due.size < n) dao.unseenCards(deckId, n - due.size).map { BatchCard(it, null) } else emptyList()
+        return due + fresh
+    }
+
     suspend fun srsCard(uid: String, now: Long): SrsCard =
         dao.state(uid)?.toSrs() ?: SrsCard(due = now)
 
@@ -141,6 +151,9 @@ class Repository(private val context: Context) {
     }
 
     private fun ReviewStateEntity.toSrs() = SrsCard(CardState.of(state), step, stability, difficulty, due, lastReview)
+
+    /** A card for "Copy for GPT", with its schedule (null = never studied). */
+    data class BatchCard(val card: CardEntity, val srs: SrsCard?)
 
     companion object {
         const val NEW_PER_DAY = 20

@@ -22,6 +22,15 @@ card. Importance decides what you meet first, never what is left out.
 خمس دقائق، وأسئلة قصيرة تصعد من المعرفة إلى التدبير. كل موضوع ياخذ درجة من 4 إلى 8 والنجاح 6. كل معلومة بالكتاب
 لها سؤال، والأهمية تحدد الترتيب فقط، يعني ما تنحذف أي معلومة.
 
+## In the app (Anki tab): read along while ChatGPT asks
+
+Every push that changes `examiner/bank/` publishes the bank as app decks (`viva-ch01`, ...; `examiner.py appdeck`,
+run by `.github/workflows/publish.yml`), and the app pulls them on start: nothing to download or import. The cards
+come most important first. In a deck, **Copy for GPT → Copy 10 / 20 / 30 questions** copies the next cards in study
+order (due ones first, then new) with their answers, key points and intervals, plus a short examiner brief. Paste
+it into a ChatGPT voice chat: it reads each question aloud, you answer and follow the same card in the app, it
+tells you which button to press, and you rate it in the app, which keeps the schedule.
+
 ## The loop
 
 ```
