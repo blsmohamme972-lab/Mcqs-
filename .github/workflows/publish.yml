@@ -5,7 +5,7 @@ name: Build & publish
 on:
   push:
     branches: [master, ccr-56cc3122-ubuyzv]
-    paths: ["android/**", "content/**", "examiner/bank/**", "tools/**", ".github/workflows/**"]
+    paths: ["android/**", "apk/**", "content/**", "examiner/bank/**", "tools/**", ".github/workflows/**"]
   workflow_dispatch:
 
 permissions:
@@ -40,11 +40,20 @@ jobs:
           mkdir -p ../dist
           echo "sdk.dir=$ANDROID_HOME" > local.properties
           if [ -z "$MCQS_KEYSTORE_B64" ] || [ -z "$MCQS_KEYSTORE_PASSWORD" ]; then
-            # Without the key no installable update can be signed, but the content (decks) still goes out.
-            echo "::warning::No app update in this release: add the MCQS_KEYSTORE_B64 and MCQS_KEYSTORE_PASSWORD repository secrets (Settings → Secrets and variables → Actions)."
+            # No signing secrets (the owner's choice for now): the app update is the APK Claude Code built and signed
+            # with the same key, committed as apk/MCQs.apk with its version in apk/MCQs.json.
             ./gradlew --no-daemon testDebugUnitTest
+            if [ -f ../apk/MCQs.apk ]; then
+              cp ../apk/MCQs.apk ../dist/MCQs.apk
+              echo "APP_VERSION_CODE=$(python3 -c 'import json; print(json.load(open("../apk/MCQs.json"))["versionCode"])')" >> "$GITHUB_ENV"
+              echo "APP_VERSION_NAME=$(python3 -c 'import json; print(json.load(open("../apk/MCQs.json"))["versionName"])')" >> "$GITHUB_ENV"
+            fi
             exit 0
           fi
+          # Secrets set: CI signs; +100 keeps its versions above the committed APK's (0.2.30).
+          export BUILD_NUMBER=$((BUILD_NUMBER + 100))
+          echo "APP_VERSION_CODE=$((100 + BUILD_NUMBER))" >> "$GITHUB_ENV"
+          echo "APP_VERSION_NAME=0.2.$BUILD_NUMBER" >> "$GITHUB_ENV"
           export MCQS_KEYSTORE_PATH="$RUNNER_TEMP/mcqs.jks"
           echo "$MCQS_KEYSTORE_B64" | base64 -d > "$MCQS_KEYSTORE_PATH"
           ./gradlew --no-daemon testDebugUnitTest assembleRelease
@@ -69,7 +78,7 @@ jobs:
         run: |
           python3 tools/make_index.py dist \
             "https://github.com/${{ github.repository }}/releases/download/$TAG" \
-            "$((100 + BUILD_NUMBER))" "0.2.$BUILD_NUMBER"
+            "${APP_VERSION_CODE:-0}" "${APP_VERSION_NAME:-none}"
 
       - name: Publish release
         env:
