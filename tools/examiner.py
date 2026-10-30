@@ -14,6 +14,8 @@
                                                topics first: due cards by forgetting x importance, new by importance
   examiner.py show     <sid>                   the plan with questions, answers and key points (to grade a transcript)
   examiner.py mark     <sid> report.json       apply the report: topic marks 4-8 (pass 6), FSRS for every question
+  examiner.py inbox    payload.json            mark a report ChatGPT sent ({"report": ...}, run by viva-report.yml);
+                                               a report that cannot be marked is kept in examiner/inbox/
   examiner.py rank     [--chapters 1] [--top 20]  the bank by importance: tier shares, warnings, the top cards
   examiner.py status                           due cards, tiers, viva marks per viva, recent results, weakest cards
   examiner.py publish                          rewrite examiner/VIVA.md (session and mark do it too): the one page with
@@ -70,7 +72,11 @@ def publish(bank: dict, state: dict, now, plan=None) -> None:
 
 
 def new_session(bank, state, at, a):
-    plan = lib.plan_session(bank, state, at, a.topics, a.new, a.chapters, a.viva, a.tier, a.mode)
+    t = at
+    while (SESSIONS / f"{t:S%Y%m%d-%H%M}.plan.json").exists() or f"{t:S%Y%m%d-%H%M}" in state["sessions"]:
+        t += timedelta(minutes=1)  # never reuse a session id
+    sid = f"{t:S%Y%m%d-%H%M}"
+    plan = lib.plan_session(bank, state, at, a.topics, a.new, a.chapters, a.viva, a.tier, a.mode, sid=sid)
     if not plan["items"]: return None
     SESSIONS.mkdir(parents=True, exist_ok=True); WORK.mkdir(parents=True, exist_ok=True)
     (SESSIONS / f"{plan['session']}.plan.json").write_text(json.dumps(plan, indent=1) + "\n", encoding="utf-8")
@@ -78,9 +84,35 @@ def new_session(bank, state, at, a):
     return plan
 
 
+def do_mark(sid: str, report: dict, a, now) -> None:
+    """Apply a report (FSRS + viva marks), save it, plan the next viva for tomorrow and rewrite VIVA.md."""
+    plan = load_plan(sid)
+    bank, state = lib.load_bank(BANK), lib.load_state(STATE)
+    res = lib.mark(plan, report, state, bank, now)
+    lib.save_state(STATE, state)
+    (SESSIONS / f"{sid}.report.json").write_text(json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    v = res["viva"]
+    for t in v["topics"]:
+        print(f"topic {t['t']} Ch{t['chapter']} {t['topic']}: {t['mark']}/8 ({lib.MARKS[t['mark']].split(':')[0]};"
+              f" from the answers {t['auto'] if t['auto'] else '-'}) {t['comment']}")
+    if v["topics"]: print(f"viva: {v['total']} of {v['pass_total']} needed -> {v['result'].upper()}"
+                          + (f", {v['bad_fails']} bad fail(s)" if v["bad_fails"] else ""))
+    for r in res["rows"]:
+        print(f"{r['n'] or '-':>3} {r['id']:16} {r['rating']:6} next {r['due'][:10]}  {r['why']}"
+              + (f" | {r['retry']}" if r.get("retry") else "") + ("  LEECH: will be taught" if r.get("leech") else ""))
+    asked = {it["n"] for it in report["items"]}
+    skipped = [it["id"] for it in plan["items"] if it["n"] not in asked]
+    if skipped and report["items"]: print(f"not reached (still due): {', '.join(skipped)}")
+    if v.get("partial"):
+        print("topic marks only: the viva result is saved, no card was rescheduled; the session stays open for the full report")
+    nxt = new_session(bank, state, now + timedelta(days=1), a)  # the next viva is ready on GitHub, planned for tomorrow
+    publish(bank, state, now, nxt)
+    print(f"next viva: {nxt['session'] if nxt else 'none (nothing due or new)'}; wrote examiner/{lib.PAGE}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["pages", "add", "export", "coverage", "session", "show", "mark", "rank", "status", "publish"])
+    ap.add_argument("cmd", choices=["pages", "add", "export", "coverage", "session", "show", "mark", "inbox", "rank", "status", "publish"])
     ap.add_argument("args", nargs="*"); ap.add_argument("--pages")
     ap.add_argument("--topics", type=int, default=lib.FULL_VIVA); ap.add_argument("--viva", choices=list(lib.VIVAS))
     ap.add_argument("--new", type=int, default=12); ap.add_argument("--chapters", type=int, nargs="*")
@@ -135,29 +167,24 @@ def main():
         print(lib.examiner_prompt(load_plan(a.args[0]), lib.load_bank(BANK), lib.load_state(STATE)))
 
     elif a.cmd == "mark":
-        sid, plan = a.args[0], load_plan(a.args[0])
-        report = lib.parse_report(Path(a.args[1]).read_text(encoding="utf-8"))
-        bank, state = lib.load_bank(BANK), lib.load_state(STATE)
-        res = lib.mark(plan, report, state, bank, now)
-        lib.save_state(STATE, state)
-        (SESSIONS / f"{sid}.report.json").write_text(json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-        v = res["viva"]
-        for t in v["topics"]:
-            print(f"topic {t['t']} Ch{t['chapter']} {t['topic']}: {t['mark']}/8 ({lib.MARKS[t['mark']].split(':')[0]};"
-                  f" from the answers {t['auto'] if t['auto'] else '-'}) {t['comment']}")
-        if v["topics"]: print(f"viva: {v['total']} of {v['pass_total']} needed -> {v['result'].upper()}"
-                              + (f", {v['bad_fails']} bad fail(s)" if v["bad_fails"] else ""))
-        for r in res["rows"]:
-            print(f"{r['n'] or '-':>3} {r['id']:16} {r['rating']:6} next {r['due'][:10]}  {r['why']}"
-                  + (f" | {r['retry']}" if r.get("retry") else "") + ("  LEECH: will be taught" if r.get("leech") else ""))
-        asked = {it["n"] for it in report["items"]}
-        skipped = [it["id"] for it in plan["items"] if it["n"] not in asked]
-        if skipped and report["items"]: print(f"not reached (still due): {', '.join(skipped)}")
-        if v.get("partial"):
-            print("topic marks only: the viva result is saved, no card was rescheduled; the session stays open for the full report")
-        nxt = new_session(bank, state, now + timedelta(days=1), a)  # the next viva is ready on GitHub, planned for tomorrow
-        publish(bank, state, now, nxt)
-        print(f"next viva: {nxt['session'] if nxt else 'none (nothing due or new)'}; wrote examiner/{lib.PAGE}")
+        do_mark(a.args[0], lib.parse_report(Path(a.args[1]).read_text(encoding="utf-8")), a, now)
+
+    elif a.cmd == "inbox":
+        # A report sent by ChatGPT (the "Viva examiner" GPT -> repository_dispatch -> .github/workflows/viva-report.yml).
+        raw = Path(a.args[0]).read_text(encoding="utf-8")
+        try:
+            payload = json.loads(raw)
+            rep = payload.get("report", payload) if isinstance(payload, dict) else payload
+            report = lib.parse_report(rep if isinstance(rep, str) else json.dumps(rep))
+            sid = report.get("session") or (open_plan(lib.load_state(STATE)) or {}).get("session")
+            if not sid: raise ValueError("the report has no session id and no viva is open")
+            do_mark(sid, report, a, now)
+        except (ValueError, KeyError, TypeError, SystemExit) as e:
+            # Never lose a report: keep it as sent, for Claude Code to repair and mark by hand.
+            (HOME / "inbox").mkdir(exist_ok=True)
+            kept = HOME / "inbox" / f"failed-{now.strftime('%Y%m%d-%H%M%S')}.json"
+            kept.write_text(raw, encoding="utf-8")
+            sys.exit(f"report not marked ({e}); kept as {kept.relative_to(ROOT)}")
 
     elif a.cmd == "publish":
         bank, state = lib.load_bank(BANK), lib.load_state(STATE)

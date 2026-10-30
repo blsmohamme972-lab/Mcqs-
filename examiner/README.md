@@ -3,7 +3,8 @@
 > **One page for everything: [`VIVA.md`](VIVA.md).** Part 1 is the next viva, self-contained: give the page to a
 > Claude or ChatGPT voice chat and say "start the viva". Part 2 is the spaced repetition already computed: what is due
 > on which day, memory per topic, viva results, weakest cards. `session` and `mark` rewrite it. Agents read this page,
-> never the JSON, and never work FSRS out by hand. The questions, readable: [`bank/ch01.md`](bank/ch01.md).
+> never the JSON, and never work FSRS out by hand. To let ChatGPT save the result itself, set up the
+> "Viva examiner" GPT once: [`chatgpt/README.md`](chatgpt/README.md). The questions, readable: [`bank/ch01.md`](bank/ch01.md).
 
 Instead of flipping cards, you sit an oral exam (a viva). ChatGPT or Claude plays the two examiners in a voice call
 and runs it like the UK Intercollegiate FRCS (Cardiothoracic Surgery) Section 2 viva:

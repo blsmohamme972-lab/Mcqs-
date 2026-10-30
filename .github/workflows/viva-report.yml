@@ -1,0 +1,54 @@
+# ChatGPT saves a viva: the "Viva examiner" GPT sends its REPORT here (repository_dispatch, event "viva-report",
+# client_payload {"report": ...}; setup in examiner/chatgpt/README.md). The repository does the rest: FSRS for every
+# answer, the viva marks, the next viva and examiner/VIVA.md (tools/examiner.py inbox), committed to EXAMINER_BRANCH.
+# GitHub runs repository_dispatch workflows only from the default branch, so this file must also be on master.
+name: Save viva report
+
+on:
+  repository_dispatch:
+    types: [viva-report]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: examiner
+  cancel-in-progress: false
+
+env:
+  EXAMINER_BRANCH: ccr-56cc3122-ubuyzv
+
+jobs:
+  mark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.EXAMINER_BRANCH }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install fsrs==6.3.2
+
+      - name: Mark the report (a report that cannot be marked is kept in examiner/inbox/)
+        env:
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
+        run: |
+          printf '%s' "$PAYLOAD" > "$RUNNER_TEMP/payload.json"
+          python3 tools/examiner.py inbox "$RUNNER_TEMP/payload.json"
+
+      - name: Commit and push
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add examiner
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -q -m "Examiner: viva report from ChatGPT (run ${{ github.run_number }})"
+          for i in 1 2 3 4; do
+            git pull -q --rebase origin "$EXAMINER_BRANCH" && git push -q origin "HEAD:$EXAMINER_BRANCH" && exit 0
+            sleep $((2 ** i))
+          done
+          exit 1

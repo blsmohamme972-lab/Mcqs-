@@ -1,0 +1,98 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Viva examiner repository",
+    "version": "1.0.0",
+    "description": "Read the owner's next viva and spaced repetition (examiner/VIVA.md) and save a viva REPORT in the GitHub repository blsmohamme972-lab/Mcqs-. The repository does the FSRS marking itself."
+  },
+  "servers": [{ "url": "https://api.github.com" }],
+  "paths": {
+    "/repos/blsmohamme972-lab/Mcqs-/contents/examiner/VIVA.md": {
+      "get": {
+        "operationId": "getVivaPage",
+        "summary": "Get the viva page: Part 1 is the next viva (your rules and questions), Part 2 the spaced repetition, already computed.",
+        "parameters": [
+          { "name": "ref", "in": "query", "required": true, "schema": { "type": "string", "default": "ccr-56cc3122-ubuyzv" } },
+          { "name": "Accept", "in": "header", "required": true,
+            "schema": { "type": "string", "enum": ["application/vnd.github.raw+json"], "default": "application/vnd.github.raw+json" } }
+        ],
+        "responses": {
+          "200": { "description": "The page as markdown text", "content": { "text/plain": { "schema": { "type": "string" } } } }
+        }
+      }
+    },
+    "/repos/blsmohamme972-lab/Mcqs-/dispatches": {
+      "post": {
+        "operationId": "saveVivaReport",
+        "summary": "Save the viva REPORT. The repository marks it (FSRS), plans the next viva and rewrites VIVA.md in about a minute. 204 = sent.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["event_type", "client_payload"],
+                "properties": {
+                  "event_type": { "type": "string", "enum": ["viva-report"] },
+                  "client_payload": {
+                    "type": "object",
+                    "required": ["report"],
+                    "properties": { "report": { "$ref": "#/components/schemas/Report" } }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "204": { "description": "Sent: the repository is marking it" } }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Report": {
+        "type": "object",
+        "required": ["session", "items"],
+        "properties": {
+          "session": { "type": "string", "description": "The session id from Part 1, e.g. S20261031-1254" },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["t", "mark"],
+              "properties": {
+                "t": { "type": "integer" },
+                "mark": { "type": "integer", "enum": [4, 5, 6, 7, 8] },
+                "comment": { "type": "string" }
+              }
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["n", "result"],
+              "properties": {
+                "n": { "type": "integer", "description": "The question number from Part 1" },
+                "result": { "type": "string", "enum": ["correct", "partial", "wrong", "blank"] },
+                "points_hit": { "type": "integer" },
+                "prompts": { "type": "integer" },
+                "fluency": { "type": "string", "enum": ["fluent", "hesitant", "guessed"] },
+                "confidence": { "type": ["string", "null"], "enum": ["sure", "unsure", null] },
+                "note": { "type": "string" },
+                "retry": {
+                  "type": ["object", "null"],
+                  "properties": {
+                    "result": { "type": "string", "enum": ["correct", "partial", "wrong", "blank"] },
+                    "points_hit": { "type": "integer" },
+                    "prompts": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
