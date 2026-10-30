@@ -195,6 +195,15 @@ class VivaTests(unittest.TestCase):
         self.assertEqual(lib.auto_mark([(card("ch01.p002.01", level=3), Rating.Easy, {})]), 8)
         self.assertEqual(lib.auto_mark([(a, Rating.Again, {}), (card("ch01.p002.02"), Rating.Good, {})]), 5)
 
+    def test_topic_marks_alone_save_the_viva_and_leave_the_cards(self):
+        plan = lib.plan_session(self.bank, self.state, NOW, topics=2)
+        res = lib.mark(plan, {"topics": [{"t": 1, "mark": 6}, {"t": 2, "mark": 5}], "items": []}, self.state, self.bank, NOW)
+        self.assertEqual((res["viva"]["total"], res["viva"]["partial"], self.state["cards"]), (11, True, {}))
+        self.assertNotIn(plan["session"], self.state["sessions"])  # still open for the full report
+        lib.mark(plan, {"items": [item(1)]}, self.state, self.bank, NOW)
+        self.assertEqual([v.get("partial") for v in self.state["vivas"]], [None])  # the full report replaced it
+        with self.assertRaises(ValueError): lib.mark(lib.plan_session(self.bank, self.state, NOW), {"items": []}, self.state, self.bank, NOW)
+
     def test_viva_fails_when_the_total_is_short(self):
         _, res = self.run_session({}, topics=3, topic_marks={1: 5, 2: 6, 3: 4})
         self.assertEqual((res["viva"]["total"], res["viva"]["result"], res["viva"]["bad_fails"]), (15, "fail", 1))

@@ -383,10 +383,15 @@ HOW TO RUN IT
    confidence if I say it.
 8. If I say "stop" or "end exam", finish the current question and go to the debrief.
 9. DEBRIEF, after the last topic: say "That is the end of the viva", give each topic its mark (4 to 8) with one line on
-   why, then for every question I got wrong, blank or partial give the model answer in one or two sentences and ask
-   it again once (a retry). TEACH items: explain them in two or three plain sentences, then ask them.
+   why, then SAY THE SCORE LINE OF EVERY QUESTION ASKED, short and in order, e.g. "Three: partial, two of four
+   points, one prompt, hesitant" (this puts every result in the call transcript, so nothing is lost). Then for every
+   question I got wrong, blank or partial give the model answer in one or two sentences and ask it again once (a
+   retry). TEACH items: explain them in two or three plain sentences, then ask them.
 10. Then say "Type REPORT for the marks." When I type REPORT, reply with ONLY the report, in one ```json block and
-   nothing else. Include every question you asked (by its number n); leave out the ones not reached.
+   nothing else, built from the transcript. Include every question you asked (by its number n); leave out the ones
+   not reached and any you cannot recall for sure (never guess a result).
+11. Do NOT try to save anything to GitHub or the repository: you only have read access (a save fails with 403). The
+   REPORT is how the results are saved: I paste it to Claude Code, which marks it and updates the schedule.
 
 TOPIC MARKS (one per topic, the board's closed scale; 6 is the pass mark)
 {marks}
@@ -541,18 +546,24 @@ def mark(plan: dict, report: dict, state: dict, bank: dict, now: datetime) -> di
     given = {t["t"]: t for t in report.get("topics", [])}
     topics = []
     for t in plan["topics"]:
-        if t["t"] not in per_topic: continue
-        am = auto_mark(per_topic[t["t"]])
         g = given.get(t["t"])
+        if t["t"] not in per_topic and not g: continue
+        am = auto_mark(per_topic[t["t"]]) if t["t"] in per_topic else None
         topics.append({"t": t["t"], "chapter": t["chapter"], "topic": t["topic"].strip().lower(), "viva": t["viva"],
                        "mark": g["mark"] if g else am, "auto": am, "comment": g.get("comment", "") if g else "marked from the answers"})
     viva = {"s": sid, "date": now.date().isoformat(), "mode": plan["mode"], "topics": topics}
+    if not report["items"]:
+        # Topic marks only (the answers were lost): keep the viva result, leave every card as it was, and leave the
+        # session open so a later full report (or the transcript) can still be marked; it replaces this record.
+        if not topics: raise ValueError("the report has neither questions nor topic marks")
+        viva["partial"] = True
+    state["vivas"] = [v for v in state["vivas"] if v["s"] != sid]
     if topics:
         viva["total"], viva["pass_total"] = sum(t["mark"] for t in topics), PASS_MARK * len(topics)
         viva["result"] = "pass" if viva["total"] >= viva["pass_total"] else "fail"
         viva["bad_fails"] = sum(t["mark"] == 4 for t in topics)
     state["vivas"].append(viva)
-    state["sessions"].append(sid)
+    if not viva.get("partial"): state["sessions"].append(sid)
     return {"rows": rows, "viva": viva}
 
 

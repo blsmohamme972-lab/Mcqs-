@@ -144,7 +144,7 @@ def main():
         v = res["viva"]
         for t in v["topics"]:
             print(f"topic {t['t']} Ch{t['chapter']} {t['topic']}: {t['mark']}/8 ({lib.MARKS[t['mark']].split(':')[0]};"
-                  f" from the answers {t['auto']}) {t['comment']}")
+                  f" from the answers {t['auto'] if t['auto'] else '-'}) {t['comment']}")
         if v["topics"]: print(f"viva: {v['total']} of {v['pass_total']} needed -> {v['result'].upper()}"
                               + (f", {v['bad_fails']} bad fail(s)" if v["bad_fails"] else ""))
         for r in res["rows"]:
@@ -153,6 +153,9 @@ def main():
         asked = {it["n"] for it in report["items"]}
         skipped = [it["id"] for it in plan["items"] if it["n"] not in asked]
         if skipped: print(f"not reached (still due): {', '.join(skipped)}")
+        if v.get("partial"):
+            print("topic marks only: the viva result is saved, no card was rescheduled; the session stays open for the full report")
+            publish(bank, state, now); return
         nxt = new_session(bank, state, now + timedelta(days=1), a)  # the next viva is ready on GitHub, planned for tomorrow
         publish(bank, state, now, nxt)
         print(f"next viva: {nxt['session'] if nxt else 'none (nothing due or new)'}; wrote examiner/{lib.PAGE}")
