@@ -19,3 +19,6 @@ __pycache__/
 /work/input/
 /work/autobuild/
 /dist/
+
+# Voice examiner: page text and examiner prompts are rebuilt from the repo (examiner/ keeps the text that matters).
+/work/examiner/

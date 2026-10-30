@@ -45,3 +45,10 @@ Before generating any voice (a test clip or a batch), ask the owner which engine
 - **ElevenLabs**: paid API credits, needs `ELEVENLABS_API_KEY` (`--engine elevenlabs`). The owner's ElevenLabs standard is automatic: high quality (48 kbps full-band Opus) and a different voice per question, women and men taking turns (`ELEVEN_VOICES` in `voiceover/voiceover.py`). Do not pass `--voice` or `--quality` unless the owner asks for something else.
 
 Offer to send a 7-second test of each first: `~/.venvs/kafu-voice/bin/python voiceover/voiceover.py sample`, then send both MP3s from `work/voice-sample/`. Then run `voiceover.py make --engine <their choice> --workspace work/<batch>`. Never choose the engine yourself; `make` refuses to run without `--engine`.
+
+## Voice examiner (the owner's Anki, done by talking)
+
+Read `examiner/README.md`. When the owner pastes a voice-exam report (or a call transcript): save it, run
+`python3 tools/examiner.py mark <sid> <file>` (grade a transcript yourself against `examiner.py show <sid>` with the
+marking rules first), commit `examiner/` and push, then tell the owner what was weak and when the next session is due.
+Q&A cards come only from the book pages (`examiner.py pages`, then `add`); never invent facts.
