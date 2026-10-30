@@ -51,4 +51,6 @@ Offer to send a 7-second test of each first: `~/.venvs/kafu-voice/bin/python voi
 Read `examiner/README.md`. When the owner pastes a voice-exam report (or a call transcript): save it, run
 `python3 tools/examiner.py mark <sid> <file>` (grade a transcript yourself against `examiner.py show <sid>` with the
 marking rules first), commit `examiner/` and push, then tell the owner what was weak and when the next session is due.
-Q&A cards come only from the book pages (`examiner.py pages`, then `add`); never invent facts.
+The bank comes only from the book pages (`examiner.py pages`, then `add`); never invent facts. Every page gets its
+facts (or a skip reason) and every fact a short card, rated for importance and ladder level: `examiner.py coverage`
+must show nothing missing. The viva follows the Intercollegiate FRCS Section 2 format (5-minute topics, marks 4-8).
