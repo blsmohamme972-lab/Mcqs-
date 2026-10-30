@@ -182,6 +182,8 @@ A card looks like this:
 **`examiner/state.json`** holds, for every card: the FSRS card, reps, lapses, history (every rating with its
 reason), notes and the leech flag. It also lists the marked sessions and every viva with its topic marks and result.
 
+**`examiner/bank/chNN.md`** is the same bank as a plain question-and-answer page to read, made by `add` and `export`.
+
 **`examiner/sessions/<sid>.plan.json` and `<sid>.report.json`** record what was asked and what happened.
 
 **`work/examiner/`** holds the page text and the examiner prompts. It is ignored by git, because it can be rebuilt.
