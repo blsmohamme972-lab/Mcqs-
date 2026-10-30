@@ -152,10 +152,9 @@ def main():
                   + (f" | {r['retry']}" if r.get("retry") else "") + ("  LEECH: will be taught" if r.get("leech") else ""))
         asked = {it["n"] for it in report["items"]}
         skipped = [it["id"] for it in plan["items"] if it["n"] not in asked]
-        if skipped: print(f"not reached (still due): {', '.join(skipped)}")
+        if skipped and report["items"]: print(f"not reached (still due): {', '.join(skipped)}")
         if v.get("partial"):
             print("topic marks only: the viva result is saved, no card was rescheduled; the session stays open for the full report")
-            publish(bank, state, now); return
         nxt = new_session(bank, state, now + timedelta(days=1), a)  # the next viva is ready on GitHub, planned for tomorrow
         publish(bank, state, now, nxt)
         print(f"next viva: {nxt['session'] if nxt else 'none (nothing due or new)'}; wrote examiner/{lib.PAGE}")

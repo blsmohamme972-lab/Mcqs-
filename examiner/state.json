@@ -1,0 +1,46 @@
+{
+ "cards": {},
+ "schema": 1,
+ "sessions": [],
+ "vivas": [
+  {
+   "bad_fails": 1,
+   "date": "2026-10-30",
+   "mode": "exam",
+   "partial": true,
+   "pass_total": 18,
+   "result": "fail",
+   "s": "S20261030-1123",
+   "topics": [
+    {
+     "auto": null,
+     "chapter": 1,
+     "comment": "recovered from the ChatGPT viva (topic score only; question results lost)",
+     "mark": 6,
+     "t": 1,
+     "topic": "cardiovascular history",
+     "viva": "critical"
+    },
+    {
+     "auto": null,
+     "chapter": 1,
+     "comment": "recovered from the ChatGPT viva (topic score only; question results lost)",
+     "mark": 4,
+     "t": 2,
+     "topic": "perfusion and viability",
+     "viva": "critical"
+    },
+    {
+     "auto": null,
+     "chapter": 1,
+     "comment": "recovered from the ChatGPT viva, reported there as 'Cardiac imaging' (topic score only)",
+     "mark": 5,
+     "t": 3,
+     "topic": "plain chest radiograph",
+     "viva": "critical"
+    }
+   ],
+   "total": 15
+  }
+ ]
+}
