@@ -1,0 +1,109 @@
+{
+ "session": "S20261030-1123",
+ "created": "2026-10-30T11:23:16+00:00",
+ "mode": "exam",
+ "minutes": 15,
+ "scope": {
+  "chapters": [],
+  "viva": null,
+  "tiers": []
+ },
+ "topics": [
+  {
+   "t": 1,
+   "chapter": 1,
+   "topic": "Cardiovascular history",
+   "viva": "critical",
+   "examiner": 1
+  },
+  {
+   "t": 2,
+   "chapter": 1,
+   "topic": "Perfusion and viability",
+   "viva": "critical",
+   "examiner": 1
+  },
+  {
+   "t": 3,
+   "chapter": 1,
+   "topic": "Plain chest radiograph",
+   "viva": "critical",
+   "examiner": 2
+  }
+ ],
+ "items": [
+  {
+   "n": 1,
+   "id": "ch01.p003.05",
+   "kind": "new",
+   "t": 1
+  },
+  {
+   "n": 2,
+   "id": "ch01.p002.13",
+   "kind": "new",
+   "t": 1
+  },
+  {
+   "n": 3,
+   "id": "ch01.p003.23",
+   "kind": "new",
+   "t": 1
+  },
+  {
+   "n": 4,
+   "id": "ch01.p003.14",
+   "kind": "new",
+   "t": 1
+  },
+  {
+   "n": 5,
+   "id": "ch01.p002.12",
+   "kind": "new",
+   "t": 1
+  },
+  {
+   "n": 6,
+   "id": "ch01.p028.15",
+   "kind": "new",
+   "t": 2
+  },
+  {
+   "n": 7,
+   "id": "ch01.p028.07",
+   "kind": "new",
+   "t": 2
+  },
+  {
+   "n": 8,
+   "id": "ch01.p029.07",
+   "kind": "new",
+   "t": 2
+  },
+  {
+   "n": 9,
+   "id": "ch01.p029.08",
+   "kind": "new",
+   "t": 2
+  },
+  {
+   "n": 10,
+   "id": "ch01.p028.08",
+   "kind": "new",
+   "t": 2
+  },
+  {
+   "n": 11,
+   "id": "ch01.p015.05",
+   "kind": "new",
+   "t": 3
+  },
+  {
+   "n": 12,
+   "id": "ch01.p014.08",
+   "kind": "new",
+   "t": 3
+  }
+ ],
+ "due_left": 0
+}
