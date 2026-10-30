@@ -23,10 +23,13 @@ book pages ──(1) pages + add──> examiner/bank/chNN.json      Q&A cards (
    - `python3 tools/examiner.py pages ch01 --pages 2-6` writes the page text plus the card-writing rules to
      `work/examiner/qa/ch01_p002-006.prompt.md`.
    - Claude (or ChatGPT) writes the cards from it, using only what is on those pages. Each card has a spoken question,
-     a 1–3 sentence model answer, and 1–5 **key points** that must be said for full marks.
+     a 1–3 sentence model answer, 1–5 **key points** that must be said for full marks, and an **importance rating**
+     (below).
    - `python3 tools/examiner.py add ch01 cards.json` checks the cards and merges them into the bank.
 2. **Plan the exam**
-   - Run `python3 tools/examiner.py session --minutes 20` (add `--new 8` and `--chapters 1 2` if you like).
+   - Run `python3 tools/examiner.py session --minutes 20`. The scope is the whole book by default; use `--chapters 7`
+     for one chapter. Add `--new 8` to set how many new cards, or `--tier A` to start only the must-know ones.
+   - New cards are taken **most important first**, not in page order.
    - It writes `work/examiner/<sid>.prompt.md`. Paste that into a new ChatGPT or Claude chat and switch to voice.
 3. **The call**
    - The examiner asks one question at a time.
@@ -42,6 +45,43 @@ book pages ──(1) pages + add──> examiner/bank/chNN.json      Q&A cards (
 
 `python3 tools/examiner.py status` shows what is due now and this week, plus new and leech cards per chapter and
 your weakest cards.
+
+## Importance: what to learn first
+
+Every card is rated when it is written, on five criteria, each scored 0–3. They are judged for a cardiothoracic
+surgeon and a board examiner, against the whole specialty, not the page. This is how certifying boards weigh exam
+content: in their practice analysis and exam blueprints, how critical and how frequent a task is decide how much it
+counts. We add two more criteria: how much management turns on the fact, and how much else is built on it.
+
+| Criterion | Weight | 0 | 3 |
+|---|---|---|---|
+| safety: harm if you don't know it | 30% | none | death or catastrophe (emergency, red flag, absolute contraindication) |
+| decision: does it change what you do | 25% | background, history | decides whether or what to operate (indication, threshold) |
+| frequency: how often you meet it | 20% | a rarity | every day, every patient |
+| exam: how often examiners ask it | 15% | never | a classic (classification, guideline indications, scores, numbers) |
+| core: how much else depends on it | 10% | stands alone | a foundation (anatomy, physiology) |
+
+The tool computes the score (0–100) from these ratings; the writer never picks it. The tier follows from the score:
+
+- **A, must know:** a score of 65 or more. Anything rated safety 3 is also tier A whatever its other ratings, because
+  a fact that can kill is a critical item.
+- **B, should know:** a score of 40 or more.
+- **C, nice to know:** the rest.
+
+The importance is used three times:
+
+1. **Order.** New cards start most important first, over a chapter or the whole book. `--tier A` takes only the
+   must-know ones.
+2. **Priority.** When more cards are due than fit in one call, the ones asked first are those with the most important
+   forgetting (forgetting × importance).
+3. **Retention.** The more a card matters, the less forgetting is accepted, so tier A cards come back sooner. The FSRS
+   target retention is 95% for A, 90% for B and 85% for C. In the call, the examiner is strictest on A cards and adds
+   one "why?" or "what next?".
+
+A writer who rates page by page tends to call everything important. To catch this, `add` and `rank` print the tier
+shares and warn when tier A is over 40% (across the book it should be about a quarter) or when a large set has no
+tier C at all. Some chapters, trauma for example, can honestly run high. `examiner.py rank --chapters 1` lists the
+cards by score, with each one's one-line reason, so the ratings can be checked by eye.
 
 ## How the marking is smart
 
@@ -72,7 +112,7 @@ It runs without learning steps, because a voice session is a day-scale event: ev
 ## Files (all text, committed)
 
 - `examiner/bank/chNN.json`: the cards, `{"chapter", "title", "cards": [...]}`. A card looks like this:
-  `{"id": "ch01.p002.01", "chapter": 1, "page": 2, "topic", "type": recall|list|why|case|compare|value, "q", "a", "points": [...], "related": [...]}`.
+  `{"id": "ch01.p002.01", "chapter": 1, "page": 2, "topic", "type": recall|list|why|case|compare|value, "q", "a", "points": [...], "importance": {"safety", "decision", "frequency", "exam", "core": 0-3, "why": "..."}, "related": [...]}`.
   `page` is the printed book page.
 - `examiner/state.json`: per card, the FSRS card, reps, lapses, history (every rating with its reason), notes and the
   leech flag. It also lists the marked sessions.

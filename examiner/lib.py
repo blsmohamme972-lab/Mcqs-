@@ -31,7 +31,44 @@ NUDGE_IF_LATER = timedelta(days=2)
 RETRY_GAP = timedelta(minutes=10)
 MAX_NOTES = 5
 
-SCHEDULER = Scheduler(learning_steps=(), relearning_steps=(), desired_retention=0.9, enable_fuzzing=True)
+# Importance: every card is rated when it is written, on five criteria (0-3 each), the way certifying boards weigh
+# the content of an exam (practice analysis / blueprinting: how critical, how frequent, how often examined), plus
+# how much management turns on it and how much else is built on it. The tool, not the writer, turns them into a score.
+CRITERIA = {  # weight, and what 0..3 means
+    "safety": (0.30, "harm if the surgeon does not know it: 0 none, 1 minor, 2 a complication or the wrong operation, "
+                     "3 death or catastrophe (emergency, red flag, absolute contraindication)"),
+    "decision": (0.25, "how much it changes what you do: 0 background or history, 1 informs, 2 changes the test, timing "
+                       "or technique, 3 decides whether or what to operate (indication, contraindication, threshold)"),
+    "frequency": (0.20, "how often a cardiothoracic surgeon meets it: 0 a rarity, 1 occasionally, 2 every week, "
+                        "3 every day or every patient"),
+    "exam": (0.15, "how often board examiners ask it (FRCS-CTh, EBCTS, ABTS viva style): 0 never, 1 sometimes, 2 often, "
+                   "3 a classic (classification, guideline indications, named scores, key numbers)"),
+    "core": (0.10, "how much else is built on it: 0 stands alone, 1 a little, 2 many topics, 3 a foundation "
+                   "(anatomy or physiology the rest depends on)"),
+}
+TIERS = {"A": "must know", "B": "should know", "C": "nice to know"}
+TIER_A, TIER_B = 65, 40
+RETENTION = {"A": 0.95, "B": 0.90, "C": 0.85}  # the more it matters, the less forgetting we accept
+SCHEDULERS = {t: Scheduler(learning_steps=(), relearning_steps=(), desired_retention=r, enable_fuzzing=True)
+              for t, r in RETENTION.items()}
+SCHEDULER = SCHEDULERS["B"]
+
+
+def importance_score(imp: dict) -> int:
+    """0-100 from the five criteria."""
+    return round(100 * sum(w * imp[k] / 3 for k, (w, _) in CRITERIA.items()))
+
+
+def tier(card: dict) -> str:
+    """A: score 65+ or anything that can kill (a critical item is must-know whatever else); B: 40+; C: the rest."""
+    imp = card["importance"]
+    sc = importance_score(imp)
+    return "A" if sc >= TIER_A or imp["safety"] == 3 else "B" if sc >= TIER_B else "C"
+
+
+def weight(card: dict) -> float:
+    """How much a card's forgetting counts when there is more due than time: 0.5 (score 0) to 1.5 (score 100)."""
+    return 0.5 + importance_score(card["importance"]) / 100
 
 
 def utcnow() -> datetime:
@@ -44,7 +81,7 @@ def check_card(c: dict) -> None:
     """A card is one oral question with a model answer and the key points that must be said for full marks."""
     m = CARD_ID_RE.fullmatch(c.get("id", ""))
     if not m: raise ValueError(f"bad id {c.get('id')!r} (want chNN.pPPP.NN)")
-    extra = set(c) - {"id", "chapter", "page", "topic", "type", "q", "a", "points", "related", "tags"}
+    extra = set(c) - {"id", "chapter", "page", "topic", "type", "q", "a", "points", "importance", "related", "tags"}
     if extra: raise ValueError(f"{c['id']}: unknown fields {sorted(extra)}")
     if c.get("chapter") != int(m[1]) or c.get("page") != int(m[2]): raise ValueError(f"{c['id']}: chapter/page do not match the id")
     if c.get("type") not in TYPES: raise ValueError(f"{c['id']}: type must be one of {TYPES}")
@@ -55,6 +92,22 @@ def check_card(c: dict) -> None:
     if not (isinstance(pts, list) and 1 <= len(pts) <= 5 and all(isinstance(p, str) and p.strip() for p in pts)):
         raise ValueError(f"{c['id']}: points must be 1-5 short strings")
     if not all(CARD_ID_RE.fullmatch(r) for r in c.get("related", [])): raise ValueError(f"{c['id']}: bad related id")
+    imp = c.get("importance")
+    if not isinstance(imp, dict) or set(imp) != {*CRITERIA, "why"}:
+        raise ValueError(f"{c['id']}: importance needs {sorted(CRITERIA)} and why")
+    if not all(imp[k] in (0, 1, 2, 3) for k in CRITERIA): raise ValueError(f"{c['id']}: importance criteria are 0-3")
+    if not isinstance(imp["why"], str) or not imp["why"].strip(): raise ValueError(f"{c['id']}: importance.why is empty")
+
+
+def calibration(cards: list[dict]) -> dict:
+    """Tier shares of a set of cards, with a warning when ratings look inflated (a writer rating page by page tends to
+    call everything important; across the specialty only about a quarter of facts are must-know)."""
+    n = len(cards) or 1
+    share = {t: sum(tier(c) == t for c in cards) / n for t in TIERS}
+    warn = []
+    if share["A"] > 0.40: warn.append(f"{share['A']:.0%} of cards are tier A (expected about 20-35%): rate against the whole specialty")
+    if len(cards) >= 10 and share["C"] == 0: warn.append("no tier C card: background facts should be rated low")
+    return {"cards": len(cards), "share": share, "warnings": warn}
 
 
 def load_bank(bank_dir: Path) -> dict[str, dict]:
@@ -116,13 +169,23 @@ Each card is one question an examiner asks aloud and the student answers aloud i
 - About one card per examinable fact group: usually 4-8 per page; none for a page with no teachable content.
 - Prefer what a cardiothoracic examiner really asks: indications, classifications, red flags, steps, numbers.
 
-Reply with ONLY one JSON object: {"cards": [{"id", "chapter", "page", "topic", "type", "q", "a", "points", "related"}, ...]}
+IMPORTANCE (rate every card; the study order is built from it, not from the page order)
+Score each criterion 0-3 for a cardiothoracic surgeon and a board examiner, judged against the WHOLE specialty, not
+this page. The tool computes the score and the tier (A must know, B should know, C nice to know) from them.
+{criteria}
+- why: one line giving the reason (e.g. "missed tamponade kills; a classic viva question").
+- Be strict: across the book only about a quarter of cards are tier A. History-taking details, background and
+  rarities are rated low even when the page spends many words on them; a short line that can save a life is rated high.
+
+Reply with ONLY one JSON object: {{"cards": [{{"id", "chapter", "page", "topic", "type", "q", "a", "points",
+"importance": {{"safety", "decision", "frequency", "exam", "core", "why"}}, "related"}}, ...]}}
 """
 
 
 def qa_prompt(chapter: int, title: str, pages: list[dict]) -> str:
     body = "\n\n".join(f"=== book page {p['page'] or '?'} (pdf page {p['pdf_page']}) ===\n{p['text']}" for p in pages)
-    return f"{QA_RULES}\nBook: {BOOK}. Chapter {chapter}: {title}.\n\n{body}\n"
+    crit = "\n".join(f"- {k} (weight {w:.0%}): {d}" for k, (w, d) in CRITERIA.items())
+    return f"{QA_RULES.format(criteria=crit)}\nBook: {BOOK}. Chapter {chapter}: {title}.\n\n{body}\n"
 
 
 # ---------- state ----------
@@ -137,6 +200,10 @@ def save_state(path: Path, state: dict) -> None:
 
 def fsrs_card(entry: dict) -> Card:
     return Card.from_dict(entry["fsrs"])
+
+
+def scheduler_for(card: dict) -> Scheduler:
+    return SCHEDULERS[tier(card)]
 
 
 def retrievability(entry: dict, now: datetime) -> float:
@@ -156,18 +223,20 @@ def interleave(ids: list[str], bank: dict) -> list[str]:
 
 
 def plan_session(bank: dict, state: dict, now: datetime, minutes: int = 20, new: int = 8,
-                 chapters: list[int] | None = None, sid: str | None = None) -> dict:
-    """Pick what to ask: confident errors first, then due cards (most forgotten first), new cards in book order, and up
-    to two leeches to teach. Fits about `minutes` of talking."""
+                 chapters: list[int] | None = None, sid: str | None = None, tiers: list[str] | None = None) -> dict:
+    """Pick what to ask: confident errors first, then due cards (the most important forgetting first), new cards by
+    importance (the scope can be one chapter or the whole book; `tiers` limits the NEW cards, e.g. only A), and up to
+    two leeches to teach. Fits about `minutes` of talking."""
     pool = {i: c for i, c in bank.items() if not chapters or c["chapter"] in chapters}
     cards = state["cards"]
     cap = max(1, int(minutes / MIN_PER_CARD))
     leeches = sorted(i for i in pool if cards.get(i, {}).get("leech"))[:2]
     due = [i for i in pool if i in cards and not cards[i].get("leech")
            and datetime.fromisoformat(cards[i]["fsrs"]["due"]) <= now + DUE_AHEAD]
-    due.sort(key=lambda i: (not cards[i].get("confident_error"), retrievability(cards[i], now), i))
+    due.sort(key=lambda i: (not cards[i].get("confident_error"), -(1 - retrievability(cards[i], now)) * weight(pool[i]), i))
     review = due[:max(0, cap - len(leeches))]
-    fresh = sorted((i for i in pool if i not in cards), key=lambda i: (pool[i]["chapter"], pool[i]["page"], i))
+    fresh = sorted((i for i in pool if i not in cards and (not tiers or tier(pool[i]) in tiers)),
+                   key=lambda i: (-importance_score(pool[i]["importance"]), pool[i]["chapter"], pool[i]["page"], i))
     fresh = fresh[:max(0, min(new, cap - len(leeches) - len(review)))]
     # Spread the new cards among the reviews (about one in three), so the session alternates old and new.
     order, r, f = [], interleave(review, bank), list(fresh)
@@ -178,7 +247,7 @@ def plan_session(bank: dict, state: dict, now: datetime, minutes: int = 20, new:
     items = [{"n": k + 1, "id": i, "kind": "review" if i in cards else "new"} for k, i in enumerate(order)]
     items += [{"n": len(items) + k + 1, "id": i, "kind": "teach"} for k, i in enumerate(leeches)]
     return {"session": sid or now.strftime("S%Y%m%d-%H%M"), "created": now.isoformat(), "minutes": minutes,
-            "chapters": chapters or [], "items": items, "due_left": max(0, len(due) - len(review))}
+            "chapters": chapters or [], "tiers": tiers or [], "items": items, "due_left": max(0, len(due) - len(review))}
 
 
 EXAMINER_RULES = """\
@@ -193,6 +262,7 @@ HOW TO RUN IT
    Count every hint you give.
 4. Then tell me in one or two sentences what was right and what was missing, from the model answer. Be a fair, brief
    senior examiner: no lecture, no praise padding. Where a "last time" note is given, check that exact weak spot.
+   On "A must know" questions be strictest, and add one short follow-up ("why?" or "what next?") from the model answer.
 5. Notice HOW I answered: fluent (at once, confident), hesitant (slow, self-corrected, got there in the end) or guessed
    (I said I was guessing, or it was clearly a guess). If I say how sure I am, note it.
 6. Questions marked TEACH are ones I keep failing: explain the answer to me in two or three plain sentences when you
@@ -223,7 +293,8 @@ def examiner_prompt(plan: dict, bank: dict, state: dict) -> str:
     out = [EXAMINER_RULES.format(book=BOOK, n=len(plan["items"]), minutes=plan["minutes"], sid=plan["session"])]
     for it in plan["items"]:
         c, entry = bank[it["id"]], state["cards"].get(it["id"], {})
-        tag = [it["kind"].upper() if it["kind"] == "teach" else it["kind"], f"Ch{c['chapter']} p{c['page']}"]
+        t = tier(c)
+        tag = [it["kind"].upper() if it["kind"] == "teach" else it["kind"], f"{t} {TIERS[t]}", f"Ch{c['chapter']} p{c['page']}"]
         if entry.get("notes"): tag.append("last time: " + entry["notes"][-1]["note"])
         pts = "\n".join(f"     - {p}" for p in c["points"])
         out.append(f"{it['n']}. [{' · '.join(tag)}]\n   Q: {c['q']}\n   Model answer: {c['a']}\n"
@@ -270,10 +341,10 @@ def rate(item: dict, n_points: int, lapses: int = 0) -> tuple[Rating, str]:
     return Rating.Easy, "correct, fluent, complete"
 
 
-def _review(entry: dict | None, rating: Rating, when: datetime) -> dict:
+def _review(entry: dict | None, rating: Rating, when: datetime, sch: Scheduler = SCHEDULER) -> dict:
     card = fsrs_card(entry) if entry else Card(card_id=1, due=when)
     was_learned = entry is not None and entry["fsrs"].get("last_review") is not None
-    card, _ = SCHEDULER.review_card(card, rating, review_datetime=when)
+    card, _ = sch.review_card(card, rating, review_datetime=when)
     e = dict(entry or {"reps": 0, "lapses": 0, "history": [], "notes": []})
     e["fsrs"] = card.to_dict()
     e["reps"] += 1
@@ -296,7 +367,8 @@ def mark(plan: dict, report: dict, state: dict, bank: dict, now: datetime) -> li
         entry = state["cards"].get(cid)
         rating, why = rate(it, len(c["points"]), entry["lapses"] if entry else 0)
         if p["kind"] == "teach" and rating == Rating.Easy: rating, why = Rating.Good, why + " (taught today)"
-        e = _review(entry, rating, first)
+        sch = scheduler_for(c)
+        e = _review(entry, rating, first, sch)
         e["history"].append({"t": first.isoformat(), "s": sid, "r": int(rating), "why": why})
         if it.get("note"):
             e["notes"] = (e["notes"] + [{"t": first.date().isoformat(), "note": it["note"]}])[-MAX_NOTES:]
@@ -305,7 +377,7 @@ def mark(plan: dict, report: dict, state: dict, bank: dict, now: datetime) -> li
         if retry:
             r2, why2 = rate({**retry, "fluency": retry.get("fluency", "hesitant")}, len(c["points"]), e["lapses"])
             r2 = min(r2, Rating.Good, key=int)  # a same-call retry shows short-term memory, not learning
-            e = _review(e, r2, second)
+            e = _review(e, r2, second, sch)
             e["history"].append({"t": second.isoformat(), "s": sid, "r": int(r2), "why": "retry: " + why2})
         if e["lapses"] >= LEECH_LAPSES and rating == Rating.Again: e["leech"] = True
         if p["kind"] == "teach" and rating >= Rating.Good: e["leech"] = False
@@ -344,14 +416,16 @@ def status(bank: dict, state: dict, now: datetime) -> dict:
     due_at = {i: datetime.fromisoformat(e["fsrs"]["due"]) for i, e in cards.items() if i in bank}
     by_ch: dict[int, dict] = {}
     for i, c in bank.items():
-        s = by_ch.setdefault(c["chapter"], {"cards": 0, "new": 0, "due": 0, "leech": 0})
-        s["cards"] += 1
+        s = by_ch.setdefault(c["chapter"], {"cards": 0, "new": 0, "due": 0, "leech": 0, "A": 0, "B": 0, "C": 0, "new_A": 0})
+        s["cards"] += 1; s[tier(c)] += 1
+        if i not in cards and tier(c) == "A": s["new_A"] += 1
         if i not in cards: s["new"] += 1
         elif due_at[i] <= now + DUE_AHEAD: s["due"] += 1
         if cards.get(i, {}).get("leech"): s["leech"] += 1
-    weak = sorted((i for i in cards if i in bank), key=lambda i: (retrievability(cards[i], now), -cards[i]["lapses"]))[:5]
+    weak = sorted((i for i in cards if i in bank),
+                  key=lambda i: (-(1 - retrievability(cards[i], now)) * weight(bank[i]), -cards[i]["lapses"]))[:5]
     return {"chapters": by_ch, "due_now": sum(s["due"] for s in by_ch.values()),
             "due_week": sum(1 for d in due_at.values() if d <= now + timedelta(days=7)),
-            "weakest": [{"id": i, "q": bank[i]["q"], "recall": round(retrievability(cards[i], now), 2),
+            "weakest": [{"id": i, "q": bank[i]["q"], "tier": tier(bank[i]), "recall": round(retrievability(cards[i], now), 2),
                          "lapses": cards[i]["lapses"]} for i in weak],
             "sessions": len(state["sessions"])}

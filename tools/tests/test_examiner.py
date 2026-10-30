@@ -12,7 +12,11 @@ NOW = datetime(2026, 11, 1, 9, 0, tzinfo=timezone.utc)
 def card(cid, **kw):
     ch, p, _ = lib.CARD_ID_RE.fullmatch(cid).groups()
     return {"id": cid, "chapter": int(ch), "page": int(p), "topic": "t", "type": "recall",
-            "q": f"Question {cid}?", "a": "Answer.", "points": ["one", "two"], **kw}
+            "q": f"Question {cid}?", "a": "Answer.", "points": ["one", "two"], "importance": imp(), **kw}
+
+
+def imp(safety=1, decision=1, frequency=1, exam=1, core=1):
+    return {"safety": safety, "decision": decision, "frequency": frequency, "exam": exam, "core": core, "why": "test"}
 
 
 def bank_of(*cards):
@@ -48,7 +52,8 @@ class RateTests(unittest.TestCase):
 class BankTests(unittest.TestCase):
     def test_check_card(self):
         lib.check_card(card("ch01.p002.01", related=["ch01.p002.02"]))
-        for bad in ({"type": "mcq"}, {"page": 3}, {"points": []}, {"extra": 1}, {"q": " "}):
+        for bad in ({"type": "mcq"}, {"page": 3}, {"points": []}, {"extra": 1}, {"q": " "}, {"importance": {"safety": 1}},
+                    {"importance": {**imp(), "safety": 4}}, {"importance": {**imp(), "why": ""}}):
             with self.assertRaises(ValueError): lib.check_card({**card("ch01.p002.01"), **bad})
 
     def test_merge_adds_and_replaces(self):
@@ -72,6 +77,48 @@ class BankTests(unittest.TestCase):
         self.assertIn("book page 2", lib.qa_prompt(1, "Preoperative assessment", pages[1:2]))
 
 
+class ImportanceTests(unittest.TestCase):
+    def test_score_and_tiers(self):
+        self.assertEqual(lib.importance_score(imp(3, 3, 3, 3, 3)), 100)
+        self.assertEqual(lib.importance_score(imp(0, 0, 0, 0, 0)), 0)
+        self.assertEqual(lib.tier(card("ch01.p002.01", importance=imp(3, 3, 2, 2, 1))), "A")
+        self.assertEqual(lib.tier(card("ch01.p002.01", importance=imp(3, 0, 0, 0, 0))), "A")  # can kill: must know
+        self.assertEqual(lib.tier(card("ch01.p002.01", importance=imp(1, 2, 2, 1, 1))), "B")
+        self.assertEqual(lib.tier(card("ch01.p002.01", importance=imp(0, 0, 1, 1, 0))), "C")
+
+    def test_must_know_cards_keep_higher_retention(self):
+        a, c = card("ch01.p002.01", importance=imp(3, 3, 3, 3, 3)), card("ch01.p002.02", importance=imp(0, 0, 0, 0, 0))
+        self.assertGreater(lib.scheduler_for(a).desired_retention, lib.scheduler_for(c).desired_retention)
+        b = bank_of(a, c); st = lib.load_state(Path("/nonexistent"))
+        plan = lib.plan_session(b, st, NOW, sid="S20261101-0900")
+        lib.mark(plan, {"items": [item(1, fluency="hesitant"), item(2, fluency="hesitant")]}, st, b, NOW)
+        due = {i: datetime.fromisoformat(e["fsrs"]["due"]) for i, e in st["cards"].items()}
+        self.assertLessEqual(due[a["id"]], due[c["id"]])
+
+    def test_calibration_warns_on_inflation(self):
+        many = [card(f"ch01.p002.{k:02d}", importance=imp(3, 3, 3, 3, 3)) for k in range(1, 11)]
+        self.assertTrue(lib.calibration(many)["warnings"])
+        mixed = [card(f"ch01.p002.{k:02d}", importance=imp(*([3] * 5 if k <= 2 else [1] * 5 if k <= 6 else [0] * 5)))
+                 for k in range(1, 11)]
+        self.assertEqual(lib.calibration(mixed)["warnings"], [])
+
+    def test_new_cards_come_most_important_first_across_chapters(self):
+        b = bank_of(card("ch01.p002.01", importance=imp(0, 1, 1, 0, 0)), card("ch07.p300.01", importance=imp(3, 3, 3, 3, 2)),
+                    card("ch03.p100.01", importance=imp(2, 2, 2, 2, 1)), card("ch01.p004.01", importance=imp(1, 2, 2, 1, 1)))
+        st = lib.load_state(Path("/nonexistent"))
+        order = [i["id"] for i in lib.plan_session(b, st, NOW, new=10)["items"]]
+        self.assertEqual(order, ["ch07.p300.01", "ch03.p100.01", "ch01.p004.01", "ch01.p002.01"])
+        only_a = [i["id"] for i in lib.plan_session(b, st, NOW, new=10, tiers=["A"])["items"]]
+        self.assertEqual(only_a, ["ch07.p300.01"])
+        ch1 = [i["id"] for i in lib.plan_session(b, st, NOW, new=10, chapters=[1])["items"]]
+        self.assertEqual(ch1, ["ch01.p004.01", "ch01.p002.01"])
+
+    def test_qa_prompt_explains_the_criteria(self):
+        pr = lib.qa_prompt(1, "Pre-op", [{"pdf_page": 2, "page": 2, "text": "x"}])
+        for k in lib.CRITERIA: self.assertIn(f"- {k} (weight", pr)
+        self.assertIn('"importance": {"safety"', pr)
+
+
 class SessionTests(unittest.TestCase):
     def setUp(self):
         self.bank = bank_of(*(card(f"ch01.p00{p}.0{k}") for p in (2, 3, 4) for k in (1, 2, 3)))
@@ -82,7 +129,7 @@ class SessionTests(unittest.TestCase):
         rep = {"session": plan["session"], "items": [item(it["n"], **results.get(it["id"], {})) for it in plan["items"]]}
         return plan, lib.mark(plan, rep, self.state, self.bank, now)
 
-    def test_first_session_takes_new_cards_in_book_order_without_page_repeats(self):
+    def test_equal_importance_falls_back_to_book_order_without_page_repeats(self):
         plan = lib.plan_session(self.bank, self.state, NOW, minutes=20, new=5)
         ids = [i["id"] for i in plan["items"]]
         self.assertEqual(sorted(ids), ["ch01.p002.01", "ch01.p002.02", "ch01.p002.03", "ch01.p003.01", "ch01.p003.02"])

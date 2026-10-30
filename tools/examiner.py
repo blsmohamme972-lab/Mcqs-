@@ -2,13 +2,17 @@
 """Voice examiner: you answer aloud to ChatGPT or Claude, the report sets your FSRS spaced repetition.
 
   examiner.py pages   ch01 [--pages 2-6]       page text + the Q&A-writing rules -> work/examiner/qa/<ch>_pPPP-PPP.prompt.md
-  examiner.py add     ch01 cards.json          check the written cards and merge them into examiner/bank/ch01.json
-  examiner.py session [--minutes 20] [--new 8] [--chapters 1 2]
+  examiner.py add     ch01 cards.json          check the written cards (with their importance rating) and merge them
+                                               into examiner/bank/ch01.json; warns when the ratings look inflated
+  examiner.py session [--minutes 20] [--new 8] [--chapters 1 2] [--tier A]
                                                plan the next exam -> examiner/sessions/<sid>.plan.json and the voice
-                                               examiner prompt -> work/examiner/<sid>.prompt.md (paste it, then talk)
+                                               examiner prompt -> work/examiner/<sid>.prompt.md (paste it, then talk).
+                                               New cards come most important first, over one chapter or the whole book
+                                               (no --chapters); --tier A asks only must-know new cards
+  examiner.py rank    [--chapters 1] [--top 20]  the bank by importance: tier shares, warnings, the top cards
   examiner.py show    <sid>                    the plan with questions, answers and key points (to grade a transcript)
   examiner.py mark    <sid> report.json        apply the examiner's report: ratings, next due dates, related cards
-  examiner.py status                           due now / this week, new and leech cards per chapter, weakest cards
+  examiner.py status                           due now / this week; cards, tiers, new and leech per chapter; weakest
 Needs py-fsrs 6.3.2 (`pip install fsrs==6.3.2`, the engine the app's Fsrs.kt is verified against) and pdftotext.
 """
 import argparse, json, sys
@@ -37,9 +41,10 @@ def load_plan(sid: str) -> dict:
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["pages", "add", "session", "show", "mark", "status"])
+    ap.add_argument("cmd", choices=["pages", "add", "session", "show", "mark", "rank", "status"])
     ap.add_argument("args", nargs="*"); ap.add_argument("--pages"); ap.add_argument("--minutes", type=int, default=20)
     ap.add_argument("--new", type=int, default=8); ap.add_argument("--chapters", type=int, nargs="*")
+    ap.add_argument("--tier", nargs="*", choices=list(lib.TIERS)); ap.add_argument("--top", type=int, default=20)
     a = ap.parse_args(); now = lib.utcnow()
 
     if a.cmd == "pages":
@@ -57,13 +62,15 @@ def main():
         n, title, _ = chapter_pdf(a.args[0])
         new = json.loads(Path(a.args[1]).read_text(encoding="utf-8"))
         added, replaced = lib.merge_cards(BANK / f"ch{n:02d}.json", n, title, new["cards"] if isinstance(new, dict) else new)
-        lib.load_bank(BANK)  # the whole bank must still load (no duplicate ids across chapters)
-        print(f"ch{n:02d}: {added} added, {replaced} replaced")
+        bank = lib.load_bank(BANK)  # the whole bank must still load (no duplicate ids across chapters)
+        cal = lib.calibration([c for c in bank.values() if c["chapter"] == n])
+        print(f"ch{n:02d}: {added} added, {replaced} replaced; tiers " + ", ".join(f"{t} {v:.0%}" for t, v in cal["share"].items()))
+        for w in cal["warnings"]: print("WARNING:", w)
 
     elif a.cmd == "session":
         bank, state = lib.load_bank(BANK), lib.load_state(STATE)
         if not bank: sys.exit("the bank is empty: make cards first (examiner.py pages, then add)")
-        plan = lib.plan_session(bank, state, now, a.minutes, a.new, a.chapters)
+        plan = lib.plan_session(bank, state, now, a.minutes, a.new, a.chapters, tiers=a.tier)
         if not plan["items"]: sys.exit("nothing to ask: no card is due and no new card is left")
         SESSIONS.mkdir(parents=True, exist_ok=True); WORK.mkdir(parents=True, exist_ok=True)
         (SESSIONS / f"{plan['session']}.plan.json").write_text(json.dumps(plan, indent=1) + "\n", encoding="utf-8")
@@ -90,14 +97,23 @@ def main():
         skipped = [it["id"] for it in plan["items"] if it["n"] not in asked]
         if skipped: print(f"not reached (still due): {', '.join(skipped)}")
 
+    elif a.cmd == "rank":
+        cards = [c for c in lib.load_bank(BANK).values() if not a.chapters or c["chapter"] in a.chapters]
+        cal = lib.calibration(cards)
+        print(f"{cal['cards']} cards; tiers " + ", ".join(f"{t} {lib.TIERS[t]} {v:.0%}" for t, v in cal["share"].items()))
+        for w in cal["warnings"]: print("WARNING:", w)
+        for c in sorted(cards, key=lambda c: (-lib.importance_score(c["importance"]), c["id"]))[:a.top]:
+            print(f"  {lib.importance_score(c['importance']):3} {lib.tier(c)} {c['id']:15} {c['q']}  ({c['importance']['why']})")
+
     else:
         bank, state = lib.load_bank(BANK), lib.load_state(STATE)
         st = lib.status(bank, state, now)
         print(f"due now {st['due_now']}, due within a week {st['due_week']}, sessions marked {st['sessions']}")
         for ch, s in sorted(st["chapters"].items()):
-            print(f"  ch{ch:02d}: {s['cards']} cards, {s['new']} new, {s['due']} due, {s['leech']} leech")
+            print(f"  ch{ch:02d}: {s['cards']} cards (A {s['A']}, B {s['B']}, C {s['C']}), {s['new']} new"
+                  f" ({s['new_A']} must-know not started), {s['due']} due, {s['leech']} leech")
         for w in st["weakest"]:
-            print(f"  weak {w['id']} recall {w['recall']:.0%} lapses {w['lapses']}: {w['q']}")
+            print(f"  weak {w['id']} ({w['tier']}) recall {w['recall']:.0%} lapses {w['lapses']}: {w['q']}")
 
 
 if __name__ == "__main__":
